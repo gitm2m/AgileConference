@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACCustomRootViewController.h"
 
-@interface ACAppController : UIViewController
+
+@interface ACAppController : ACCustomRootViewController
 
 @end

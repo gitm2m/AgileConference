@@ -21,6 +21,15 @@
 		6A9F7FC914A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FD114A88F5300E3F55C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A9F7FCF14A88F5300E3F55C /* InfoPlist.strings */; };
 		6A9F7FD414A88F5300E3F55C /* AgileConferenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F7FD314A88F5300E3F55C /* AgileConferenceTests.m */; };
+		6ACCECA814A9D0CE00015E87 /* ACCustomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCECA614A9D0CE00015E87 /* ACCustomRootViewController.m */; };
+		6ACCECA914A9D0CE00015E87 /* ACCustomRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACCECA714A9D0CE00015E87 /* ACCustomRootViewController.xib */; };
+		6AE5515814A9DEBB00391597 /* ACAppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5515714A9DEBB00391597 /* ACAppSetting.m */; };
+		6AE5515C14A9E26B00391597 /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5515B14A9E26B00391597 /* CommonUtility.m */; };
+		6AE5516214A9E49000391597 /* ViewUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5516114A9E49000391597 /* ViewUtility.m */; };
+		6AE5516414A9EB4200391597 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516314A9EB4200391597 /* CFNetwork.framework */; };
+		6AE5516614A9EB8C00391597 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516514A9EB8B00391597 /* SystemConfiguration.framework */; };
+		6AE5516814A9EBA100391597 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516714A9EBA100391597 /* MobileCoreServices.framework */; };
+		6AE5516A14A9EF8000391597 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516914A9EF8000391597 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +63,20 @@
 		6A9F7FD014A88F5300E3F55C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6A9F7FD214A88F5300E3F55C /* AgileConferenceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgileConferenceTests.h; sourceTree = "<group>"; };
 		6A9F7FD314A88F5300E3F55C /* AgileConferenceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgileConferenceTests.m; sourceTree = "<group>"; };
+		6ACCECA514A9D0CE00015E87 /* ACCustomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCustomRootViewController.h; sourceTree = "<group>"; };
+		6ACCECA614A9D0CE00015E87 /* ACCustomRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCustomRootViewController.m; sourceTree = "<group>"; };
+		6ACCECA714A9D0CE00015E87 /* ACCustomRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACCustomRootViewController.xib; sourceTree = "<group>"; };
+		6AE5515614A9DEBB00391597 /* ACAppSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppSetting.h; sourceTree = "<group>"; };
+		6AE5515714A9DEBB00391597 /* ACAppSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppSetting.m; sourceTree = "<group>"; };
+		6AE5515914A9DEDF00391597 /* ACCommonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommonDelegate.h; sourceTree = SOURCE_ROOT; };
+		6AE5515A14A9E26B00391597 /* CommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtility.h; sourceTree = SOURCE_ROOT; };
+		6AE5515B14A9E26B00391597 /* CommonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtility.m; sourceTree = SOURCE_ROOT; };
+		6AE5516014A9E49000391597 /* ViewUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtility.h; sourceTree = SOURCE_ROOT; };
+		6AE5516114A9E49000391597 /* ViewUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtility.m; sourceTree = SOURCE_ROOT; };
+		6AE5516314A9EB4200391597 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6AE5516514A9EB8B00391597 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6AE5516714A9EBA100391597 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6AE5516914A9EF8000391597 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +84,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AE5516A14A9EF8000391597 /* CoreFoundation.framework in Frameworks */,
+				6AE5516814A9EBA100391597 /* MobileCoreServices.framework in Frameworks */,
+				6AE5516614A9EB8C00391597 /* SystemConfiguration.framework in Frameworks */,
+				6AE5516414A9EB4200391597 /* CFNetwork.framework in Frameworks */,
 				6A9F7FA614A88F5300E3F55C /* UIKit.framework in Frameworks */,
 				6A9F7FA814A88F5300E3F55C /* Foundation.framework in Frameworks */,
 				6A9F7FAA14A88F5300E3F55C /* CoreGraphics.framework in Frameworks */,
@@ -102,6 +129,10 @@
 		6A9F7FA414A88F5300E3F55C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AE5516914A9EF8000391597 /* CoreFoundation.framework */,
+				6AE5516714A9EBA100391597 /* MobileCoreServices.framework */,
+				6AE5516514A9EB8B00391597 /* SystemConfiguration.framework */,
+				6AE5516314A9EB4200391597 /* CFNetwork.framework */,
 				6A9F7FA514A88F5300E3F55C /* UIKit.framework */,
 				6A9F7FA714A88F5300E3F55C /* Foundation.framework */,
 				6A9F7FA914A88F5300E3F55C /* CoreGraphics.framework */,
@@ -113,7 +144,7 @@
 		6A9F7FAB14A88F5300E3F55C /* AgileConference */ = {
 			isa = PBXGroup;
 			children = (
-				6ACCEC8914A9A58200015E87 /* AppSetting */,
+				6AE5515514A9DE5D00391597 /* AppSettings */,
 				6ACCEC7614A9979E00015E87 /* AppController */,
 				6ACCEC7714A9979E00015E87 /* Business */,
 				6ACCEC7814A9979E00015E87 /* Delegates */,
@@ -163,6 +194,9 @@
 			children = (
 				3864399014A9C08200E6133E /* ACAppDelegate.h */,
 				3864399114A9C08200E6133E /* ACAppDelegate.m */,
+				6ACCECA514A9D0CE00015E87 /* ACCustomRootViewController.h */,
+				6ACCECA614A9D0CE00015E87 /* ACCustomRootViewController.m */,
+				6ACCECA714A9D0CE00015E87 /* ACCustomRootViewController.xib */,
 				3864399214A9C08200E6133E /* ACAppController.h */,
 				3864399314A9C08200E6133E /* ACAppController.m */,
 				3864399414A9C08200E6133E /* ACAppController_iPhone.xib */,
@@ -181,6 +215,7 @@
 		6ACCEC7814A9979E00015E87 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				6AE5515914A9DEDF00391597 /* ACCommonDelegate.h */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -223,15 +258,21 @@
 		6ACCEC7E14A9979E00015E87 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6AE5515A14A9E26B00391597 /* CommonUtility.h */,
+				6AE5515B14A9E26B00391597 /* CommonUtility.m */,
+				6AE5516014A9E49000391597 /* ViewUtility.h */,
+				6AE5516114A9E49000391597 /* ViewUtility.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		6ACCEC8914A9A58200015E87 /* AppSetting */ = {
+		6AE5515514A9DE5D00391597 /* AppSettings */ = {
 			isa = PBXGroup;
 			children = (
+				6AE5515614A9DEBB00391597 /* ACAppSetting.h */,
+				6AE5515714A9DEBB00391597 /* ACAppSetting.m */,
 			);
-			path = AppSetting;
+			path = AppSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +349,7 @@
 				6A9F7FB014A88F5300E3F55C /* InfoPlist.strings in Resources */,
 				3864399814A9C08200E6133E /* ACAppController_iPhone.xib in Resources */,
 				3864399914A9C08200E6133E /* ACAppController_iPad.xib in Resources */,
+				6ACCECA914A9D0CE00015E87 /* ACCustomRootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +387,10 @@
 				6A9F7FB214A88F5300E3F55C /* main.m in Sources */,
 				3864399614A9C08200E6133E /* ACAppDelegate.m in Sources */,
 				3864399714A9C08200E6133E /* ACAppController.m in Sources */,
+				6ACCECA814A9D0CE00015E87 /* ACCustomRootViewController.m in Sources */,
+				6AE5515814A9DEBB00391597 /* ACAppSetting.m in Sources */,
+				6AE5515C14A9E26B00391597 /* CommonUtility.m in Sources */,
+				6AE5516214A9E49000391597 /* ViewUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
