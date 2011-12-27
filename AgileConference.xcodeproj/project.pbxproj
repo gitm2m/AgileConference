@@ -7,21 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3864399614A9C08200E6133E /* ACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864399114A9C08200E6133E /* ACAppDelegate.m */; };
+		3864399714A9C08200E6133E /* ACAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864399314A9C08200E6133E /* ACAppController.m */; };
+		3864399814A9C08200E6133E /* ACAppController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3864399414A9C08200E6133E /* ACAppController_iPhone.xib */; };
+		3864399914A9C08200E6133E /* ACAppController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3864399514A9C08200E6133E /* ACAppController_iPad.xib */; };
 		6A9F7FA614A88F5300E3F55C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA514A88F5300E3F55C /* UIKit.framework */; };
 		6A9F7FA814A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FAA14A88F5300E3F55C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA914A88F5300E3F55C /* CoreGraphics.framework */; };
 		6A9F7FB014A88F5300E3F55C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A9F7FAE14A88F5300E3F55C /* InfoPlist.strings */; };
 		6A9F7FB214A88F5300E3F55C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F7FB114A88F5300E3F55C /* main.m */; };
-		6A9F7FB914A88F5300E3F55C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A9F7FB714A88F5300E3F55C /* MainStoryboard_iPhone.storyboard */; };
-		6A9F7FBC14A88F5300E3F55C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A9F7FBA14A88F5300E3F55C /* MainStoryboard_iPad.storyboard */; };
 		6A9F7FC714A88F5300E3F55C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FC614A88F5300E3F55C /* SenTestingKit.framework */; };
 		6A9F7FC814A88F5300E3F55C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA514A88F5300E3F55C /* UIKit.framework */; };
 		6A9F7FC914A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FD114A88F5300E3F55C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A9F7FCF14A88F5300E3F55C /* InfoPlist.strings */; };
 		6A9F7FD414A88F5300E3F55C /* AgileConferenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F7FD314A88F5300E3F55C /* AgileConferenceTests.m */; };
-		6ACCEC8414A9985000015E87 /* ACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCEC8114A9985000015E87 /* ACAppDelegate.m */; };
-		6ACCEC8514A9985000015E87 /* ACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCEC8314A9985000015E87 /* ACViewController.m */; };
-		6ACCEC8814A99C6200015E87 /* ACAppControler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCEC8714A99C6200015E87 /* ACAppControler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3864399014A9C08200E6133E /* ACAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppDelegate.h; sourceTree = "<group>"; };
+		3864399114A9C08200E6133E /* ACAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppDelegate.m; sourceTree = "<group>"; };
+		3864399214A9C08200E6133E /* ACAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppController.h; sourceTree = "<group>"; };
+		3864399314A9C08200E6133E /* ACAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppController.m; sourceTree = "<group>"; };
+		3864399414A9C08200E6133E /* ACAppController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPhone.xib; sourceTree = "<group>"; };
+		3864399514A9C08200E6133E /* ACAppController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPad.xib; sourceTree = "<group>"; };
 		6A9F7FA114A88F5300E3F55C /* AgileConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgileConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F7FA514A88F5300E3F55C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6A9F7FA714A88F5300E3F55C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -43,20 +48,12 @@
 		6A9F7FAF14A88F5300E3F55C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6A9F7FB114A88F5300E3F55C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A9F7FB314A88F5300E3F55C /* AgileConference-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AgileConference-Prefix.pch"; sourceTree = "<group>"; };
-		6A9F7FB814A88F5300E3F55C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		6A9F7FBB14A88F5300E3F55C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		6A9F7FC514A88F5300E3F55C /* AgileConferenceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AgileConferenceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F7FC614A88F5300E3F55C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6A9F7FCE14A88F5300E3F55C /* AgileConferenceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AgileConferenceTests-Info.plist"; sourceTree = "<group>"; };
 		6A9F7FD014A88F5300E3F55C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6A9F7FD214A88F5300E3F55C /* AgileConferenceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgileConferenceTests.h; sourceTree = "<group>"; };
 		6A9F7FD314A88F5300E3F55C /* AgileConferenceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgileConferenceTests.m; sourceTree = "<group>"; };
-		6ACCEC8014A9985000015E87 /* ACAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppDelegate.h; sourceTree = "<group>"; };
-		6ACCEC8114A9985000015E87 /* ACAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppDelegate.m; sourceTree = "<group>"; };
-		6ACCEC8214A9985000015E87 /* ACViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACViewController.h; sourceTree = "<group>"; };
-		6ACCEC8314A9985000015E87 /* ACViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACViewController.m; sourceTree = "<group>"; };
-		6ACCEC8614A99C6200015E87 /* ACAppControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppControler.h; sourceTree = "<group>"; };
-		6ACCEC8714A99C6200015E87 /* ACAppControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppControler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +123,6 @@
 				6ACCEC7C14A9979E00015E87 /* UIControllers */,
 				6ACCEC7D14A9979E00015E87 /* UIViews */,
 				6ACCEC7E14A9979E00015E87 /* Utilities */,
-				6A9F7FB714A88F5300E3F55C /* MainStoryboard_iPhone.storyboard */,
-				6A9F7FBA14A88F5300E3F55C /* MainStoryboard_iPad.storyboard */,
 				6A9F7FAC14A88F5300E3F55C /* Supporting Files */,
 			);
 			path = AgileConference;
@@ -166,12 +161,12 @@
 		6ACCEC7614A9979E00015E87 /* AppController */ = {
 			isa = PBXGroup;
 			children = (
-				6ACCEC8014A9985000015E87 /* ACAppDelegate.h */,
-				6ACCEC8114A9985000015E87 /* ACAppDelegate.m */,
-				6ACCEC8214A9985000015E87 /* ACViewController.h */,
-				6ACCEC8314A9985000015E87 /* ACViewController.m */,
-				6ACCEC8614A99C6200015E87 /* ACAppControler.h */,
-				6ACCEC8714A99C6200015E87 /* ACAppControler.m */,
+				3864399014A9C08200E6133E /* ACAppDelegate.h */,
+				3864399114A9C08200E6133E /* ACAppDelegate.m */,
+				3864399214A9C08200E6133E /* ACAppController.h */,
+				3864399314A9C08200E6133E /* ACAppController.m */,
+				3864399414A9C08200E6133E /* ACAppController_iPhone.xib */,
+				3864399514A9C08200E6133E /* ACAppController_iPad.xib */,
 			);
 			path = AppController;
 			sourceTree = "<group>";
@@ -311,8 +306,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A9F7FB014A88F5300E3F55C /* InfoPlist.strings in Resources */,
-				6A9F7FB914A88F5300E3F55C /* MainStoryboard_iPhone.storyboard in Resources */,
-				6A9F7FBC14A88F5300E3F55C /* MainStoryboard_iPad.storyboard in Resources */,
+				3864399814A9C08200E6133E /* ACAppController_iPhone.xib in Resources */,
+				3864399914A9C08200E6133E /* ACAppController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +343,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A9F7FB214A88F5300E3F55C /* main.m in Sources */,
-				6ACCEC8414A9985000015E87 /* ACAppDelegate.m in Sources */,
-				6ACCEC8514A9985000015E87 /* ACViewController.m in Sources */,
-				6ACCEC8814A99C6200015E87 /* ACAppControler.m in Sources */,
+				3864399614A9C08200E6133E /* ACAppDelegate.m in Sources */,
+				3864399714A9C08200E6133E /* ACAppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,22 +373,6 @@
 				6A9F7FAF14A88F5300E3F55C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6A9F7FB714A88F5300E3F55C /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A9F7FB814A88F5300E3F55C /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		6A9F7FBA14A88F5300E3F55C /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A9F7FBB14A88F5300E3F55C /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		6A9F7FCF14A88F5300E3F55C /* InfoPlist.strings */ = {

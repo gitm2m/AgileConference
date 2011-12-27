@@ -2,29 +2,33 @@
 //  ACAppDelegate.m
 //  AgileConference
 //
-//  Created by Valtech India Systems Pvt Ltd on 26/12/11.
-//  Copyright (c) 2011 deepak.shukla@valtech.co.in. All rights reserved.
+//  Created by Valtech India on 12/27/11.
+//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "ACAppDelegate.h"
 
+#import "ACAppController.h"
+
 @implementation ACAppDelegate
 
 @synthesize window = _window;
+@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [_window setHidden:YES];
-//    UIWindow *window1=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    [window1 makeKeyAndVisible];
-//    ACAppControler *appController=[[ACAppControler alloc] init];
-//    [appController.view setFrame:CGRectMake(0, 0, 320, 240)];
-//   [appController.view setBackgroundColor:[UIColor greenColor]];
-//    [window1 addSubview:appController.view];
-//    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.viewController = [[ACAppController alloc] initWithNibName:@"ACAppController_iPhone" bundle:nil];
+    } else {
+        self.viewController = [[ACAppController alloc] initWithNibName:@"ACAppController_iPad" bundle:nil];
+    }
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*
