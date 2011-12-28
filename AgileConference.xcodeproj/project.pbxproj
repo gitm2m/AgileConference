@@ -28,6 +28,7 @@
 		6AE5516614A9EB8C00391597 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516514A9EB8B00391597 /* SystemConfiguration.framework */; };
 		6AE5516814A9EBA100391597 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516714A9EBA100391597 /* MobileCoreServices.framework */; };
 		6AE5516A14A9EF8000391597 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516914A9EF8000391597 /* CoreFoundation.framework */; };
+		6AE5517114AAEA8D00391597 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6AE5517014AAEA8D00391597 /* .gitignore */; };
 		C5E0E82E14AAB0C20084FA2F /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E82B14AAB0C20084FA2F /* CommonUtility.m */; };
 		C5E0E82F14AAB0C20084FA2F /* ViewUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E82D14AAB0C20084FA2F /* ViewUtility.m */; };
 		C5E0E83F14AAB2F10084FA2F /* ACNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E83E14AAB2F10084FA2F /* ACNetworkHandler.m */; };
@@ -78,6 +79,7 @@
 		6AE5516514A9EB8B00391597 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6AE5516714A9EBA100391597 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6AE5516914A9EF8000391597 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		6AE5517014AAEA8D00391597 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C5E0E82A14AAB0C20084FA2F /* CommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtility.h; sourceTree = "<group>"; };
 		C5E0E82B14AAB0C20084FA2F /* CommonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtility.m; sourceTree = "<group>"; };
 		C5E0E82C14AAB0C20084FA2F /* ViewUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtility.h; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		6A9F7F9614A88F5300E3F55C = {
 			isa = PBXGroup;
 			children = (
+				6AE5517014AAEA8D00391597 /* .gitignore */,
 				6A9F7FAB14A88F5300E3F55C /* AgileConference */,
 				6A9F7FCC14A88F5300E3F55C /* AgileConferenceTests */,
 				6A9F7FA414A88F5300E3F55C /* Frameworks */,
@@ -424,6 +427,7 @@
 				3864399914A9C08200E6133E /* ACAppController_iPad.xib in Resources */,
 				6ACCECA914A9D0CE00015E87 /* ACCustomRootViewController.xib in Resources */,
 				C5E0E84A14AAB3A20084FA2F /* ACHomeViewController.xib in Resources */,
+				6AE5517114AAEA8D00391597 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
