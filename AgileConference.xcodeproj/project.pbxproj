@@ -34,7 +34,6 @@
 		C5E0E84214AAB3330084FA2F /* ACXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84114AAB3330084FA2F /* ACXMLParser.m */; };
 		C5E0E84914AAB3A20084FA2F /* ACHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84714AAB3A20084FA2F /* ACHomeViewController.m */; };
 		C5E0E84A14AAB3A20084FA2F /* ACHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5E0E84814AAB3A20084FA2F /* ACHomeViewController.xib */; };
-		C5E0E84D14AAB3F10084FA2F /* ACHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84C14AAB3F10084FA2F /* ACHomeView.m */; };
 		C5E0E85014AAB4360084FA2F /* ACOrganiser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84F14AAB4360084FA2F /* ACOrganiser.m */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +54,7 @@
 		3864399314A9C08200E6133E /* ACAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppController.m; sourceTree = "<group>"; };
 		3864399414A9C08200E6133E /* ACAppController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPhone.xib; sourceTree = "<group>"; };
 		3864399514A9C08200E6133E /* ACAppController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPad.xib; sourceTree = "<group>"; };
+		387EDDF014AAF16A00F5B9FF /* ACAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppConstants.h; sourceTree = "<group>"; };
 		6A9F7FA114A88F5300E3F55C /* AgileConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgileConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F7FA514A88F5300E3F55C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6A9F7FA714A88F5300E3F55C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,8 +90,6 @@
 		C5E0E84614AAB3A20084FA2F /* ACHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHomeViewController.h; sourceTree = "<group>"; };
 		C5E0E84714AAB3A20084FA2F /* ACHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHomeViewController.m; sourceTree = "<group>"; };
 		C5E0E84814AAB3A20084FA2F /* ACHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACHomeViewController.xib; sourceTree = "<group>"; };
-		C5E0E84B14AAB3F10084FA2F /* ACHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACHomeView.h; path = AgileConference/UIViewControllers/ACHomeView.h; sourceTree = SOURCE_ROOT; };
-		C5E0E84C14AAB3F10084FA2F /* ACHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACHomeView.m; path = AgileConference/UIViewControllers/ACHomeView.m; sourceTree = SOURCE_ROOT; };
 		C5E0E84E14AAB4360084FA2F /* ACOrganiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOrganiser.h; sourceTree = "<group>"; };
 		C5E0E84F14AAB4360084FA2F /* ACOrganiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOrganiser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +122,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		387EDDE514AAEDA400F5B9FF /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		387EDDE614AAEDA400F5B9FF /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		387EDDEA14AAEDD400F5B9FF /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				387EDDEB14AAEDD400F5B9FF /* iPad */,
+				387EDDEC14AAEDD400F5B9FF /* iPhone */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		387EDDEB14AAEDD400F5B9FF /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		387EDDEC14AAEDD400F5B9FF /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		387EDDED14AAEE8A00F5B9FF /* AppResouces */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppResouces;
+			sourceTree = "<group>";
+		};
+		387EDDEE14AAEE8A00F5B9FF /* SupportingLibraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingLibraries;
+			sourceTree = "<group>";
+		};
+		387EDDEF14AAF14100F5B9FF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				387EDDF014AAF16A00F5B9FF /* ACAppConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		6A9F7F9614A88F5300E3F55C = {
 			isa = PBXGroup;
 			children = (
@@ -161,15 +218,18 @@
 		6A9F7FAB14A88F5300E3F55C /* AgileConference */ = {
 			isa = PBXGroup;
 			children = (
+				6ACCEC7614A9979E00015E87 /* AppController */,
+				C5E0E83614AAB2440084FA2F /* UIViewControllers */,
+				387EDDEA14AAEDD400F5B9FF /* UIViews */,
 				C5E0E83214AAB2440084FA2F /* Network */,
 				C5E0E83314AAB2440084FA2F /* Parser */,
 				C5E0E83414AAB2440084FA2F /* Business */,
-				C5E0E83514AAB2440084FA2F /* UIViews */,
-				C5E0E83614AAB2440084FA2F /* UIViewControllers */,
 				C5E0E83714AAB2440084FA2F /* Delegates */,
 				C5E0E82414AAAEF70084FA2F /* Utilities */,
+				387EDDEF14AAF14100F5B9FF /* Constants */,
 				6AE5515514A9DE5D00391597 /* AppSettings */,
-				6ACCEC7614A9979E00015E87 /* AppController */,
+				387EDDED14AAEE8A00F5B9FF /* AppResouces */,
+				387EDDEE14AAEE8A00F5B9FF /* SupportingLibraries */,
 				6A9F7FAC14A88F5300E3F55C /* Supporting Files */,
 			);
 			path = AgileConference;
@@ -268,18 +328,11 @@
 			path = Business;
 			sourceTree = "<group>";
 		};
-		C5E0E83514AAB2440084FA2F /* UIViews */ = {
-			isa = PBXGroup;
-			children = (
-				C5E0E84B14AAB3F10084FA2F /* ACHomeView.h */,
-				C5E0E84C14AAB3F10084FA2F /* ACHomeView.m */,
-			);
-			path = UIViews;
-			sourceTree = "<group>";
-		};
 		C5E0E83614AAB2440084FA2F /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				387EDDE514AAEDA400F5B9FF /* iPad */,
+				387EDDE614AAEDA400F5B9FF /* iPhone */,
 				C5E0E84614AAB3A20084FA2F /* ACHomeViewController.h */,
 				C5E0E84714AAB3A20084FA2F /* ACHomeViewController.m */,
 				C5E0E84814AAB3A20084FA2F /* ACHomeViewController.xib */,
@@ -341,7 +394,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "deepak.shukla@valtech.co.in";
+				ORGANIZATIONNAME = "Valtech India";
 			};
 			buildConfigurationList = 6A9F7F9B14A88F5300E3F55C /* Build configuration list for PBXProject "AgileConference" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -415,7 +468,6 @@
 				C5E0E83F14AAB2F10084FA2F /* ACNetworkHandler.m in Sources */,
 				C5E0E84214AAB3330084FA2F /* ACXMLParser.m in Sources */,
 				C5E0E84914AAB3A20084FA2F /* ACHomeViewController.m in Sources */,
-				C5E0E84D14AAB3F10084FA2F /* ACHomeView.m in Sources */,
 				C5E0E85014AAB4360084FA2F /* ACOrganiser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
