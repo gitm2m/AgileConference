@@ -8,6 +8,8 @@
 
 #import "ACAppDelegate.h"
 #import "ACAppController.h"
+#import "CommonUtility.h"
+
 
 @implementation ACAppDelegate
 
@@ -25,6 +27,8 @@
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [CommonUtility createFileAtPath:@"/deepak1/deepak2/deepak3/deepak.plist"];
     return YES;
 }
 

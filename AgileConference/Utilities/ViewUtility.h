@@ -11,9 +11,18 @@
 @interface ViewUtility : NSObject{
     
 }
+//
++(UIAlertView *)showAlertViewWithMessage:(NSString *)message;
++(UIAlertView *)showAlertViewWithMessage:(NSString *)message andButtons:(NSString *)btnTitles;
 
-+(void)      showAlertViewWithMessage:(NSString *)message;
-+(void)      showAlertViewWithMessage:(NSString *)message withTag:(NSInteger)tag;
+//
+-(id)createViewOfType:(viewType)typeOfView 
+              ofClass:(id)typeOfClass
+            WithFrame:(CGRect)frame 
+          withBGColor:(UIColor *)bgColor 
+           withBGView:(UIImageView *)bgView;
 
-
+-(id)createViewControllerOfType:(viewType)typeOfView 
+                        ofClass:(id)typeOfClass
+                       WithView:(id)view;
 @end

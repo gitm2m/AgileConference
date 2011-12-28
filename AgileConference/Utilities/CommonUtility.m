@@ -10,28 +10,47 @@
 
 @implementation CommonUtility
 
-+ (UIImage *) getImage
-{
-	NSURL *url = [NSURL URLWithString:nil];
+
+#pragma mark - Image Utility
++ (UIImage *) getImageWithConentsOfURL:(NSString *)urlString{
+    
+	NSURL *url = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image=nil;
 	if(data)
 	{
-		UIImage *img = [[UIImage alloc] initWithData:data];		
-		return img;
+		image = [[UIImage alloc] initWithData:data];		
 	}
-	return nil;
+	return image;
+}
+//
++ (UIImage *) getImageWithConentsOfFile:(NSString *)filePath{
+    
+	NSData *data = [NSData dataWithContentsOfFile:filePath];
+    UIImage *image=nil;
+	if(data)
+	{
+		image = [[UIImage alloc] initWithData:data];		
+	}
+	return image;
+}
+
+
+//
++(void)saveImage:(UIImage *)image atPath:(NSString *)relativePath andFormat:(NSString *)formatType{
+	
+    NSString *absolutePath=[self getFilePath:relativePath fileType:formatType isDocumentDirecory:YES];
+   NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(image)];
+   [imageData writeToFile:absolutePath atomically:YES];
 }
 
 
 
-
-// Converting string to date
-
-
-+(NSDate*)convertStringToDate:(NSString*)inString
+#pragma  mark - Date Utility
++(NSDate*)convertStringToDate:(NSString*)inString format:(NSString *)format
 {
 	NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"yyyy-MM-dd"];
+	[dateFormatter setDateFormat:format];
 	NSDate* outDate = [dateFormatter dateFromString:inString];
 	return outDate;
 }
@@ -61,7 +80,7 @@
 
 
 
-// is app can detect the network??
+#pragma  mark - Network Utility
 +(BOOL) connectedToNetwork
 {
     // Create zero addy
@@ -87,9 +106,10 @@
     return (isReachable && !needsConnection) ? YES : NO;
 }
 
-
+#pragma  mark - General Utility
 
 + (NSString *)GetUUID{
+    
     CFUUIDRef theUUID = CFUUIDCreate(NULL);
     CFStringRef theUUIDStringRef = CFUUIDCreateString(NULL, theUUID);
     CFRelease(theUUID);
@@ -99,16 +119,21 @@
     return theUUIDString;
 }
 
++(NSFileManager *)getFileManager{
+    
+    return [NSFileManager defaultManager];
+}
 
 
 
-
+#pragma  mark - plist Utility
 +(id)convertToPlistFromXMLString:(NSString *)xmlString{
     
     return [xmlString propertyList];
 }
-/// we can use this method to make custom xml format, we can iterate dictinary and can make xml, no need of parsing
-+(NSDictionary *)convertToDictionaryFromXMLString:(NSString *)xmlString{    
+//
++(NSDictionary *)convertToDictionaryFromXMLString:(NSString *)xmlString{  
+    
     return [xmlString propertyListFromStringsFileFormat];
 }
 
@@ -119,12 +144,105 @@
                     dataWithPropertyList:plistObject 
                     format:kCFPropertyListXMLFormat_v1_0 
                     options:kCFPropertyListXMLFormat_v1_0 error:&error];    
-    // NSLog(@"Data>>>>>>>>>>>%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
-    
-    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; //Altered after analyze , added autorelease
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
+    //Altered after analyze , added autorelease
     
 }
+
+//Document directory && bundle
+#pragma  mark - Document directory && bundle
+
+
++(NSString *)getDocumentDirectoryPath{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+
+}
++(NSString*)getBundlePath{
+    
+   return [[NSBundle mainBundle] bundlePath];
+        
+}
++(NSDictionary *)getDictionaryOfPlistAtPath:(NSString *)relativePath fileType:(NSString *)fileType isDocumentDirecory:(BOOL)isDD{
+    
+    NSString *rootPath=[self getBundlePath];
+    if(isDD){
+        rootPath=[self getDocumentDirectoryPath];
+    }
+    
+    NSString *absolutePath=[rootPath stringByAppendingPathComponent:relativePath];
+    absolutePath=[absolutePath stringByAppendingFormat:@".%@",fileType];
+    return [NSDictionary dictionaryWithContentsOfFile:absolutePath];
+}
+
+///
++(NSString *)getFilePath:(NSString *)relativePath fileType:(NSString *)fileType isDocumentDirecory:(BOOL)isDD{
+    
+    NSString *rootPath=[self getBundlePath];
+    if(isDD){
+        rootPath=[self getDocumentDirectoryPath];
+    }
+    
+    NSString *absolutePath=[rootPath stringByAppendingPathComponent:relativePath];
+    return [absolutePath stringByAppendingFormat:@".%@",fileType];
+    
+}
+//
++(BOOL)isFileExistAtPath:(NSString*)file{
+	
+	return [[self getFileManager] fileExistsAtPath:file]; 	
+}
+
+
+
++(void)createFileAtPath:(NSString *)relativePath{
+    
+    NSError *error;
+    NSString *rootPath=[self getDocumentDirectoryPath];
+    NSArray  *pathComponents=[relativePath componentsSeparatedByString:@"/"];
+    NSString *lastComponent=[pathComponents lastObject];
+    if([lastComponent rangeOfString:@"."].length>0){
+        NSString *tempRelativePath=[relativePath stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"/%@",lastComponent]
+                                                                           withString:@""];
+        NSString *absolutePath=[rootPath stringByAppendingPathComponent:tempRelativePath];
+        if([[self getFileManager] createDirectoryAtPath:absolutePath 
+                            withIntermediateDirectories:YES 
+                                             attributes:nil 
+                                                  error:&error]){
+            
+            NSLog(@"directory created....file");
+            
+        }else{
+            
+            NSLog(@"Creation of Project  directory failed because:\n %@",error);
+        }
+        
+        [[self getFileManager] createFileAtPath:[rootPath stringByAppendingPathComponent:relativePath] contents:nil attributes:nil];
+
+        
+    }else{
+        NSString *absolutePath=[rootPath stringByAppendingPathComponent:relativePath];
+        if([[self getFileManager] createDirectoryAtPath:absolutePath 
+                            withIntermediateDirectories:YES 
+                                             attributes:nil 
+                                                  error:&error]){
+            
+            NSLog(@"directory created....");
+            
+        }else{
+            
+            NSLog(@"Creation of Project  directory failed because:\n %@",error);
+        }
+        
+}
+    
+	
+}
+
+
+
+
+
 
 
 
