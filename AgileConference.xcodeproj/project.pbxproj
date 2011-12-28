@@ -30,7 +30,6 @@
 		6AE5516A14A9EF8000391597 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516914A9EF8000391597 /* CoreFoundation.framework */; };
 		C5E0E82E14AAB0C20084FA2F /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E82B14AAB0C20084FA2F /* CommonUtility.m */; };
 		C5E0E82F14AAB0C20084FA2F /* ViewUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E82D14AAB0C20084FA2F /* ViewUtility.m */; };
-		C5E0E83C14AAB2C60084FA2F /* ACEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E83B14AAB2C60084FA2F /* ACEntity.m */; };
 		C5E0E83F14AAB2F10084FA2F /* ACNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E83E14AAB2F10084FA2F /* ACNetworkHandler.m */; };
 		C5E0E84214AAB3330084FA2F /* ACXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84114AAB3330084FA2F /* ACXMLParser.m */; };
 		C5E0E84914AAB3A20084FA2F /* ACHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84714AAB3A20084FA2F /* ACHomeViewController.m */; };
@@ -84,8 +83,6 @@
 		C5E0E82C14AAB0C20084FA2F /* ViewUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtility.h; sourceTree = "<group>"; };
 		C5E0E82D14AAB0C20084FA2F /* ViewUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtility.m; sourceTree = "<group>"; };
 		C5E0E83814AAB2440084FA2F /* ACCommonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommonDelegate.h; sourceTree = "<group>"; };
-		C5E0E83A14AAB2C60084FA2F /* ACEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACEntity.h; path = ../../../../../Users/deepakshukla/Documents/ACEntity.h; sourceTree = "<group>"; };
-		C5E0E83B14AAB2C60084FA2F /* ACEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACEntity.m; path = ../../../../../Users/deepakshukla/Documents/ACEntity.m; sourceTree = "<group>"; };
 		C5E0E83D14AAB2F10084FA2F /* ACNetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNetworkHandler.h; sourceTree = "<group>"; };
 		C5E0E83E14AAB2F10084FA2F /* ACNetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNetworkHandler.m; sourceTree = "<group>"; };
 		C5E0E84014AAB3330084FA2F /* ACXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACXMLParser.h; sourceTree = "<group>"; };
@@ -164,7 +161,6 @@
 		6A9F7FAB14A88F5300E3F55C /* AgileConference */ = {
 			isa = PBXGroup;
 			children = (
-				C5E0E83114AAB2440084FA2F /* Entity */,
 				C5E0E83214AAB2440084FA2F /* Network */,
 				C5E0E83314AAB2440084FA2F /* Parser */,
 				C5E0E83414AAB2440084FA2F /* Business */,
@@ -243,15 +239,6 @@
 				C5E0E82D14AAB0C20084FA2F /* ViewUtility.m */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		C5E0E83114AAB2440084FA2F /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				C5E0E83A14AAB2C60084FA2F /* ACEntity.h */,
-				C5E0E83B14AAB2C60084FA2F /* ACEntity.m */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		C5E0E83214AAB2440084FA2F /* Network */ = {
@@ -425,7 +412,6 @@
 				6AE5515814A9DEBB00391597 /* ACAppSetting.m in Sources */,
 				C5E0E82E14AAB0C20084FA2F /* CommonUtility.m in Sources */,
 				C5E0E82F14AAB0C20084FA2F /* ViewUtility.m in Sources */,
-				C5E0E83C14AAB2C60084FA2F /* ACEntity.m in Sources */,
 				C5E0E83F14AAB2F10084FA2F /* ACNetworkHandler.m in Sources */,
 				C5E0E84214AAB3330084FA2F /* ACXMLParser.m in Sources */,
 				C5E0E84914AAB3A20084FA2F /* ACHomeViewController.m in Sources */,
