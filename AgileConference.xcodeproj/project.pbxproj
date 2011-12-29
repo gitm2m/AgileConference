@@ -11,6 +11,11 @@
 		3864399714A9C08200E6133E /* ACAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864399314A9C08200E6133E /* ACAppController.m */; };
 		3864399814A9C08200E6133E /* ACAppController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3864399414A9C08200E6133E /* ACAppController_iPhone.xib */; };
 		3864399914A9C08200E6133E /* ACAppController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3864399514A9C08200E6133E /* ACAppController_iPad.xib */; };
+		6A42701D14AC442B00F91472 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42701C14AC442B00F91472 /* TestUtility.m */; };
+		6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42702314AC48B800F91472 /* SqliteDBManager.m */; };
+		6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */; };
+		6A42703514AC4E0100F91472 /* WorkshopSummary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42703414AC4E0100F91472 /* WorkshopSummary.plist */; };
+		6A42703714AC4E6500F91472 /* icon_app.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A42703614AC4E6500F91472 /* icon_app.png */; };
 		6A9F7FA614A88F5300E3F55C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA514A88F5300E3F55C /* UIKit.framework */; };
 		6A9F7FA814A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FAA14A88F5300E3F55C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA914A88F5300E3F55C /* CoreGraphics.framework */; };
@@ -53,6 +58,13 @@
 		3864399414A9C08200E6133E /* ACAppController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPhone.xib; sourceTree = "<group>"; };
 		3864399514A9C08200E6133E /* ACAppController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPad.xib; sourceTree = "<group>"; };
 		387EDDF014AAF16A00F5B9FF /* ACAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppConstants.h; sourceTree = "<group>"; };
+		6A42701B14AC442B00F91472 /* TestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtility.h; sourceTree = "<group>"; };
+		6A42701C14AC442B00F91472 /* TestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtility.m; sourceTree = "<group>"; };
+		6A42702214AC48B800F91472 /* SqliteDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteDBManager.h; sourceTree = "<group>"; };
+		6A42702314AC48B800F91472 /* SqliteDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteDBManager.m; sourceTree = "<group>"; };
+		6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		6A42703414AC4E0100F91472 /* WorkshopSummary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WorkshopSummary.plist; sourceTree = "<group>"; };
+		6A42703614AC4E6500F91472 /* icon_app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app.png; sourceTree = "<group>"; };
 		6A9F7FA114A88F5300E3F55C /* AgileConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgileConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F7FA514A88F5300E3F55C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6A9F7FA714A88F5300E3F55C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */,
 				6AE5516A14A9EF8000391597 /* CoreFoundation.framework in Frameworks */,
 				6AE5516814A9EBA100391597 /* MobileCoreServices.framework in Frameworks */,
 				6AE5516614A9EB8C00391597 /* SystemConfiguration.framework in Frameworks */,
@@ -154,13 +167,6 @@
 			path = iPhone;
 			sourceTree = "<group>";
 		};
-		387EDDED14AAEE8A00F5B9FF /* AppResouces */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AppResouces;
-			sourceTree = "<group>";
-		};
 		387EDDEE14AAEE8A00F5B9FF /* SupportingLibraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +180,47 @@
 				387EDDF014AAF16A00F5B9FF /* ACAppConstants.h */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		6A42702B14AC4D9900F91472 /* AppResources */ = {
+			isa = PBXGroup;
+			children = (
+				6A42702C14AC4D9900F91472 /* Database */,
+				6A42702D14AC4D9900F91472 /* Files */,
+				6A42702E14AC4D9900F91472 /* Images */,
+				6A42702F14AC4D9900F91472 /* plist */,
+			);
+			path = AppResources;
+			sourceTree = "<group>";
+		};
+		6A42702C14AC4D9900F91472 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		6A42702D14AC4D9900F91472 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		6A42702E14AC4D9900F91472 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6A42703614AC4E6500F91472 /* icon_app.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		6A42702F14AC4D9900F91472 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				6A42703414AC4E0100F91472 /* WorkshopSummary.plist */,
+			);
+			path = plist;
 			sourceTree = "<group>";
 		};
 		6A9F7F9614A88F5300E3F55C = {
@@ -198,6 +245,7 @@
 		6A9F7FA414A88F5300E3F55C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */,
 				6AE5516914A9EF8000391597 /* CoreFoundation.framework */,
 				6AE5516714A9EBA100391597 /* MobileCoreServices.framework */,
 				6AE5516514A9EB8B00391597 /* SystemConfiguration.framework */,
@@ -213,6 +261,7 @@
 		6A9F7FAB14A88F5300E3F55C /* AgileConference */ = {
 			isa = PBXGroup;
 			children = (
+				6A42702B14AC4D9900F91472 /* AppResources */,
 				6ACCEC7614A9979E00015E87 /* AppController */,
 				C5E0E83614AAB2440084FA2F /* UIViewControllers */,
 				387EDDEA14AAEDD400F5B9FF /* UIViews */,
@@ -223,7 +272,6 @@
 				C5E0E82414AAAEF70084FA2F /* Utilities */,
 				387EDDEF14AAF14100F5B9FF /* Constants */,
 				6AE5515514A9DE5D00391597 /* AppSettings */,
-				387EDDED14AAEE8A00F5B9FF /* AppResouces */,
 				387EDDEE14AAEE8A00F5B9FF /* SupportingLibraries */,
 				6A9F7FAC14A88F5300E3F55C /* Supporting Files */,
 			);
@@ -288,10 +336,14 @@
 		C5E0E82414AAAEF70084FA2F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6A42702214AC48B800F91472 /* SqliteDBManager.h */,
+				6A42702314AC48B800F91472 /* SqliteDBManager.m */,
 				C5E0E82A14AAB0C20084FA2F /* CommonUtility.h */,
 				C5E0E82B14AAB0C20084FA2F /* CommonUtility.m */,
 				C5E0E82C14AAB0C20084FA2F /* ViewUtility.h */,
 				C5E0E82D14AAB0C20084FA2F /* ViewUtility.m */,
+				6A42701B14AC442B00F91472 /* TestUtility.h */,
+				6A42701C14AC442B00F91472 /* TestUtility.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -415,6 +467,8 @@
 				3864399814A9C08200E6133E /* ACAppController_iPhone.xib in Resources */,
 				3864399914A9C08200E6133E /* ACAppController_iPad.xib in Resources */,
 				6ACCECA914A9D0CE00015E87 /* ACCustomRootViewController.xib in Resources */,
+				6A42703514AC4E0100F91472 /* WorkshopSummary.plist in Resources */,
+				6A42703714AC4E6500F91472 /* icon_app.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +513,8 @@
 				C5E0E83F14AAB2F10084FA2F /* ACNetworkHandler.m in Sources */,
 				C5E0E84214AAB3330084FA2F /* ACXMLParser.m in Sources */,
 				C5E0E85014AAB4360084FA2F /* ACOrganiser.m in Sources */,
+				6A42701D14AC442B00F91472 /* TestUtility.m in Sources */,
+				6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
