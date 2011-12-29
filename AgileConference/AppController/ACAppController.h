@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "ACCustomRootViewController.h"
+#import "ACAppConstants.h"
+#import "FlowCoverView.h"
+#import <QuartzCore/QuartzCore.h>
+#import "ACTracksEventsListViewController.h"
+#import "WEPopoverController.h"
 
 
-@interface ACAppController : ACCustomRootViewController
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate>{
+    
+    FlowCoverView *tracksCoverView;
+    NSArray *tracksCoverFlowImgsArray;
+    WEPopoverController *tracksEventsPopoverController;
+    
+}
 
-@end
+- (void) setupView;
+ @end

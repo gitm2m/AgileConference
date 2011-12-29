@@ -15,6 +15,7 @@
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,7 +26,8 @@
     } else {
         self.viewController = [[ACAppController alloc] initWithNibName:@"ACAppController_iPad" bundle:nil];
     }
-    self.window.rootViewController = self.viewController;
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
     [CommonUtility createFileAtPath:@"/deepak1/deepak2/deepak3/deepak.plist"];
