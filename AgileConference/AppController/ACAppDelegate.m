@@ -9,6 +9,7 @@
 #import "ACAppDelegate.h"
 #import "ACAppController.h"
 #import "CommonUtility.h"
+#import "TestUtility.h"
 
 
 @implementation ACAppDelegate
@@ -29,8 +30,7 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    
-    [CommonUtility createFileAtPath:@"/deepak1/deepak2/deepak3/deepak.plist"];
+    [[[TestUtility alloc] init] test];
     return YES;
 }
 

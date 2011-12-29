@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ACAppSetting.h"
 
 @interface TestUtility : NSObject
 

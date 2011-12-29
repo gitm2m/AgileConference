@@ -24,6 +24,8 @@
 
 -(void)test{
     
+    NSMutableDictionary *dict=[[ACAppSetting getAppSession] getCatlogDict];
+    NSLog(@"Dict:<<<<<%@>>>>>",dict);
 }
 
 @end
