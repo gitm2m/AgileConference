@@ -13,9 +13,12 @@
 @interface ACCustomRootViewController : UIViewController{
     
     ACAppDelegate *appDelegate;
+    UIButton *organizerButtn;
     
 }
 
 @property (strong, nonatomic) ACAppDelegate *appDelegate;
+
+-(void)setupInitialView;
 
 @end

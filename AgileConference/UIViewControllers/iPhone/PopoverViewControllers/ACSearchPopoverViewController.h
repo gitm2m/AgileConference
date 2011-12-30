@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+
 @interface ACSearchPopoverViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
