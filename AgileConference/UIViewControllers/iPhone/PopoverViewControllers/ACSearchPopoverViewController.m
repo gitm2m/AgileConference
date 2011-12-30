@@ -9,13 +9,14 @@
 #import "ACSearchPopoverViewController.h"
 
 @implementation ACSearchPopoverViewController
+@synthesize searchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.contentSizeForViewInPopover = CGSizeMake(260, (2*44)+30);
+        self.contentSizeForViewInPopover = CGSizeMake(285, (2*44));
     }
     return self;
 }
@@ -32,12 +33,14 @@
 
 - (void)viewDidLoad
 {
+   
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
+    [self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

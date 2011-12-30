@@ -37,6 +37,9 @@
 
 - (void)viewDidLoad
 {
+        
+    [self setupInitialView];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -52,6 +55,22 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Views Methods
+
+-(void)setupInitialView{
+    
+    organizerButtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [organizerButtn setFrame:CGRectMake(0, 380, 320, 35)];
+    [organizerButtn setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [organizerButtn setTitle:@"Organizer" forState:UIControlStateNormal];
+    [organizerButtn setTitleColor:[UIColor colorWithRed:.196 green:0.3098 blue:0.52 alpha:1.0] forState:UIControlStateNormal];
+    [[organizerButtn titleLabel] setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [self.view addSubview:organizerButtn];
+    
+
+       
 }
 
 @end

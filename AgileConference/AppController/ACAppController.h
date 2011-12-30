@@ -14,6 +14,7 @@
 #import "ACTracksEventsListViewController.h"
 #import "WEPopoverController.h"
 #import "ACSearchPopoverViewController.h"
+#import "ACSearchView.h"
 
 
 @interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate>{
@@ -27,14 +28,14 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
-@property (strong, nonatomic) IBOutlet UIButton *organizerButton;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *daysSegmentController;
 @property (strong, nonatomic) IBOutlet UIView *shareFeedBackView;
+@property (strong, nonatomic) IBOutlet UIView *homeCoverViewHolderView;
+@property (strong, nonatomic) IBOutlet UIView *searchHolderView;
 
 
 - (void) setupView;
 - (IBAction)daysSegmentControllerValueChanged:(id)sender;
-- (IBAction)organizerButtonTapped:(id)sender;
 - (IBAction)infoButtonTapped:(id)sender;
 - (void)searchButtonTapped : (id)sender;
 - (void)shareButtonTapped : (id)sender;

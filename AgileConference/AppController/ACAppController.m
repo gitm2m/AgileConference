@@ -12,9 +12,9 @@
 @implementation ACAppController
 
 @synthesize infoButton;
-@synthesize organizerButton;
 @synthesize daysSegmentController;
 @synthesize shareFeedBackView;
+@synthesize homeCoverViewHolderView,searchHolderView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -40,9 +40,9 @@
 {
     daysSegmentController = nil;
     [self setDaysSegmentController:nil];
-    [self setOrganizerButton:nil];
     [self setInfoButton:nil];
     [self setShareFeedBackView:nil];
+    [self setHomeCoverViewHolderView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -90,15 +90,24 @@
     
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
-    self.navigationItem.leftBarButtonItem =shareButton;
+    self.navigationItem.leftBarButtonItem = shareButton;
+    
+    
+    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACSearchView" owner:self options:nil];
+        // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
+    searchHolderView = [nibObjects objectAtIndex:0];
+    [searchHolderView setTag:1234];
+    searchHolderView.frame = CGRectMake(0, -380, 320, 380);
+    
+    [self.view addSubview:searchHolderView];
     
     tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,0, 308, 250)];
     [tracksCoverView  setBackgroundColor:[UIColor clearColor]];
     [[tracksCoverView layer] setCornerRadius : 5.0f];
     [tracksCoverView setDelegate:self];
-    [self.view addSubview:tracksCoverView];
+    [homeCoverViewHolderView addSubview:tracksCoverView];
     
-    [self.view insertSubview:daysSegmentController aboveSubview:tracksCoverView];
+    [homeCoverViewHolderView insertSubview:daysSegmentController aboveSubview:tracksCoverView];
     
      contentViewController = [[ACTracksEventsListViewController alloc] initWithNibName:@"ACTracksEventsListViewController" bundle:nil];
     [[contentViewController.view layer] setCornerRadius:5.0f];
@@ -145,18 +154,44 @@
 
 }
 
-- (IBAction)organizerButtonTapped:(id)sender {
-    
-}
 
 - (IBAction)infoButtonTapped:(id)sender {
 
 }
 
 - (void)searchButtonTapped : (id)sender{
+
     
-    
-    
+    if ([self.view viewWithTag:1234].frame.origin.y == -380) {
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.0001];
+        [tracksEventsPopoverController.view setAlpha:0];
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [[self.view viewWithTag:1234] setFrame:CGRectMake(0, 0, 320, 380)];
+        [homeCoverViewHolderView setFrame:CGRectMake(0, 455, 320, 380)];
+        [UIView commitAnimations];
+        
+    }else if([self.view viewWithTag:1234].frame.origin.y == 0){
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.9];
+        [tracksEventsPopoverController.view setAlpha:1];
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
+        [homeCoverViewHolderView setFrame:CGRectMake(0, 0, 380, 380)];
+        [UIView commitAnimations];
+
+    }
+        
+    //Commented searchPopover
+    /*
     if([searchPopoverController isPopoverVisible]) {
         [searchPopoverController dismissPopoverAnimated:YES];
         [searchPopoverController setDelegate:nil];
@@ -181,8 +216,8 @@
     [tracksCoverView setUserInteractionEnabled:NO];
     [tracksEventsPopoverController.view setUserInteractionEnabled:NO];
     [daysSegmentController setUserInteractionEnabled:NO];
-    [organizerButton setUserInteractionEnabled:NO];
     [infoButton setUserInteractionEnabled:NO];
+     */
 
 
     
@@ -190,17 +225,25 @@
 
 - (void)shareButtonTapped : (id)sender{
     
+
+    
     [self.view insertSubview:shareFeedBackView aboveSubview:tracksEventsPopoverController.view];
+    
+    [self.view insertSubview:shareFeedBackView aboveSubview:organizerButtn];
     if (shareFeedBackView.frame.origin.y == 463) {
+        
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.2];
         shareFeedBackView.frame=CGRectMake(0, 303, 320, 113);
         [UIView commitAnimations];
+            
     }else if (shareFeedBackView.frame.origin.y == 303){
+        
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.2];
         shareFeedBackView.frame=CGRectMake(0, 463, 320, 113);
         [UIView commitAnimations];
+        
     }
     
 
@@ -229,12 +272,12 @@
         searchPopoverController = nil;
     }
     
-    
+    /*
     [tracksCoverView setUserInteractionEnabled:YES];
     [tracksEventsPopoverController.view setUserInteractionEnabled:YES];
     [daysSegmentController setUserInteractionEnabled:YES];
-    [organizerButton setUserInteractionEnabled:YES];
     [infoButton setUserInteractionEnabled:YES];
+     */
    }
 
 @end

@@ -13,6 +13,9 @@
 		3858C71814ACB6A600C19AA5 /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71714ACB6A600C19AA5 /* facebookIcon.png */; };
 		3858C71A14ACB6B300C19AA5 /* twitterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71914ACB6B300C19AA5 /* twitterIcon.png */; };
 		3858C71C14ACB6D000C19AA5 /* WriteReviewIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71B14ACB6D000C19AA5 /* WriteReviewIcon.gif */; };
+		3886425014ADCF33005B520D /* ACAppController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3886424F14ADCF33005B520D /* ACAppController_iPhone.xib */; };
+		3886427014ADE9F9005B520D /* ACSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886426F14ADE9F9005B520D /* ACSearchView.m */; };
+		3886427C14ADF477005B520D /* ACSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3886427B14ADF476005B520D /* ACSearchView.xib */; };
 		6A42701D14AC442B00F91472 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42701C14AC442B00F91472 /* TestUtility.m */; };
 		6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42702314AC48B800F91472 /* SqliteDBManager.m */; };
 		6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */; };
@@ -38,7 +41,6 @@
 		6A42707214AC713600F91472 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42707114AC713600F91472 /* OpenGLES.framework */; };
 		6A42707D14AC71CB00F91472 /* ACAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42707514AC71CB00F91472 /* ACAppController.m */; };
 		6A42707E14AC71CB00F91472 /* ACAppController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A42707614AC71CB00F91472 /* ACAppController_iPad.xib */; };
-		6A42707F14AC71CB00F91472 /* ACAppController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A42707714AC71CB00F91472 /* ACAppController_iPhone.xib */; };
 		6A42708014AC71CB00F91472 /* ACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42707914AC71CB00F91472 /* ACAppDelegate.m */; };
 		6A42708114AC71CB00F91472 /* ACCustomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42707B14AC71CB00F91472 /* ACCustomRootViewController.m */; };
 		6A42708214AC71CB00F91472 /* ACCustomRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A42707C14AC71CB00F91472 /* ACCustomRootViewController.xib */; };
@@ -97,6 +99,10 @@
 		3858C71914ACB6B300C19AA5 /* twitterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterIcon.png; sourceTree = "<group>"; };
 		3858C71B14ACB6D000C19AA5 /* WriteReviewIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WriteReviewIcon.gif; sourceTree = "<group>"; };
 		387EDDF014AAF16A00F5B9FF /* ACAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppConstants.h; sourceTree = "<group>"; };
+		3886424F14ADCF33005B520D /* ACAppController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPhone.xib; sourceTree = "<group>"; };
+		3886426E14ADE9F9005B520D /* ACSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSearchView.h; sourceTree = "<group>"; };
+		3886426F14ADE9F9005B520D /* ACSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSearchView.m; sourceTree = "<group>"; };
+		3886427B14ADF476005B520D /* ACSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACSearchView.xib; sourceTree = "<group>"; };
 		6A42701B14AC442B00F91472 /* TestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtility.h; sourceTree = "<group>"; };
 		6A42701C14AC442B00F91472 /* TestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtility.m; sourceTree = "<group>"; };
 		6A42702214AC48B800F91472 /* SqliteDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteDBManager.h; sourceTree = "<group>"; };
@@ -131,7 +137,6 @@
 		6A42707414AC71CB00F91472 /* ACAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppController.h; sourceTree = "<group>"; };
 		6A42707514AC71CB00F91472 /* ACAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppController.m; sourceTree = "<group>"; };
 		6A42707614AC71CB00F91472 /* ACAppController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPad.xib; sourceTree = "<group>"; };
-		6A42707714AC71CB00F91472 /* ACAppController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAppController_iPhone.xib; sourceTree = "<group>"; };
 		6A42707814AC71CB00F91472 /* ACAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppDelegate.h; sourceTree = "<group>"; };
 		6A42707914AC71CB00F91472 /* ACAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAppDelegate.m; sourceTree = "<group>"; };
 		6A42707A14AC71CB00F91472 /* ACCustomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCustomRootViewController.h; sourceTree = "<group>"; };
@@ -232,6 +237,32 @@
 				387EDDF014AAF16A00F5B9FF /* ACAppConstants.h */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		3886425D14ADE6CE005B520D /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				3886426D14ADE9E6005B520D /* iPhone */,
+				3886425E14ADE6CE005B520D /* iPad */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		3886425E14ADE6CE005B520D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		3886426D14ADE9E6005B520D /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				3886426E14ADE9F9005B520D /* ACSearchView.h */,
+				3886426F14ADE9F9005B520D /* ACSearchView.m */,
+				3886427B14ADF476005B520D /* ACSearchView.xib */,
+			);
+			path = iPhone;
 			sourceTree = "<group>";
 		};
 		6A42702B14AC4D9900F91472 /* AppResources */ = {
@@ -377,6 +408,7 @@
 			path = iPad;
 			sourceTree = "<group>";
 		};
+        
 		6A42707314AC71CB00F91472 /* AppController */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,7 +420,7 @@
 				6A42707414AC71CB00F91472 /* ACAppController.h */,
 				6A42707514AC71CB00F91472 /* ACAppController.m */,
 				6A42707614AC71CB00F91472 /* ACAppController_iPad.xib */,
-				6A42707714AC71CB00F91472 /* ACAppController_iPhone.xib */,
+				3886424F14ADCF33005B520D /* ACAppController_iPhone.xib */,
 			);
 			path = AppController;
 			sourceTree = "<group>";
@@ -466,7 +498,7 @@
 			children = (
 				6A42707314AC71CB00F91472 /* AppController */,
 				6A42705514AC70FB00F91472 /* UIViewControllers */,
-				6A42705C14AC70FC00F91472 /* UIViews */,
+				3886425D14ADE6CE005B520D /* UIViews */,
 				387EDDEF14AAF14100F5B9FF /* Constants */,
 				C5E0E83714AAB2440084FA2F /* Delegates */,
 				C5E0E83214AAB2440084FA2F /* Network */,
@@ -656,7 +688,6 @@
 				6A42706A14AC70FC00F91472 /* popoverBg@2x.png in Resources */,
 				6A42706E14AC70FC00F91472 /* ACTracksEventsListViewController.xib in Resources */,
 				6A42707E14AC71CB00F91472 /* ACAppController_iPad.xib in Resources */,
-				6A42707F14AC71CB00F91472 /* ACAppController_iPhone.xib in Resources */,
 				6A42708214AC71CB00F91472 /* ACCustomRootViewController.xib in Resources */,
 				6A42708C14AC71E800F91472 /* i12.png in Resources */,
 				6A42708D14AC71E800F91472 /* i13.png in Resources */,
@@ -677,6 +708,8 @@
 				6A4270A714AC835C00F91472 /* Topic_1.html in Resources */,
 				6A4270A914AC945F00F91472 /* Favorite.plist in Resources */,
 				6A4270AB14AC94E200F91472 /* Participated.plist in Resources */,
+				3886425014ADCF33005B520D /* ACAppController_iPhone.xib in Resources */,
+				3886427C14ADF477005B520D /* ACSearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +762,7 @@
 				6A42708014AC71CB00F91472 /* ACAppDelegate.m in Sources */,
 				6A42708114AC71CB00F91472 /* ACCustomRootViewController.m in Sources */,
 				3858C70A14AC9FA200C19AA5 /* ACSearchPopoverViewController.m in Sources */,
+				3886427014ADE9F9005B520D /* ACSearchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
