@@ -366,7 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				6A42705D14AC70FC00F91472 /* iPad */,
-				6A42705E14AC70FC00F91472 /* iPhone */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -376,13 +375,6 @@
 			children = (
 			);
 			path = iPad;
-			sourceTree = "<group>";
-		};
-		6A42705E14AC70FC00F91472 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iPhone;
 			sourceTree = "<group>";
 		};
 		6A42707314AC71CB00F91472 /* AppController */ = {
@@ -673,13 +665,11 @@
 				6A42709014AC71E800F91472 /* i16.png in Resources */,
 				6A42709114AC71E800F91472 /* i17.png in Resources */,
 				6A42709214AC71E800F91472 /* i18.png in Resources */,
-
 				3858C70B14AC9FA200C19AA5 /* ACSearchPopoverViewController.xib in Resources */,
 				3858C71614ACB69F00C19AA5 /* linkedIcon.png in Resources */,
 				3858C71814ACB6A600C19AA5 /* facebookIcon.png in Resources */,
 				3858C71A14ACB6B300C19AA5 /* twitterIcon.png in Resources */,
 				3858C71C14ACB6D000C19AA5 /* WriteReviewIcon.gif in Resources */,
-
 				6A42709D14AC81A900F91472 /* Catalog.plist in Resources */,
 				6A4270A014AC81CA00F91472 /* Speaker.plist in Resources */,
 				6A4270A214AC821100F91472 /* Topic.plist in Resources */,
@@ -687,7 +677,6 @@
 				6A4270A714AC835C00F91472 /* Topic_1.html in Resources */,
 				6A4270A914AC945F00F91472 /* Favorite.plist in Resources */,
 				6A4270AB14AC94E200F91472 /* Participated.plist in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "ACAppController.h"
 #import "CommonUtility.h"
 #import "TestUtility.h"
+#import "ACOrganiser.h"
 
 
 @implementation ACAppDelegate
@@ -66,6 +67,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [[ACOrganiser getOrganiser] saveCatalogDict];
     /*
      Called when the application is about to terminate.
      Save data if appropriate.

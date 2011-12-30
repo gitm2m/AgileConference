@@ -7,6 +7,8 @@
 //
 
 #import "TestUtility.h"
+#import "ACOrganiser.h"
+#import "ACAppConstants.h"
 
 @implementation TestUtility
 
@@ -15,7 +17,6 @@
     self=[super init];
     if(self){
         
-        [self test];
     }
     return self;
 
@@ -24,8 +25,16 @@
 
 -(void)test{
     
-    NSMutableDictionary *dict=[[ACAppSetting getAppSession] getCatlogDict];
-    NSLog(@"Dict:<<<<<%@>>>>>",dict);
+    //NSMutableDictionary *dict=[[ACAppSetting getAppSession] getCatlogDict];
+    //NSLog(@"Dict:<<<<<%@>>>>>",dict);
+    
+    
+    //[[ACOrganiser getOrganiser]getCatalogListOfType:kTopicFavorite andCatalogTypeContent:@"YES"];
+    [[ACOrganiser getOrganiser]searchCatalogWithSearchKey:@"Track" andSearchValue:@"Track1"];
+
+    //NSLog(@"Dict:<<<<<%@>>>>>",dict);
+
+    
 }
 
 @end

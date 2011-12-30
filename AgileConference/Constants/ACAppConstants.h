@@ -35,3 +35,21 @@ typedef enum _viewType {
     //
 	
 } viewType;
+
+//plist cataloge key
+
+#define kTopicType              @"Topic_Type"
+#define kTopicTitle             @"Topic_Title"
+#define kTopicSummary           @"Topic_Summary"
+#define kTopicSpeaker           @"Topic_Speaker"
+#define kTopicTime              @"Topic_Time"
+#define kTopicTrack             @"Topic_Track"
+#define kTopicDay               @"Topic_Day"
+#define kTopicFavorite          @"Topic_Favorite"
+#define kTopicParticipated      @"Topic_Participated"
+#define kTopicMissed            @"Topic_Missed"
+#define kTopicOver              @"Topic_Over"
+
+
+
+
