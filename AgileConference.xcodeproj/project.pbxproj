@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3858C70A14AC9FA200C19AA5 /* ACSearchPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */; };
+		3858C70B14AC9FA200C19AA5 /* ACSearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */; };
+		3858C71614ACB69F00C19AA5 /* linkedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71514ACB69F00C19AA5 /* linkedIcon.png */; };
+		3858C71814ACB6A600C19AA5 /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71714ACB6A600C19AA5 /* facebookIcon.png */; };
+		3858C71A14ACB6B300C19AA5 /* twitterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71914ACB6B300C19AA5 /* twitterIcon.png */; };
+		3858C71C14ACB6D000C19AA5 /* WriteReviewIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71B14ACB6D000C19AA5 /* WriteReviewIcon.gif */; };
 		6A42701D14AC442B00F91472 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42701C14AC442B00F91472 /* TestUtility.m */; };
 		6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42702314AC48B800F91472 /* SqliteDBManager.m */; };
 		6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */; };
@@ -77,6 +83,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3858C70714AC9FA100C19AA5 /* ACSearchPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSearchPopoverViewController.h; sourceTree = "<group>"; };
+		3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSearchPopoverViewController.m; sourceTree = "<group>"; };
+		3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACSearchPopoverViewController.xib; sourceTree = "<group>"; };
+		3858C71514ACB69F00C19AA5 /* linkedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkedIcon.png; sourceTree = "<group>"; };
+		3858C71714ACB6A600C19AA5 /* facebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookIcon.png; sourceTree = "<group>"; };
+		3858C71914ACB6B300C19AA5 /* twitterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterIcon.png; sourceTree = "<group>"; };
+		3858C71B14ACB6D000C19AA5 /* WriteReviewIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = WriteReviewIcon.gif; sourceTree = "<group>"; };
 		387EDDF014AAF16A00F5B9FF /* ACAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAppConstants.h; sourceTree = "<group>"; };
 		6A42701B14AC442B00F91472 /* TestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtility.h; sourceTree = "<group>"; };
 		6A42701C14AC442B00F91472 /* TestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtility.m; sourceTree = "<group>"; };
@@ -190,6 +203,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3858C71414ACB68E00C19AA5 /* ShareImages */ = {
+			isa = PBXGroup;
+			children = (
+				3858C71914ACB6B300C19AA5 /* twitterIcon.png */,
+				3858C71B14ACB6D000C19AA5 /* WriteReviewIcon.gif */,
+				3858C71714ACB6A600C19AA5 /* facebookIcon.png */,
+				3858C71514ACB69F00C19AA5 /* linkedIcon.png */,
+			);
+			path = ShareImages;
+			sourceTree = "<group>";
+		};
 		387EDDEF14AAF14100F5B9FF /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +251,7 @@
 		6A42702E14AC4D9900F91472 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3858C71414ACB68E00C19AA5 /* ShareImages */,
 				6A42708314AC71E800F91472 /* HomeScreen */,
 				6A42703614AC4E6500F91472 /* icon_app.png */,
 			);
@@ -321,6 +346,9 @@
 				6A42705914AC70FC00F91472 /* ACTracksEventsListViewController.h */,
 				6A42705A14AC70FC00F91472 /* ACTracksEventsListViewController.m */,
 				6A42705B14AC70FC00F91472 /* ACTracksEventsListViewController.xib */,
+				3858C70714AC9FA100C19AA5 /* ACSearchPopoverViewController.h */,
+				3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */,
+				3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */,
 			);
 			path = PopoverViewControllers;
 			sourceTree = "<group>";
@@ -351,15 +379,15 @@
 		6A42707314AC71CB00F91472 /* AppController */ = {
 			isa = PBXGroup;
 			children = (
-				6A42707414AC71CB00F91472 /* ACAppController.h */,
-				6A42707514AC71CB00F91472 /* ACAppController.m */,
-				6A42707614AC71CB00F91472 /* ACAppController_iPad.xib */,
-				6A42707714AC71CB00F91472 /* ACAppController_iPhone.xib */,
 				6A42707814AC71CB00F91472 /* ACAppDelegate.h */,
 				6A42707914AC71CB00F91472 /* ACAppDelegate.m */,
 				6A42707A14AC71CB00F91472 /* ACCustomRootViewController.h */,
 				6A42707B14AC71CB00F91472 /* ACCustomRootViewController.m */,
 				6A42707C14AC71CB00F91472 /* ACCustomRootViewController.xib */,
+				6A42707414AC71CB00F91472 /* ACAppController.h */,
+				6A42707514AC71CB00F91472 /* ACAppController.m */,
+				6A42707614AC71CB00F91472 /* ACAppController_iPad.xib */,
+				6A42707714AC71CB00F91472 /* ACAppController_iPhone.xib */,
 			);
 			path = AppController;
 			sourceTree = "<group>";
@@ -628,6 +656,11 @@
 				6A42709014AC71E800F91472 /* i16.png in Resources */,
 				6A42709114AC71E800F91472 /* i17.png in Resources */,
 				6A42709214AC71E800F91472 /* i18.png in Resources */,
+				3858C70B14AC9FA200C19AA5 /* ACSearchPopoverViewController.xib in Resources */,
+				3858C71614ACB69F00C19AA5 /* linkedIcon.png in Resources */,
+				3858C71814ACB6A600C19AA5 /* facebookIcon.png in Resources */,
+				3858C71A14ACB6B300C19AA5 /* twitterIcon.png in Resources */,
+				3858C71C14ACB6D000C19AA5 /* WriteReviewIcon.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +712,7 @@
 				6A42707D14AC71CB00F91472 /* ACAppController.m in Sources */,
 				6A42708014AC71CB00F91472 /* ACAppDelegate.m in Sources */,
 				6A42708114AC71CB00F91472 /* ACCustomRootViewController.m in Sources */,
+				3858C70A14AC9FA200C19AA5 /* ACSearchPopoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface ACTracksEventsListViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UITableView *eventsTableView;
+
+
+- (IBAction)viewMoreTopicsButtonTapped:(id)sender;
+- (void)setupView;
+- (void)changeCellsLables : (NSArray *)topicNamesArray;
 
 @end
