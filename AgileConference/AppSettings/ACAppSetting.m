@@ -35,8 +35,7 @@ static ACAppSetting *appSession = nil;
 /////////////////////////////////////////////////////////////////////
 
 -(void)setDefaultValues{	
-	
-
+	catlogDict=nil;
 }
 //
 -(void)resetToDefaultValues{
@@ -45,6 +44,20 @@ static ACAppSetting *appSession = nil;
        [appSession setDefaultValues];
     }
 }
+
+-(NSMutableDictionary *)getCatlogDict{
+    
+    if(!catlogDict){
+        
+        NSString *filePath=[CommonUtility getFilePath:@"Catalog" 
+                                             fileType:@"plist" 
+                                   isDocumentDirecory:NO];
+        catlogDict=[[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    }
+    return catlogDict;
+        
+}
+
 
 
 
