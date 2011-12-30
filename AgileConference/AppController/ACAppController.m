@@ -95,7 +95,13 @@
     
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACSearchView" owner:self options:nil];
         // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
-    searchHolderView = [nibObjects objectAtIndex:0];
+    ACLog(@"nibObjects %@", nibObjects);
+    
+    for (id object in nibObjects) {
+        if ([object isKindOfClass:[ACSearchView class]])
+            searchHolderView = (ACSearchView*)object;
+    }   
+    //searchHolderView = [nibObjects objectAtIndex:0];
     [searchHolderView setTag:1234];
     searchHolderView.frame = CGRectMake(0, -380, 320, 380);
     

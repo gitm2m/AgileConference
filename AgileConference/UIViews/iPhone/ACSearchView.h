@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AVEventsListTableCellView.h"
 
 @interface ACSearchView : UIView
 

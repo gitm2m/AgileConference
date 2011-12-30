@@ -78,6 +78,9 @@
 		C5E0E83F14AAB2F10084FA2F /* ACNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E83E14AAB2F10084FA2F /* ACNetworkHandler.m */; };
 		C5E0E84214AAB3330084FA2F /* ACXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84114AAB3330084FA2F /* ACXMLParser.m */; };
 		C5E0E85014AAB4360084FA2F /* ACOrganiser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E84F14AAB4360084FA2F /* ACOrganiser.m */; };
+		CF770DA914AE520100DEAC5C /* AVEventsListCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF770DA814AE520100DEAC5C /* AVEventsListCellView.xib */; };
+		CF770DAC14AE521900DEAC5C /* AVEventsListCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF770DAB14AE521900DEAC5C /* AVEventsListCellView.m */; };
+		CF770DAF14AE523900DEAC5C /* AVEventsListTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF770DAE14AE523900DEAC5C /* AVEventsListTableCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +190,11 @@
 		C5E0E84114AAB3330084FA2F /* ACXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACXMLParser.m; sourceTree = "<group>"; };
 		C5E0E84E14AAB4360084FA2F /* ACOrganiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOrganiser.h; sourceTree = "<group>"; };
 		C5E0E84F14AAB4360084FA2F /* ACOrganiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOrganiser.m; sourceTree = "<group>"; };
+		CF770DA814AE520100DEAC5C /* AVEventsListCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AVEventsListCellView.xib; sourceTree = "<group>"; };
+		CF770DAA14AE521900DEAC5C /* AVEventsListCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVEventsListCellView.h; sourceTree = "<group>"; };
+		CF770DAB14AE521900DEAC5C /* AVEventsListCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVEventsListCellView.m; sourceTree = "<group>"; };
+		CF770DAD14AE523900DEAC5C /* AVEventsListTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVEventsListTableCellView.h; sourceTree = "<group>"; };
+		CF770DAE14AE523900DEAC5C /* AVEventsListTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVEventsListTableCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +266,7 @@
 		3886426D14ADE9E6005B520D /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				CF770DA714AE51CD00DEAC5C /* TableCellViews */,
 				3886426E14ADE9F9005B520D /* ACSearchView.h */,
 				3886426F14ADE9F9005B520D /* ACSearchView.m */,
 				3886427B14ADF476005B520D /* ACSearchView.xib */,
@@ -586,6 +595,18 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		CF770DA714AE51CD00DEAC5C /* TableCellViews */ = {
+			isa = PBXGroup;
+			children = (
+				CF770DAD14AE523900DEAC5C /* AVEventsListTableCellView.h */,
+				CF770DAE14AE523900DEAC5C /* AVEventsListTableCellView.m */,
+				CF770DAA14AE521900DEAC5C /* AVEventsListCellView.h */,
+				CF770DAB14AE521900DEAC5C /* AVEventsListCellView.m */,
+				CF770DA814AE520100DEAC5C /* AVEventsListCellView.xib */,
+			);
+			path = TableCellViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -694,6 +715,7 @@
 				6A4270AB14AC94E200F91472 /* Participated.plist in Resources */,
 				3886425014ADCF33005B520D /* ACAppController_iPhone.xib in Resources */,
 				3886427C14ADF477005B520D /* ACSearchView.xib in Resources */,
+				CF770DA914AE520100DEAC5C /* AVEventsListCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +769,8 @@
 				6A42708114AC71CB00F91472 /* ACCustomRootViewController.m in Sources */,
 				3858C70A14AC9FA200C19AA5 /* ACSearchPopoverViewController.m in Sources */,
 				3886427014ADE9F9005B520D /* ACSearchView.m in Sources */,
+				CF770DAC14AE521900DEAC5C /* AVEventsListCellView.m in Sources */,
+				CF770DAF14AE523900DEAC5C /* AVEventsListTableCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

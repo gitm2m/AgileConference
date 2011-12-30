@@ -39,17 +39,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"CategoryCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
-        // Configure the cell.
-    cell.textLabel.text = @"Cell";
-    cell.textLabel.font = [UIFont systemFontOfSize:19];
+	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];	
+	if(cell == nil)
+	{
+		cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+		
+	}
+
     return cell;
     
 }
@@ -64,5 +64,10 @@
     return 100;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    return @"17th Feb 2012";
+    
+}
 
 @end

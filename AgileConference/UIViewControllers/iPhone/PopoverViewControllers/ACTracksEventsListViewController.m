@@ -84,13 +84,16 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
         // Configure the cell.
-    cell.textLabel.text = @"Cell";
-    cell.textLabel.font = [UIFont systemFontOfSize:19];
+    cell.textLabel.text = @"Agile Conference";
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    
+    cell.detailTextLabel.text = @"10:30";
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
     return cell;
 
 }
