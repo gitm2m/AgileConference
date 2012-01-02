@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "AVEventsListTableCellView.h"
+#import "ACEventsListHeaderView.h"
+
 
 @protocol ACSearchViewDelegate ;
 
-@interface ACSearchView : UIView{
+@interface ACSearchView : UIView<ACEventsListHeaderViewDelegate>{
     
-    id<ACSearchViewDelegate>delagate;
+    id<ACSearchViewDelegate>delegate;
+    NSDictionary *eventsListTableContentsDict;
+    NSMutableArray *eventsListTableHeaderArray,*accordionViewTrackArray;
+    NSArray *array;
+    BOOL reloadHeaderNeeded;
+    
+   
 }
 
 @property (strong, nonatomic) id<ACSearchViewDelegate>delegate;
