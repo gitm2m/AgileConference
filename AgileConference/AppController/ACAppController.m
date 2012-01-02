@@ -100,8 +100,8 @@
     for (id object in nibObjects) {
         if ([object isKindOfClass:[ACSearchView class]])
             searchHolderView = (ACSearchView*)object;
-    }   
-    //searchHolderView = [nibObjects objectAtIndex:0];
+    }  
+    searchHolderView.delegate = self;
     [searchHolderView setTag:1234];
     searchHolderView.frame = CGRectMake(0, -380, 320, 380);
     
@@ -162,6 +162,10 @@
 
 
 - (IBAction)infoButtonTapped:(id)sender {
+    
+    ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
+    [aboutController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self.navigationController presentModalViewController:aboutController animated:YES];
 
 }
 
@@ -284,6 +288,16 @@
     [daysSegmentController setUserInteractionEnabled:YES];
     [infoButton setUserInteractionEnabled:YES];
      */
-   }
+}
+
+#pragma ACSearchViewDelegate Methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+
 
 @end

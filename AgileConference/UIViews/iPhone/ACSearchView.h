@@ -9,9 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "AVEventsListTableCellView.h"
 
-@interface ACSearchView : UIView
+@protocol ACSearchViewDelegate ;
 
+@interface ACSearchView : UIView{
+    
+    id<ACSearchViewDelegate>delagate;
+}
 
+@property (strong, nonatomic) id<ACSearchViewDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UITableView *searchResultTableView;
+
+@end
+
+@protocol ACSearchViewDelegate 
+
+@optional
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
 
 @end

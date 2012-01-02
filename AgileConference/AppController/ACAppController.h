@@ -15,9 +15,10 @@
 #import "WEPopoverController.h"
 #import "ACSearchPopoverViewController.h"
 #import "ACSearchView.h"
+#import "ACAboutViewController.h"
+#import "ACEventDetailViewController.h"
 
-
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;
@@ -31,7 +32,7 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *daysSegmentController;
 @property (strong, nonatomic) IBOutlet UIView *shareFeedBackView;
 @property (strong, nonatomic) IBOutlet UIView *homeCoverViewHolderView;
-@property (strong, nonatomic) IBOutlet UIView *searchHolderView;
+@property (strong, nonatomic) IBOutlet ACSearchView *searchHolderView;
 
 
 - (void) setupView;
@@ -39,4 +40,6 @@
 - (IBAction)infoButtonTapped:(id)sender;
 - (void)searchButtonTapped : (id)sender;
 - (void)shareButtonTapped : (id)sender;
+
  @end
+

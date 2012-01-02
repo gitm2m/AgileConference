@@ -9,7 +9,7 @@
 #import "ACSearchView.h"
 
 @implementation ACSearchView
-@synthesize searchResultTableView;
+@synthesize searchResultTableView,delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -57,6 +57,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [delagate tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

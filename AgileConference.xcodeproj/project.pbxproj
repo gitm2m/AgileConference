@@ -81,6 +81,10 @@
 		CF770DA914AE520100DEAC5C /* AVEventsListCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF770DA814AE520100DEAC5C /* AVEventsListCellView.xib */; };
 		CF770DAC14AE521900DEAC5C /* AVEventsListCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF770DAB14AE521900DEAC5C /* AVEventsListCellView.m */; };
 		CF770DAF14AE523900DEAC5C /* AVEventsListTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF770DAE14AE523900DEAC5C /* AVEventsListTableCellView.m */; };
+		CF7EA66A14AEE8CB00061E07 /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EA66814AEE8CB00061E07 /* ACAboutViewController.m */; };
+		CF7EA66B14AEE8CB00061E07 /* ACAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7EA66914AEE8CB00061E07 /* ACAboutViewController.xib */; };
+		CF9A268714B0C34D00568DB5 /* ACEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A268514B0C34D00568DB5 /* ACEventDetailViewController.m */; };
+		CF9A268814B0C34D00568DB5 /* ACEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9A268614B0C34D00568DB5 /* ACEventDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +199,12 @@
 		CF770DAB14AE521900DEAC5C /* AVEventsListCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVEventsListCellView.m; sourceTree = "<group>"; };
 		CF770DAD14AE523900DEAC5C /* AVEventsListTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVEventsListTableCellView.h; sourceTree = "<group>"; };
 		CF770DAE14AE523900DEAC5C /* AVEventsListTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVEventsListTableCellView.m; sourceTree = "<group>"; };
+		CF7EA66714AEE8CB00061E07 /* ACAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAboutViewController.h; sourceTree = "<group>"; };
+		CF7EA66814AEE8CB00061E07 /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAboutViewController.m; sourceTree = "<group>"; };
+		CF7EA66914AEE8CB00061E07 /* ACAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAboutViewController.xib; sourceTree = "<group>"; };
+		CF9A268414B0C34D00568DB5 /* ACEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDetailViewController.h; sourceTree = "<group>"; };
+		CF9A268514B0C34D00568DB5 /* ACEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDetailViewController.m; sourceTree = "<group>"; };
+		CF9A268614B0C34D00568DB5 /* ACEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +395,12 @@
 			isa = PBXGroup;
 			children = (
 				6A42705814AC70FC00F91472 /* PopoverViewControllers */,
+				CF7EA66714AEE8CB00061E07 /* ACAboutViewController.h */,
+				CF7EA66814AEE8CB00061E07 /* ACAboutViewController.m */,
+				CF7EA66914AEE8CB00061E07 /* ACAboutViewController.xib */,
+				CF9A268414B0C34D00568DB5 /* ACEventDetailViewController.h */,
+				CF9A268514B0C34D00568DB5 /* ACEventDetailViewController.m */,
+				CF9A268614B0C34D00568DB5 /* ACEventDetailViewController.xib */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -716,6 +732,8 @@
 				3886425014ADCF33005B520D /* ACAppController_iPhone.xib in Resources */,
 				3886427C14ADF477005B520D /* ACSearchView.xib in Resources */,
 				CF770DA914AE520100DEAC5C /* AVEventsListCellView.xib in Resources */,
+				CF7EA66B14AEE8CB00061E07 /* ACAboutViewController.xib in Resources */,
+				CF9A268814B0C34D00568DB5 /* ACEventDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +789,8 @@
 				3886427014ADE9F9005B520D /* ACSearchView.m in Sources */,
 				CF770DAC14AE521900DEAC5C /* AVEventsListCellView.m in Sources */,
 				CF770DAF14AE523900DEAC5C /* AVEventsListTableCellView.m in Sources */,
+				CF7EA66A14AEE8CB00061E07 /* ACAboutViewController.m in Sources */,
+				CF9A268714B0C34D00568DB5 /* ACEventDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
