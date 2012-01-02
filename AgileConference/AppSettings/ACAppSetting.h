@@ -11,14 +11,11 @@
 
 @interface ACAppSetting : NSObject{
     
-    NSMutableDictionary *catlogDict;
 }
 
 +(ACAppSetting *)getAppSession;
 -(void)setDefaultValues;
 -(void)resetToDefaultValues;
-
--(NSMutableDictionary *)getCatlogDict;
 
 
 

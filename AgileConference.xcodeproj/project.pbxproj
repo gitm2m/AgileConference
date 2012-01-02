@@ -418,6 +418,22 @@
 			path = PopoverViewControllers;
 			sourceTree = "<group>";
 		};
+		6A42705C14AC70FC00F91472 /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				6A42705D14AC70FC00F91472 /* iPad */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		6A42705D14AC70FC00F91472 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+        
 		6A42707314AC71CB00F91472 /* AppController */ = {
 			isa = PBXGroup;
 			children = (

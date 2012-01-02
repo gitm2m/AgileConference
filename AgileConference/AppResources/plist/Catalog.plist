@@ -22,7 +22,7 @@
 				<key>Topic_Day</key>
 				<string>17-12-2011</string>
 				<key>Topic_Favorite</key>
-				<string>NO</string>
+				<string>YES</string>
 				<key>Topic_Participated</key>
 				<string>NO</string>
 				<key>Topic_Missed</key>
@@ -70,7 +70,7 @@
 				<key>Topic_Day</key>
 				<string>17-12-2011</string>
 				<key>Topic_Favorite</key>
-				<string>NO</string>
+				<string>YES</string>
 				<key>Topic_Participated</key>
 				<string>NO</string>
 				<key>Topic_Missed</key>
@@ -193,7 +193,7 @@
 				<key>Topic_Day</key>
 				<string>17-12-2011</string>
 				<key>Topic_Favorite</key>
-				<string>NO</string>
+				<string>YES</string>
 				<key>Topic_Participated</key>
 				<string>NO</string>
 				<key>Topic_Missed</key>
@@ -1222,7 +1222,7 @@
 				<key>Topic_Day</key>
 				<string>17-12-2011</string>
 				<key>Topic_Favorite</key>
-				<string>NO</string>
+				<string>YES</string>
 				<key>Topic_Participated</key>
 				<string>NO</string>
 				<key>Topic_Missed</key>

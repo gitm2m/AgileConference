@@ -8,6 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ACOrganiser : NSObject
+@interface ACOrganiser : NSObject{
+    
+    NSMutableDictionary *catalogDict;
+    
+}
 
++(ACOrganiser *)getOrganiser;
+
+-(NSMutableDictionary *)getCatalogDict;
+-(BOOL)saveCatalogDict;
+//
+-(NSMutableDictionary *)getCatalogListOfType:(NSString *)catalogType 
+                       andCatalogTypeContent:(NSString *)content;
+//
+-(NSMutableDictionary *)searchCatalogWithSearchKey:(NSString *)searchKey 
+                                    andSearchValue:(NSString *)searchValue;
 @end
