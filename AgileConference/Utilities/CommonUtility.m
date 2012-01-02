@@ -50,6 +50,7 @@
 +(NSDate*)convertStringToDate:(NSString*)inString format:(NSString *)format
 {
 	NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
 	[dateFormatter setDateFormat:format];
 	NSDate* outDate = [dateFormatter dateFromString:inString];
 	return outDate;
@@ -239,6 +240,31 @@
 	
 }
 
+
++(void)schedulNotification:(NSString *)date andTime:(NSString *)time andFormat:(NSString *)format{
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    NSString *stringDate=[NSString stringWithFormat:@"%@, %@",date, time];
+    Class cls = NSClassFromString(@"UILocalNotification");
+    if (cls != nil) {
+        
+        UILocalNotification *notif = [[cls alloc] init];
+        //notif.timeZone = [NSTimeZone localTimeZone];
+        notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
+        //NSLog(@"Date Current:%@",notif.fireDate);
+        
+        notif.alertBody = @"Did you forget something?";
+        notif.alertAction = @"Show me";
+        notif.soundName = UILocalNotificationDefaultSoundName;
+        notif.applicationIconBadgeNumber = 1;
+        
+        NSDictionary *userDict = [NSDictionary dictionaryWithObject:@"Hey! You implemented the local notification"
+                                                             forKey:kRemindMeNotificationDataKey];
+        notif.userInfo = userDict;
+        [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+    }
+    
+}
 
 
 

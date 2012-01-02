@@ -50,6 +50,9 @@ typedef enum _viewType {
 #define kTopicMissed            @"Topic_Missed"
 #define kTopicOver              @"Topic_Over"
 
+#define kRemindMeNotificationDataKey @"kRemindMeNotificationDataKey"
+
+
 
 
 

@@ -9,6 +9,7 @@
 #import "TestUtility.h"
 #import "ACOrganiser.h"
 #import "ACAppConstants.h"
+#import "CommonUtility.h"
 
 @implementation TestUtility
 
@@ -31,7 +32,8 @@
     
     //[[ACOrganiser getOrganiser]getCatalogListOfType:kTopicFavorite andCatalogTypeContent:@"YES"];
     [[ACOrganiser getOrganiser]searchCatalogWithSearchKey:@"Track" andSearchValue:@"Track1"];
-
+    
+    [CommonUtility schedulNotification:@"02-01-2011" andTime:@"16:31" andFormat:@"dd-MM-yyyy, HH:mm"];
     //NSLog(@"Dict:<<<<<%@>>>>>",dict);
 
     

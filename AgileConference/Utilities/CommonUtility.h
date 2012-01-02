@@ -50,5 +50,12 @@
 +(void)saveImage:(UIImage *)image atPath:(NSString *)relativePath andFormat:(NSString *)formatType;
 +(BOOL)isFileExistAtPath:(NSString*)file;
 +(void)createFileAtPath:(NSString *)relativePath;
+#pragma mark -
+#pragma mark === Public Methods ===
+#pragma mark -
+
+
++(void)schedulNotification:(NSString *)date andTime:(NSString *)time andFormat:(NSString *)format;
+
 
 @end

@@ -13,9 +13,12 @@
 }
 //
 +(UIAlertView *)showAlertViewWithMessage:(NSString *)message;
+
+
+// show the alertmessage with the tag
+
 +(UIAlertView *)showAlertViewWithMessage:(NSString *)message andButtons:(NSString *)btnTitles;
 
-//
 -(id)createViewOfType:(viewType)typeOfView 
               ofClass:(id)typeOfClass
             WithFrame:(CGRect)frame 
@@ -24,5 +27,5 @@
 
 -(id)createViewControllerOfType:(viewType)typeOfView 
                         ofClass:(id)typeOfClass
-                       WithView:(id)view;
-@end
+                       WithView:(id)view childView:(id)childView;
+    @end

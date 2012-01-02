@@ -13,7 +13,7 @@ static ACOrganiser *appOrganiser = nil;
 
 @implementation ACOrganiser
 
-
+//
 +(ACOrganiser *)getOrganiser{
 	
 	if(appOrganiser == nil){
@@ -25,7 +25,7 @@ static ACOrganiser *appOrganiser = nil;
 	
 	return appOrganiser;
 }
-
+//
 -(NSMutableDictionary *)getCatalogDict{
     
     if(!catalogDict){
@@ -38,8 +38,7 @@ static ACOrganiser *appOrganiser = nil;
     return catalogDict;
     
 }
-
-
+//
 -(BOOL)saveCatalogDict{
     
     if(catalogDict){
@@ -54,7 +53,7 @@ static ACOrganiser *appOrganiser = nil;
     return NO;
 
 }
-
+//
 -(NSMutableDictionary *)getCatalogListOfType:(NSString *)catalogType andCatalogTypeContent:(NSString *)content{
     
     NSMutableDictionary *favDict=[[NSMutableDictionary alloc] init];
@@ -70,9 +69,8 @@ static ACOrganiser *appOrganiser = nil;
         //
 
          for (NSMutableDictionary *trackKey in trackKeyArray) {
-             
+             //
              NSMutableArray* topicArrayInTrack=[trackDict objectForKey:trackKey];
-             
              //
              NSMutableArray *favTopicInTrack=[[NSMutableArray alloc] init];
              [favTrackdict setObject:favTopicInTrack forKey:trackKey];
@@ -102,7 +100,7 @@ static ACOrganiser *appOrganiser = nil;
     return favDict;
     
 }
-
+//
 -(NSMutableDictionary *)searchCatalogWithSearchKey:(NSString *)searchKey 
                              andSearchValue:(NSString *)searchValue{
     
@@ -146,6 +144,32 @@ static ACOrganiser *appOrganiser = nil;
     
     return nil;
 }
+//
+-(void)updateCatalogDict:(NSMutableDictionary *)currentDict{
+    
+    NSMutableDictionary *dayDict=[catalogDict objectForKey:[currentDict objectForKey:kTopicDay]];
+    NSMutableArray *tracArray=[dayDict objectForKey:kTopicTrack];
+    NSString *currentTopicTitle=[currentDict objectForKey:kTopicTitle];
+    //
+    NSInteger topicIndex=0;
+    BOOL isDictFound=NO;
+    
+    for (NSMutableDictionary *topicDict in tracArray) {
+        
+        NSString *tempTopicTitle=[topicDict objectForKey:kTopicTitle];
+        if([tempTopicTitle isEqualToString:currentTopicTitle]){
+            break;
+        }
+        topicIndex++;
+    }
+    
+    if(isDictFound){
+        [tracArray replaceObjectAtIndex:topicIndex withObject:currentDict];
+    }
+    
+    
+}
+
 
 //-(NSMutableDictionary *)searchCatalogOfType:(NSString *)catalogType 
 //                              withSearchKey:(NSString *)searchKey
@@ -156,6 +180,11 @@ static ACOrganiser *appOrganiser = nil;
 //    
 //    
 //}
+
+
+/////
+
+
 
 
 

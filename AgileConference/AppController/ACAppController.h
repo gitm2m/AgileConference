@@ -41,5 +41,10 @@
 - (void)searchButtonTapped : (id)sender;
 - (void)shareButtonTapped : (id)sender;
 
+- (void)showReminder:(NSString *)text;
+- (void)clearNotification;
+- (void)scheduleNotification;
+
+
  @end
 

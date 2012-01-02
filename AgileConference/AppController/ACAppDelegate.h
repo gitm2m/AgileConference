@@ -15,5 +15,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ACAppController *viewController;
 @property (strong, nonatomic) UINavigationController *navigationController;
+-(void)showReminder:(NSString *)text;
 
 @end

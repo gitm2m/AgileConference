@@ -14,7 +14,6 @@
 
 
 @implementation ACAppDelegate
-
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 @synthesize navigationController = _navigationController;
@@ -32,6 +31,23 @@
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     [[[TestUtility alloc] init] test];
+    
+    ////***********************************************************************************************************?
+    
+    Class cls = NSClassFromString(@"UILocalNotification");
+	if (cls) {
+		UILocalNotification *notification = [launchOptions objectForKey:
+                                             UIApplicationLaunchOptionsLocalNotificationKey];
+		
+		if (notification) {
+			NSString *reminderText = [notification.userInfo 
+									  objectForKey:kRemindMeNotificationDataKey];
+			[self.viewController showReminder:reminderText];
+		}
+	}
+	
+	application.applicationIconBadgeNumber = 0;
+
     return YES;
 }
 
@@ -51,12 +67,28 @@
      */
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    /*
-     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-     */
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+	
+	application.applicationIconBadgeNumber = 0;
 }
+
+- (void)application:(UIApplication *)application 
+didReceiveLocalNotification:(UILocalNotification *)notification {
+	
+	// UIApplicationState state = [application applicationState];
+	// if (state == UIApplicationStateInactive) {
+    
+    // Application was in the background when notification
+    // was delivered.
+	// }
+	
+	
+	application.applicationIconBadgeNumber = 0;
+	NSString *reminderText = [notification.userInfo
+							  objectForKey:kRemindMeNotificationDataKey];
+	[self showReminder:reminderText];
+}
+
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
@@ -74,5 +106,15 @@
      See also applicationDidEnterBackground:.
      */
 }
+
+-(void)showReminder:(NSString *)text {
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reminder" 
+                                                        message:text delegate:nil 
+                                              cancelButtonTitle:@"OK" 
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
 
 @end
