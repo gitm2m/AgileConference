@@ -99,9 +99,10 @@
     
     for (id object in nibObjects) {
         if ([object isKindOfClass:[ACSearchView class]])
+            [(ACSearchView*)object setDelegate:self];
             searchHolderView = (ACSearchView*)object;
     }  
-    searchHolderView.delegate = self;
+    [searchHolderView setNeedsLayout];
     [searchHolderView setTag:1234];
     searchHolderView.frame = CGRectMake(0, -380, 320, 380);
     
@@ -185,6 +186,8 @@
         [homeCoverViewHolderView setFrame:CGRectMake(0, 455, 320, 380)];
         [UIView commitAnimations];
         
+        self.title = @"Search";
+        
     }else if([self.view viewWithTag:1234].frame.origin.y == 0){
         
         [UIView beginAnimations:nil context:NULL];
@@ -197,6 +200,8 @@
         [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
         [homeCoverViewHolderView setFrame:CGRectMake(0, 0, 380, 380)];
         [UIView commitAnimations];
+        
+        self.title = KAppName;
 
     }
         
