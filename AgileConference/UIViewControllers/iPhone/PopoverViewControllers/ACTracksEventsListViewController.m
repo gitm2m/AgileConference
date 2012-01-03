@@ -9,7 +9,7 @@
 #import "ACTracksEventsListViewController.h"
 
 @implementation ACTracksEventsListViewController
-@synthesize eventsTableView;
+@synthesize eventsTableView,delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -106,7 +106,8 @@
 #pragma mark - Events Methods
 
 - (IBAction)viewMoreTopicsButtonTapped:(id)sender {
-
+    
+    [delegate viewMoreTopicsButtonTapped:sender inView:self];
 
 }
 

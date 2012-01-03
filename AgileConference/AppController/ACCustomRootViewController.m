@@ -54,7 +54,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return NO;
 }
 
 #pragma mark - Views Methods
@@ -62,15 +62,25 @@
 -(void)setupInitialView{
     
     organizerButtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [organizerButtn setFrame:CGRectMake(0, 380, 320, 35)];
-    [organizerButtn setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-    [organizerButtn setTitle:@"Organizer" forState:UIControlStateNormal];
+    [organizerButtn setFrame:CGRectMake(0, 382, 320, 35)];
+    [organizerButtn setBackgroundColor:[UIColor clearColor]];
+        //[organizerButtn setTitle:@"Organizer" forState:UIControlStateNormal];
     [organizerButtn setTitleColor:[UIColor colorWithRed:.196 green:0.3098 blue:0.52 alpha:1.0] forState:UIControlStateNormal];
     [[organizerButtn titleLabel] setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [organizerButtn setShowsTouchWhenHighlighted:YES];
+    [organizerButtn addTarget:self action:@selector(organizerButtonTapped : ) forControlEvents:UIControlEventTouchUpInside];
+    [organizerButtn setBackgroundImage:[UIImage imageNamed:@"Organizer.png"] forState:UIControlStateNormal];
     [self.view addSubview:organizerButtn];
     
 
        
+}
+
+#pragma mark - Events Methods
+
+-(void)organizerButtonTapped : (id)sender{
+    
+    
 }
 
 @end

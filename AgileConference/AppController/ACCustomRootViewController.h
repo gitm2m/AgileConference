@@ -20,5 +20,6 @@
 @property (strong, nonatomic) ACAppDelegate *appDelegate;
 
 -(void)setupInitialView;
+-(void)organizerButtonTapped : (id)sender ;
 
 @end

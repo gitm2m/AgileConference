@@ -9,13 +9,23 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+@protocol ACTracksEventsListViewControllerDelegate;
+
 @interface ACTracksEventsListViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *eventsTableView;
-
+@property (strong, nonatomic) id<ACTracksEventsListViewControllerDelegate>delegate;
 
 - (IBAction)viewMoreTopicsButtonTapped:(id)sender;
 - (void)setupView;
 - (void)changeCellsLables : (NSArray *)topicNamesArray;
+
+@end
+
+
+@protocol ACTracksEventsListViewControllerDelegate 
+
+@optional
+- (void)viewMoreTopicsButtonTapped:(id)sender inView:(ACTracksEventsListViewController*)tracksEventsListView;
 
 @end

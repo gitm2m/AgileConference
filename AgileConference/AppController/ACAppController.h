@@ -17,8 +17,10 @@
 #import "ACSearchView.h"
 #import "ACAboutViewController.h"
 #import "ACEventDetailViewController.h"
+#import "ACOrganizerView.h"
+#import "ACEventsListViewController.h"
 
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;
@@ -33,9 +35,11 @@
 @property (strong, nonatomic) IBOutlet UIView *shareFeedBackView;
 @property (strong, nonatomic) IBOutlet UIView *homeCoverViewHolderView;
 @property (strong, nonatomic) IBOutlet ACSearchView *searchHolderView;
+@property (strong, nonatomic) ACOrganizerView *organizerView;
 
 
 - (void) setupView;
+- (void) setupViewsFromNib;
 - (IBAction)daysSegmentControllerValueChanged:(id)sender;
 - (IBAction)infoButtonTapped:(id)sender;
 - (void)searchButtonTapped : (id)sender;
@@ -44,6 +48,9 @@
 - (void)showReminder:(NSString *)text;
 - (void)clearNotification;
 - (void)scheduleNotification;
+
+- (BOOL)isOrganizerViewVisibleOnScreen;
+- (BOOL)isSearchViewVisibleOnScreen;
 
 
  @end
