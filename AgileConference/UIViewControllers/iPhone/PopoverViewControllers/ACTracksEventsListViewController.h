@@ -16,16 +16,16 @@
 @property (strong, nonatomic) IBOutlet UITableView *eventsTableView;
 @property (strong, nonatomic) id<ACTracksEventsListViewControllerDelegate>delegate;
 
+
 - (IBAction)viewMoreTopicsButtonTapped:(id)sender;
 - (void)setupView;
 - (void)changeCellsLables : (NSArray *)topicNamesArray;
 
 @end
 
-
-@protocol ACTracksEventsListViewControllerDelegate 
+@protocol ACTracksEventsListViewControllerDelegate
 
 @optional
 - (void)viewMoreTopicsButtonTapped:(id)sender inView:(ACTracksEventsListViewController*)tracksEventsListView;
-
+- (void)eventsTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

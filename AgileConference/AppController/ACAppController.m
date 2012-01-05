@@ -73,7 +73,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return NO;
+     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Views Methods
@@ -371,13 +371,14 @@
      */
 }
 
-#pragma ACSearchViewDelegate Methods
+#pragma mark - ACSearchViewDelegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.navigationController presentModalViewController:detailViewController animated:YES];
 }
 
 #pragma mark - ACTracksEventsListViewControllerDelegate Methods
@@ -387,6 +388,14 @@
     ACEventsListViewController *eventsListViewController = [[ACEventsListViewController alloc] initWithNibName:@"ACEventsListViewController" bundle:nil];
     [self.navigationController pushViewController:eventsListViewController animated:YES];
     
+}
+
+
+- (void)eventsTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ACUpcomingEventDescriptionViewController *descriptionViewController = [[ACUpcomingEventDescriptionViewController alloc] initWithNibName:@"ACUpcomingEventDescriptionViewController" bundle:nil];
+    [appDelegate.window addSubview:descriptionViewController.view];
+
 }
 
 @end

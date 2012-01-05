@@ -4494,7 +4494,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="NSFrame">{{264, 90}, {63, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -4526,7 +4525,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">images.jpg</string>
+							<string key="NSResourceName">images.png</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="783968537">
@@ -4770,7 +4769,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<string key="Activity_indicator-150x150.png">{150, 150}</string>
 			<string key="Availability.png">{121, 114}</string>
 			<string key="clock-1.png">{128, 128}</string>
-			<string key="images.jpg">{140, 140}</string>
+			<string key="images.png">{140, 140}</string>
 			<string key="keynote-icon-300x300.png">{300, 300}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">933</string>

@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACEventDescriptionWebviewController.h"
+
+@protocol ACEventDetailViewControllerDelegate;
 
 @interface ACEventDetailViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UITextView *topicDescriptionLinkTextView;
+@property (strong, nonatomic) id<ACEventDetailViewControllerDelegate>delegate;
+
+- (IBAction)viewEventDescriptionButtonTapped:(id)sender;
+@end
+
+@protocol ACEventDetailViewControllerDelegate
+
+@optional
+-(void) viewEventDescriptionButtonTapped : (id)sender inView:(ACEventDetailViewController *)descriptionController;
 
 @end

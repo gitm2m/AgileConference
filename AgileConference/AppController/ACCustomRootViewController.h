@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ACAppDelegate.h"
-
-
+ 
 @interface ACCustomRootViewController : UIViewController{
     
     ACAppDelegate *appDelegate;
@@ -19,7 +18,10 @@
 
 @property (strong, nonatomic) ACAppDelegate *appDelegate;
 
+
 -(void)setupInitialView;
 -(void)organizerButtonTapped : (id)sender ;
 
 @end
+
+

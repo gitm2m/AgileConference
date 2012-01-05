@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AVEventsListTableCellView.h"
+#import "ACEventDetailViewController.h"
+#import "ACEventDescriptionWebviewController.h"
 
-@interface ACEventsListViewController : UIViewController
+@interface ACEventsListViewController : UIViewController<ACEventDetailViewControllerDelegate,ACEventDescriptionWebviewControllerDelegate>{
+    
+    NSIndexPath *selectedEventTrackIndexPath;
+}
 
 @property (strong, nonatomic) IBOutlet UITableView *eventsListTableView;
 @end

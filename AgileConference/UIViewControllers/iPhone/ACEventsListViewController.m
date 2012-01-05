@@ -50,6 +50,22 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Setup and Modify Views Methods
+
+-(void)delayinNavigation{
+    
+    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" bundle:nil];
+    descriptionViewController.delegate = self;
+    
+    [self.navigationController pushViewController:descriptionViewController animated:YES];
+}
+
+-(void)delayInSelectingTableCell{
+    
+    [[eventsListTableView delegate] tableView:eventsListTableView didSelectRowAtIndexPath:selectedEventTrackIndexPath];
+}
+
+
 #pragma mark UITableViewDelegateMethods
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
@@ -77,7 +93,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    selectedEventTrackIndexPath = indexPath;
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    detailViewController.delegate = self;
+    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    
+    [self.navigationController presentModalViewController:detailViewController animated:YES];
     
 }
 
@@ -85,5 +109,20 @@
     
     return 126;
 }
+
+#pragma mark - ACEventDetailViewControllerDelegateMethods
+
+-(void) viewEventDescriptionButtonTapped : (id)sender inView:(ACEventDetailViewController *)descriptionController{
+    
+    [self performSelector:@selector(delayinNavigation) withObject:nil afterDelay:.5];
+ 
+   
+}
+
+#pragma mark - ACEventDescriptionWebviewControllerDelegate Methods
+-(void)eventDescriptionViewBackButtonTapped{
+    [self performSelector:@selector(delayInSelectingTableCell) withObject:nil afterDelay:.5];
+}
+
 
 @end

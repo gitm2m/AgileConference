@@ -19,6 +19,7 @@
 #import "ACEventDetailViewController.h"
 #import "ACOrganizerView.h"
 #import "ACEventsListViewController.h"
+#import "ACUpcomingEventDescriptionViewController.h"
 
 @interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate>{
     
@@ -53,5 +54,4 @@
 - (BOOL)isSearchViewVisibleOnScreen;
 
 
- @end
-
+@end
