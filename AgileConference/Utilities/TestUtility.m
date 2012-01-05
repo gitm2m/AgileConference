@@ -33,7 +33,12 @@
     //[[ACOrganiser getOrganiser]getCatalogListOfType:kTopicFavorite andCatalogTypeContent:@"YES"];
     [[ACOrganiser getOrganiser]searchCatalogWithSearchKey:@"Track" andSearchValue:@"Track1"];
     
-    [CommonUtility schedulNotification:@"02-01-2011" andTime:@"16:31" andFormat:@"dd-MM-yyyy, HH:mm"];
+    [CommonUtility schedulNotification:@"05-01-2011" andTime:@"14:05:11" andFormat:@"dd-MM-yyyy, HH:mm"];
+    [CommonUtility schedulNotification:@"05-01-2011" andTime:@"16:31" andFormat:@"dd-MM-yyyy, HH:mm"];
+    [CommonUtility schedulNotification:@"05-01-2011" andTime:@"16:31" andFormat:@"dd-MM-yyyy, HH:mm"];
+    [CommonUtility schedulNotification:@"05-01-2011" andTime:@"16:31" andFormat:@"dd-MM-yyyy, HH:mm"];
+    [CommonUtility schedulNotification:@"05-01-2011" andTime:@"16:31" andFormat:@"dd-MM-yyyy, HH:mm"];
+
     //NSLog(@"Dict:<<<<<%@>>>>>",dict);
 
     

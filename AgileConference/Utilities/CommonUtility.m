@@ -243,6 +243,8 @@
 
 +(void)schedulNotification:(NSString *)date andTime:(NSString *)time andFormat:(NSString *)format{
     
+   // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
+
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",date, time];
     Class cls = NSClassFromString(@"UILocalNotification");
@@ -263,6 +265,11 @@
         notif.userInfo = userDict;
         [[UIApplication sharedApplication] scheduleLocalNotification:notif];
     }
+    
+    
+   // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
+    
+    
     
 }
 

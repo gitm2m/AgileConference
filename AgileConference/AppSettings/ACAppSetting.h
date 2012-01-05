@@ -11,7 +11,13 @@
 
 @interface ACAppSetting : NSObject{
     
+    NSString *daySelected;
+    NSString *trackSelected;
 }
+@property(strong,nonatomic) NSString *daySelected;
+@property (strong,nonatomic)NSString *trackSelected;
+
+
 
 +(ACAppSetting *)getAppSession;
 -(void)setDefaultValues;

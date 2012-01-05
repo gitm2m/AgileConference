@@ -10,6 +10,9 @@
 static ACAppSetting *appSession = nil;
 
 @implementation ACAppSetting
+@synthesize     daySelected;
+@synthesize     trackSelected;
+
 
 
 
@@ -34,6 +37,9 @@ static ACAppSetting *appSession = nil;
 /////////////////////////////////////////////////////////////////////
 
 -(void)setDefaultValues{	
+    
+    daySelected=@"Day1";
+    trackSelected=@"Track1";
 }
 //
 -(void)resetToDefaultValues{

@@ -42,7 +42,7 @@
 		if (notification) {
 			NSString *reminderText = [notification.userInfo 
 									  objectForKey:kRemindMeNotificationDataKey];
-			[self.viewController showReminder:reminderText];
+			[self showReminder:reminderText];
 		}
 	}
 	
@@ -109,11 +109,12 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 -(void)showReminder:(NSString *)text {
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reminder" 
+   /* UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reminder" 
                                                         message:text delegate:nil 
                                               cancelButtonTitle:@"OK" 
                                               otherButtonTitles:nil];
     [alertView show];
+    */
 }
 
 
