@@ -101,7 +101,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [delegate eventsTableView:tableView didSelectRowAtIndexPath:indexPath];
+        // [delegate eventsTableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 #pragma mark - Events Methods
