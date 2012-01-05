@@ -20,6 +20,7 @@
     NSMutableArray *eventsListTableHeaderArray,*accordionViewTrackArray;
     NSArray *array;
     BOOL reloadHeaderNeeded;
+    IBOutlet UISearchBar *eventsSearchBar;
     
    
 }

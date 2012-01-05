@@ -1,15 +1,14 @@
 //
-//  ACEventDetailViewController.m
+//  ACUpcomingEventDescriptionViewController.m
 //  AgileConference
 //
-//  Created by Supreeth Doddabela on 01/01/12.
+//  Created by Supreeth Doddabela on 1/4/12.
 //  Copyright (c) 2012 Valtech India. All rights reserved.
 //
 
-#import "ACEventDetailViewController.h"
+#import "ACUpcomingEventDescriptionViewController.h"
 
-@implementation ACEventDetailViewController
-@synthesize topicDescriptionLinkTextView,delegate;
+@implementation ACUpcomingEventDescriptionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,13 +31,16 @@
 
 - (void)viewDidLoad
 {
+    
+    [descriptionView.layer setCornerRadius:12.0];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
-    [self setTopicDescriptionLinkTextView:nil];
+    descriptionView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -48,15 +50,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - Events Methods
-
-- (IBAction)viewEventDescriptionButtonTapped:(id)sender {
-    
-    [self dismissModalViewControllerAnimated:YES];
-    [delegate viewEventDescriptionButtonTapped:sender inView:self];
-
 }
 
 @end
