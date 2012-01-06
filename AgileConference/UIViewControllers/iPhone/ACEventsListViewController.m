@@ -101,13 +101,13 @@
     detailViewController.delegate = self;
     [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     
-    [self.navigationController presentModalViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 126;
+    return kEventTableCellHeight;
 }
 
 #pragma mark - ACEventDetailViewControllerDelegateMethods

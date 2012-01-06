@@ -179,6 +179,7 @@
 {
     //NSLog(@"Track selected:%i",inIndex);
     finalTrackIndex=inIndex;
+    ACLog(@"Track : %d", inIndex);
 }
 
 

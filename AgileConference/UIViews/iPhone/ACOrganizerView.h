@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AVEventsListTableCellView.h"
+#import "ACAppConstants.h"
 
 @interface ACOrganizerView : UIView
 @property (strong, nonatomic) IBOutlet UITableView *organizerListTableView;

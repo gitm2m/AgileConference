@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AVEventsListTableCellView.h"
 #import "ACEventsListHeaderView.h"
-
+#import "ACAppConstants.h"
 
 @protocol ACSearchViewDelegate ;
 

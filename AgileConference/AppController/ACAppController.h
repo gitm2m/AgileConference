@@ -20,6 +20,7 @@
 #import "ACOrganizerView.h"
 #import "ACEventsListViewController.h"
 #import "ACUpcomingEventDescriptionViewController.h"
+#import "ACAppSetting.h"
 
 @interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate>{
     
