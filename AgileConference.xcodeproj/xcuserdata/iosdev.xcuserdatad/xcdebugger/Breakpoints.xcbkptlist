@@ -22,20 +22,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "AgileConference/UIViews/iPhone/TableCellViews/AVEventsListTableCellView.m"
-         timestampString = "347537576.220872"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "14"
-         endingLineNumber = "14"
-         landmarkName = "-initWithStyle:reuseIdentifier:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "AgileConference/UIViewControllers/iPhone/ACEventsListViewController.m"
          timestampString = "347542449.416226"
          startingColumnNumber = "9223372036854775807"
@@ -57,6 +43,34 @@
          startingLineNumber = "66"
          endingLineNumber = "66"
          landmarkName = "-delayinNavigation"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/AppController/ACAppController.m"
+         timestampString = "347547855.013053"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "402"
+         endingLineNumber = "402"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/AppController/ACAppController.m"
+         timestampString = "347551851.468829"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
+         landmarkName = "-searchButtonTapped:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -17,12 +17,22 @@
     
     id<ACSearchViewDelegate>delegate;
     NSDictionary *eventsListTableContentsDict;
-    NSMutableArray *eventsListTableHeaderArray,*accordionViewTrackArray;
+    NSMutableArray *eventsListTableHeaderArray;
     NSArray *array;
     BOOL reloadHeaderNeeded;
     IBOutlet UISearchBar *eventsSearchBar;
     
-   
+    //
+    NSMutableArray  *searchDataArray;
+    
+    NSMutableArray *daySectionArray;
+    NSMutableArray *trackSectionArray;
+    NSMutableArray *commonSectionArray;
+    
+    NSMutableArray *accordionViewTrackArray;
+    NSMutableArray *accordionViewDayArray;
+    NSMutableArray *accordionViewCommonArray;
+
 }
 
 @property (strong, nonatomic) id<ACSearchViewDelegate>delegate;

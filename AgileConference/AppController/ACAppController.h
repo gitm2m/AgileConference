@@ -22,7 +22,7 @@
 #import "ACUpcomingEventDescriptionViewController.h"
 #import "ACAppSetting.h"
 
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;

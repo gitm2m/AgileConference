@@ -25,7 +25,7 @@
 
         NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
         topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
-         self.contentSizeForViewInPopover = CGSizeMake(300, (2*55)+30);
+         self.contentSizeForViewInPopover = CGSizeMake(300, 176);
         
     }
     return self;
@@ -85,7 +85,7 @@
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
     
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -114,14 +114,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 55;
+    return 49;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // [delegate eventsTableView:tableView didSelectRowAtIndexPath:indexPath];
+    [delegate eventsTableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 #pragma mark - Events Methods
@@ -142,8 +142,10 @@
     NSMutableArray *array=[[NSMutableArray alloc] init];
     NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
     NSIndexPath *indwxPath1 =[NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *indwxPath2 =[NSIndexPath indexPathForRow:2 inSection:0];
     [array addObject:indwxPath0];
     [array addObject:indwxPath1];
+    [array addObject:indwxPath2];
     //
     NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
     topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];

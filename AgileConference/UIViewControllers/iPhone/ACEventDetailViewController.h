@@ -11,12 +11,21 @@
 
 @protocol ACEventDetailViewControllerDelegate;
 
-@interface ACEventDetailViewController : UIViewController
+@interface ACEventDetailViewController : UIViewController<UIActionSheetDelegate>{
+    
+    IBOutlet UITextView *SpeakerSummaryView;
+    IBOutlet UITextView *topicSummaryView;
+    NSMutableDictionary *topicDict;
+}
 
 @property (strong, nonatomic) IBOutlet UITextView *topicDescriptionLinkTextView;
 @property (strong, nonatomic) id<ACEventDetailViewControllerDelegate>delegate;
 
-- (IBAction)viewEventDescriptionButtonTapped:(id)sender;
+- (IBAction)viewMoreButtonTapped:(id)sender;
+- (void)shareButtonTapped : (id)sender;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)topicIndex;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicDict:(NSMutableDictionary *)topicDictionary;
+
 @end
 
 @protocol ACEventDetailViewControllerDelegate

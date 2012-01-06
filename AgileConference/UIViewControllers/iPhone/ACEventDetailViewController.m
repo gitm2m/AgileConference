@@ -11,14 +11,33 @@
 @implementation ACEventDetailViewController
 @synthesize topicDescriptionLinkTextView,delegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)index{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
+        NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+        NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+        
+        NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
+        NSMutableArray *topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+        topicDict=[topicArray objectAtIndex:index];
+
+        
     }
     return self;
 }
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicDict:(NSMutableDictionary *)topicDictionary{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        // Custom initialization
+        topicDict=topicDictionary;
+    }
+    return self;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -32,6 +51,13 @@
 
 - (void)viewDidLoad
 {
+    
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    
+    self.navigationItem.rightBarButtonItem = shareButton;
+    //[topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
+    //[SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeaker]];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -39,6 +65,8 @@
 - (void)viewDidUnload
 {
     [self setTopicDescriptionLinkTextView:nil];
+    topicSummaryView = nil;
+    SpeakerSummaryView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -52,11 +80,26 @@
 
 #pragma mark - Events Methods
 
-- (IBAction)viewEventDescriptionButtonTapped:(id)sender {
+- (IBAction)viewMoreButtonTapped:(id)sender {
     
-    [self dismissModalViewControllerAnimated:YES];
-    [delegate viewEventDescriptionButtonTapped:sender inView:self];
+        //[self dismissModalViewControllerAnimated:YES];
+        //[delegate viewEventDescriptionButtonTapped:sender inView:self];
+    
+    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" bundle:nil];
+    
+    [self.navigationController presentModalViewController:descriptionViewController animated:YES];
+
 
 }
 
+- (void)shareButtonTapped : (id)sender{
+    
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Linkedin", nil];
+    
+        //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
+    
+    [shareActionSheet showInView:self.view];
+    
+    
+}
 @end

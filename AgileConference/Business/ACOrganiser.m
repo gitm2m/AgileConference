@@ -96,7 +96,7 @@ static ACOrganiser *appOrganiser = nil;
         
 }
     
-    NSLog(@"%@ list:%@",catalogType,favDict);
+    ACLog(@"%@ list:%@",catalogType,favDict);
     return favDict;
 }
 
@@ -126,7 +126,7 @@ static ACOrganiser *appOrganiser = nil;
             }
 
         }
-        NSLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
+        ACLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
         return resultDict;
     
     }
@@ -140,7 +140,7 @@ static ACOrganiser *appOrganiser = nil;
                 [resultDict removeObjectForKey:key];
             }
         }
-        NSLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
+        ACLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
         return resultDict;
     }
     

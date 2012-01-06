@@ -32,7 +32,7 @@
 {
 	[super layoutSubviews];
 
-	cellView.frame = CGRectMake(0, 0, 320,116);
+    cellView.frame = CGRectMake(0, 0, 320,kEventTableCellHeight);
 	[cellView setNeedsLayout];
 	[cellView setNeedsDisplay];
 }

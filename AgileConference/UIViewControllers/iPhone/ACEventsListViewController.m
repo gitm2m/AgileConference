@@ -108,9 +108,10 @@
     
     selectedEventTrackIndexPath = indexPath;
     
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:[topicArray objectAtIndex:indexPath.row]];
     detailViewController.delegate = self;
     [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     
