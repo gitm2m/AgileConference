@@ -15,6 +15,7 @@
 @interface ACEventsListViewController : UIViewController<ACEventDetailViewControllerDelegate,ACEventDescriptionWebviewControllerDelegate>{
     
     NSIndexPath *selectedEventTrackIndexPath;
+    NSMutableArray *topicArray;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *eventsListTableView;

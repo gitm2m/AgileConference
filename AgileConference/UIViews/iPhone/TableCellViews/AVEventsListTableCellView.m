@@ -47,6 +47,13 @@
 -(void)setCellData:(NSDictionary *)inCellData
 {
 	cellView.cellData = inCellData;
+    //ACLog(@"Cell view %@ %@", cellView,cellView.cellData);
+    cellView.topicLabel.text=[inCellData objectForKey:kTopicTitle];
+    cellView.speakerLabel.text=[inCellData objectForKey:kTopicSpeaker];
+    cellView.timeLabel.text=[inCellData objectForKey:kTopicTime];
+    cellView.statusLabel.text=[inCellData objectForKey:kTopicOver];
+
+    
 }
 
 

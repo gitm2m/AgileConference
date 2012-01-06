@@ -9,6 +9,10 @@
 #import "AVEventsListCellView.h"
 
 @implementation AVEventsListCellView
+@synthesize speakerLabel;
+@synthesize timeLabel;
+@synthesize statusLabel;
+@synthesize topicLabel;
 @synthesize cellData;
 
 - (id)initWithFrame:(CGRect)frame
