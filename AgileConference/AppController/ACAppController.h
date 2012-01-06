@@ -21,8 +21,9 @@
 #import "ACEventsListViewController.h"
 #import "ACUpcomingEventDescriptionViewController.h"
 #import "ACAppSetting.h"
+#import "ACSplashView.h"
 
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;
@@ -31,6 +32,7 @@
     ACTracksEventsListViewController *contentViewController;
     ACSearchPopoverViewController *serachPopoverContentViewController;
     NSInteger finalTrackIndex;
+    ACSplashView *splashScreenView;
     
 }
 
@@ -50,6 +52,6 @@
 - (void)shareButtonTapped : (id)sender;
 - (BOOL)isOrganizerViewVisibleOnScreen;
 - (BOOL)isSearchViewVisibleOnScreen;
-
+- (void)showSplasScreen;
 
 @end

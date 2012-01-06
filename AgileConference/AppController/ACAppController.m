@@ -9,6 +9,7 @@
 #import "ACAppController.h"
 #import "ACOrganiser.h"
 #import "ACAppSetting.h"
+#import "Twitter/TWTweetComposeViewController.h"
 
 @implementation ACAppController
 @synthesize organizerView;
@@ -112,6 +113,8 @@
 
     [self setupViewsFromNib];
     
+        // [self showSplasScreen];
+    
 }
 
 
@@ -135,10 +138,44 @@
     for (id object in organizerViewNibObjects) {
         if ([object isKindOfClass:[ACOrganizerView class]])
         organizerView = (ACOrganizerView*)object;
+        organizerView.delegate = self;
     }  
     organizerView.frame = CGRectMake(0, 415, 320, 380);
     
     [self.view addSubview:organizerView];
+    
+    NSArray *splashViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACSplashView" owner:self options:nil];
+        // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
+    for (id object in splashViewNibObjects) {
+        if ([object isKindOfClass:[ACSplashView class]])
+            splashScreenView = (ACSplashView*)object;
+            //organizerView.delegate = self;
+    }  
+    splashScreenView.frame = CGRectMake(0, 0, 320, 480);
+    
+        // [appDelegate.window addSubview:splashScreenView];
+
+}
+
+- (void)showSplasScreen{
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [splashScreenView.logoImageView setFrame:CGRectMake(80, 169, 160, 80)];
+    [UIView commitAnimations];
+
+    [self performSelector:@selector(animateLogoImageView) withObject:nil afterDelay:2];
+    
+}
+
+- (void)animateLogoImageView{
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [splashScreenView.logoImageView setFrame:CGRectMake(80, 30, 160, 80)];
+    [UIView commitAnimations];
+    
+    
 
 }
 
@@ -295,7 +332,7 @@
     UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Linkedin", nil];
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
-    
+    shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
 
 
@@ -422,6 +459,53 @@
     [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     [self.navigationController pushViewController:detailViewController animated:YES];
 
+}
+
+#pragma mark - ACOrganizerViewDelegate Methods
+- (void)organizerListTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+}
+
+#pragma mark - UIActionSheetDelegate Methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
+        [twitter setInitialText:@"It's really that simple!"];
+        [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
+        
+        [self presentViewController:twitter animated:YES completion:nil];
+        
+        twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+            
+            if(res == TWTweetComposeViewControllerResultDone)
+                {
+                
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Succes!" message:@"Your Tweet was posted succesfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alertView show];
+                
+                }else if(res == TWTweetComposeViewControllerResultCancelled)
+                    {
+                    
+                        // UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your Tweet was not posted" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    
+                        //  [alertView show];
+                    
+                    }
+            
+            [self dismissModalViewControllerAnimated:YES];
+            
+            
+        };
+
+    }
 }
 
 @end

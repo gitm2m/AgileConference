@@ -7,6 +7,7 @@
 //
 
 #import "ACEventDetailViewController.h"
+#import "Twitter/TWTweetComposeViewController.h"
 
 @implementation ACEventDetailViewController
 @synthesize topicDescriptionLinkTextView,delegate;
@@ -97,9 +98,47 @@
     UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Linkedin", nil];
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
-    
+    shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
     
     
 }
+
+#pragma mark - UIActionSheetDelegate Methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
+        [twitter setInitialText:@"It's really that simple!"];
+        [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
+        
+        [self presentViewController:twitter animated:YES completion:nil];
+        
+        twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+            
+            if(res == TWTweetComposeViewControllerResultDone)
+                {
+                
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Succes!" message:@"Your Tweet was posted succesfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alertView show];
+                
+                }else if(res == TWTweetComposeViewControllerResultCancelled)
+                    {
+                    
+                        //  UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your Tweet was not posted" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    
+                        // [alertView show];
+                    
+                    }
+            
+            [self dismissModalViewControllerAnimated:YES];
+            
+            
+        };
+        
+    }
+}
+
 @end
