@@ -10,6 +10,7 @@
 #import "AVEventsListTableCellView.h"
 #import "ACEventDetailViewController.h"
 #import "ACEventDescriptionWebviewController.h"
+#import "ACAppConstants.h"
 
 @interface ACEventsListViewController : UIViewController<ACEventDetailViewControllerDelegate,ACEventDescriptionWebviewControllerDelegate>{
     
