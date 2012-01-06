@@ -9,7 +9,7 @@
 #import "ACOrganizerView.h"
 
 @implementation ACOrganizerView
-@synthesize organizerListTableView;
+@synthesize organizerListTableView,delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -62,5 +62,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [delegate organizerListTableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 @end

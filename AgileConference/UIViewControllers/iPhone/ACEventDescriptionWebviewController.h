@@ -19,6 +19,7 @@
 @property (strong, nonatomic) id<ACEventDescriptionWebviewControllerDelegate>delegate;
 
 -(void)backButtonTapped : (id)sender;
+- (IBAction)doneBarButtonPressed:(id)sender;
 
 @end
 

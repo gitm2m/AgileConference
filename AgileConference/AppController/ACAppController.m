@@ -91,7 +91,7 @@
     
     self.navigationItem.leftBarButtonItem = shareButton;
     
-    tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,0, 308, 250)];
+    tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,-11, 308, 250)];
     [tracksCoverView  setBackgroundColor:[UIColor clearColor]];
     [[tracksCoverView layer] setCornerRadius : 5.0f];
     [tracksCoverView setDelegate:self];
@@ -105,7 +105,7 @@
 
     
     tracksEventsPopoverController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
-    [tracksEventsPopoverController presentPopoverFromRect:CGRectMake(110, 90, 100, 100) 
+    [tracksEventsPopoverController presentPopoverFromRect:CGRectMake(110, 79, 100, 100) 
                                             inView:self.view 
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
@@ -151,7 +151,7 @@
 
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)image
 {
-    NSLog(@"Track flowCover selected:%i",image);
+    ACLog(@"Track flowCover selected:%i",image);
 
 	return [UIImage imageNamed:[tracksCoverFlowImgsArray objectAtIndex:image]];
 
@@ -167,7 +167,7 @@
 }
 -(void)didSelectSlide:(NSInteger)index{
     
-    NSLog(@"did select slide>>>>>>>>>>%i",finalTrackIndex);
+    ACLog(@"did select slide>>>>>>>>>>%i",finalTrackIndex);
     NSString *trackSelected=[NSString stringWithFormat:@"Track%i",finalTrackIndex+1];
    [[ACAppSetting getAppSession]setTrackSelected:trackSelected];
    [contentViewController reloadEventTableView];
@@ -292,8 +292,14 @@
 
 - (void)shareButtonTapped : (id)sender{
     
-
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Linkedin", nil];
     
+        //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
+    
+    [shareActionSheet showInView:self.view];
+
+
+    /*
     [self.view insertSubview:shareFeedBackView aboveSubview:tracksEventsPopoverController.view];
     
     [self.view insertSubview:shareFeedBackView aboveSubview:organizerButtn];
@@ -313,7 +319,7 @@
         
     }
     
-
+     */
     
 }
 
@@ -396,7 +402,7 @@
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
     [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     
-    [self.navigationController presentModalViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - ACTracksEventsListViewControllerDelegate Methods
@@ -411,8 +417,10 @@
 
 - (void)eventsTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ACUpcomingEventDescriptionViewController *descriptionViewController = [[ACUpcomingEventDescriptionViewController alloc] initWithNibName:@"ACUpcomingEventDescriptionViewController" bundle:nil];
-    [appDelegate.window addSubview:descriptionViewController.view];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
 
 }
 

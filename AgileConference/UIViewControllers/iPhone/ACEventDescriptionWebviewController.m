@@ -74,6 +74,14 @@
     [delegate eventDescriptionViewBackButtonTapped]; 
 }
 
+
+- (IBAction)doneBarButtonPressed:(id)sender{
+    
+    [eventDescriptionWebview stopLoading];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
 #pragma mark - UIWebviewDelegate Methods
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{

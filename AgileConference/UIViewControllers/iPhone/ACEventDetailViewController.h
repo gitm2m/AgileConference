@@ -11,12 +11,14 @@
 
 @protocol ACEventDetailViewControllerDelegate;
 
-@interface ACEventDetailViewController : UIViewController
+@interface ACEventDetailViewController : UIViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *topicDescriptionLinkTextView;
 @property (strong, nonatomic) id<ACEventDetailViewControllerDelegate>delegate;
 
-- (IBAction)viewEventDescriptionButtonTapped:(id)sender;
+- (IBAction)viewMoreButtonTapped:(id)sender;
+- (void)shareButtonTapped : (id)sender;
+
 @end
 
 @protocol ACEventDetailViewControllerDelegate
