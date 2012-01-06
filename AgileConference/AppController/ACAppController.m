@@ -162,13 +162,15 @@
 
 -(void)slideChanged: (int) inIndex 
 {
-
+    ACLog(@"Track : %d", inIndex);
 }
 
 
 #pragma mark - Events Methods
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
+    
+    
 
 }
 
