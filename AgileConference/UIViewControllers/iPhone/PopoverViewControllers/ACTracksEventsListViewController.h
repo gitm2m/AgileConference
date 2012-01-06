@@ -11,15 +11,19 @@
 
 @protocol ACTracksEventsListViewControllerDelegate;
 
-@interface ACTracksEventsListViewController : UIViewController
+@interface ACTracksEventsListViewController : UIViewController{
+    
+    NSMutableArray *topicArray;
+}
 
 @property (strong, nonatomic) IBOutlet UITableView *eventsTableView;
 @property (strong, nonatomic) id<ACTracksEventsListViewControllerDelegate>delegate;
 
 
-- (IBAction)viewMoreTopicsButtonTapped:(id)sender;
-- (void)setupView;
-- (void)changeCellsLables : (NSArray *)topicNamesArray;
+-(IBAction)viewMoreTopicsButtonTapped:(id)sender;
+-(void)setupView;
+-(void)changeCellsLables : (NSArray *)topicNamesArray;
+-(void)reloadEventTableView;
 
 @end
 
@@ -28,4 +32,5 @@
 @optional
 - (void)viewMoreTopicsButtonTapped:(id)sender inView:(ACTracksEventsListViewController*)tracksEventsListView;
 - (void)eventsTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

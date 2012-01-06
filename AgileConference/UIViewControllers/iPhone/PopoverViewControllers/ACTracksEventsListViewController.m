@@ -6,6 +6,9 @@
 //  Copyright (c) 2011 Valtech India. All rights reserved.
 //
 
+#import "ACOrganiser.h"
+#import "ACAppSetting.h"
+
 #import "ACTracksEventsListViewController.h"
 
 @implementation ACTracksEventsListViewController
@@ -16,7 +19,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-         self.contentSizeForViewInPopover = CGSizeMake(300, (2*44)+30);
+
+        NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+        NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+
+        NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
+        topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+         self.contentSizeForViewInPopover = CGSizeMake(300, (2*55)+30);
+        
     }
     return self;
 }
@@ -84,24 +94,34 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
         // Configure the cell.
-    cell.textLabel.text = @"Agile Conference";
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
     
-    cell.detailTextLabel.text = @"10:30";
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+    NSMutableDictionary *topicDict=[topicArray objectAtIndex:indexPath.row];
+    
+    ACLog(@"Topic dict:%@",topicDict);
+    cell.textLabel.text = [topicDict objectForKey:kTopicTitle];
+    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    [cell.textLabel setNumberOfLines:3];
+    cell.detailTextLabel.text =[topicDict objectForKey:kTopicTime];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:11];
     return cell;
 
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 55;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        // [delegate eventsTableView:tableView didSelectRowAtIndexPath:indexPath];
+    // [delegate eventsTableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 #pragma mark - Events Methods
@@ -110,6 +130,30 @@
 
     [delegate viewMoreTopicsButtonTapped:sender inView:self];
 }
+
+-(void)reloadEventTableView{
+    
+    NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+    NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+    ACLog(@"daySelected:%@>>>>>>>>",daySelected);
+    ACLog(@"trackSelected:%@>>>>>>",trackSelected);
+    
+    //
+    NSMutableArray *array=[[NSMutableArray alloc] init];
+    NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *indwxPath1 =[NSIndexPath indexPathForRow:1 inSection:0];
+    [array addObject:indwxPath0];
+    [array addObject:indwxPath1];
+    //
+    NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
+    topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+    [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
+
+    //[eventsTableView reloadData];
+    
+}
+
+
 
 
 @end

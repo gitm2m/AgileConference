@@ -490,6 +490,8 @@ static void *GData = NULL;
 
 - (void)endAnimation
 {
+    
+    NSLog(@"end animatioon....");
 	if (timer) {
 		int max = [self numTiles] - 1;
 		offset = floor(offset + 0.5);
@@ -499,6 +501,8 @@ static void *GData = NULL;
 		
 		[timer invalidate];
 		timer = nil;
+        NSLog(@"end animatioon..in timer condition..");
+        [delegate didSelectSlide:max];
 	}
 }
 

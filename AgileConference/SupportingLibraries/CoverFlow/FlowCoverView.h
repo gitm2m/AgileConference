@@ -79,4 +79,5 @@
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)cover;
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)cover;
 -(void)slideChanged:(int)index;
+-(void)didSelectSlide:(NSInteger)index;
 @end

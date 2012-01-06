@@ -29,6 +29,8 @@
     WEPopoverController *searchPopoverController;
     ACTracksEventsListViewController *contentViewController;
     ACSearchPopoverViewController *serachPopoverContentViewController;
+    NSInteger finalTrackIndex;
+    
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;

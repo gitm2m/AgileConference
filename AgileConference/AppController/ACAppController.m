@@ -8,6 +8,7 @@
 
 #import "ACAppController.h"
 #import "ACOrganiser.h"
+#import "ACAppSetting.h"
 
 @implementation ACAppController
 @synthesize organizerView;
@@ -150,26 +151,44 @@
 
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)image
 {
+    NSLog(@"Track flowCover selected:%i",image);
+
 	return [UIImage imageNamed:[tracksCoverFlowImgsArray objectAtIndex:image]];
+
 }
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
 	
- 
+    //NSLog(@"Track didSelect selected:%i",image);
+
+   // 0,1,2,6,5,4,3
+   // 1,2,3,4,5,6,7
+}
+-(void)didSelectSlide:(NSInteger)index{
     
+    NSLog(@"did select slide>>>>>>>>>>%i",finalTrackIndex);
+    NSString *trackSelected=[NSString stringWithFormat:@"Track%i",finalTrackIndex+1];
+   [[ACAppSetting getAppSession]setTrackSelected:trackSelected];
+   [contentViewController reloadEventTableView];
+
 }
 
 -(void)slideChanged: (int) inIndex 
-{
 
+{
+    //NSLog(@"Track selected:%i",inIndex);
+    finalTrackIndex=inIndex;
 }
 
 
 #pragma mark - Events Methods
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
-
+    
+    NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
+    [[ACAppSetting getAppSession]setDaySelected:daySelected];
+    [contentViewController reloadEventTableView];
 }
 
 
@@ -194,8 +213,6 @@
             [organizerView setFrame:CGRectMake(0, 415, 320, 380)];
             [UIView commitAnimations];
         }
-        
-            
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.0001];

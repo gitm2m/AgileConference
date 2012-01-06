@@ -53,7 +53,7 @@ static ACOrganiser *appOrganiser = nil;
     return NO;
 
 }
-//
+//Search favorite participants
 -(NSMutableDictionary *)getCatalogListOfType:(NSString *)catalogType andCatalogTypeContent:(NSString *)content{
     
     NSMutableDictionary *favDict=[[NSMutableDictionary alloc] init];
@@ -98,15 +98,17 @@ static ACOrganiser *appOrganiser = nil;
     
     NSLog(@"%@ list:%@",catalogType,favDict);
     return favDict;
-    
 }
-//
+
+
+//search with day , track and topic key
 -(NSMutableDictionary *)searchCatalogWithSearchKey:(NSString *)searchKey 
                              andSearchValue:(NSString *)searchValue{
     
     if([searchKey hasPrefix:@"Topic_"]){
         return [self getCatalogListOfType:searchKey andCatalogTypeContent:searchValue];
-    }else if([searchKey isEqualToString:@"Track"]){
+    }
+    else if([searchKey isEqualToString:@"Track"]){
         
         NSMutableDictionary *resultDict=[[NSMutableDictionary alloc] initWithDictionary:catalogDict];
         NSArray *keyArray=[resultDict allKeys];
@@ -126,8 +128,8 @@ static ACOrganiser *appOrganiser = nil;
         }
         NSLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
         return resultDict;
-    }
     
+    }
     else if([searchKey isEqualToString:@"Day"]){
         
         NSMutableDictionary *resultDict=[[NSMutableDictionary alloc] initWithDictionary:catalogDict];
