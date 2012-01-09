@@ -15,4 +15,5 @@
 
 }
 @property (strong,nonatomic) NSDictionary *cellData;
+
 @end

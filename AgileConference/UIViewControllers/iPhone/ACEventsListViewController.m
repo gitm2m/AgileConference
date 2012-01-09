@@ -7,6 +7,10 @@
 //
 
 #import "ACEventsListViewController.h"
+#import "ACAppSetting.h"
+#import "ACOrganiser.h"
+
+
 
 @implementation ACEventsListViewController
 @synthesize eventsListTableView;
@@ -16,6 +20,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+        NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+        
+        NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
+        topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+
     }
     return self;
 }
@@ -70,7 +81,7 @@
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
     
-    return 4;
+    return [topicArray count];
 
 }
 
@@ -86,6 +97,8 @@
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		
         }
+
+    [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     
     return cell;
     
@@ -95,9 +108,10 @@
     
     selectedEventTrackIndexPath = indexPath;
     
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:[topicArray objectAtIndex:indexPath.row]];
     detailViewController.delegate = self;
     [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     

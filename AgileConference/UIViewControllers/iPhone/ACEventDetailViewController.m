@@ -12,14 +12,33 @@
 @implementation ACEventDetailViewController
 @synthesize topicDescriptionLinkTextView,delegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)index{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
+        NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+        NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+        
+        NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
+        NSMutableArray *topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+        topicDict=[topicArray objectAtIndex:index];
+
+        
     }
     return self;
 }
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicDict:(NSMutableDictionary *)topicDictionary{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        // Custom initialization
+        topicDict=topicDictionary;
+    }
+    return self;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -37,7 +56,8 @@
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
     self.navigationItem.rightBarButtonItem = shareButton;
-
+    //[topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
+    //[SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeaker]];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -46,6 +66,8 @@
 - (void)viewDidUnload
 {
     [self setTopicDescriptionLinkTextView:nil];
+    topicSummaryView = nil;
+    SpeakerSummaryView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

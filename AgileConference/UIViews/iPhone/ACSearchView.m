@@ -17,42 +17,58 @@
     if (self) {
         // Initialization code
         // [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        searchDataArray=[[NSMutableArray alloc] init];
+        daySectionArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
+        trackSectionArray= [[NSMutableArray alloc] initWithObjects:@"Track1",@"Track2",@"Track3",@"Track4",@"Track5",@"Track6",@"Track7",nil];
+        commonSectionArray=daySectionArray;
+
+
     }
     return self;
 }
 
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+-(void)setSectionArrayForSearchView:(NSString *)sectionType{
+    
+    if([sectionType hasPrefix:@"Track"]){
+        commonSectionArray=trackSectionArray;
 
+    }else{
+        commonSectionArray=daySectionArray;
+
+    }
+    
+    
+}
 -(void)layoutSubviews
 {
     reloadHeaderNeeded = YES;
-    accordionViewTrackArray = [[NSMutableArray alloc] initWithObjects:@"1",@"0",@"0",nil];
-    eventsListTableHeaderArray = [[NSMutableArray alloc] initWithObjects:@"17th Feb",@"18th Feb",@"19th Feb",nil];
+    accordionViewDayArray = [[NSMutableArray alloc] initWithObjects:@"1",@"0",@"0",nil];
+    accordionViewTrackArray = [[NSMutableArray alloc] initWithObjects:@"1",@"0",@"0",@"0",@"0",@"0",@"0",nil];
+    
+    eventsListTableHeaderArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
     array = [[NSArray  alloc ]initWithObjects:@"a",@"s",@"d",@"r", nil];
     eventsListTableContentsDict = [[NSDictionary alloc] initWithObjectsAndKeys:array,@"1",array,@"2",array,@"3", nil];
-	
+    
+    searchDataArray=[[NSMutableArray alloc] init];
+    daySectionArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
+    trackSectionArray= [[NSMutableArray alloc] initWithObjects:@"Track1",@"Track2",@"Track3",@"Track4",@"Track5",@"Track6",@"Track7",nil];
+    commonSectionArray=trackSectionArray;
+    accordionViewCommonArray =accordionViewTrackArray;
+
+
 }
 
 #pragma mark - UITableViewDelegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [eventsListTableContentsDict count];
+    
+    return [commonSectionArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
     
-    if([[accordionViewTrackArray objectAtIndex:section] isEqualToString:@"0"])
-        return 0;
-    else
-        return 4;
+    return [searchDataArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -108,7 +124,7 @@
             reloadHeaderNeeded = NO;
             [[(ACEventsListHeaderView*)object eventsListHeaderButton] setTag:section];
             [(ACEventsListHeaderView*)object setDelegate:self];
-            [[(ACEventsListHeaderView*)object evemtsListTableHeaderLabel] setText:[eventsListTableHeaderArray objectAtIndex:section]];
+            [[(ACEventsListHeaderView*)object evemtsListTableHeaderLabel] setText:[commonSectionArray objectAtIndex:section]];
             if([[accordionViewTrackArray objectAtIndex:section] isEqualToString:@"0"]){
                 [[(ACEventsListHeaderView*)object headerAccesoryImage] setImage:[UIImage imageNamed:@"A_1@2x.png"]];
                 [[(ACEventsListHeaderView*)object headerAccesoryImage] setTag:1111];

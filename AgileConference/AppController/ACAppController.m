@@ -454,9 +454,9 @@
 
 - (void)eventsTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicIndex:indexPath.row];
     
+    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     [self.navigationController pushViewController:detailViewController animated:YES];
 
 }
