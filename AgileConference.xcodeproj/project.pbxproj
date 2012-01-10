@@ -49,6 +49,7 @@
 		38E7FAE514BC0268000E21FA /* ACFacebookShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAE414BC0268000E21FA /* ACFacebookShareView.xib */; };
 		38E7FAE814BC0661000E21FA /* Screen shot 2012-01-10 at 11.05.19 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAE714BC0661000E21FA /* Screen shot 2012-01-10 at 11.05.19 AM.png */; };
 		38E7FAEA14BC3627000E21FA /* Cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAE914BC3627000E21FA /* Cancel.png */; };
+		38E7FB0814BC58F8000E21FA /* header_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FB0714BC58F8000E21FA /* header_01.png */; };
 		38E9A15214B2C8D900C11C56 /* ACOrganizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9A15114B2C8D900C11C56 /* ACOrganizerView.m */; };
 		38E9A15414B2C8ED00C11C56 /* ACOrganizerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E9A15314B2C8ED00C11C56 /* ACOrganizerView.xib */; };
 		38E9A15814B3046600C11C56 /* ACEventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9A15614B3046600C11C56 /* ACEventsListViewController.m */; };
@@ -205,6 +206,7 @@
 		38E7FAE414BC0268000E21FA /* ACFacebookShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACFacebookShareView.xib; sourceTree = "<group>"; };
 		38E7FAE714BC0661000E21FA /* Screen shot 2012-01-10 at 11.05.19 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen shot 2012-01-10 at 11.05.19 AM.png"; sourceTree = "<group>"; };
 		38E7FAE914BC3627000E21FA /* Cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cancel.png; sourceTree = "<group>"; };
+		38E7FB0714BC58F8000E21FA /* header_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_01.png; sourceTree = "<group>"; };
 		38E9A15014B2C8D900C11C56 /* ACOrganizerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOrganizerView.h; sourceTree = "<group>"; };
 		38E9A15114B2C8D900C11C56 /* ACOrganizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOrganizerView.m; sourceTree = "<group>"; };
 		38E9A15314B2C8ED00C11C56 /* ACOrganizerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACOrganizerView.xib; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 		6A42708314AC71E800F91472 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				38E7FB0714BC58F8000E21FA /* header_01.png */,
 				3878300C14B724060007133B /* logo.png */,
 				3878300A14B723B70007133B /* Splash.png */,
 				38E9A16A14B313D300C11C56 /* Organizer.png */,
@@ -1017,6 +1020,7 @@
 				38E7FAE514BC0268000E21FA /* ACFacebookShareView.xib in Resources */,
 				38E7FAE814BC0661000E21FA /* Screen shot 2012-01-10 at 11.05.19 AM.png in Resources */,
 				38E7FAEA14BC3627000E21FA /* Cancel.png in Resources */,
+				38E7FB0814BC58F8000E21FA /* header_01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

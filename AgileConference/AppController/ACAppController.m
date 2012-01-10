@@ -120,7 +120,7 @@
 
     [self setupViewsFromNib];
     
-        // [self showSplasScreen];
+    [self showSplasScreen];
     
 }
 
@@ -160,7 +160,7 @@
     }  
     splashScreenView.frame = CGRectMake(0, 0, 320, 480);
     
-        // [appDelegate.window addSubview:splashScreenView];
+    [appDelegate.window addSubview:splashScreenView];
 
 }
 
@@ -501,7 +501,7 @@
     
     if (buttonIndex == 1) {
         TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
-        [twitter setInitialText:@"It's really that simple!"];
+        [twitter setInitialText:@"Write your text here!!"];
             //[twitter addImage:[UIImage imageNamed:@"bg_moderator_notes1.png"]];
         
         [self presentViewController:twitter animated:YES completion:nil];
@@ -533,11 +533,15 @@
         
         if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
             
+            isFBLoginFirtTime = YES;
             [[ACFacebookConnect getFacebookConnectObject] checkForSessionWithCallbackObject:self andSelector:@selector(fbGraphCallback:)];
+        
+        }else{
+             [self displayFacebookShareView];
         }
         
               
-        [self displayFacebookShareView];
+       
       
     }
 }
@@ -552,9 +556,14 @@
 	
         // [[ACFacebookConnect getFacebookConnectObject] checkForSessionWithCallbackObject:self andSelector:@selector(fbGraphCallback:)];
     
+    if(isFBLoginFirtTime){
+        [self displayFacebookShareView];
+        isFBLoginFirtTime = NO;
+    }
+    
     if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ) {
 		
-		NSLog(@"You pressed the 'cancel' or 'Dont Allow' button, you are NOT logged into Facebook...I require you to be logged in & approve access before you can do anything useful....");
+		ACLog(@"You pressed the 'cancel' or 'Dont Allow' button, you are NOT logged into Facebook...I require you to be logged in & approve access before you can do anything useful....");
 		
             //restart the authentication process.....
 		[[[ACFacebookConnect getFacebookConnectObject] fbGraph] authenticateUserWithCallbackObject:self andSelector:@selector(fbGraphCallback:) 
@@ -562,8 +571,13 @@
 		
 	} else {
         
-		NSLog(@"------------>CONGRATULATIONS<------------, You're logged into Facebook...  Your oAuth token is:  %@", [[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken);
-		
+		ACLog(@"------------>CONGRATULATIONS<------------, You're logged into Facebook...  Your oAuth token is:  %@", [[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken);
+        
+//        if(didFinishedPostingOnWall){
+//            didFinishedPostingOnWall = NO;
+//            [self postFacebookFeedOnPage];
+//        }
+//		
 	}
 	
 }
@@ -590,10 +604,12 @@
     
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
     
-    [variables setObject:@"AgileConference2012" forKey:@"message"];
+    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    
+    [variables setObject:string forKey:@"message"];
         //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
-        // [variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
-    [variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
+        //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
+        //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
     FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"me/feed" withPostVars:variables];
     NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
@@ -607,7 +623,36 @@
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
     NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
     NSLog(@"Now log into Facebook and look at your profile...");
+    
+    didFinishedPostingOnWall = YES;
+    [self postFacebookFeedOnPage];
 
+}
+
+- (void)postFacebookFeedOnPage{
+    NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    
+    [variables setObject:string forKey:@"message"];
+        //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
+        //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
+        //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
+    
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"40796308305/feed" withPostVars:variables];
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    
+        //parse our json
+    SBJSON *parser = [[SBJSON alloc] init];
+    NSDictionary *facebook_response = [parser objectWithString:fb_graph_response.htmlResponse error:nil];	
+    
+    
+        //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
+    [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
+
+    
 }
 
 @end

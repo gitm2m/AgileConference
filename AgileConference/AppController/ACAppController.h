@@ -36,7 +36,7 @@
     NSInteger finalTrackIndex;
     ACSplashView *splashScreenView;
     ACFacebookShareView *fbShareView;
-    
+    BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
@@ -60,5 +60,6 @@
 - (void)checkForFacebookSession;
 - (void)displayFacebookShareView;
 - (void)postFacebookFeed;
+- (void)postFacebookFeedOnPage;
 
 @end
