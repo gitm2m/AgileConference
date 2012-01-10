@@ -23,20 +23,27 @@
     IBOutlet UISearchBar *eventsSearchBar;
     
     //
-    NSMutableArray  *searchDataArray;
-    
+    NSMutableDictionary  *searchDataDictionary;
+    //
     NSMutableArray *daySectionArray;
     NSMutableArray *trackSectionArray;
     NSMutableArray *commonSectionArray;
-    
+    //
     NSMutableArray *accordionViewTrackArray;
     NSMutableArray *accordionViewDayArray;
     NSMutableArray *accordionViewCommonArray;
+    
+    //
+    
+    NSString *searchContent;
+    NSString *sortBy;
+    NSMutableArray *commonRowArray;
 
 }
 
 @property (strong, nonatomic) id<ACSearchViewDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UITableView *searchResultTableView;
+-(void)searchCatalogAndShowResult;
 
 @end
 
