@@ -10,14 +10,20 @@
 #import "ACOrganiser.h"
 #import "ACAppSetting.h"
 #import "Twitter/TWTweetComposeViewController.h"
+#import "SBJSON.h"
+#import "FbGraphFile.h"
+#import "ACFacebookConnect.h"
+
 
 @implementation ACAppController
 @synthesize organizerView;
+
 
 @synthesize infoButton;
 @synthesize daysSegmentController;
 @synthesize shareFeedBackView;
 @synthesize homeCoverViewHolderView,searchHolderView;
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -29,6 +35,7 @@
 
 - (void)viewDidLoad
 {
+    
     tracksCoverFlowImgsArray = [[NSArray alloc] initWithObjects:@"track1.png",@"track2.png",@"track3.png",@"track4.png",@"track5.png",@"track6.png",@"track7.png", nil];
     
     [self setupView];
@@ -176,6 +183,23 @@
     [UIView commitAnimations];
     
     
+
+}
+
+- (void)displayFacebookShareView{
+    
+    
+    NSArray *fbShareViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACFacebookShareView" owner:self options:nil];
+        // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
+    for (id object in fbShareViewNibObjects) {
+        if ([object isKindOfClass:[ACFacebookShareView class]])
+            fbShareView = (ACFacebookShareView*)object;
+    }  
+    fbShareView.delegate = self;
+    [[fbShareView fbShareTextView] becomeFirstResponder];
+    fbShareView.frame = CGRectMake(6, 2, 309, 232);
+    
+    [self.view addSubview:fbShareView];
 
 }
 
@@ -478,7 +502,7 @@
     if (buttonIndex == 1) {
         TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
         [twitter setInitialText:@"It's really that simple!"];
-        [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
+            //[twitter addImage:[UIImage imageNamed:@"bg_moderator_notes1.png"]];
         
         [self presentViewController:twitter animated:YES completion:nil];
         
@@ -505,7 +529,85 @@
             
         };
 
+    }else if(buttonIndex == 0){
+        
+        if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
+            
+            [[ACFacebookConnect getFacebookConnectObject] checkForSessionWithCallbackObject:self andSelector:@selector(fbGraphCallback:)];
+        }
+        
+              
+        [self displayFacebookShareView];
+      
     }
+}
+
+
+#pragma mark -
+#pragma mark FbGraph Callback Function
+/**
+ * This function is called by FbGraph after it's finished the authentication process
+ **/
+- (void)fbGraphCallback:(id)sender {
+	
+        // [[ACFacebookConnect getFacebookConnectObject] checkForSessionWithCallbackObject:self andSelector:@selector(fbGraphCallback:)];
+    
+    if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ) {
+		
+		NSLog(@"You pressed the 'cancel' or 'Dont Allow' button, you are NOT logged into Facebook...I require you to be logged in & approve access before you can do anything useful....");
+		
+            //restart the authentication process.....
+		[[[ACFacebookConnect getFacebookConnectObject] fbGraph] authenticateUserWithCallbackObject:self andSelector:@selector(fbGraphCallback:) 
+							 andExtendedPermissions:@"user_photos,user_videos,publish_stream,offline_access,user_checkins,friends_checkins"];
+		
+	} else {
+        
+		NSLog(@"------------>CONGRATULATIONS<------------, You're logged into Facebook...  Your oAuth token is:  %@", [[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken);
+		
+	}
+	
+}
+
+#pragma mark - ACFacebookShareViewDelegate Methods
+
+-(void)cancelButtonTapped : (id)sender{
+    
+    [[fbShareView fbShareTextView] resignFirstResponder];
+    [fbShareView removeFromSuperview];
+    
+}
+
+-(void)sendButtonTapped : (id)sender{
+    
+    [self postFacebookFeed];
+    
+    [[fbShareView fbShareTextView] resignFirstResponder];
+    [fbShareView removeFromSuperview];
+}
+
+
+- (void)postFacebookFeed{
+    
+    NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    [variables setObject:@"AgileConference2012" forKey:@"message"];
+        //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
+        // [variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
+    [variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
+    
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"me/feed" withPostVars:variables];
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    
+        //parse our json
+    SBJSON *parser = [[SBJSON alloc] init];
+    NSDictionary *facebook_response = [parser objectWithString:fb_graph_response.htmlResponse error:nil];	
+    
+    
+        //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
+    [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
+
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "CommonUtility.h"
 #import "TestUtility.h"
 #import "ACOrganiser.h"
+#import "ACFacebookConnect.h"
 
 
 @implementation ACAppDelegate
@@ -47,6 +48,7 @@
 	}
 	
 	application.applicationIconBadgeNumber = 0;
+    
 
     return YES;
 }
