@@ -99,6 +99,59 @@ static ACOrganiser *appOrganiser = nil;
     ACLog(@"%@ list:%@",catalogType,favDict);
     return favDict;
 }
+//
+-(NSMutableDictionary *)searchCatalogListOfType:(NSString *)catalogType andCatalogTypeContent:(NSString *)content{
+    
+    NSMutableDictionary *favDict=[[NSMutableDictionary alloc] init];
+    NSArray *dayKeyArray=[catalogDict allKeys];
+    
+    for (NSString *dayKey in dayKeyArray) {
+        
+        NSMutableDictionary *trackDict=[catalogDict objectForKey:dayKey];
+        NSArray *trackKeyArray=[trackDict allKeys];
+        //
+        NSMutableDictionary *favTrackdict=[[NSMutableDictionary alloc] init];
+        [favDict setObject:favTrackdict forKey:dayKey];
+        //
+        
+        for (NSMutableDictionary *trackKey in trackKeyArray) {
+            //
+            NSMutableArray* topicArrayInTrack=[trackDict objectForKey:trackKey];
+            //
+            NSMutableArray *favTopicInTrack=[[NSMutableArray alloc] init];
+            [favTrackdict setObject:favTopicInTrack forKey:trackKey];
+            //
+            for (NSMutableDictionary *topicDict in topicArrayInTrack) {
+                
+                NSLog(@">>>event key value>>%@",[topicDict objectForKey:catalogType]);
+                NSLog(@">>>search content>>%@",content);
+                NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
+
+                
+
+                if([[[topicDict objectForKey:catalogType] uppercaseString] rangeOfString:[content uppercaseString]].length>0){
+                    //
+                    NSMutableDictionary *favTopicDict= [[NSMutableDictionary alloc] initWithDictionary:topicDict];
+                    [favTopicInTrack addObject:favTopicDict];
+                    //
+                }
+            }
+            if([favTopicInTrack count]==0){
+                [favTrackdict removeObjectForKey:trackKey];
+            }
+            
+        }
+        if([favTrackdict count]==0){
+            [favDict removeObjectForKey:dayKey];
+        }
+        
+        
+    }
+    
+    ACLog(@"%@ search list:%@",catalogType,favDict);
+    return favDict;
+}
+
 
 
 //search with day , track and topic key
@@ -106,7 +159,7 @@ static ACOrganiser *appOrganiser = nil;
                              andSearchValue:(NSString *)searchValue{
     
     if([searchKey hasPrefix:@"Topic_"]){
-        return [self getCatalogListOfType:searchKey andCatalogTypeContent:searchValue];
+        return [self searchCatalogListOfType:searchKey andCatalogTypeContent:searchValue];
     }
     else if([searchKey isEqualToString:@"Track"]){
         
@@ -136,7 +189,6 @@ static ACOrganiser *appOrganiser = nil;
         NSArray *keyArray=[resultDict allKeys];
         for (NSString *key in keyArray) {
             if(![key isEqualToString:searchValue]){
-                
                 [resultDict removeObjectForKey:key];
             }
         }
@@ -146,6 +198,13 @@ static ACOrganiser *appOrganiser = nil;
     
     return nil;
 }
+
+-(NSMutableDictionary *)sortSearchDict:(NSMutableDictionary*)searchDict 
+                                    withSortKey:(NSString *)sortkey{
+    
+    return nil;
+}
+
 //
 -(void)updateCatalogDict:(NSMutableDictionary *)currentDict{
     
@@ -171,22 +230,6 @@ static ACOrganiser *appOrganiser = nil;
     
     
 }
-
-
-//-(NSMutableDictionary *)searchCatalogOfType:(NSString *)catalogType 
-//                              withSearchKey:(NSString *)searchKey
-//                             andSearchValue:(NSString *)serachValue{
-//    
-//    NSMutableDictionary *dicToBeSearched=[self getCatalogListOfType:searchKey andCatalogTypeContent:serachValue];
-//    return dicToBeSearched;
-//    
-//    
-//}
-
-
-/////
-
-
 
 
 

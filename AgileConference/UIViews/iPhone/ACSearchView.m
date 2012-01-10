@@ -7,6 +7,7 @@
 //
 
 #import "ACSearchView.h"
+#import "ViewUtility.h"
 
 @implementation ACSearchView
 @synthesize searchResultTableView,delegate;
@@ -16,47 +17,63 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        // [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        searchDataArray=[[NSMutableArray alloc] init];
-        daySectionArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
-        trackSectionArray= [[NSMutableArray alloc] initWithObjects:@"Track1",@"Track2",@"Track3",@"Track4",@"Track5",@"Track6",@"Track7",nil];
-        commonSectionArray=daySectionArray;
-
-
     }
     return self;
 }
 
-
+//
 -(void)setSectionArrayForSearchView:(NSString *)sectionType{
     
     if([sectionType hasPrefix:@"Track"]){
         commonSectionArray=trackSectionArray;
-
+        accordionViewCommonArray =accordionViewTrackArray;
+        
     }else{
         commonSectionArray=daySectionArray;
-
+        accordionViewCommonArray =accordionViewDayArray;
+        //[commonTableView setFrame:CGRectMake(commonTableView.frame.origin.x, commonTableView.frame.origin.y, commonTableView.frame.size.width, 200)];
     }
     
+    [searchResultTableView reloadData];
+
     
 }
+
+-(void)searchCatalogAndShowResult{
+    
+        commonSectionArray=daySectionArray;
+        accordionViewCommonArray =accordionViewDayArray;
+        //
+        if([sortBy hasPrefix:@"Topic"]){
+        searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Title"
+                                                                     andSearchValue:searchContent];
+
+        }else{
+        searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Speaker"
+                                                                         andSearchValue:searchContent];
+        }
+        //
+        [searchResultTableView reloadData];
+    
+}
+//
 -(void)layoutSubviews
 {
     reloadHeaderNeeded = YES;
     accordionViewDayArray = [[NSMutableArray alloc] initWithObjects:@"1",@"0",@"0",nil];
     accordionViewTrackArray = [[NSMutableArray alloc] initWithObjects:@"1",@"0",@"0",@"0",@"0",@"0",@"0",nil];
+    //
     
-    eventsListTableHeaderArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
-    array = [[NSArray  alloc ]initWithObjects:@"a",@"s",@"d",@"r", nil];
-    eventsListTableContentsDict = [[NSDictionary alloc] initWithObjectsAndKeys:array,@"1",array,@"2",array,@"3", nil];
-    
-    searchDataArray=[[NSMutableArray alloc] init];
     daySectionArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
     trackSectionArray= [[NSMutableArray alloc] initWithObjects:@"Track1",@"Track2",@"Track3",@"Track4",@"Track5",@"Track6",@"Track7",nil];
-    commonSectionArray=trackSectionArray;
-    accordionViewCommonArray =accordionViewTrackArray;
+    //
+    NSMutableDictionary *catalogeDict=[[ACOrganiser getOrganiser] getCatalogDict];
+    searchDataDictionary=[[NSMutableDictionary alloc] initWithDictionary:catalogeDict];
 
-
+    //eventsListTableHeaderArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
+    //array = [[NSArray  alloc ]initWithObjects:@"a",@"s",@"d",@"r", nil];
+    //eventsListTableContentsDict = [[NSDictionary alloc] initWithObjectsAndKeys:array,@"1",array,@"2",array,@"3", nil];
+    sortBy=@"Topic";
 }
 
 #pragma mark - UITableViewDelegate Methods
@@ -68,7 +85,19 @@
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
     
-    return [searchDataArray count];
+    NSString *keyString=[commonSectionArray objectAtIndex:section];
+    NSMutableDictionary *trackDict=[searchDataDictionary objectForKey:keyString];
+    commonRowArray=[[NSMutableArray alloc] init];
+    NSArray *allKeys=[trackDict allKeys];
+    for (NSString *key in allKeys) {
+        NSMutableArray *array1=[trackDict objectForKey:key];
+        [commonRowArray addObjectsFromArray:array1];
+    }
+    if([[accordionViewCommonArray objectAtIndex:section] isEqualToString:@"0"]){
+        commonRowArray=nil;
+    }
+
+    return     [commonRowArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -81,8 +110,18 @@
 		cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 		//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-		
 	}
+    NSString *keyString=[commonSectionArray objectAtIndex:indexPath.section];
+    NSMutableDictionary *trackDict=[searchDataDictionary objectForKey:keyString];
+    NSMutableArray *commonRowArray1=[[NSMutableArray alloc] init];
+    NSArray *allKeys=[trackDict allKeys];
+    for (NSString *key in allKeys) {
+        NSMutableArray *array1=[trackDict objectForKey:key];
+        [commonRowArray1 addObjectsFromArray:array1];
+    }
+    
+    NSMutableDictionary *eventDict=[commonRowArray1 objectAtIndex:indexPath.row];
+    [cell setCellData:eventDict];
 
     return cell;
     
@@ -124,10 +163,13 @@
             reloadHeaderNeeded = NO;
             [[(ACEventsListHeaderView*)object eventsListHeaderButton] setTag:section];
             [(ACEventsListHeaderView*)object setDelegate:self];
+            [(ACEventsListHeaderView*)object setIndexOfSection:section];
             [[(ACEventsListHeaderView*)object evemtsListTableHeaderLabel] setText:[commonSectionArray objectAtIndex:section]];
-            if([[accordionViewTrackArray objectAtIndex:section] isEqualToString:@"0"]){
+            //
+            if([[accordionViewCommonArray objectAtIndex:section] isEqualToString:@"0"]){
                 [[(ACEventsListHeaderView*)object headerAccesoryImage] setImage:[UIImage imageNamed:@"A_1@2x.png"]];
                 [[(ACEventsListHeaderView*)object headerAccesoryImage] setTag:1111];
+
             }else{
                 [[(ACEventsListHeaderView*)object headerAccesoryImage] setTag:2222];
                 [[(ACEventsListHeaderView*)object headerAccesoryImage] setImage:[UIImage imageNamed:@"A_5@2x.png"]];
@@ -145,33 +187,34 @@
 - (void)eventsListHeaderButtonTapped : (id)sender inView : (ACEventsListHeaderView *)headerView{
     
        
-    ACLog(@"eventsListHeaderButtonTapped %d", [sender tag]);
+    ACLog(@"eventsListHeaderButtonTapped %d",headerView);
     if([[headerView headerAccesoryImage] tag]==1111){
+        
         [[headerView headerAccesoryImage] setImage:[UIImage imageNamed:@"A_5@2x.png"]];
         [[headerView headerAccesoryImage] setTag:2222];
-        [accordionViewTrackArray replaceObjectAtIndex:[sender tag] withObject:@"1"];
+        [accordionViewCommonArray replaceObjectAtIndex:[sender tag] withObject:@"1"];
         NSIndexSet *indicies = [NSIndexSet indexSetWithIndex:[sender tag]];
+        
         [searchResultTableView beginUpdates];
         [searchResultTableView reloadSections:indicies withRowAnimation:UITableViewRowAnimationAutomatic];
         [searchResultTableView endUpdates];
     }else if([[headerView headerAccesoryImage] tag]==2222){
+        
         [[headerView headerAccesoryImage] setImage:[UIImage imageNamed:@"A_1@2x.png"]];
         [[headerView headerAccesoryImage] setTag:1111];
-        [accordionViewTrackArray replaceObjectAtIndex:[sender tag] withObject:@"0"];
+        [accordionViewCommonArray replaceObjectAtIndex:[sender tag] withObject:@"0"];
         NSIndexSet *indicies = [NSIndexSet indexSetWithIndex:[sender tag]];
         [searchResultTableView beginUpdates];
         [searchResultTableView reloadSections:indicies withRowAnimation:UITableViewRowAnimationAutomatic];
         [searchResultTableView endUpdates];
     }
-    if(![accordionViewTrackArray containsObject:@"1"]){
-        [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [searchResultTableView setBackgroundColor:[UIColor clearColor]];
-    }else{
-        [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-        [searchResultTableView setBackgroundColor:[UIColor clearColor]];
-    }
-        
-
+//    if(![accordionViewTrackArray containsObject:@"1"]){
+//        [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+//        [searchResultTableView setBackgroundColor:[UIColor clearColor]];
+//    }else{
+//        [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+//        [searchResultTableView setBackgroundColor:[UIColor clearColor]];
+//    }
 
 }
 
@@ -184,7 +227,43 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
+    searchContent=[[searchBar text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [self searchCatalogAndShowResult];    
     [searchBar resignFirstResponder];
+}
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
+    
+    ACLog(@">>>>>>%i", selectedScope);
+    searchContent=[searchBar text];
+    switch (selectedScope) {
+        case 0:{
+            
+            sortBy=@"Topic";
+        }
+            break;
+        case 1:{
+            sortBy=@"Speaker";
+        }
+
+            break;
+        default:
+            break;
+    }
+    
+    ///
+    [searchBar resignFirstResponder];
+    
+    if([searchBar.text length]>0){
+        
+        [self searchCatalogAndShowResult];    
+        
+    }else{
+        //[searchBar setSelectedScopeButtonIndex:];
+        [ViewUtility showAlertViewWithMessage:@"Please enter the Topic/Speaker in search field"];
+        
+    }
+
+    
 }
 
 @end

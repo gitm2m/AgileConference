@@ -13,6 +13,8 @@
 @synthesize eventsListHeaderButton;
 @synthesize evemtsListTableHeaderLabel;
 @synthesize headerAccesoryImage;
+@synthesize indexOfSection;
+
 
 - (id)initWithFrame:(CGRect)frame
 {

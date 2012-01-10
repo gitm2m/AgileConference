@@ -13,11 +13,15 @@
 
 @interface ACEventsListHeaderView : UIView{
     
+    NSInteger indexOfSection;
+    
 }
 @property (strong,nonatomic) id<ACEventsListHeaderViewDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIButton *eventsListHeaderButton;
 @property (strong, nonatomic) IBOutlet UILabel *evemtsListTableHeaderLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *headerAccesoryImage;
+@property (nonatomic) NSInteger indexOfSection;
+
 
 - (IBAction)headerButtontapped:(id)sender;
 @end
