@@ -14,6 +14,10 @@
 #define kEventTableCellHeight 86
 
 
+//Social Network Keys
+#define kFaceBookAPIKey @"214952098593793"
+
+
 //
 typedef enum _viewType {
     

@@ -22,8 +22,10 @@
 #import "ACUpcomingEventDescriptionViewController.h"
 #import "ACAppSetting.h"
 #import "ACSplashView.h"
+#import "FbGraph.h"
+#import "ACFacebookShareView.h"
 
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;
@@ -33,6 +35,7 @@
     ACSearchPopoverViewController *serachPopoverContentViewController;
     NSInteger finalTrackIndex;
     ACSplashView *splashScreenView;
+    ACFacebookShareView *fbShareView;
     
 }
 
@@ -44,6 +47,7 @@
 @property (strong, nonatomic) ACOrganizerView *organizerView;
 
 
+
 - (void) setupView;
 - (void) setupViewsFromNib;
 - (IBAction)daysSegmentControllerValueChanged:(id)sender;
@@ -53,5 +57,8 @@
 - (BOOL)isOrganizerViewVisibleOnScreen;
 - (BOOL)isSearchViewVisibleOnScreen;
 - (void)showSplasScreen;
+- (void)checkForFacebookSession;
+- (void)displayFacebookShareView;
+- (void)postFacebookFeed;
 
 @end
