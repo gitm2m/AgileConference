@@ -21,6 +21,8 @@
 @property (strong, nonatomic) id<ACOrganizerViewDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UITableView *organizerListTableView;
 
+- (IBAction)segmentValueChanged:(id)sender;
+
 @end
 
 
