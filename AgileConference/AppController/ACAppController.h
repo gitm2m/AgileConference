@@ -19,7 +19,6 @@
 #import "ACEventDetailViewController.h"
 #import "ACOrganizerView.h"
 #import "ACEventsListViewController.h"
-#import "ACUpcomingEventDescriptionViewController.h"
 #import "ACAppSetting.h"
 #import "ACSplashView.h"
 #import "FbGraph.h"

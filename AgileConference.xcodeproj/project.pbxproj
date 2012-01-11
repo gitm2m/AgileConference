@@ -11,6 +11,8 @@
 		381A5C9D14BD622000B0E25C /* Valtech_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 381A5C9C14BD622000B0E25C /* Valtech_Logo.png */; };
 		381A5CA314BD6A0500B0E25C /* bg_default_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 381A5CA214BD6A0500B0E25C /* bg_default_preview.png */; };
 		381A5CA514BD8CD000B0E25C /* AboutTextViewBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 381A5CA414BD8CCF00B0E25C /* AboutTextViewBG.png */; };
+		381A5CB014BDA66F00B0E25C /* ACFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381A5CAE14BDA66F00B0E25C /* ACFeedbackViewController.m */; };
+		381A5CB114BDA66F00B0E25C /* ACFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381A5CAF14BDA66F00B0E25C /* ACFeedbackViewController.xib */; };
 		38360E3114B473AB006378AA /* ACTracksEventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38360E3014B473AB006378AA /* ACTracksEventsListViewController.m */; };
 		38360E3514B48910006378AA /* bg_createProject_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3414B48910006378AA /* bg_createProject_frame.png */; };
 		38360E3714B489B0006378AA /* button_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3614B489B0006378AA /* button_close.png */; };
@@ -75,8 +77,6 @@
 		38F9B4C214B42CD900696426 /* show-result-BTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4C114B42CD900696426 /* show-result-BTN.png */; };
 		38F9B4C614B42E4100696426 /* ACEventDescriptionWebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */; };
 		38F9B4C714B42E4100696426 /* ACEventDescriptionWebviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */; };
-		38F9B4CB14B466E100696426 /* ACUpcomingEventDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F9B4C914B466E000696426 /* ACUpcomingEventDescriptionViewController.m */; };
-		38F9B4CC14B466E100696426 /* ACUpcomingEventDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4CA14B466E000696426 /* ACUpcomingEventDescriptionViewController.xib */; };
 		6A42701D14AC442B00F91472 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42701C14AC442B00F91472 /* TestUtility.m */; };
 		6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42702314AC48B800F91472 /* SqliteDBManager.m */; };
 		6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */; };
@@ -155,6 +155,9 @@
 		381A5C9C14BD622000B0E25C /* Valtech_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Valtech_Logo.png; sourceTree = "<group>"; };
 		381A5CA214BD6A0500B0E25C /* bg_default_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_default_preview.png; sourceTree = "<group>"; };
 		381A5CA414BD8CCF00B0E25C /* AboutTextViewBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutTextViewBG.png; sourceTree = "<group>"; };
+		381A5CAD14BDA66F00B0E25C /* ACFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFeedbackViewController.h; sourceTree = "<group>"; };
+		381A5CAE14BDA66F00B0E25C /* ACFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACFeedbackViewController.m; sourceTree = "<group>"; };
+		381A5CAF14BDA66F00B0E25C /* ACFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACFeedbackViewController.xib; sourceTree = "<group>"; };
 		38360E2F14B473AB006378AA /* ACTracksEventsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTracksEventsListViewController.h; sourceTree = "<group>"; };
 		38360E3014B473AB006378AA /* ACTracksEventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTracksEventsListViewController.m; sourceTree = "<group>"; };
 		38360E3414B48910006378AA /* bg_createProject_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_createProject_frame.png; sourceTree = "<group>"; };
@@ -233,16 +236,13 @@
 		38E9A17314B3245800C11C56 /* clock-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-1.png"; sourceTree = "<group>"; };
 		38E9A17514B3283E00C11C56 /* keynote-icon-300x300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keynote-icon-300x300.png"; sourceTree = "<group>"; };
 		38E9A17714B3326900C11C56 /* Activity_indicator-150x150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity_indicator-150x150.png"; sourceTree = "<group>"; };
-		38F915BF14B1AFF900415109 /* ACEventsListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ACEventsListHeaderView.xib; path = ../../UIViews/iPhone/ACEventsListHeaderView.xib; sourceTree = "<group>"; };
+		38F915BF14B1AFF900415109 /* ACEventsListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventsListHeaderView.xib; sourceTree = "<group>"; };
 		38F915C114B1B22100415109 /* ACEventsListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventsListHeaderView.h; sourceTree = "<group>"; };
 		38F915C214B1B22100415109 /* ACEventsListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventsListHeaderView.m; sourceTree = "<group>"; };
 		38F9B4C114B42CD900696426 /* show-result-BTN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "show-result-BTN.png"; sourceTree = "<group>"; };
 		38F9B4C314B42E4000696426 /* ACEventDescriptionWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDescriptionWebviewController.h; sourceTree = "<group>"; };
 		38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDescriptionWebviewController.m; sourceTree = "<group>"; };
 		38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDescriptionWebviewController.xib; sourceTree = "<group>"; };
-		38F9B4C814B466DF00696426 /* ACUpcomingEventDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACUpcomingEventDescriptionViewController.h; sourceTree = "<group>"; };
-		38F9B4C914B466E000696426 /* ACUpcomingEventDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACUpcomingEventDescriptionViewController.m; sourceTree = "<group>"; };
-		38F9B4CA14B466E000696426 /* ACUpcomingEventDescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACUpcomingEventDescriptionViewController.xib; sourceTree = "<group>"; };
 		6A42701B14AC442B00F91472 /* TestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtility.h; sourceTree = "<group>"; };
 		6A42701C14AC442B00F91472 /* TestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtility.m; sourceTree = "<group>"; };
 		6A42702214AC48B800F91472 /* SqliteDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteDBManager.h; sourceTree = "<group>"; };
@@ -414,6 +414,7 @@
 				3886427B14ADF476005B520D /* ACSearchView.xib */,
 				38F915C114B1B22100415109 /* ACEventsListHeaderView.h */,
 				38F915C214B1B22100415109 /* ACEventsListHeaderView.m */,
+				38F915BF14B1AFF900415109 /* ACEventsListHeaderView.xib */,
 				38E9A15014B2C8D900C11C56 /* ACOrganizerView.h */,
 				38E9A15114B2C8D900C11C56 /* ACOrganizerView.m */,
 				38E9A15314B2C8ED00C11C56 /* ACOrganizerView.xib */,
@@ -654,10 +655,9 @@
 				38F9B4C314B42E4000696426 /* ACEventDescriptionWebviewController.h */,
 				38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */,
 				38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */,
-				38F9B4C814B466DF00696426 /* ACUpcomingEventDescriptionViewController.h */,
-				38F9B4C914B466E000696426 /* ACUpcomingEventDescriptionViewController.m */,
-				38F9B4CA14B466E000696426 /* ACUpcomingEventDescriptionViewController.xib */,
-				38F915BF14B1AFF900415109 /* ACEventsListHeaderView.xib */,
+				381A5CAD14BDA66F00B0E25C /* ACFeedbackViewController.h */,
+				381A5CAE14BDA66F00B0E25C /* ACFeedbackViewController.m */,
+				381A5CAF14BDA66F00B0E25C /* ACFeedbackViewController.xib */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -1017,7 +1017,6 @@
 				38E9A17814B3326900C11C56 /* Activity_indicator-150x150.png in Resources */,
 				38F9B4C214B42CD900696426 /* show-result-BTN.png in Resources */,
 				38F9B4C714B42E4100696426 /* ACEventDescriptionWebviewController.xib in Resources */,
-				38F9B4CC14B466E100696426 /* ACUpcomingEventDescriptionViewController.xib in Resources */,
 				38360E3514B48910006378AA /* bg_createProject_frame.png in Resources */,
 				38360E3714B489B0006378AA /* button_close.png in Resources */,
 				38360E3914B49002006378AA /* images.png in Resources */,
@@ -1037,6 +1036,7 @@
 				381A5C9D14BD622000B0E25C /* Valtech_Logo.png in Resources */,
 				381A5CA314BD6A0500B0E25C /* bg_default_preview.png in Resources */,
 				381A5CA514BD8CD000B0E25C /* AboutTextViewBG.png in Resources */,
+				381A5CB114BDA66F00B0E25C /* ACFeedbackViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1097,7 +1097,6 @@
 				38E9A15214B2C8D900C11C56 /* ACOrganizerView.m in Sources */,
 				38E9A15814B3046600C11C56 /* ACEventsListViewController.m in Sources */,
 				38F9B4C614B42E4100696426 /* ACEventDescriptionWebviewController.m in Sources */,
-				38F9B4CB14B466E100696426 /* ACUpcomingEventDescriptionViewController.m in Sources */,
 				38360E3114B473AB006378AA /* ACTracksEventsListViewController.m in Sources */,
 				3878300714B723530007133B /* ACSplashView.m in Sources */,
 				388E977C14BB171500C6F0D2 /* FbGraph.m in Sources */,
@@ -1111,6 +1110,7 @@
 				388E978414BB171500C6F0D2 /* SBJsonWriter.m in Sources */,
 				388E978714BB189200C6F0D2 /* ACFacebookConnect.m in Sources */,
 				38E7FAE214BC0243000E21FA /* ACFacebookShareView.m in Sources */,
+				381A5CB014BDA66F00B0E25C /* ACFeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

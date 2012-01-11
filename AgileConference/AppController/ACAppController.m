@@ -267,12 +267,12 @@
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
-    if(preFinalTrackIndex!=finalTrackIndex){
+        //if(preFinalTrackIndex!=finalTrackIndex){
         NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
         [[ACAppSetting getAppSession]setDaySelected:daySelected];
         [contentViewController reloadEventTableViewWithAnimation:YES];
         preFinalTrackIndex=finalTrackIndex;
-    }
+        // }
 
 }
 

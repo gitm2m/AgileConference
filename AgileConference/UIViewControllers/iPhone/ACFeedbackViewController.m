@@ -1,14 +1,14 @@
 //
-//  ACUpcomingEventDescriptionViewController.m
+//  ACFeedbackViewController.m
 //  AgileConference
 //
-//  Created by Supreeth Doddabela on 1/4/12.
+//  Created by Supreeth Doddabela on 1/11/12.
 //  Copyright (c) 2012 Valtech India. All rights reserved.
 //
 
-#import "ACUpcomingEventDescriptionViewController.h"
+#import "ACFeedbackViewController.h"
 
-@implementation ACUpcomingEventDescriptionViewController
+@implementation ACFeedbackViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,16 +31,12 @@
 
 - (void)viewDidLoad
 {
-    
-    [descriptionView.layer setCornerRadius:12.0];
-    [self.view setBackgroundColor:[UIColor clearColor]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
-    descriptionView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
