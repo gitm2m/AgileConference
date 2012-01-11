@@ -72,4 +72,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [delegate organizerListTableView:tableView didSelectRowAtIndexPath:indexPath];
 }
+
+
+#pragma mark - Events Methods
+
+- (IBAction)segmentValueChanged:(id)sender {
+    
+    
+}
 @end

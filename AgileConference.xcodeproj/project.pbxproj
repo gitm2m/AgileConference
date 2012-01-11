@@ -1152,34 +1152,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6A9F7FD514A88F5300E3F55C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		6A9F7FD614A88F5300E3F55C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1197,23 +1169,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		6A9F7FD814A88F5300E3F55C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AgileConference/AgileConference-Prefix.pch";
-				INFOPLIST_FILE = "AgileConference/AgileConference-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
 		};
 		6A9F7FD914A88F5300E3F55C /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1226,23 +1186,6 @@
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
-		};
-		6A9F7FDB14A88F5300E3F55C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AgileConference.app/AgileConference";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AgileConference/AgileConference-Prefix.pch";
-				INFOPLIST_FILE = "AgileConferenceTests/AgileConferenceTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
 		};
 		6A9F7FDC14A88F5300E3F55C /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1267,7 +1210,6 @@
 		6A9F7F9B14A88F5300E3F55C /* Build configuration list for PBXProject "AgileConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FD514A88F5300E3F55C /* Debug */,
 				6A9F7FD614A88F5300E3F55C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1276,7 +1218,6 @@
 		6A9F7FD714A88F5300E3F55C /* Build configuration list for PBXNativeTarget "AgileConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FD814A88F5300E3F55C /* Debug */,
 				6A9F7FD914A88F5300E3F55C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1285,7 +1226,6 @@
 		6A9F7FDA14A88F5300E3F55C /* Build configuration list for PBXNativeTarget "AgileConferenceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FDB14A88F5300E3F55C /* Debug */,
 				6A9F7FDC14A88F5300E3F55C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

@@ -217,7 +217,22 @@ static ACOrganiser *appOrganiser = nil;
 //
 -(void)updateCatalogDict:(NSMutableDictionary *)currentDict{
     
-    NSMutableDictionary *dayDict=[catalogDict objectForKey:[currentDict objectForKey:kTopicDay]];
+    NSString *dayKey=[currentDict objectForKey:kTopicDay];
+    if([dayKey hasPrefix:@"17"]){
+        dayKey=@"Day1";
+    }
+    else if([dayKey hasPrefix:@"18"]){
+        dayKey=@"Day2";
+
+    }
+    else if([dayKey hasPrefix:@"19"]){
+        dayKey=@"Day3";
+
+    }
+
+    
+    NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
+    
     NSMutableArray *tracArray=[dayDict objectForKey:kTopicTrack];
     NSString *currentTopicTitle=[currentDict objectForKey:kTopicTitle];
     //

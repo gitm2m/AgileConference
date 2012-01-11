@@ -267,12 +267,20 @@
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
+
         //if(preFinalTrackIndex!=finalTrackIndex){
+
+   // if(preFinalTrackIndex!=finalTrackIndex){
+
         NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
         [[ACAppSetting getAppSession]setDaySelected:daySelected];
         [contentViewController reloadEventTableViewWithAnimation:YES];
         preFinalTrackIndex=finalTrackIndex;
+
         // }
+
+    //}
+
 
 }
 
@@ -411,6 +419,9 @@
 -(void)organizerButtonTapped : (id)sender{
     
     if (organizerButtn.frame.origin.y == 382) {
+        
+        
+        [organizerView.organizerListTableView reloadData];
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
