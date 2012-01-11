@@ -156,7 +156,7 @@
     for (id object in splashViewNibObjects) {
         if ([object isKindOfClass:[ACSplashView class]])
             splashScreenView = (ACSplashView*)object;
-            //organizerView.delegate = self;
+            splashScreenView.delegate = self;
     }  
     splashScreenView.frame = CGRectMake(0, 0, 320, 480);
     
@@ -166,10 +166,14 @@
 
 - (void)showSplasScreen{
     
+    [splashScreenView setNeedsLayout];
+	[splashScreenView setNeedsDisplay];
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:1];
-    [splashScreenView.logoImageView setFrame:CGRectMake(80, 169, 160, 80)];
+    [splashScreenView.logoImageView setFrame:CGRectMake(77, 169, 160, 80)];
     [UIView commitAnimations];
+   
 
     [self performSelector:@selector(animateLogoImageView) withObject:nil afterDelay:2];
     
@@ -179,11 +183,17 @@
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:1];
-    [splashScreenView.logoImageView setFrame:CGRectMake(80, 30, 160, 80)];
+    [splashScreenView.logoImageView setFrame:CGRectMake(77, 30, 160, 80)];
     [UIView commitAnimations];
     
     
-
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:3];
+    [splashScreenView.logo2 setAlpha:1.0];
+    [splashScreenView.menuTbView setAlpha:1.0];
+    [splashScreenView.poweredbyLable setAlpha:1.0];
+    [UIView commitAnimations];
+    
 }
 
 - (void)displayFacebookShareView{
@@ -654,5 +664,20 @@
 
     
 }
+
+#pragma ACSplashViewDelegate Methods
+
+-(void) aboutValtechTapped : (NSIndexPath *)indexPath{
+    
+    ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
+    [aboutController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    aboutController.splashView = splashScreenView;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [splashScreenView setAlpha:0.0];
+    [UIView commitAnimations];
+    [self.navigationController pushViewController:aboutController animated:YES];
+}
+
 
 @end

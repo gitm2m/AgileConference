@@ -24,8 +24,9 @@
 #import "ACSplashView.h"
 #import "FbGraph.h"
 #import "ACFacebookShareView.h"
+#import "ACSplashView.h"
 
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate,ACSplashViewDelegate>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;

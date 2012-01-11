@@ -8,7 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ACSplashView : UIView
+@protocol ACSplashViewDelegate;
+
+@interface ACSplashView : UIView{
+    
+    NSArray *array ;
+    
+}
+
+-(void)removeViewFromSuperView;
+
 @property (strong, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *logo2;
+@property (strong, nonatomic) IBOutlet UITableView *menuTbView;
+@property (strong, nonatomic) IBOutlet UILabel *poweredbyLable;
+@property (strong, nonatomic) id<ACSplashViewDelegate>delegate;
+
+@end
+
+
+@protocol ACSplashViewDelegate 
+
+@optional
+-(void) aboutValtechTapped : (NSIndexPath *)indexPath;
 
 @end
