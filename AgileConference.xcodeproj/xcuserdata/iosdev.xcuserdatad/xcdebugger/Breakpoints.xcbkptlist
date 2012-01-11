@@ -51,12 +51,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AgileConference/AppController/ACAppController.m"
-         timestampString = "347547855.013053"
+         timestampString = "347967934.105026"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "402"
-         endingLineNumber = "402"
-         landmarkName = "-isSearchViewVisibleOnScreen"
+         startingLineNumber = "415"
+         endingLineNumber = "415"
+         landmarkName = "-organizerButtonTapped:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -64,27 +64,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "AgileConference/AppController/ACAppController.m"
-         timestampString = "347551851.468829"
+         filePath = "AgileConference/SupportingLibraries/SocialNetworks/LinkedIn Library/Categories/NSString+URLEncoding.m"
+         timestampString = "347897251.550453"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "207"
-         endingLineNumber = "207"
-         landmarkName = "-didSelectSlide:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "AgileConference/Business/ACOrganiser.m"
-         timestampString = "347802923.965743"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
-         landmarkName = "-searchCatalogWithSearchKey:andSearchValue:"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
+         landmarkName = "-decodedURLString"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

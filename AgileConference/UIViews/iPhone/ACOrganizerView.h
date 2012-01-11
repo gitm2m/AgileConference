@@ -13,7 +13,10 @@
 
 @protocol ACOrganizerViewDelegate;
 
-@interface ACOrganizerView : UIView
+@interface ACOrganizerView : UIView{
+    
+    NSMutableArray *eventArray;
+}
 
 @property (strong, nonatomic) id<ACOrganizerViewDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UITableView *organizerListTableView;

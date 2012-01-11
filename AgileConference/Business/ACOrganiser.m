@@ -32,7 +32,18 @@ static ACOrganiser *appOrganiser = nil;
         
         NSString *filePath=[CommonUtility getFilePath:@"Catalog" 
                                              fileType:@"plist" 
-                                   isDocumentDirecory:NO];
+                                   isDocumentDirecory:YES];
+        
+        if(![CommonUtility isFileExistAtPath:filePath]){
+            
+            NSString *bundleCatalogPath=[CommonUtility getFilePath:@"Catalog" 
+                                                 fileType:@"plist" 
+                                       isDocumentDirecory:NO];
+
+            catalogDict=[[NSMutableDictionary alloc] initWithContentsOfFile:bundleCatalogPath];
+            [catalogDict writeToFile:filePath atomically:YES];
+
+        }
         catalogDict=[[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     }
     return catalogDict;
@@ -45,7 +56,7 @@ static ACOrganiser *appOrganiser = nil;
         
         NSString *filePath=[CommonUtility getFilePath:@"Catalog" 
                                              fileType:@"plist" 
-                                   isDocumentDirecory:NO];
+                                   isDocumentDirecory:YES];
         
         return [catalogDict writeToFile:filePath atomically:YES];
     }
@@ -77,7 +88,7 @@ static ACOrganiser *appOrganiser = nil;
              //
              for (NSMutableDictionary *topicDict in topicArrayInTrack) {
                  
-                 if([[topicDict objectForKey:catalogType] isEqualToString:content]){
+                 if([[topicDict objectForKey:catalogType] isEqualToString:content] && [[topicDict objectForKey:kTopicType] isEqualToString:@"BUSINESS"]){
                      //
                      NSMutableDictionary *favTopicDict= [[NSMutableDictionary alloc] initWithDictionary:topicDict];
                      [favTopicInTrack addObject:favTopicDict];
@@ -123,9 +134,9 @@ static ACOrganiser *appOrganiser = nil;
             //
             for (NSMutableDictionary *topicDict in topicArrayInTrack) {
                 
-                NSLog(@">>>event key value>>%@",[topicDict objectForKey:catalogType]);
-                NSLog(@">>>search content>>%@",content);
-                NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
+                //NSLog(@">>>event key value>>%@",[topicDict objectForKey:catalogType]);
+                //NSLog(@">>>search content>>%@",content);
+               // NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
 
                 
 
@@ -151,8 +162,6 @@ static ACOrganiser *appOrganiser = nil;
     ACLog(@"%@ search list:%@",catalogType,favDict);
     return favDict;
 }
-
-
 
 //search with day , track and topic key
 -(NSMutableDictionary *)searchCatalogWithSearchKey:(NSString *)searchKey 
@@ -229,6 +238,25 @@ static ACOrganiser *appOrganiser = nil;
     }
     
     
+}
+//
+-(NSMutableArray *)getArrayOfDict:(NSMutableDictionary *)dict{
+    NSMutableArray *eventArray=[[NSMutableArray alloc] init];
+    NSArray *dayKeys=[dict allKeys];
+    
+    for (NSString *dayKey in dayKeys) {
+        NSMutableDictionary *trackDict=[dict objectForKey:dayKey];
+        NSArray *trackKeys=[trackDict allKeys];
+        
+        for (NSString *trackKey in trackKeys) {
+            NSMutableArray *trackArray=[trackDict objectForKey:trackKey];
+            for (NSMutableDictionary *eventDict in trackArray) {
+                [eventArray addObject:eventDict];
+            }
+        }
+
+    }
+    return eventArray;
 }
 
 

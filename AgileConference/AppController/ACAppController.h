@@ -35,6 +35,8 @@
     ACTracksEventsListViewController *contentViewController;
     ACSearchPopoverViewController *serachPopoverContentViewController;
     NSInteger finalTrackIndex;
+    NSInteger preFinalTrackIndex;
+
     ACSplashView *splashScreenView;
     ACFacebookShareView *fbShareView;
     BOOL isFBLoginFirtTime,didFinishedPostingOnWall;

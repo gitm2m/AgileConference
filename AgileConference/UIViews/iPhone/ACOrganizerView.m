@@ -16,6 +16,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
+                                                                andCatalogTypeContent:@"YES"];
+        eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
     }
     return self;
 }
@@ -34,7 +37,11 @@
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
     
-    return 4;
+    NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
+                                                            andCatalogTypeContent:@"YES"];
+    eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+
+    return [eventArray count];
 
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -49,6 +56,7 @@
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		
     }
+    [cell setCellData:[eventArray objectAtIndex:indexPath.row]];
     
     return cell;
     
