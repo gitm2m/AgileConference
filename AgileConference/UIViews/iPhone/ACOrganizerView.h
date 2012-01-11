@@ -29,6 +29,6 @@
 @protocol ACOrganizerViewDelegate
 
 @optional 
-- (void)organizerListTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath; 
+- (void)organizerListTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withDict:(NSMutableDictionary  *)dict; 
 
 @end

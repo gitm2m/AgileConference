@@ -520,9 +520,9 @@
 }
 
 #pragma mark - ACOrganizerViewDelegate Methods
-- (void)organizerListTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)organizerListTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withDict:(NSMutableDictionary  *)dict{
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:dict];
     [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     
     [self.navigationController pushViewController:detailViewController animated:YES];

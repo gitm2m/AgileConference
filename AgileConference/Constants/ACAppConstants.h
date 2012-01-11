@@ -17,6 +17,9 @@
 //Social Network Keys
 #define kFaceBookAPIKey @"214952098593793"
 
+//Add Remove Favourites Lable Constants
+#define kAddtoFavs @"Add to favourites"
+#define kRemoveFromFavs @"Remove favourite"
 
 //
 typedef enum _viewType {
