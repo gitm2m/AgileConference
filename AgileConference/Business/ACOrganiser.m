@@ -252,6 +252,8 @@ static ACOrganiser *appOrganiser = nil;
         [tracArray replaceObjectAtIndex:topicIndex withObject:currentDict];
     }
     
+    [self saveCatalogDict];
+    
     
 }
 //

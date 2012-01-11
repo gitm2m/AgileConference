@@ -16,9 +16,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
-                                                                andCatalogTypeContent:@"YES"];
-        eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
     }
     return self;
 }
@@ -33,13 +30,19 @@
 */
 
 
+-(void)layoutSubviews{
+    NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
+                                                            andCatalogTypeContent:@"YES"];
+    eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+
+    
+}
+
+
 #pragma mark - UITableViewDelegate Methods
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
     
-    NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
-                                                            andCatalogTypeContent:@"YES"];
-    eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
 
     return [eventArray count];
 
@@ -76,7 +79,44 @@
 
 #pragma mark - Events Methods
 
-- (IBAction)segmentValueChanged:(id)sender {
+- (IBAction)segmentValueChanged:(UISegmentedControl *)sender {
+    
+    switch (sender.selectedSegmentIndex) {
+        case 0:{
+            
+            NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
+                                                                    andCatalogTypeContent:@"YES"];
+            eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+
+        }
+            break;
+            
+        case 1:{
+            
+            NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicParticipated
+                                                                    andCatalogTypeContent:@"YES"];
+            eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+
+        }
+            break;
+            
+        case 2:{
+            
+            NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicMissed
+                                                                    andCatalogTypeContent:@"YES"];
+            eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+
+            
+        }
+            break;
+
+            
+        default:
+            break;
+    }
+    
+    [organizerListTableView reloadData];
+    ACLog(@">>>>>>>>>>>>>>>>segment value changed");
     
     
 }
