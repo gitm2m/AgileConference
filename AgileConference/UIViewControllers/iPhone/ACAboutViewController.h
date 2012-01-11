@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACSplashView.h"
 
 @interface ACAboutViewController : UIViewController
 
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
-- (IBAction)doneBarButtonPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UIWebView *aboutWebView;
+@property (strong, nonatomic) IBOutlet UITableViewCell *videoTableViewCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *detailsTableViewCell;
+@property (strong, nonatomic) ACSplashView *splashView;
 
+- (IBAction)doneBarButtonPressed:(id)sender;
+- (void)backButtonTapped;
 @end
