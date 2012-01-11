@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ACEventDescriptionWebviewController.h"
+#import "ACOrganiser.h"
+#import "ACAppConstants.h"
 
 @protocol ACEventDetailViewControllerDelegate;
 
@@ -25,6 +27,7 @@
 - (void)shareButtonTapped : (id)sender;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)topicIndex;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicDict:(NSMutableDictionary *)topicDictionary;
+- (IBAction)addToFavsButtonTapped:(id)sender;
 
 @end
 

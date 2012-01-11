@@ -40,6 +40,7 @@
 }
 
 
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -103,6 +104,14 @@
     
     
 }
+
+- (IBAction)addToFavsButtonTapped:(id)sender {
+    
+    [topicDict setObject:@"YES" forKey:kTopicFavorite];
+    [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
+
+}
+
 
 #pragma mark - UIActionSheetDelegate Methods
 
