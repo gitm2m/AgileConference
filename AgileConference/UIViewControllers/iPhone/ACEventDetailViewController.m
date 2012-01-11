@@ -10,6 +10,7 @@
 #import "Twitter/TWTweetComposeViewController.h"
 
 @implementation ACEventDetailViewController
+@synthesize addRemoveFavsButton;
 @synthesize topicDescriptionLinkTextView,delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)index{
@@ -23,8 +24,8 @@
         NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
         NSMutableArray *topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
         topicDict=[topicArray objectAtIndex:index];
-
         
+               
     }
     return self;
 }
@@ -35,6 +36,8 @@
         
         // Custom initialization
         topicDict=topicDictionary;
+        
+
     }
     return self;
 }
@@ -60,6 +63,13 @@
     //[topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
     //[SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeaker]];
     
+    if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
+        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+    }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
+        [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
+    }
+
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -69,6 +79,7 @@
     [self setTopicDescriptionLinkTextView:nil];
     topicSummaryView = nil;
     SpeakerSummaryView = nil;
+    [self setAddRemoveFavsButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -107,7 +118,15 @@
 
 - (IBAction)addToFavsButtonTapped:(id)sender {
     
-    [topicDict setObject:@"YES" forKey:kTopicFavorite];
+    if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
+        [topicDict setObject:@"YES" forKey:kTopicFavorite];
+        [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
+    }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
+        [topicDict setObject:@"NO" forKey:kTopicFavorite];
+        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+    }
+    
+    
     [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
 
 }
