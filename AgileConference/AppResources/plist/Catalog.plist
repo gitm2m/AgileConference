@@ -10,13 +10,37 @@
 				<key>Topic_Type</key>
 				<string>NORMAL</string>
 				<key>Topic_Title</key>
-				<string>Opening Talk</string>
+				<string>Opening Talk-Track1</string>
 				<key>Topic_Summary</key>
 				<string>Opening Talk</string>
 				<key>Topic_Speaker</key>
 				<string></string>
 				<key>Topic_Time</key>
 				<string>9:00-9:30</string>
+				<key>Topic_Track</key>
+				<string>Track1</string>
+				<key>Topic_Day</key>
+				<string>17-12-2011</string>
+				<key>Topic_Favorite</key>
+				<string>NO</string>
+				<key>Topic_Participated</key>
+				<string>NO</string>
+				<key>Topic_Missed</key>
+				<string>NO</string>
+				<key>Topic_Over</key>
+				<string>NO</string>
+			</dict>
+			<dict>
+				<key>Topic_Type</key>
+				<string>BUSINESS</string>
+				<key>Topic_Title</key>
+				<string>Conquer Chaos - Designing the Business System for Agility-Track1</string>
+				<key>Topic_Summary</key>
+				<string>Conquer Chaos - Designing the Business System for Agility</string>
+				<key>Topic_Speaker</key>
+				<string>Mike Russell</string>
+				<key>Topic_Time</key>
+				<string>9:30-10:00,10:00-10:30</string>
 				<key>Topic_Track</key>
 				<string>Track1</string>
 				<key>Topic_Day</key>
@@ -32,33 +56,9 @@
 			</dict>
 			<dict>
 				<key>Topic_Type</key>
-				<string>BUSINESS</string>
-				<key>Topic_Title</key>
-				<string>Conquer Chaos - Designing the Business System for Agility</string>
-				<key>Topic_Summary</key>
-				<string>Conquer Chaos - Designing the Business System for Agility</string>
-				<key>Topic_Speaker</key>
-				<string>Mike Russell</string>
-				<key>Topic_Time</key>
-				<string>9:30-10:00,10:00-10:30</string>
-				<key>Topic_Track</key>
-				<string>Track1</string>
-				<key>Topic_Day</key>
-				<string>17-12-2011</string>
-				<key>Topic_Favorite</key>
-				<string>NO</string>
-				<key>Topic_Participated</key>
-				<string>NO</string>
-				<key>Topic_Missed</key>
-				<string>NO</string>
-				<key>Topic_Over</key>
-				<string>NO</string>
-			</dict>
-			<dict>
-				<key>Topic_Type</key>
 				<string>NORMAL</string>
 				<key>Topic_Title</key>
-				<string>Coffee/Tea Break</string>
+				<string>Coffee/Tea Break...</string>
 				<key>Topic_Summary</key>
 				<string>Coffee/Tea Break</string>
 				<key>Topic_Speaker</key>
@@ -94,7 +94,7 @@
 				<key>Topic_Track</key>
 				<string>Track1</string>
 				<key>Topic_Favorite</key>
-				<string>NO</string>
+				<string>YES</string>
 				<key>Topic_Participated</key>
 				<string>NO</string>
 				<key>Topic_Missed</key>

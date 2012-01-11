@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad
 {
+    preFinalTrackIndex=3;
     
     tracksCoverFlowImgsArray = [[NSArray alloc] initWithObjects:@"track1.png",@"track2.png",@"track3.png",@"track4.png",@"track5.png",@"track6.png",@"track7.png", nil];
     
@@ -137,9 +138,8 @@
     [searchHolderView setNeedsLayout];
     [searchHolderView setTag:1234];
     searchHolderView.frame = CGRectMake(0, -380, 320, 380);
-    
     [self.view addSubview:searchHolderView];
-    
+    //
     NSArray *organizerViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACOrganizerView" owner:self options:nil];
         // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
     for (id object in organizerViewNibObjects) {
@@ -147,10 +147,9 @@
         organizerView = (ACOrganizerView*)object;
         organizerView.delegate = self;
     }  
+    //
     organizerView.frame = CGRectMake(0, 415, 320, 380);
-    
     [self.view addSubview:organizerView];
-    
     NSArray *splashViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACSplashView" owner:self options:nil];
         // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
     for (id object in splashViewNibObjects) {
@@ -228,10 +227,20 @@
 }
 -(void)didSelectSlide:(NSInteger)index{
     
-    ACLog(@"did select slide>>>>>>>>>>%i",finalTrackIndex);
-    NSString *trackSelected=[NSString stringWithFormat:@"Track%i",finalTrackIndex+1];
-   [[ACAppSetting getAppSession]setTrackSelected:trackSelected];
-   [contentViewController reloadEventTableView];
+    if(preFinalTrackIndex!=finalTrackIndex){
+
+        ACLog(@"did select slide>>>>>>>>>>%i",finalTrackIndex);
+        NSString *trackSelected=[NSString stringWithFormat:@"Track%i",finalTrackIndex+1];
+        [[ACAppSetting getAppSession]setTrackSelected:trackSelected];
+        if(preFinalTrackIndex<finalTrackIndex) {
+            [contentViewController reloadEventTableViewWithAnimation:NO];
+
+        }else{
+            [contentViewController reloadEventTableViewWithAnimation:YES];
+
+        }
+        preFinalTrackIndex=finalTrackIndex;
+    }
 
 }
 
@@ -240,7 +249,7 @@
 {
     //NSLog(@"Track selected:%i",inIndex);
     finalTrackIndex=inIndex;
-    ACLog(@"Track : %d", inIndex);
+    //ACLog(@"Track : %d", inIndex);
 }
 
 
@@ -248,9 +257,13 @@
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
-    NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
-    [[ACAppSetting getAppSession]setDaySelected:daySelected];
-    [contentViewController reloadEventTableView];
+    if(preFinalTrackIndex!=finalTrackIndex){
+        NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
+        [[ACAppSetting getAppSession]setDaySelected:daySelected];
+        [contentViewController reloadEventTableViewWithAnimation:YES];
+        preFinalTrackIndex=finalTrackIndex;
+    }
+
 }
 
 

@@ -14,6 +14,7 @@
 @interface ACTracksEventsListViewController : UIViewController{
     
     NSMutableArray *topicArray;
+    BOOL isBottomAnimation;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *eventsTableView;
@@ -23,7 +24,8 @@
 -(IBAction)viewMoreTopicsButtonTapped:(id)sender;
 -(void)setupView;
 -(void)changeCellsLables : (NSArray *)topicNamesArray;
--(void)reloadEventTableView;
+-(void)reloadEventTableViewWithAnimation:(BOOL)animated;
+
 
 @end
 

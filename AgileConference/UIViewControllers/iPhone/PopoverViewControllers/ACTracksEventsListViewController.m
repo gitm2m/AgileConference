@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
+        isBottomAnimation=NO;
         NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
         NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
 
@@ -131,13 +131,12 @@
     [delegate viewMoreTopicsButtonTapped:sender inView:self];
 }
 
--(void)reloadEventTableView{
-    
+-(void)reloadEventTableViewWithAnimation:(BOOL)animated{
+    isBottomAnimation=animated;
     NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
     NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
     ACLog(@"daySelected:%@>>>>>>>>",daySelected);
     ACLog(@"trackSelected:%@>>>>>>",trackSelected);
-    
     //
     NSMutableArray *array=[[NSMutableArray alloc] init];
     NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
@@ -149,10 +148,13 @@
     //
     NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
     topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
-    [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
+    if(isBottomAnimation){
+        [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationBottom];
 
-    //[eventsTableView reloadData];
-    
+    }else{
+        [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
+ 
+    }
 }
 
 

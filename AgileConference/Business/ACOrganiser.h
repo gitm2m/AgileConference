@@ -24,4 +24,7 @@
 //
 -(NSMutableDictionary *)searchCatalogWithSearchKey:(NSString *)searchKey 
                                     andSearchValue:(NSString *)searchValue;
+//
+-(NSMutableArray *)getArrayOfDict:(NSMutableDictionary *)dict;
+
 @end
