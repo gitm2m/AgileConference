@@ -68,7 +68,8 @@
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
         [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
     }
-
+    
+    ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -126,7 +127,7 @@
         [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
     }
     
-    
+    ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
     [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
 
 }

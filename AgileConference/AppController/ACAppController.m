@@ -67,6 +67,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+     [organizerView.organizerListTableView reloadData];
     [super viewDidAppear:animated];
 }
 
