@@ -16,12 +16,15 @@
 @interface ACOrganizerView : UIView{
     
     NSMutableArray *eventArray;
+    NSInteger selectedInndex;
 }
 
 @property (strong, nonatomic) id<ACOrganizerViewDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UITableView *organizerListTableView;
 
 - (IBAction)segmentValueChanged:(id)sender;
+-(void)reloadTableViewData;
+
 
 @end
 
