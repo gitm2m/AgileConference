@@ -12,8 +12,9 @@
 @interface AVEventsListTableCellView : UITableViewCell{
     
     AVEventsListCellView *cellView;
-
+    NSString *isNormalBusiness;
 }
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier type:(NSString *)normalBusiness;
 @property (strong,nonatomic) NSDictionary *cellData;
 
 @end

@@ -14,6 +14,10 @@
 @synthesize statusLabel;
 @synthesize topicLabel;
 @synthesize cellData;
+@synthesize favImageView;
+@synthesize breakCellTopicLabel;
+@synthesize breakLabelTimeLabel;
+@synthesize dateTrackLabel;
 
 - (id)initWithFrame:(CGRect)frame
 {

@@ -67,7 +67,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-        //[organizerView.organizerListTableView reloadData];
+    [searchHolderView.searchResultTableView reloadData];
+    [organizerView reloadTableViewData];
     [super viewDidAppear:animated];
 }
 
@@ -499,10 +500,10 @@
 
 #pragma mark - ACSearchViewDelegate Methods
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withDict:(NSMutableDictionary *)dict{
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:dict];
+    [detailViewController setIsNavigatedFromOrganizerView:NO];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
@@ -521,7 +522,7 @@
     
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicIndex:indexPath.row];
     
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [detailViewController setIsNavigatedFromOrganizerView:NO];
     [self.navigationController pushViewController:detailViewController animated:YES];
 
 }
@@ -530,7 +531,7 @@
 - (void)organizerListTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withDict:(NSMutableDictionary  *)dict{
     
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:dict];
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [detailViewController setIsNavigatedFromOrganizerView:YES];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
     

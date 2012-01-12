@@ -9,10 +9,11 @@
 #import "ACEventDetailViewController.h"
 #import "Twitter/TWTweetComposeViewController.h"
 #import "SBJSON.h"
+#import "ViewUtility.h"
 
 @implementation ACEventDetailViewController
 @synthesize addRemoveFavsButton;
-@synthesize topicDescriptionLinkTextView,delegate;
+@synthesize topicDescriptionLinkTextView,delegate,isNavigatedFromOrganizerView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)index{
@@ -143,8 +144,14 @@
         [topicDict setObject:@"YES" forKey:kTopicFavorite];
         [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
-        [topicDict setObject:@"NO" forKey:kTopicFavorite];
-        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+     
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName 
+                                                            message:@"Are you sure you want to remove from favourites." 
+                                                           delegate:self 
+                                                  cancelButtonTitle:@"No" 
+                                                  otherButtonTitles:@"Yes", nil];
+        [alertView show];
+        
     }
     
     ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
@@ -320,5 +327,18 @@
     
 }
 
+
+# pragma mark UIAlertViewDelegate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        [topicDict setObject:@"NO" forKey:kTopicFavorite];
+        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+        
+        if(isNavigatedFromOrganizerView)
+            [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 
 @end

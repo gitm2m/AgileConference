@@ -50,7 +50,7 @@
 @protocol ACSearchViewDelegate 
 
 @optional
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withDict : (NSMutableDictionary *)dict;
 
 
 @end

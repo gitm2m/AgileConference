@@ -140,7 +140,7 @@ static ACOrganiser *appOrganiser = nil;
 
                 
 
-                if([[[topicDict objectForKey:catalogType] uppercaseString] rangeOfString:[content uppercaseString]].length>0){
+                if([[[topicDict objectForKey:catalogType] uppercaseString] rangeOfString:[content uppercaseString]].length>0 && [[topicDict objectForKey:kTopicType] isEqualToString:@"BUSINESS"]){
                     //
                     NSMutableDictionary *favTopicDict= [[NSMutableDictionary alloc] initWithDictionary:topicDict];
                     [favTopicInTrack addObject:favTopicDict];

@@ -27,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *topicDescriptionLinkTextView;
 @property (strong, nonatomic) id<ACEventDetailViewControllerDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UIButton *addRemoveFavsButton;
+@property BOOL isNavigatedFromOrganizerView;
 
 - (IBAction)viewMoreButtonTapped:(id)sender;
 - (void)shareButtonTapped : (id)sender;
