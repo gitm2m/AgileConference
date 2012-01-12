@@ -422,15 +422,17 @@
 
 -(void)organizerButtonTapped : (id)sender{
     
+
+    
     if (organizerButtn.frame.origin.y == 382) {
         
         
-        [organizerView.organizerListTableView reloadData];
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
         [organizerButtn setFrame:CGRectMake(0, 0, 320, 35)];
         [organizerView setFrame:CGRectMake(0, 35, 320, 380)];
+        [organizerView reloadTableViewData];
         [UIView commitAnimations];
 
     }else if(organizerButtn.frame.origin.y == 0){

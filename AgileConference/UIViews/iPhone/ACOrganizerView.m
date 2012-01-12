@@ -16,6 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -31,11 +32,16 @@
 
 
 -(void)layoutSubviews{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(reloadTableViewData) 
+                                                 name:@"UPDATE_ORGANISER" 
+                                               object:nil];
+    selectedInndex=0;
     NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
                                                             andCatalogTypeContent:@"YES"];
     eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
-
-    
+    [organizerListTableView setSeparatorColor:[UIColor clearColor]];
 }
 
 
@@ -81,6 +87,8 @@
 
 - (IBAction)segmentValueChanged:(UISegmentedControl *)sender {
     
+    selectedInndex=sender.selectedSegmentIndex;
+    
     switch (sender.selectedSegmentIndex) {
         case 0:{
             
@@ -119,5 +127,45 @@
     ACLog(@">>>>>>>>>>>>>>>>segment value changed");
     
     
+}
+
+-(void)reloadTableViewData{
+    
+    switch (selectedInndex) {
+        case 0:{
+            
+            NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
+                                                                    andCatalogTypeContent:@"YES"];
+            eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+            
+        }
+            break;
+            
+        case 1:{
+            
+            NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicParticipated
+                                                                    andCatalogTypeContent:@"YES"];
+            eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+            
+        }
+            break;
+            
+        case 2:{
+            
+            NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicMissed
+                                                                    andCatalogTypeContent:@"YES"];
+            eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+            
+            
+        }
+            break;
+            
+            
+        default:
+            break;
+    }
+    
+    [organizerListTableView reloadData];
+
 }
 @end

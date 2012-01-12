@@ -230,10 +230,18 @@ static ACOrganiser *appOrganiser = nil;
 
     }
 
-    
+    NSLog(@"Day key:%@",dayKey);
     NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
     
-    NSMutableArray *tracArray=[dayDict objectForKey:kTopicTrack];
+    NSString *tracKey=[currentDict objectForKey:kTopicTrack];
+    NSLog(@"tracKey key:%@",tracKey);
+
+    NSMutableArray *tracArray=[dayDict objectForKey:tracKey];
+
+    
+    
+   // NSLog(@"Day key:%@",[dayDict objectForKey:kTopicTrack];);
+
     NSString *currentTopicTitle=[currentDict objectForKey:kTopicTitle];
     //
     NSInteger topicIndex=0;
@@ -243,6 +251,7 @@ static ACOrganiser *appOrganiser = nil;
         
         NSString *tempTopicTitle=[topicDict objectForKey:kTopicTitle];
         if([tempTopicTitle isEqualToString:currentTopicTitle]){
+            isDictFound=YES;
             break;
         }
         topicIndex++;
@@ -251,11 +260,8 @@ static ACOrganiser *appOrganiser = nil;
     if(isDictFound){
         [tracArray replaceObjectAtIndex:topicIndex withObject:currentDict];
         [self saveCatalogDict];
-
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_ORGANISER" object:nil];
     }
-    
-    
-    
 }
 //
 -(NSMutableArray *)getArrayOfDict:(NSMutableDictionary *)dict{
