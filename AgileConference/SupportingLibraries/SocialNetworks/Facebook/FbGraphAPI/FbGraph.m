@@ -71,17 +71,31 @@
 	NSURL *url = [NSURL URLWithString:url_string];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
-	CGRect webFrame = [super_view frame];
-	
-	webFrame.origin.y = 0;
+    CGRect webFrame = [super_view frame];
+    webFrame.origin.y = 20;
+    webFrame.size.height = 420;
 	UIWebView *aWebView = [[UIWebView alloc] initWithFrame:webFrame];
 	[aWebView setDelegate:self];	
 	self.webView = aWebView;
-	
-	
-	
+    
+    [self.webView setBackgroundColor:[UIColor blackColor]];
+    [self.webView setAlpha:0.5];
+
 	[webView loadRequest:request];	
 	[super_view addSubview:webView];
+    
+    cancelButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 440, 320, 60)];
+    [cancelButtonView setBackgroundColor:[UIColor whiteColor]];
+    [cancelButtonView setAlpha:0.5];
+    [super_view addSubview:cancelButtonView];
+    
+    
+   
+    
+    activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicatorView.frame = CGRectMake(140, 230, 45, 45);
+    [activityIndicatorView startAnimating];
+    [self.webView addSubview:activityIndicatorView];
 }
 
 -(void)authenticateUserWithCallbackObject:(id)anObject andSelector:(SEL)selector andExtendedPermissions:(NSString *)extended_permissions {
@@ -247,7 +261,24 @@
 #pragma mark -
 #pragma mark UIWebViewDelegate Function
 - (void)webViewDidFinishLoad:(UIWebView *)_webView {
-	
+    
+    if (activityIndicatorView) {
+        [activityIndicatorView stopAnimating];
+        [activityIndicatorView removeFromSuperview];
+    }
+    
+    [self.webView setBackgroundColor:[UIColor whiteColor]];
+    [self.webView setAlpha:1];
+    [cancelButtonView setAlpha:1];
+    
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelButton.frame = CGRectMake(250, 1, 64, 42);
+    [cancelButton setBackgroundImage:[UIImage imageNamed:@"cancelFB.png"] forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(cancelButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButtonView addSubview:cancelButton];
+
+	    
+    
 	/**
 	 * Since there's some server side redirecting involved, this method/function will be called several times
 	 * we're only interested when we see a url like:  http://www.facebook.com/connect/login_success.html#access_token=..........
@@ -287,6 +318,7 @@
 			window = [[UIApplication sharedApplication].windows objectAtIndex:0];
 		}
 		
+        [cancelButtonView removeFromSuperview];
 		[self.webView removeFromSuperview];
 		
 		//tell our callback function that we're done logging in :)
@@ -303,7 +335,8 @@
 			window = [[UIApplication sharedApplication].windows objectAtIndex:0];
 		}
 		
-            [self.webView removeFromSuperview];
+        [cancelButtonView removeFromSuperview];    
+        [self.webView removeFromSuperview];
 		
 		//tell our callback function that we're done logging in :)
 		if ( (self.callbackObject != nil) && (self.callbackSelector != nil) ) {
@@ -312,6 +345,11 @@
         }
 		
 	}
+}
+
+- (void) cancelButtonTapped{
+    [self.webView removeFromSuperview];
+    [cancelButtonView removeFromSuperview];
 }
 
 -(void) dealloc {
