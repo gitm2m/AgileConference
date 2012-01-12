@@ -39,7 +39,7 @@ static ACAppSetting *appSession = nil;
 -(void)setDefaultValues{	
     
     daySelected=@"Day1";
-    trackSelected=@"Track1";
+    trackSelected=@"Track4";
 }
 //
 -(void)resetToDefaultValues{

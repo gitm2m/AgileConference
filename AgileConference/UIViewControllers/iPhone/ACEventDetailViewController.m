@@ -60,8 +60,8 @@
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
     self.navigationItem.rightBarButtonItem = shareButton;
-    //[topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
-    //[SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeaker]];
+    [topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
+    [SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeaker]];
     
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
         [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];

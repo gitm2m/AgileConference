@@ -56,7 +56,21 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "110"
          endingLineNumber = "110"
-         landmarkName = "-addToFavsButtonTapped:"
+         landmarkName = "-shareButtonTapped:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/AppController/ACAppController.m"
+         timestampString = "347983135.749468"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "416"
+         endingLineNumber = "416"
+         landmarkName = "-shareButtonTapped:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,11 +79,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AgileConference/Business/ACOrganiser.m"
-         timestampString = "347974297.058623"
+         timestampString = "347987388.303144"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "234"
-         endingLineNumber = "234"
+         startingLineNumber = "220"
+         endingLineNumber = "220"
          landmarkName = "-updateCatalogDict:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -79,12 +93,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AgileConference/AppController/ACAppController.m"
-         timestampString = "347974931.257546"
+         timestampString = "347988698.781333"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "412"
-         endingLineNumber = "412"
-         landmarkName = "-organizerButtonTapped:"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/Business/ACOrganiser.m"
+         timestampString = "347989144.28626"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
+         landmarkName = "-updateCatalogDict:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

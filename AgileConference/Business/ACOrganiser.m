@@ -250,7 +250,10 @@ static ACOrganiser *appOrganiser = nil;
     
     if(isDictFound){
         [tracArray replaceObjectAtIndex:topicIndex withObject:currentDict];
+        [self saveCatalogDict];
+
     }
+    
     
     
 }
