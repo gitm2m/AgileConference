@@ -295,7 +295,7 @@
 	
 	//it exists?  coolio, we have a token, now let's parse it out....
 	if (access_token_range.length > 0) {
-		
+		[cancelButton removeFromSuperview];
 		//we want everything after the 'access_token=' thus the position where it starts + it's length
 		int from_index = access_token_range.location + access_token_range.length;
 		NSString *access_token = [url_string substringFromIndex:from_index];
@@ -330,6 +330,8 @@
 		//the user pressed cancel
 	} else if (cancel_range.length > 0) {
 		//remove our window
+        [cancelButton removeFromSuperview];
+        
 		UIWindow* window = [UIApplication sharedApplication].keyWindow;
 		if (!window) {
 			window = [[UIApplication sharedApplication].windows objectAtIndex:0];
@@ -344,7 +346,10 @@
             objc_msgSend(callbackObject, callbackSelector);
         }
 		
-	}
+	}else{
+     
+        [cancelButton removeFromSuperview]; 
+    }
 }
 
 - (void) cancelButtonTapped{
