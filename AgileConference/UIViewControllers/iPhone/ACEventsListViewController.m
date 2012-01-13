@@ -55,6 +55,13 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [eventsListTableView reloadData];
+    [super viewDidAppear:animated];
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -91,12 +98,15 @@
     
 	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];	
 	if(cell == nil)
-        {
-		cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    {
+    if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
+        cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];
+    else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"NORMAL"])
+        cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		
-        }
+    }
 
     [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     
@@ -111,17 +121,26 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:[topicArray objectAtIndex:indexPath.row]];
-    detailViewController.delegate = self;
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"]){
+        
+        ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:[topicArray objectAtIndex:indexPath.row]];
+        detailViewController.delegate = self;
+        [detailViewController setIsNavigatedFromOrganizerView:NO];
+        [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+        
+        [self.navigationController pushViewController:detailViewController animated:YES];
+
+        
+    }
     
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    
+       
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return kEventTableCellHeight;
+    if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
+        return kEventTableCellHeight;
+    else
+        return 35;
 }
 
 #pragma mark - ACEventDetailViewControllerDelegateMethods

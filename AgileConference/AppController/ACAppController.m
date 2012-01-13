@@ -68,6 +68,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [searchHolderView.searchResultTableView reloadData];
+    [organizerView reloadTableViewData];
     [super viewDidAppear:animated];
 }
 
@@ -520,10 +522,10 @@
 
 #pragma mark - ACSearchViewDelegate Methods
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withDict:(NSMutableDictionary *)dict{
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil];
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:dict];
+    [detailViewController setIsNavigatedFromOrganizerView:NO];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
@@ -542,7 +544,7 @@
     
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicIndex:indexPath.row];
     
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [detailViewController setIsNavigatedFromOrganizerView:NO];
     [self.navigationController pushViewController:detailViewController animated:YES];
 
 }
@@ -551,7 +553,7 @@
 - (void)organizerListTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withDict:(NSMutableDictionary  *)dict{
     
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:dict];
-    [detailViewController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [detailViewController setIsNavigatedFromOrganizerView:YES];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
     
@@ -618,18 +620,20 @@
 	
         // [[ACFacebookConnect getFacebookConnectObject] checkForSessionWithCallbackObject:self andSelector:@selector(fbGraphCallback:)];
     
-    if(isFBLoginFirtTime){
-        [self displayFacebookShareView];
-        isFBLoginFirtTime = NO;
-    }
+   
     
     if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ) {
 		
 		ACLog(@"You pressed the 'cancel' or 'Dont Allow' button, you are NOT logged into Facebook...I require you to be logged in & approve access before you can do anything useful....");
 		
+         isFBLoginFirtTime = NO;
             //restart the authentication process.....
-		[[[ACFacebookConnect getFacebookConnectObject] fbGraph] authenticateUserWithCallbackObject:self andSelector:@selector(fbGraphCallback:) 
-							 andExtendedPermissions:@"user_photos,user_videos,publish_stream,offline_access,user_checkins,friends_checkins"];
+            //[[[ACFacebookConnect getFacebookConnectObject] fbGraph] authenticateUserWithCallbackObject:self andSelector:@selector(fbGraphCallback:) 
+            // andExtendedPermissions:@"user_photos,user_videos,publish_stream,offline_access,user_checkins,friends_checkins"];
+        NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (NSHTTPCookie* cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
+            [cookies deleteCookie:cookie];
+        }
 		
 	} else {
         
@@ -641,6 +645,11 @@
 //        }
 //		
 	}
+    
+    if(isFBLoginFirtTime){
+        [self displayFacebookShareView];
+        isFBLoginFirtTime = NO;
+    }
 	
 }
 

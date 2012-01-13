@@ -16,7 +16,7 @@
 
 +(UIAlertView *)showAlertViewWithMessage:(NSString *)message{
 	
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" 
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName 
 													   message:message 
 													  delegate:nil 
 											 cancelButtonTitle:@"OK" otherButtonTitles:nil];	
@@ -29,12 +29,13 @@
 // show the alertmessage with the tag
 
 +(UIAlertView *)showAlertViewWithMessage:(NSString *)message andButtons:(NSString *)btnTitles{
+    NSArray *btnTitlesArray=[btnTitles componentsSeparatedByString:@","];
 	
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" 
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName 
                                                         message:message 
                                                        delegate:nil 
                                               cancelButtonTitle:nil 
-                                              otherButtonTitles:btnTitles,nil];	
+                                              otherButtonTitles:[NSString stringWithFormat:@"%@",btnTitles],nil];	
 	[alertView show];
     return alertView;
 

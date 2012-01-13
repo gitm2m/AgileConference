@@ -8,10 +8,13 @@
 
 #import "ACEventDetailViewController.h"
 #import "Twitter/TWTweetComposeViewController.h"
+#import "SBJSON.h"
+#import "ViewUtility.h"
 
 @implementation ACEventDetailViewController
 @synthesize addRemoveFavsButton;
-@synthesize topicDescriptionLinkTextView,delegate;
+@synthesize topicDescriptionLinkTextView,delegate,isNavigatedFromOrganizerView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)index{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -68,7 +71,8 @@
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
         [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
     }
-
+    
+    ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -84,6 +88,24 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+- (void)displayFacebookShareView{
+    
+    
+    NSArray *fbShareViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACFacebookShareView" owner:self options:nil];
+        // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
+    for (id object in fbShareViewNibObjects) {
+        if ([object isKindOfClass:[ACFacebookShareView class]])
+            fbShareView = (ACFacebookShareView*)object;
+    }  
+    fbShareView.delegate = self;
+    [[fbShareView fbShareTextView] becomeFirstResponder];
+    fbShareView.frame = CGRectMake(6, 2, 309, 232);
+    
+    [self.view addSubview:fbShareView];
+    
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -122,11 +144,17 @@
         [topicDict setObject:@"YES" forKey:kTopicFavorite];
         [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
-        [topicDict setObject:@"NO" forKey:kTopicFavorite];
-        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+     
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName 
+                                                            message:@"Are you sure you want to remove from favourites." 
+                                                           delegate:self 
+                                                  cancelButtonTitle:@"No" 
+                                                  otherButtonTitles:@"Yes", nil];
+        [alertView show];
+        
     }
     
-    
+    ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
     [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
 
 }
@@ -166,6 +194,150 @@
             
         };
         
+    }else if(buttonIndex == 0){
+        
+        if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
+            
+            isFBLoginFirtTime = YES;
+            [[ACFacebookConnect getFacebookConnectObject] checkForSessionWithCallbackObject:self andSelector:@selector(fbGraphCallback:)];
+            
+        }else{
+            [self displayFacebookShareView];
+        }
+        
+        
+        
+        
+    }
+
+}
+
+#pragma mark -
+#pragma mark FbGraph Callback Function
+/**
+ * This function is called by FbGraph after it's finished the authentication process
+ **/
+- (void)fbGraphCallback:(id)sender {
+	
+        // [[ACFacebookConnect getFacebookConnectObject] checkForSessionWithCallbackObject:self andSelector:@selector(fbGraphCallback:)];
+    
+    
+    
+    if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ) {
+		
+		ACLog(@"You pressed the 'cancel' or 'Dont Allow' button, you are NOT logged into Facebook...I require you to be logged in & approve access before you can do anything useful....");
+		
+        isFBLoginFirtTime = NO;
+            //restart the authentication process.....
+            //[[[ACFacebookConnect getFacebookConnectObject] fbGraph] authenticateUserWithCallbackObject:self andSelector:@selector(fbGraphCallback:) 
+            // andExtendedPermissions:@"user_photos,user_videos,publish_stream,offline_access,user_checkins,friends_checkins"];
+        NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (NSHTTPCookie* cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
+            [cookies deleteCookie:cookie];
+        }
+		
+	} else {
+        
+		ACLog(@"------------>CONGRATULATIONS<------------, You're logged into Facebook...  Your oAuth token is:  %@", [[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken);
+        
+            //        if(didFinishedPostingOnWall){
+            //            didFinishedPostingOnWall = NO;
+            //            [self postFacebookFeedOnPage];
+            //        }
+            //		
+	}
+    
+    if(isFBLoginFirtTime){
+        [self displayFacebookShareView];
+        isFBLoginFirtTime = NO;
+    }
+	
+}
+
+#pragma mark - ACFacebookShareViewDelegate Methods
+
+-(void)cancelButtonTapped : (id)sender{
+    
+    [[fbShareView fbShareTextView] resignFirstResponder];
+    [fbShareView removeFromSuperview];
+    
+}
+
+-(void)sendButtonTapped : (id)sender{
+    
+    [self postFacebookFeed];
+    
+    [[fbShareView fbShareTextView] resignFirstResponder];
+    [fbShareView removeFromSuperview];
+}
+
+
+- (void)postFacebookFeed{
+    
+    NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    
+    [variables setObject:string forKey:@"message"];
+        //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
+        //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
+        //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
+    
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"me/feed" withPostVars:variables];
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    
+        //parse our json
+    SBJSON *parser = [[SBJSON alloc] init];
+    NSDictionary *facebook_response = [parser objectWithString:fb_graph_response.htmlResponse error:nil];	
+    
+    
+        //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
+    [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
+    
+    didFinishedPostingOnWall = YES;
+    [self postFacebookFeedOnPage];
+    
+}
+
+- (void)postFacebookFeedOnPage{
+    NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    
+    [variables setObject:string forKey:@"message"];
+        //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
+        //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
+        //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
+    
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"40796308305/feed" withPostVars:variables];
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    
+        //parse our json
+    SBJSON *parser = [[SBJSON alloc] init];
+    NSDictionary *facebook_response = [parser objectWithString:fb_graph_response.htmlResponse error:nil];	
+    
+    
+        //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
+    [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
+    
+    
+}
+
+
+# pragma mark UIAlertViewDelegate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        [topicDict setObject:@"NO" forKey:kTopicFavorite];
+        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+        
+        if(isNavigatedFromOrganizerView)
+            [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

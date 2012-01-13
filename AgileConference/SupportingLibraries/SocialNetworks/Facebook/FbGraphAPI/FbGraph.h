@@ -45,6 +45,8 @@
 	NSString *accessToken;
 	
 	UIWebView *webView;
+    UIActivityIndicatorView *activityIndicatorView;
+    UIView *cancelButtonView;
 	
 	id callbackObject;
 	SEL callbackSelector;
@@ -65,5 +67,7 @@
 - (FbGraphResponse *)doGraphGet:(NSString *)action withGetVars:(NSDictionary *)get_vars;
 - (FbGraphResponse *)doGraphGetWithUrlString:(NSString *)url_string;
 - (FbGraphResponse *)doGraphPost:(NSString *)action withPostVars:(NSDictionary *)post_vars;
+
+- (void) cancelButtonTapped;
 
 @end

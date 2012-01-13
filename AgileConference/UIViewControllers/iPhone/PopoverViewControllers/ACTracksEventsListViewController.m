@@ -8,6 +8,7 @@
 
 #import "ACOrganiser.h"
 #import "ACAppSetting.h"
+#import "ViewUtility.h"
 
 #import "ACTracksEventsListViewController.h"
 
@@ -98,10 +99,18 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
+    
         // Configure the cell.
     
     NSMutableDictionary *topicDict=[topicArray objectAtIndex:indexPath.row];
     
+    
+    if ([[topicDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"]) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if([[topicDict valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     ACLog(@"Topic dict:%@",topicDict);
     cell.textLabel.text = [topicDict objectForKey:kTopicTitle];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
@@ -119,8 +128,18 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+   
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSMutableDictionary *topicDict=[topicArray objectAtIndex:indexPath.row];
+    
+    if (![[topicDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"]){
+       
+        [ViewUtility showAlertViewWithMessage:[NSString stringWithFormat:@"%@ \n %@",[topicDict objectForKey:kTopicTitle],[topicDict objectForKey:kTopicTime]]];
+        return;
+    }
+    
+   
     [delegate eventsTableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 

@@ -10,25 +10,32 @@
 #import "ACEventDescriptionWebviewController.h"
 #import "ACOrganiser.h"
 #import "ACAppConstants.h"
+#import "ACFacebookConnect.h"
+#import "ACFacebookShareView.h"
 
 @protocol ACEventDetailViewControllerDelegate;
 
-@interface ACEventDetailViewController : UIViewController<UIActionSheetDelegate>{
+@interface ACEventDetailViewController : UIViewController<UIActionSheetDelegate,ACFacebookShareViewDelegate>{
     
     IBOutlet UITextView *SpeakerSummaryView;
     IBOutlet UITextView *topicSummaryView;
     NSMutableDictionary *topicDict;
+    BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
+    ACFacebookShareView *fbShareView;
 }
 
 @property (strong, nonatomic) IBOutlet UITextView *topicDescriptionLinkTextView;
 @property (strong, nonatomic) id<ACEventDetailViewControllerDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UIButton *addRemoveFavsButton;
+@property BOOL isNavigatedFromOrganizerView;
 
 - (IBAction)viewMoreButtonTapped:(id)sender;
 - (void)shareButtonTapped : (id)sender;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)topicIndex;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicDict:(NSMutableDictionary *)topicDictionary;
 - (IBAction)addToFavsButtonTapped:(id)sender;
+- (void)postFacebookFeedOnPage;
+- (void)postFacebookFeed;
 
 @end
 

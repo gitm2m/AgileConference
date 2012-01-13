@@ -34,6 +34,8 @@
         //[commonTableView setFrame:CGRectMake(commonTableView.frame.origin.x, commonTableView.frame.origin.y, commonTableView.frame.size.width, 200)];
     }
     
+   
+    
     [searchResultTableView reloadData];
 
     
@@ -53,6 +55,15 @@
                                                                          andSearchValue:searchContent];
         }
         //
+//       
+//        NSArray *subviews = [searchResultTableView subviews];
+//    
+//        ACLog(@"subviews %@", subviews);
+//    
+//        for (id object in subviews) 
+//            [object removeFromSuperview];
+         
+    
         [searchResultTableView reloadData];
     
 }
@@ -97,7 +108,7 @@
         commonRowArray=nil;
     }
 
-    return     [commonRowArray count];
+    return [commonRowArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -105,12 +116,8 @@
     static NSString *cellIdentifier = @"CategoryCell";
     
 	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];	
-	if(cell == nil)
-	{
-		cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-		//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-	}
+    
+    
     NSString *keyString=[commonSectionArray objectAtIndex:indexPath.section];
     NSMutableDictionary *trackDict=[searchDataDictionary objectForKey:keyString];
     NSMutableArray *commonRowArray1=[[NSMutableArray alloc] init];
@@ -121,6 +128,18 @@
     }
     
     NSMutableDictionary *eventDict=[commonRowArray1 objectAtIndex:indexPath.row];
+    
+	if(cell == nil)
+    {
+        if([[eventDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
+            cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];
+        else if([[eventDict valueForKey:kTopicType] isEqualToString:@"NORMAL"])
+            cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
+            //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+		
+    }
+
     [cell setCellData:eventDict];
 
     return cell;
@@ -131,7 +150,19 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    [delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    NSString *keyString=[commonSectionArray objectAtIndex:indexPath.section];
+    NSMutableDictionary *trackDict=[searchDataDictionary objectForKey:keyString];
+    NSMutableArray *commonRowArray1=[[NSMutableArray alloc] init];
+    NSArray *allKeys=[trackDict allKeys];
+    for (NSString *key in allKeys) {
+        NSMutableArray *array1=[trackDict objectForKey:key];
+        [commonRowArray1 addObjectsFromArray:array1];
+    }
+    
+    NSMutableDictionary *eventDict=[commonRowArray1 objectAtIndex:indexPath.row];
+
+    
+    [delegate tableView:tableView didSelectRowAtIndexPath:indexPath withDict:eventDict];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
