@@ -143,6 +143,10 @@
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
         [topicDict setObject:@"YES" forKey:kTopicFavorite];
         [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
+        ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
+        [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
+        [CommonUtility schedulNotificationOfEvent:topicDict];
+        
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
      
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName 
@@ -151,11 +155,10 @@
                                                   cancelButtonTitle:@"No" 
                                                   otherButtonTitles:@"Yes", nil];
         [alertView show];
+
         
     }
     
-    ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
-    [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
 
 }
 
@@ -194,7 +197,8 @@
             
         };
         
-    }else if(buttonIndex == 0){
+    }else
+        if(buttonIndex == 0){
         
         if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
             
@@ -335,6 +339,9 @@
     if (buttonIndex == 1) {
         [topicDict setObject:@"NO" forKey:kTopicFavorite];
         [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+        [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
+        [CommonUtility cancelNotificationOfEvent:topicDict];
+
         
         if(isNavigatedFromOrganizerView)
             [self.navigationController popViewControllerAnimated:YES];
