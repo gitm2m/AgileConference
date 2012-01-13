@@ -32,7 +32,6 @@
     NSMutableArray *accordionViewTrackArray;
     NSMutableArray *accordionViewDayArray;
     NSMutableArray *accordionViewCommonArray;
-    
     //
     
     NSString *searchContent;

@@ -409,8 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				CF770DA714AE51CD00DEAC5C /* TableCellViews */,
-				3886426E14ADE9F9005B520D /* ACSearchView.h */,
 				3886426F14ADE9F9005B520D /* ACSearchView.m */,
+				3886426E14ADE9F9005B520D /* ACSearchView.h */,
 				3886427B14ADF476005B520D /* ACSearchView.xib */,
 				38F915C114B1B22100415109 /* ACEventsListHeaderView.h */,
 				38F915C214B1B22100415109 /* ACEventsListHeaderView.m */,
