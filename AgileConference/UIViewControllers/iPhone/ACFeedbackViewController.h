@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACRateView.h"
 
-@interface ACFeedbackViewController : UIViewController
+@interface ACFeedbackViewController : UIViewController<ACRateViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *textViewPlaceHolderView;
 @property (strong, nonatomic) IBOutlet UITextField *feedbackSubTextField;
 @property (strong, nonatomic) IBOutlet UITextView *feedbackTextView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *feedbackBgTableCell;
+@property (strong, nonatomic) IBOutlet ACRateView *rateView;
+@property (strong, nonatomic) IBOutlet UITextField *userName;
+
+
 - (IBAction)cacelButtonTapped:(id)sender;
 - (IBAction)sendButtonTapped:(id)sender;
 @end

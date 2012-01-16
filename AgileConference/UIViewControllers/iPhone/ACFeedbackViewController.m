@@ -14,6 +14,8 @@
 @synthesize feedbackSubTextField;
 @synthesize feedbackTextView;
 @synthesize feedbackBgTableCell;
+@synthesize rateView;
+@synthesize userName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,11 +43,24 @@
     
     [feedbackSubTextField.layer setBorderColor:[UIColor blackColor].CGColor];
     [feedbackSubTextField.layer setBorderWidth:1.0f];
+
+    [userName.layer setBorderColor:[UIColor blackColor].CGColor];
+    [userName.layer setBorderWidth:1.0f];
+    [userName.layer setCornerRadius:5.0f];  
     
     [feedbackBgTableCell.layer setCornerRadius:5.0f];
     
     [feedbackBgTableCell.layer setBorderColor:[UIColor blackColor].CGColor];
     [feedbackBgTableCell.layer setBorderWidth:1.0f];
+    
+    rateView.notSelectedImage = [UIImage imageNamed:@"kermit_empty.png"];
+    rateView.fullSelectedImage = [UIImage imageNamed:@"kermit_full.png"];
+    rateView.rating = 0;
+    rateView.editable = YES;
+    rateView.maxRating = 5;
+    rateView.delegate = self;
+
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -56,6 +71,8 @@
     [self setFeedbackTextView:nil];
     [self setFeedbackSubTextField:nil];
     [self setTextViewPlaceHolderView:nil];
+    [self setRateView:nil];
+    [self setUserName:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -123,5 +140,11 @@
     
     [textField resignFirstResponder];
     return YES;
+}
+
+#pragma mark - ACRateViewDelegate Methods
+
+- (void)rateView:(ACRateView *)rateView ratingDidChange:(float)rating {
+    
 }
 @end
