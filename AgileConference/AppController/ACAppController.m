@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     preFinalTrackIndex=3;
+    preFinalDayIndex=0;
     
     tracksCoverFlowImgsArray = [[NSArray alloc] initWithObjects:@"track1.png",@"track2.png",@"track3.png",@"track4.png",@"track5.png",@"track6.png",@"track7.png", nil];
     
@@ -110,6 +111,29 @@
     [homeCoverViewHolderView addSubview:tracksCoverView];
     
     [homeCoverViewHolderView insertSubview:daysSegmentController aboveSubview:tracksCoverView];
+    NSString *dateAsString=[CommonUtility convertDateToString:[NSDate date] format:@"dd-MM-yyyy"];
+    //
+    if([dateAsString isEqualToString:@"17-02-2012"]){
+        [daysSegmentController setSelectedSegmentIndex:0];
+        [[ACAppSetting getAppSession] setDaySelected:@"Day1"];
+        preFinalDayIndex=0;
+        
+    }else if([dateAsString isEqualToString:@"18-02-2012"]){
+        [daysSegmentController setSelectedSegmentIndex:1];
+        [[ACAppSetting getAppSession] setDaySelected:@"Day2"];
+        preFinalDayIndex=1;
+
+    }else if([dateAsString isEqualToString:@"19-02-2012"]){
+        [daysSegmentController setSelectedSegmentIndex:2];
+        [[ACAppSetting getAppSession] setDaySelected:@"Day3"];
+        preFinalDayIndex=2;
+        
+    }else{
+        [daysSegmentController setSelectedSegmentIndex:0];
+        [[ACAppSetting getAppSession] setDaySelected:@"Day1"];
+        preFinalDayIndex=0;
+    }
+
     
      contentViewController = [[ACTracksEventsListViewController alloc] initWithNibName:@"ACTracksEventsListViewController" bundle:nil];
     contentViewController.delegate = self;
@@ -261,10 +285,9 @@
 
 }
 
--(void)slideChanged: (int) inIndex 
+-(void)slideChanged:(int)inIndex 
 
 {
-    //NSLog(@"Track selected:%i",inIndex);
     finalTrackIndex=inIndex;
     //ACLog(@"Track : %d", inIndex);
 }
@@ -274,20 +297,18 @@
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
-
-        //if(preFinalTrackIndex!=finalTrackIndex){
-
-   // if(preFinalTrackIndex!=finalTrackIndex){
-
         NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
+    
         [[ACAppSetting getAppSession]setDaySelected:daySelected];
-        [contentViewController reloadEventTableViewWithAnimation:YES];
-        preFinalTrackIndex=finalTrackIndex;
+    //
+        if(preFinalDayIndex<[sender selectedSegmentIndex]){
 
-        // }
-
-    //}
-
+            [contentViewController reloadEventTableViewWithAnimation:NO];
+        }else{
+            [contentViewController reloadEventTableViewWithAnimation:YES];
+        }
+//
+        preFinalDayIndex=[sender selectedSegmentIndex];
 
 }
 
@@ -301,7 +322,8 @@
 }
 
 - (void)searchButtonTapped : (id)sender{
-
+    
+    [[[TestUtility alloc] init] test];
     
     if ([self.view viewWithTag:1234].frame.origin.y == -380) {
         

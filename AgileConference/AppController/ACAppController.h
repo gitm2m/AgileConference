@@ -24,6 +24,7 @@
 #import "FbGraph.h"
 #import "ACFacebookShareView.h"
 #import "ACSplashView.h"
+#import "TestUtility.h"
 
 @interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate,ACSplashViewDelegate>{
     
@@ -35,6 +36,8 @@
     ACSearchPopoverViewController *serachPopoverContentViewController;
     NSInteger finalTrackIndex;
     NSInteger preFinalTrackIndex;
+    NSInteger preFinalDayIndex;
+
 
     ACSplashView *splashScreenView;
     ACFacebookShareView *fbShareView;

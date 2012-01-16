@@ -55,7 +55,14 @@
 #pragma mark -
 
 
-+(void)schedulNotification:(NSString *)date andTime:(NSString *)time andFormat:(NSString *)format;
++(void)schedulNotificationOnDate:(NSString *)date 
+                         andTime:(NSString *)time 
+                       andFormat:(NSString *)format 
+            withNotificationDict:(NSMutableDictionary*)notificationDict;
+
++(void)schedulNotificationOfEvent:(NSMutableDictionary*)favDict;
+
++(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict;
 
 
 @end

@@ -244,33 +244,108 @@
 +(void)schedulNotification:(NSString *)date andTime:(NSString *)time andFormat:(NSString *)format{
     
    // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
-
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",date, time];
     Class cls = NSClassFromString(@"UILocalNotification");
     if (cls != nil) {
         
         UILocalNotification *notif = [[cls alloc] init];
-        //notif.timeZone = [NSTimeZone localTimeZone];
         notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
-        //NSLog(@"Date Current:%@",notif.fireDate);
-        
-        notif.alertBody = @"Did you forget something?";
+        notif.timeZone = [NSTimeZone defaultTimeZone];
+        //NSLog(@"fire date:%@",notif.fireDate);
+        notif.alertBody = @"Agile Conference 2012";
         notif.alertAction = @"Show me";
         notif.soundName = UILocalNotificationDefaultSoundName;
-        notif.applicationIconBadgeNumber = 1;
         
-        NSDictionary *userDict = [NSDictionary dictionaryWithObject:@"Hey! You implemented the local notification"
+        NSDictionary *userDict = [NSDictionary dictionaryWithObject:stringDate
                                                              forKey:kRemindMeNotificationDataKey];
         notif.userInfo = userDict;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notif];
+        notif=nil;
+    }
+    
+   // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
+}
+
++(void)schedulNotificationOnDate:(NSString *)date 
+                         andTime:(NSString *)time 
+                       andFormat:(NSString *)format 
+            withNotificationDict:(NSMutableDictionary*)notificationDict;{
+    
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
+    NSString *stringDate=[NSString stringWithFormat:@"%@, %@",date, time];
+    Class cls = NSClassFromString(@"UILocalNotification");
+    if (cls != nil) {
+        
+        UILocalNotification *notif = [[cls alloc] init];
+        notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
+        notif.timeZone = [NSTimeZone defaultTimeZone];
+        NSLog(@"fire date:%@",notif.fireDate);
+        notif.alertBody = @"Agile Conference 2012";
+        notif.alertAction = @"Show me";
+        notif.soundName = UILocalNotificationDefaultSoundName;
+        notif.userInfo = notificationDict;
         [[UIApplication sharedApplication] scheduleLocalNotification:notif];
     }
     
+}
+
++(void)schedulNotificationOfEvent:(NSMutableDictionary*)favDict{
     
-   // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
+    NSString *topicDay=[favDict objectForKey:kTopicDay];
+    //
+    NSString *topicTime=[favDict objectForKey:kTopicTime];
+    NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@","];
+    NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
+    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+    //
+    NSMutableDictionary *userDict=[[NSMutableDictionary alloc] init];
+    [userDict setObject:favDict forKey:@"kEventDict"];
+    [userDict setObject:@"START" forKey:@"NOTIFICATION_TYPE"];
     
+    [self schedulNotificationOnDate:topicDay 
+                            andTime:startTime 
+                          andFormat:@"dd-MM-yyyy, HH:mm" 
+               withNotificationDict:userDict];
+    //
+    NSString *topicTimeLastObject=[topicTimeArray lastObject];
+    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+    [userDict setObject:@"END" forKey:@"NOTIFICATION_TYPE"];
+
     
+    [self schedulNotificationOnDate:topicDay 
+                            andTime:endTime 
+                          andFormat:@"dd-MM-yyyy, HH:mm" 
+               withNotificationDict:userDict];
+}
+
+
++(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict{
     
+    NSArray *eventNotificationArray=[[UIApplication sharedApplication]scheduledLocalNotifications];
+    //
+    if([eventNotificationArray count]>0){
+        NSMutableArray *targetNotificationArray=[[NSMutableArray alloc] init];
+        for (UILocalNotification *eventNotification in eventNotificationArray) {
+        
+        NSDictionary *notificationInfoDict=[eventNotification userInfo];
+        if([[notificationInfoDict objectForKey:@"kEventDict"] isEqualToDictionary:eventDict]){
+            [targetNotificationArray addObject:eventNotification];
+            if([targetNotificationArray count]==2){
+                break;
+            }
+        }
+    }
+        //
+        if([targetNotificationArray count]>0){
+        
+        for (UILocalNotification *eventNotification in targetNotificationArray){
+            [[UIApplication sharedApplication] cancelLocalNotification:eventNotification];
+
+        }
+    }
+    }
 }
 
 

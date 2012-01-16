@@ -31,12 +31,11 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    //[[[TestUtility alloc] init] test];
     [[ACOrganiser getOrganiser] getCatalogDict];
     
     ////***********************************************************************************************************?
     
-    Class cls = NSClassFromString(@"UILocalNotification");
+	Class cls = NSClassFromString(@"UILocalNotification");
 	if (cls) {
 		UILocalNotification *notification = [launchOptions objectForKey:
                                              UIApplicationLaunchOptionsLocalNotificationKey];
@@ -49,8 +48,6 @@
 	}
 	
 	application.applicationIconBadgeNumber = 0;
-    
-
     return YES;
 }
 
@@ -92,6 +89,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 	NSString *reminderText = [notification.userInfo
 							  objectForKey:kRemindMeNotificationDataKey];
 	[self showReminder:reminderText];
+
 }
 
 
@@ -114,12 +112,12 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 -(void)showReminder:(NSString *)text {
     
-   /* UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reminder" 
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reminder" 
                                                         message:text delegate:nil 
                                               cancelButtonTitle:@"OK" 
                                               otherButtonTitles:nil];
-    [alertView show];
-    */
+    [alertView show];    
+
 }
 
 
