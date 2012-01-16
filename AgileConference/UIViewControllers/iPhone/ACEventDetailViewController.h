@@ -12,6 +12,7 @@
 #import "ACAppConstants.h"
 #import "ACFacebookConnect.h"
 #import "ACFacebookShareView.h"
+#import "ACFeedbackViewController.h"
 
 @protocol ACEventDetailViewControllerDelegate;
 
@@ -36,6 +37,8 @@
 - (IBAction)addToFavsButtonTapped:(id)sender;
 - (void)postFacebookFeedOnPage;
 - (void)postFacebookFeed;
+- (IBAction)writeFeedbackButtonTapped:(id)sender;
+
 
 @end
 

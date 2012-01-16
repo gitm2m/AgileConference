@@ -89,7 +89,7 @@
         [UIView setAnimationDuration:1];
         [self setAlpha:0.0];
         [UIView commitAnimations];
-        [self performSelector:@selector(removeViewFromSuperView) withObject:nil afterDelay:0.7];
+            // [self performSelector:@selector(removeViewFromSuperView) withObject:nil afterDelay:0.7];
     }else if(indexPath.section == 1){
         
         [delegate aboutValtechTapped:indexPath];

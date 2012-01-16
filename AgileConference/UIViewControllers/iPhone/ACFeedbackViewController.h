@@ -10,4 +10,10 @@
 
 @interface ACFeedbackViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *textViewPlaceHolderView;
+@property (strong, nonatomic) IBOutlet UITextField *feedbackSubTextField;
+@property (strong, nonatomic) IBOutlet UITextView *feedbackTextView;
+@property (strong, nonatomic) IBOutlet UITableViewCell *feedbackBgTableCell;
+- (IBAction)cacelButtonTapped:(id)sender;
+- (IBAction)sendButtonTapped:(id)sender;
 @end

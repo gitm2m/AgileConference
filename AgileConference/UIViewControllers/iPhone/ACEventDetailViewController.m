@@ -84,6 +84,7 @@
     topicSummaryView = nil;
     SpeakerSummaryView = nil;
     [self setAddRemoveFavsButton:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -157,6 +158,13 @@
     ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
     [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
 
+}
+
+- (IBAction)writeFeedbackButtonTapped:(id)sender {
+    
+    ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+    [self.navigationController presentModalViewController:feedbackViewController animated:YES];
+    
 }
 
 
@@ -300,6 +308,7 @@
     [self postFacebookFeedOnPage];
     
 }
+
 
 - (void)postFacebookFeedOnPage{
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
