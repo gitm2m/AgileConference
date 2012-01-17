@@ -33,7 +33,7 @@
 {
     // Drawing code
     
-    array = [[NSArray alloc] initWithObjects:@"Proceed to application",@"About Valtech",@"About Agile Conference",nil];
+    array = [[NSArray alloc] initWithObjects:@"Proceed to application",@"About Valtech",nil];
     
     [menuTbView reloadData];
     
@@ -47,7 +47,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{

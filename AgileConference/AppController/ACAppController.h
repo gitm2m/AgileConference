@@ -37,6 +37,8 @@
     NSInteger finalTrackIndex;
     NSInteger preFinalTrackIndex;
     NSInteger preFinalDayIndex;
+    UIBarButtonItem *searchButton;
+    UIBarButtonItem *searchDoneButton;
 
 
     ACSplashView *splashScreenView;

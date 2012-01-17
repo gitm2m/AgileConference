@@ -82,7 +82,7 @@
 
 
 #pragma  mark - Network Utility
-+(BOOL) connectedToNetwork
++(BOOL) isConnectedToNetwork
 {
     // Create zero addy
     struct sockaddr_in zeroAddress;

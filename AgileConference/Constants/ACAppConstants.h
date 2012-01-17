@@ -10,7 +10,7 @@
 
 
 
-#define KAppName @"Agile 2012"
+#define KAppName @"AgileConference"
 #define kEventTableCellHeight 86
 
 

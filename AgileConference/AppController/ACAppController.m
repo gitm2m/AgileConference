@@ -96,11 +96,14 @@
     
     self.title = KAppName;
     
-    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+    searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+    
+    searchDoneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(searchButtonTapped:)];
     
     self.navigationItem.rightBarButtonItem = searchButton;
     
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    
     
     self.navigationItem.leftBarButtonItem = shareButton;
     
@@ -348,6 +351,7 @@
         [UIView commitAnimations];
         
         self.title = @"Search";
+        self.navigationItem.rightBarButtonItem = searchDoneButton;
         
     }else if([self.view viewWithTag:1234].frame.origin.y == 0){
         
@@ -375,6 +379,7 @@
         [UIView commitAnimations];
         
         self.title = KAppName;
+        self.navigationItem.rightBarButtonItem = searchButton;
 
     }
         
@@ -413,7 +418,7 @@
 
 - (void)shareButtonTapped : (id)sender{
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Write Feedback",@"About", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About", nil];
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
     shareActionSheet.delegate = self;

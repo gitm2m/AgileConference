@@ -12,6 +12,7 @@
 #import "TestUtility.h"
 #import "ACOrganiser.h"
 #import "ACFacebookConnect.h"
+#import "ViewUtility.h"
 
 
 @implementation ACAppDelegate
@@ -21,6 +22,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    if (![CommonUtility isConnectedToNetwork]) {
+        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -71,6 +77,10 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 	
+    if (![CommonUtility isConnectedToNetwork]) {
+        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+    }
+    
 	application.applicationIconBadgeNumber = 0;
 }
 
