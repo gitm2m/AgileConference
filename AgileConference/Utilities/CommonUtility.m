@@ -295,7 +295,7 @@
     
     NSString *topicDay=[favDict objectForKey:kTopicDay];
     //
-    NSString *topicTime=[favDict objectForKey:kTopicTime];
+    NSString *topicTime=[favDict objectForKey:kTopicTime];//
     NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@","];
     NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
     NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
@@ -329,8 +329,21 @@
         NSMutableArray *targetNotificationArray=[[NSMutableArray alloc] init];
         for (UILocalNotification *eventNotification in eventNotificationArray) {
         
-        NSDictionary *notificationInfoDict=[eventNotification userInfo];
-        if([[notificationInfoDict objectForKey:@"kEventDict"] isEqualToDictionary:eventDict]){
+            NSDictionary *notificationEventDict=[eventNotification.userInfo objectForKey:@"kEventDict"];
+            
+            NSString *noteDay=[notificationEventDict objectForKey:kTopicDay];
+            NSString *currDay=[eventDict objectForKey:kTopicDay];
+
+            NSString *noteTrack=[notificationEventDict objectForKey:kTopicTrack];
+            NSString *currTrack=[eventDict objectForKey:kTopicTrack];
+
+            NSString *noteTitle=[notificationEventDict objectForKey:kTopicTitle];
+            NSString *currTitle=[eventDict objectForKey:kTopicTitle];
+
+
+        if([noteDay isEqualToString:currDay] && [noteTrack isEqualToString:currTrack] && 
+           [noteTitle isEqualToString:currTitle]){
+            
             [targetNotificationArray addObject:eventNotification];
             if([targetNotificationArray count]==2){
                 break;

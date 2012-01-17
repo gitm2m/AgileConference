@@ -21,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Load catalog dict
+    [[ACOrganiser getOrganiser] getCatalogDict];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -31,7 +34,6 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    [[ACOrganiser getOrganiser] getCatalogDict];
     
     ////***********************************************************************************************************?
     
@@ -41,9 +43,9 @@
                                              UIApplicationLaunchOptionsLocalNotificationKey];
 		
 		if (notification) {
-			NSString *reminderText = [notification.userInfo 
-									  objectForKey:kRemindMeNotificationDataKey];
-			[self showReminder:reminderText];
+			//NSString *reminderText = [notification.userInfo 
+									 // objectForKey:kRemindMeNotificationDataKey];
+			[self showReminder:notification.userInfo];
 		}
 	}
 	
@@ -86,9 +88,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 	
 	
 	application.applicationIconBadgeNumber = 0;
-	NSString *reminderText = [notification.userInfo
-							  objectForKey:kRemindMeNotificationDataKey];
-	[self showReminder:reminderText];
+	[self showReminder:notification.userInfo];
 
 }
 
@@ -110,14 +110,75 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
      */
 }
 
--(void)showReminder:(NSString *)text {
+-(void)showReminder:(NSDictionary *)notificationDict {
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Reminder" 
-                                                        message:text delegate:nil 
-                                              cancelButtonTitle:@"OK" 
-                                              otherButtonTitles:nil];
-    [alertView show];    
+    notifiedEventDict=[notificationDict objectForKey:@"kEventDict"];
+    notificationType=[notificationDict objectForKey:@"NOTIFICATION_TYPE"];
 
+    if([notificationType isEqualToString:@"START"]){
+        
+        NSString *alertMssage=[NSString stringWithFormat:@"5 minutes is remaining to begin '%@', would you like to participate?",[notifiedEventDict objectForKey:kTopicTitle]];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName
+                                                            message:alertMssage delegate:nil 
+                                                  cancelButtonTitle:@"NO" 
+                                                  otherButtonTitles:@"YES",nil];
+        [alertView setDelegate:self];
+        [alertView show];    
+
+        
+    }
+    //
+    else if([notificationType isEqualToString:@"END"]){
+        
+        NSString *alertMssage=[NSString stringWithFormat:@"Would you like to write feedback on '%@'?",[notifiedEventDict objectForKey:kTopicTitle]];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName
+                                                            message:alertMssage delegate:nil 
+                                                  cancelButtonTitle:@"Later" 
+                                                  otherButtonTitles:@"Write",nil];
+        [alertView setDelegate:self];
+        [alertView show];    
+    }else{
+        
+        //[[ACOrganiser getOrganiser] get];
+    }
+    //
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSLog(@"Button Inex:%i",buttonIndex);
+    switch (buttonIndex) {
+        case 0:
+        {
+            if([notificationType isEqualToString:@"START"]){
+                
+                // make call to organiser andset event dict skipped yes
+            }else if([notificationType isEqualToString:@"END"]){
+                
+            }
+        }
+            break;
+            
+        case 1:
+        {
+            if([notificationType isEqualToString:@"START"]){
+                
+                // make call to organiser andset event dict participated yes
+            }else if([notificationType isEqualToString:@"END"]){
+                
+                // call feedback view
+                
+            }
+
+        }
+            break;
+
+            
+        default:
+            break;
+    }
 }
 
 

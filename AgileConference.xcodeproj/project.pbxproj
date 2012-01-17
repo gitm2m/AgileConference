@@ -80,6 +80,7 @@
 		38F9B4C214B42CD900696426 /* show-result-BTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4C114B42CD900696426 /* show-result-BTN.png */; };
 		38F9B4C614B42E4100696426 /* ACEventDescriptionWebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */; };
 		38F9B4C714B42E4100696426 /* ACEventDescriptionWebviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */; };
+		6A192BA714C5588B00BAFC26 /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A192BA614C5588B00BAFC26 /* Catalog.plist */; };
 		6A42701D14AC442B00F91472 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42701C14AC442B00F91472 /* TestUtility.m */; };
 		6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42702314AC48B800F91472 /* SqliteDBManager.m */; };
 		6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */; };
@@ -107,7 +108,6 @@
 		6A42708014AC71CB00F91472 /* ACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42707914AC71CB00F91472 /* ACAppDelegate.m */; };
 		6A42708114AC71CB00F91472 /* ACCustomRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42707B14AC71CB00F91472 /* ACCustomRootViewController.m */; };
 		6A42708214AC71CB00F91472 /* ACCustomRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A42707C14AC71CB00F91472 /* ACCustomRootViewController.xib */; };
-		6A42709D14AC81A900F91472 /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42709C14AC81A900F91472 /* Catalog.plist */; };
 		6A4270A014AC81CA00F91472 /* Speaker.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A42709F14AC81CA00F91472 /* Speaker.plist */; };
 		6A4270A214AC821100F91472 /* Topic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A4270A114AC821100F91472 /* Topic.plist */; };
 		6A4270A514AC831700F91472 /* Speaker_1.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A4270A414AC831700F91472 /* Speaker_1.html */; };
@@ -249,6 +249,7 @@
 		38F9B4C314B42E4000696426 /* ACEventDescriptionWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDescriptionWebviewController.h; sourceTree = "<group>"; };
 		38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDescriptionWebviewController.m; sourceTree = "<group>"; };
 		38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDescriptionWebviewController.xib; sourceTree = "<group>"; };
+		6A192BA614C5588B00BAFC26 /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
 		6A42701B14AC442B00F91472 /* TestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtility.h; sourceTree = "<group>"; };
 		6A42701C14AC442B00F91472 /* TestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtility.m; sourceTree = "<group>"; };
 		6A42702214AC48B800F91472 /* SqliteDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteDBManager.h; sourceTree = "<group>"; };
@@ -286,7 +287,6 @@
 		6A42707A14AC71CB00F91472 /* ACCustomRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCustomRootViewController.h; sourceTree = "<group>"; };
 		6A42707B14AC71CB00F91472 /* ACCustomRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCustomRootViewController.m; sourceTree = "<group>"; };
 		6A42707C14AC71CB00F91472 /* ACCustomRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACCustomRootViewController.xib; sourceTree = "<group>"; };
-		6A42709C14AC81A900F91472 /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
 		6A42709F14AC81CA00F91472 /* Speaker.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Speaker.plist; sourceTree = "<group>"; };
 		6A4270A114AC821100F91472 /* Topic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Topic.plist; sourceTree = "<group>"; };
 		6A4270A414AC831700F91472 /* Speaker_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Speaker_1.html; sourceTree = "<group>"; };
@@ -570,7 +570,7 @@
 		6A42702F14AC4D9900F91472 /* plist */ = {
 			isa = PBXGroup;
 			children = (
-				6A42709C14AC81A900F91472 /* Catalog.plist */,
+				6A192BA614C5588B00BAFC26 /* Catalog.plist */,
 				6A42709F14AC81CA00F91472 /* Speaker.plist */,
 				6A4270A114AC821100F91472 /* Topic.plist */,
 				6A4270A814AC945F00F91472 /* Favorite.plist */,
@@ -992,7 +992,6 @@
 				3858C71814ACB6A600C19AA5 /* facebookIcon.png in Resources */,
 				3858C71A14ACB6B300C19AA5 /* twitterIcon.png in Resources */,
 				3858C71C14ACB6D000C19AA5 /* WriteReviewIcon.gif in Resources */,
-				6A42709D14AC81A900F91472 /* Catalog.plist in Resources */,
 				6A4270A014AC81CA00F91472 /* Speaker.plist in Resources */,
 				6A4270A214AC821100F91472 /* Topic.plist in Resources */,
 				6A4270A514AC831700F91472 /* Speaker_1.html in Resources */,
@@ -1049,6 +1048,7 @@
 				38EA874414BEACE30007E46E /* Screen shot 2012-01-12 at 11.22.12 AM.png in Resources */,
 				38EA874714BEB72E0007E46E /* cancelFB.png in Resources */,
 				38EA874D14BEEA610007E46E /* ACEventListTeaBreakCellView.xib in Resources */,
+				6A192BA714C5588B00BAFC26 /* Catalog.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
