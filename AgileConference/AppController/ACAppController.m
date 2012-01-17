@@ -13,6 +13,7 @@
 #import "SBJSON.h"
 #import "FbGraphFile.h"
 #import "ACFacebookConnect.h"
+#import "ViewUtility.h"
 
 
 @implementation ACAppController
@@ -95,11 +96,14 @@
     
     self.title = KAppName;
     
-    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+    searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+    
+    searchDoneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(searchButtonTapped:)];
     
     self.navigationItem.rightBarButtonItem = searchButton;
     
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    
     
     self.navigationItem.leftBarButtonItem = shareButton;
     
@@ -347,6 +351,7 @@
         [UIView commitAnimations];
         
         self.title = @"Search";
+        self.navigationItem.rightBarButtonItem = searchDoneButton;
         
     }else if([self.view viewWithTag:1234].frame.origin.y == 0){
         
@@ -374,6 +379,7 @@
         [UIView commitAnimations];
         
         self.title = KAppName;
+        self.navigationItem.rightBarButtonItem = searchButton;
 
     }
         
@@ -412,7 +418,7 @@
 
 - (void)shareButtonTapped : (id)sender{
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Linkedin", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About", nil];
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
     shareActionSheet.delegate = self;
@@ -564,35 +570,43 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 1) {
-        TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
-        [twitter setInitialText:@"Write your text here!!"];
-            //[twitter addImage:[UIImage imageNamed:@"bg_moderator_notes1.png"]];
-        
-        [self presentViewController:twitter animated:YES completion:nil];
-        
-        twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+       
+        if (NSClassFromString(@"TWTweetComposeViewController")) {
+                       
+            TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
+            [twitter setInitialText:@"Write your text here!!"];
+                //[twitter addImage:[UIImage imageNamed:@"bg_moderator_notes1.png"]];
             
-            if(res == TWTweetComposeViewControllerResultDone)
-                {
+            [self presentViewController:twitter animated:YES completion:nil];
+            
+            twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
                 
-                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Succes!" message:@"Your Tweet was posted succesfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                
-                [alertView show];
-                
-                }else if(res == TWTweetComposeViewControllerResultCancelled)
+                if(res == TWTweetComposeViewControllerResultDone)
                     {
                     
-                        // UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your Tweet was not posted" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Succes!" message:@"Your Tweet was posted succesfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     
-                        //  [alertView show];
+                    [alertView show];
                     
-                    }
-            
-            [self dismissModalViewControllerAnimated:YES];
-            
-            
-        };
+                    }else if(res == TWTweetComposeViewControllerResultCancelled)
+                        {
+                        
+                            // UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your Tweet was not posted" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        
+                            //  [alertView show];
+                        
+                        }
+                
+                [self dismissModalViewControllerAnimated:YES];
+                
+                
+            };
 
+        }else{
+            [ViewUtility showAlertViewWithMessage:@"You can able to tweet only with iOS5,Sorry for the inconvenience"];
+        }
+        
+            
     }else if(buttonIndex == 0){
         
         if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
@@ -607,6 +621,16 @@
               
        
       
+    }else if(buttonIndex == 3){
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1];
+        [splashScreenView setAlpha:1.0];
+        UITableViewCell *cell = [splashScreenView.menuTbView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [cell.textLabel setText:@"Return to application"];
+        [UIView commitAnimations];
+        
+
     }
 }
 

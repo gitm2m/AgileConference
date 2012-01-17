@@ -43,6 +43,7 @@
 
 - (void)viewDidLoad
 {
+    self.title = [NSString stringWithFormat:@"%@,%@",[[topicArray objectAtIndex:0]valueForKey:kTopicDay],[[topicArray objectAtIndex:0]valueForKey:kTopicTrack]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

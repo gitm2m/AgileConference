@@ -20,8 +20,8 @@ static ACOrganiser *appOrganiser = nil;
 		
 		appOrganiser = [[ACOrganiser alloc]init];
         [appOrganiser getCatalogDict];
-
 	}
+    [appOrganiser updateStatusOfCatalogDict];
 	return appOrganiser;
 }
 //
@@ -45,7 +45,6 @@ static ACOrganiser *appOrganiser = nil;
         }
         catalogDict=[[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     }
-    [self updateStatusOfCatalogDict];
     return catalogDict;
     
 }

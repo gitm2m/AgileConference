@@ -84,6 +84,7 @@
     topicSummaryView = nil;
     SpeakerSummaryView = nil;
     [self setAddRemoveFavsButton:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -129,7 +130,7 @@
 
 - (void)shareButtonTapped : (id)sender{
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Linkedin", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter", nil];
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
     shareActionSheet.delegate = self;
@@ -160,6 +161,13 @@
     }
     
 
+}
+
+- (IBAction)writeFeedbackButtonTapped:(id)sender {
+    
+    ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+    [self.navigationController presentModalViewController:feedbackViewController animated:YES];
+    
 }
 
 
@@ -304,6 +312,7 @@
     [self postFacebookFeedOnPage];
     
 }
+
 
 - (void)postFacebookFeedOnPage{
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];

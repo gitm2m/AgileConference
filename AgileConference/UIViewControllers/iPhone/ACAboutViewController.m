@@ -35,6 +35,9 @@
 
 - (void)viewDidLoad
 {
+    
+    self.title = @"About Valtech";
+    
     [videoTableViewCell.layer setCornerRadius:5.0f];
     [detailsTableViewCell.layer setCornerRadius:5.0f];
     

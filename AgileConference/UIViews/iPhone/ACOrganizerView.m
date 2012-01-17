@@ -87,6 +87,22 @@
     [delegate organizerListTableView:tableView didSelectRowAtIndexPath:indexPath withDict:[eventArray objectAtIndex:indexPath.row]];
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+forRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) 
+        {
+            // remove the row here.
+        }   
+}
+
 
 #pragma mark - Events Methods
 
@@ -97,6 +113,8 @@
     switch (sender.selectedSegmentIndex) {
         case 0:{
             
+            [organizerListTableView setEditing:YES];
+            
             NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
                                                                     andCatalogTypeContent:@"YES"];
             eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
@@ -106,6 +124,8 @@
             
         case 1:{
             
+            [organizerListTableView setEditing:NO];
+            
             NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicParticipated
                                                                     andCatalogTypeContent:@"YES"];
             eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
@@ -114,6 +134,8 @@
             break;
             
         case 2:{
+            
+            [organizerListTableView setEditing:NO];
             
             NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicMissed
                                                                     andCatalogTypeContent:@"YES"];

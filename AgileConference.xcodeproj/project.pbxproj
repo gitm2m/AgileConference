@@ -19,6 +19,10 @@
 		38360E3914B49002006378AA /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3814B49001006378AA /* images.png */; };
 		3847DBE114BC78B900A8D542 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3847DBE014BC78B800A8D542 /* bg.png */; };
 		3847DBE514BC79B000A8D542 /* agile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3847DBE414BC79AF00A8D542 /* agile.png */; };
+		384D9A1F14C404B9001D0DC9 /* ACRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A1E14C404B8001D0DC9 /* ACRateView.xib */; };
+		384D9A2314C404D1001D0DC9 /* ACRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D9A2214C404D1001D0DC9 /* ACRateView.m */; };
+		384D9A2714C404FD001D0DC9 /* kermit_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A2514C404FD001D0DC9 /* kermit_empty.png */; };
+		384D9A2914C408BC001D0DC9 /* kermit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A2814C408BC001D0DC9 /* kermit_full.png */; };
 		3858C70A14AC9FA200C19AA5 /* ACSearchPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */; };
 		3858C70B14AC9FA200C19AA5 /* ACSearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */; };
 		3858C71614ACB69F00C19AA5 /* linkedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858C71514ACB69F00C19AA5 /* linkedIcon.png */; };
@@ -72,6 +76,7 @@
 		38E9A17414B3245800C11C56 /* clock-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E9A17314B3245800C11C56 /* clock-1.png */; };
 		38E9A17614B3283E00C11C56 /* keynote-icon-300x300.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E9A17514B3283E00C11C56 /* keynote-icon-300x300.png */; };
 		38E9A17814B3326900C11C56 /* Activity_indicator-150x150.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E9A17714B3326900C11C56 /* Activity_indicator-150x150.png */; };
+		38EA0B2F14C5426A002BCAEC /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38EA0B2E14C5426A002BCAEC /* Catalog.plist */; };
 		38EA874414BEACE30007E46E /* Screen shot 2012-01-12 at 11.22.12 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EA874314BEACE30007E46E /* Screen shot 2012-01-12 at 11.22.12 AM.png */; };
 		38EA874714BEB72E0007E46E /* cancelFB.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EA874614BEB72E0007E46E /* cancelFB.png */; };
 		38EA874D14BEEA610007E46E /* ACEventListTeaBreakCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38EA874C14BEEA610007E46E /* ACEventListTeaBreakCellView.xib */; };
@@ -168,6 +173,11 @@
 		38360E3814B49001006378AA /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		3847DBE014BC78B800A8D542 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		3847DBE414BC79AF00A8D542 /* agile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agile.png; sourceTree = "<group>"; };
+		384D9A1E14C404B8001D0DC9 /* ACRateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACRateView.xib; sourceTree = "<group>"; };
+		384D9A2114C404D1001D0DC9 /* ACRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRateView.h; sourceTree = "<group>"; };
+		384D9A2214C404D1001D0DC9 /* ACRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRateView.m; sourceTree = "<group>"; };
+		384D9A2514C404FD001D0DC9 /* kermit_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_empty.png; sourceTree = "<group>"; };
+		384D9A2814C408BC001D0DC9 /* kermit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_full.png; sourceTree = "<group>"; };
 		3858C70714AC9FA100C19AA5 /* ACSearchPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSearchPopoverViewController.h; sourceTree = "<group>"; };
 		3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSearchPopoverViewController.m; sourceTree = "<group>"; };
 		3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACSearchPopoverViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +249,7 @@
 		38E9A17314B3245800C11C56 /* clock-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-1.png"; sourceTree = "<group>"; };
 		38E9A17514B3283E00C11C56 /* keynote-icon-300x300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keynote-icon-300x300.png"; sourceTree = "<group>"; };
 		38E9A17714B3326900C11C56 /* Activity_indicator-150x150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity_indicator-150x150.png"; sourceTree = "<group>"; };
+		38EA0B2E14C5426A002BCAEC /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
 		38EA874314BEACE30007E46E /* Screen shot 2012-01-12 at 11.22.12 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen shot 2012-01-12 at 11.22.12 AM.png"; sourceTree = "<group>"; };
 		38EA874614BEB72E0007E46E /* cancelFB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelFB.png; sourceTree = "<group>"; };
 		38EA874C14BEEA610007E46E /* ACEventListTeaBreakCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventListTeaBreakCellView.xib; sourceTree = "<group>"; };
@@ -430,6 +441,9 @@
 				38E7FAE014BC0243000E21FA /* ACFacebookShareView.h */,
 				38E7FAE114BC0243000E21FA /* ACFacebookShareView.m */,
 				38E7FAE414BC0268000E21FA /* ACFacebookShareView.xib */,
+				384D9A2114C404D1001D0DC9 /* ACRateView.h */,
+				384D9A2214C404D1001D0DC9 /* ACRateView.m */,
+				384D9A1E14C404B8001D0DC9 /* ACRateView.xib */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -524,6 +538,8 @@
 		38F9B4BF14B42CB800696426 /* EventDetailScreenImages */ = {
 			isa = PBXGroup;
 			children = (
+				384D9A2814C408BC001D0DC9 /* kermit_full.png */,
+				384D9A2514C404FD001D0DC9 /* kermit_empty.png */,
 				38E11CFF14B6EEF80001AC63 /* right_arrow.png */,
 				38E11CFB14B6D1F40001AC63 /* ViewDetail.png */,
 				38E11CFD14B6D4220001AC63 /* btn_active_website_comment.png */,
@@ -570,7 +586,7 @@
 		6A42702F14AC4D9900F91472 /* plist */ = {
 			isa = PBXGroup;
 			children = (
-				6A192BA614C5588B00BAFC26 /* Catalog.plist */,
+				38EA0B2E14C5426A002BCAEC /* Catalog.plist */,
 				6A42709F14AC81CA00F91472 /* Speaker.plist */,
 				6A4270A114AC821100F91472 /* Topic.plist */,
 				6A4270A814AC945F00F91472 /* Favorite.plist */,
@@ -1048,7 +1064,10 @@
 				38EA874414BEACE30007E46E /* Screen shot 2012-01-12 at 11.22.12 AM.png in Resources */,
 				38EA874714BEB72E0007E46E /* cancelFB.png in Resources */,
 				38EA874D14BEEA610007E46E /* ACEventListTeaBreakCellView.xib in Resources */,
-				6A192BA714C5588B00BAFC26 /* Catalog.plist in Resources */,
+				384D9A1F14C404B9001D0DC9 /* ACRateView.xib in Resources */,
+				384D9A2714C404FD001D0DC9 /* kermit_empty.png in Resources */,
+				384D9A2914C408BC001D0DC9 /* kermit_full.png in Resources */,
+				38EA0B2F14C5426A002BCAEC /* Catalog.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1123,6 +1142,7 @@
 				388E978714BB189200C6F0D2 /* ACFacebookConnect.m in Sources */,
 				38E7FAE214BC0243000E21FA /* ACFacebookShareView.m in Sources */,
 				381A5CB014BDA66F00B0E25C /* ACFeedbackViewController.m in Sources */,
+				384D9A2314C404D1001D0DC9 /* ACRateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1178,7 +1198,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

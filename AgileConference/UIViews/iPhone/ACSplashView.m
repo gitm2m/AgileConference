@@ -33,7 +33,7 @@
 {
     // Drawing code
     
-    array = [[NSArray alloc] initWithObjects:@"Proceed to application",@"About Valtech",@"About Agile Conference",nil];
+    array = [[NSArray alloc] initWithObjects:@"Proceed to application",@"About Valtech",nil];
     
     [menuTbView reloadData];
     
@@ -47,7 +47,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
@@ -89,7 +89,7 @@
         [UIView setAnimationDuration:1];
         [self setAlpha:0.0];
         [UIView commitAnimations];
-        [self performSelector:@selector(removeViewFromSuperView) withObject:nil afterDelay:0.7];
+            // [self performSelector:@selector(removeViewFromSuperView) withObject:nil afterDelay:0.7];
     }else if(indexPath.section == 1){
         
         [delegate aboutValtechTapped:indexPath];

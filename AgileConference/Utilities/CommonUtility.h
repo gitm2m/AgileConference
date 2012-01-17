@@ -26,7 +26,7 @@
 +(NSString*) convertDateToString:(NSDate *)firstDate format:(NSString *)format;
 
 //Network
-+(BOOL)connectedToNetwork;
++(BOOL)isConnectedToNetwork;
 
 
 //plist
