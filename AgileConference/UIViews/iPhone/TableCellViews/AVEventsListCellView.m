@@ -9,6 +9,7 @@
 #import "AVEventsListCellView.h"
 
 @implementation AVEventsListCellView
+@synthesize favButton;
 @synthesize speakerLabel;
 @synthesize timeLabel;
 @synthesize statusLabel;
@@ -40,6 +41,44 @@
 -(void)layoutSubviews
 {
 	
+}
+
+
+#pragma Events Methods
+- (IBAction)favouriteButtonTapped:(id)sender {
+    
+    if ([[cellData valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
+        [cellData setObject:@"YES" forKey:kTopicFavorite];
+        [favButton setBackgroundImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
+        [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
+        [CommonUtility schedulNotificationOfEvent:cellData];
+        
+    }else if([[cellData valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName 
+                                                            message:@"Are you sure you want to remove from favourites." 
+                                                           delegate:self 
+                                                  cancelButtonTitle:@"No" 
+                                                  otherButtonTitles:@"Yes", nil];
+        [alertView show];
+        
+        
+    }
+
+    
+}
+
+# pragma mark UIAlertViewDelegate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        [cellData setObject:@"NO" forKey:kTopicFavorite];
+        [favButton setBackgroundImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
+        [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
+        [CommonUtility cancelNotificationOfEvent:cellData];
+        
+    }
 }
 
 @end

@@ -15,6 +15,6 @@
     NSString *isNormalBusiness;
 }
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier type:(NSString *)normalBusiness;
-@property (strong,nonatomic) NSDictionary *cellData;
+@property (strong,nonatomic) NSMutableDictionary *cellData;
 
 @end

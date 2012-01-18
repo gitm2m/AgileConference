@@ -25,6 +25,7 @@
 #import "ACFacebookShareView.h"
 #import "ACSplashView.h"
 #import "TestUtility.h"
+#import "ACMatrixCatalogView.h"
 
 @interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate,ACSplashViewDelegate>{
     
@@ -43,6 +44,7 @@
 
     ACSplashView *splashScreenView;
     ACFacebookShareView *fbShareView;
+    ACMatrixCatalogView *matrixCatalogView;
     BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
 }
 
@@ -68,5 +70,6 @@
 - (void)displayFacebookShareView;
 - (void)postFacebookFeed;
 - (void)postFacebookFeedOnPage;
+- (void)animateViewsOnSwitchButtonTapped;
 
 @end

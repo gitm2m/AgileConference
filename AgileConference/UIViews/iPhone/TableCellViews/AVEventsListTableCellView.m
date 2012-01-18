@@ -76,8 +76,9 @@
     // Configure the view for the selected state.
 }
 
--(void)setCellData:(NSDictionary *)inCellData
+-(void)setCellData:(NSMutableDictionary *)inCellData
 {
+    cellView.cellData = inCellData;
     
     if ([isNormalBusiness isEqualToString:@"BUSINESS"]){
         
@@ -109,9 +110,9 @@
         cellView.dateTrackLabel.text = [NSString stringWithFormat:@"%@,%@",dayKey,trackKey];
         
         if ([[inCellData objectForKey:kTopicFavorite] isEqualToString:@"YES"])
-            [cellView.favImageView setHidden:NO];
+            [cellView.favButton setBackgroundImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
         else
-            [cellView.favImageView setHidden:YES];
+            [cellView.favButton setBackgroundImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
 
     }else if ([isNormalBusiness isEqualToString:@"NORMAL"]){
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];

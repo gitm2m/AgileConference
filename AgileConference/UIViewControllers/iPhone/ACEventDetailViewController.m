@@ -144,7 +144,6 @@
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
         [topicDict setObject:@"YES" forKey:kTopicFavorite];
         [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
-        ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility schedulNotificationOfEvent:topicDict];
         

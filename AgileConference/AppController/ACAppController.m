@@ -195,6 +195,20 @@
     
     [appDelegate.window addSubview:splashScreenView];
 
+    
+    
+    NSArray *matrixViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACMatrixCatalogView" owner:self options:nil];
+        // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
+    for (id object in matrixViewNibObjects) {
+        if ([object isKindOfClass:[ACMatrixCatalogView class]])
+            matrixCatalogView = (ACMatrixCatalogView*)object;
+            //splashScreenView.delegate = self;
+    }  
+    matrixCatalogView.frame = CGRectMake(0, 17, 320, 407);
+    matrixCatalogView.alpha = 0;    
+    
+    [self.view addSubview:matrixCatalogView];
+
 }
 
 - (void)showSplasScreen{
@@ -246,6 +260,36 @@
 
 }
 
+
+- (void)animateViewsOnSwitchButtonTapped{
+    
+    if (homeCoverViewHolderView.alpha == 0) {
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1];
+        [homeCoverViewHolderView setAlpha:1];
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1];
+        [matrixCatalogView setAlpha:0];
+        [UIView commitAnimations];
+
+    }else if (homeCoverViewHolderView.alpha == 1){
+     
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1];
+        [homeCoverViewHolderView setAlpha:0];
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1];
+        [matrixCatalogView setAlpha:1];
+        [UIView commitAnimations];
+
+    }
+    
+}
 #pragma mark - Coverflow Delegate Methods
 
 - (int)flowCoverNumberImages:(FlowCoverView *)view 
@@ -418,7 +462,8 @@
 
 - (void)shareButtonTapped : (id)sender{
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Switch to matrix view",@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About", nil];
+    shareActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
     shareActionSheet.delegate = self;
@@ -569,7 +614,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    if (buttonIndex == 1) {
+    if (buttonIndex == 2) {
        
         if (NSClassFromString(@"TWTweetComposeViewController")) {
                        
@@ -607,7 +652,7 @@
         }
         
             
-    }else if(buttonIndex == 0){
+    }else if(buttonIndex == 1){
         
         if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
             
@@ -621,7 +666,7 @@
               
        
       
-    }else if(buttonIndex == 3){
+    }else if(buttonIndex == 4){
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1];
@@ -631,6 +676,8 @@
         [UIView commitAnimations];
         
 
+    }else if(buttonIndex == 0){
+        [self animateViewsOnSwitchButtonTapped];
     }
 }
 
