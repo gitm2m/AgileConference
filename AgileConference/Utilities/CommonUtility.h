@@ -59,9 +59,9 @@
                          andTime:(NSString *)time 
                        andFormat:(NSString *)format 
             withNotificationDict:(NSMutableDictionary*)notificationDict;
-
-+(void)schedulNotificationOfEvent:(NSMutableDictionary*)favDict;
-
+//
++(void)schedulPreNotificationOfEvent:(NSMutableDictionary*)favDict;
++(void)schedulPostNotificationOfEvent:(NSMutableDictionary*)favDict;
 +(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict;
 
 

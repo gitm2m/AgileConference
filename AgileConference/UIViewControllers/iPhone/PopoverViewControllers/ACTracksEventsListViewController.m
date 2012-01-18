@@ -25,7 +25,20 @@
         NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
 
         NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
-        topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+        NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+        topicArray=[[NSMutableArray alloc] init];
+        //
+        for (NSMutableDictionary *topicDict in wholeTopicArray){
+            NSString *topicStatus=[topicDict objectForKey:kTopicOver];
+            if([topicStatus isEqualToString:@"Running"]
+               ||[topicStatus isEqualToString:@"Open"]){
+                [topicArray addObject:topicDict];
+            }
+            //
+            if([topicArray count]>=3){
+                break;
+            }
+        }   
          self.contentSizeForViewInPopover = CGSizeMake(300, 176);
         
     }
@@ -86,7 +99,7 @@
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section{
     
-    return 3;
+    return [topicArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -166,7 +179,20 @@
     [array addObject:indwxPath2];
     //
     NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
-    topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+    NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+    topicArray=[[NSMutableArray alloc] init];
+    //
+    for (NSMutableDictionary *topicDict in wholeTopicArray){
+        NSString *topicStatus=[topicDict objectForKey:kTopicOver];
+        if([topicStatus isEqualToString:@"Running"]
+           ||[topicStatus isEqualToString:@"Open"]){
+            [topicArray addObject:topicDict];
+        }
+        //
+        if([topicArray count]>=3){
+            break;
+        }
+    }   
     if(isBottomAnimation){
         [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationBottom];
 

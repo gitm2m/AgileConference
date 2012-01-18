@@ -120,7 +120,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 -(void)showReminder:(NSDictionary *)notificationDict {
     
-    notifiedEventDict=[notificationDict objectForKey:@"kEventDict"];
+    notifiedEventDict=[[NSMutableDictionary alloc] initWithDictionary:[notificationDict objectForKey:@"kEventDict"]];
     notificationType=[notificationDict objectForKey:@"NOTIFICATION_TYPE"];
 
     if([notificationType isEqualToString:@"START"]){
@@ -162,10 +162,15 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
         {
             if([notificationType isEqualToString:@"START"]){
                 
+                [notifiedEventDict setObject:@"YES" forKey:kTopicMissed];
                 // make call to organiser andset event dict skipped yes
             }else if([notificationType isEqualToString:@"END"]){
                 
+                [notifiedEventDict setObject:@"Closed" forKey:kTopicOver];
             }
+            
+            [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:notifiedEventDict];
+
         }
             break;
             
@@ -173,12 +178,18 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
         {
             if([notificationType isEqualToString:@"START"]){
                 
+                [notifiedEventDict setObject:@"YES" forKey:kTopicParticipated];
+
                 // make call to organiser andset event dict participated yes
             }else if([notificationType isEqualToString:@"END"]){
                 
                 // call feedback view
+                [notifiedEventDict setObject:@"Closed" forKey:kTopicOver];
+
                 
             }
+            
+            [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:notifiedEventDict];
 
         }
             break;

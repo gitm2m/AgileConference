@@ -69,16 +69,16 @@ static ACOrganiser *appOrganiser = nil;
     if(catalogDict){
         
         NSArray *dayKeyArray=[catalogDict allKeys];
-        NSLog(@"Topic dayKeyArray.....%@", dayKeyArray);
+       // NSLog(@"Topic dayKeyArray.....%@", dayKeyArray);
 
         
         for (NSString *dayKey in dayKeyArray) {
             
-            NSLog(@"Topic dayKey.....%@", dayKey);
+           // NSLog(@"Topic dayKey.....%@", dayKey);
 
             NSMutableDictionary *trackDict=[catalogDict objectForKey:dayKey];
             NSArray *trackKeyArray=[trackDict allKeys];
-            NSLog(@"Topic dayKeyArray.....%@", trackKeyArray);
+            //NSLog(@"Topic dayKeyArray.....%@", trackKeyArray);
 
             for (NSMutableDictionary *trackKey in trackKeyArray) {
 
@@ -89,7 +89,7 @@ static ACOrganiser *appOrganiser = nil;
                     
                     NSString  *topicStatus=[topicDict objectForKey:kTopicOver];
                    if([topicStatus isEqualToString:@"Open"] || [topicStatus isEqualToString:@"Running"]){
-                        NSLog(@"Topic dicts.....%@", topicDict);
+                       // NSLog(@"Topic dicts.....%@", topicDict);
 
                         
                         NSDate    *currDate=[NSDate date];
@@ -108,11 +108,9 @@ static ACOrganiser *appOrganiser = nil;
                         NSString  *eventDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,endTime];
                         NSDate    *eventEndDate=[CommonUtility convertStringToDate:eventDayTime format:@"dd-MM-yyyy, HH:mm"];
                     
-                        NSLog(@"currDate date>>>>%@", [NSDate date]);
-
-                        NSLog(@"Event Start date>>>>%@", eventStartDate);
-                        NSLog(@"Event end date>>>>%@", eventEndDate);
-
+                       // NSLog(@"currDate date>>>>%@", [NSDate date]);
+                       // NSLog(@"Event Start date>>>>%@", eventStartDate);
+                       // NSLog(@"Event end date>>>>%@", eventEndDate);
                         //
                         NSComparisonResult comparisonResultStart=[eventStartDate compare:currDate];
                         switch (comparisonResultStart) {
@@ -400,7 +398,57 @@ static ACOrganiser *appOrganiser = nil;
     }
     return eventArray;
 }
-
-
+//
+-(void)updateCatalogDictPostNotification:(NSMutableDictionary *)currentDict{
+    
+    NSString *dayKey=[currentDict objectForKey:kTopicDay];
+    if([dayKey hasPrefix:@"17"]){
+        dayKey=@"Day1";
+    }
+    else if([dayKey hasPrefix:@"18"]){
+        dayKey=@"Day2";
+        
+    }
+    else if([dayKey hasPrefix:@"19"]){
+        dayKey=@"Day3";
+        
+    }
+    
+    NSLog(@"Day key:%@",dayKey);
+    NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
+    
+    NSString *tracKey=[currentDict objectForKey:kTopicTrack];
+    NSLog(@"tracKey key:%@",tracKey);
+    
+    NSMutableArray *tracArray=[dayDict objectForKey:tracKey];
+    
+    
+    
+    // NSLog(@"Day key:%@",[dayDict objectForKey:kTopicTrack];);
+    
+    NSString *currentTopicTitle=[currentDict objectForKey:kTopicTitle];
+    //
+    NSInteger topicIndex=0;
+    BOOL isDictFound=NO;
+    
+    for (NSMutableDictionary *topicDict in tracArray) {
+        
+        NSString *tempTopicTitle=[topicDict objectForKey:kTopicTitle];
+        if([tempTopicTitle isEqualToString:currentTopicTitle]){
+            isDictFound=YES;
+            break;
+        }
+        topicIndex++;
+    }
+    
+    if(isDictFound){
+        NSMutableDictionary *dictFound=[tracArray objectAtIndex:topicIndex];
+        [dictFound setObject:[currentDict objectForKey:kTopicOver] forKey:kTopicOver];
+        [dictFound setObject:[currentDict objectForKey:kTopicParticipated] forKey:kTopicParticipated];
+        [dictFound setObject:[currentDict objectForKey:kTopicMissed] forKey:kTopicMissed];
+        [self saveCatalogDict];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_ORGANISER" object:nil];
+    }
+}
 
 @end

@@ -252,7 +252,7 @@
         UILocalNotification *notif = [[cls alloc] init];
         notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
         notif.timeZone = [NSTimeZone defaultTimeZone];
-        //NSLog(@"fire date:%@",notif.fireDate);
+        NSLog(@"fire date:%@",notif.fireDate);
         notif.alertBody = @"Agile Conference 2012";
         notif.alertAction = @"Show me";
         notif.soundName = UILocalNotificationDefaultSoundName;
@@ -271,9 +271,8 @@
 +(void)schedulNotificationOnDate:(NSString *)date 
                          andTime:(NSString *)time 
                        andFormat:(NSString *)format 
-            withNotificationDict:(NSMutableDictionary*)notificationDict;{
+            withNotificationDict:(NSMutableDictionary*)notificationDict{
     
-    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",date, time];
     Class cls = NSClassFromString(@"UILocalNotification");
     if (cls != nil) {
@@ -291,11 +290,13 @@
     
 }
 
-+(void)schedulNotificationOfEvent:(NSMutableDictionary*)favDict{
++(void)schedulPreNotificationOfEvent:(NSMutableDictionary*)favDict{
     
     NSString *topicDay=[favDict objectForKey:kTopicDay];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
+    NSLog(@"topicTime %@",topicTime);
+
     NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@","];
     NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
     NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
@@ -303,23 +304,45 @@
     NSMutableDictionary *userDict=[[NSMutableDictionary alloc] init];
     [userDict setObject:favDict forKey:@"kEventDict"];
     [userDict setObject:@"START" forKey:@"NOTIFICATION_TYPE"];
-    
+    NSDate *currDate=[NSDate date];
+    NSDate *eventStartDate=[CommonUtility convertStringToDate:startTime format:@"dd-MM-yyyy, HH:mm"];   
+    if([eventStartDate compare:currDate]==NSOrderedAscending){
+        return;
+    }
+    eventStartDate=[eventStartDate dateByAddingTimeInterval:-5*60];
+    startTime=[CommonUtility convertDateToString:eventStartDate format:@"dd-MM-yyyy, HH:mm"];   
+    //
     [self schedulNotificationOnDate:topicDay 
                             andTime:startTime 
                           andFormat:@"dd-MM-yyyy, HH:mm" 
                withNotificationDict:userDict];
     //
-    NSString *topicTimeLastObject=[topicTimeArray lastObject];
-    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:0];
-    [userDict setObject:@"END" forKey:@"NOTIFICATION_TYPE"];
+}
 
++(void)schedulPostNotificationOfEvent:(NSMutableDictionary*)favDict{
+    
+    NSString *topicDay=[favDict objectForKey:kTopicDay];
+    //
+    NSString *topicTime=[favDict objectForKey:kTopicTime];//
+    NSLog(@"topicTime %@",topicTime);
+    NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@","];
+    //
+    NSMutableDictionary *userDict=[[NSMutableDictionary alloc] init];
+    [userDict setObject:favDict forKey:@"kEventDict"];
+    NSString *topicTimeLastObject=[topicTimeArray lastObject];
+    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
+    NSLog(@"end time %@",endTime);
+    [userDict setObject:@"END" forKey:@"NOTIFICATION_TYPE"];
+    
     
     [self schedulNotificationOnDate:topicDay 
                             andTime:endTime 
                           andFormat:@"dd-MM-yyyy, HH:mm" 
                withNotificationDict:userDict];
+
 }
 
+//
 
 +(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict{
     
@@ -327,6 +350,7 @@
     //
     if([eventNotificationArray count]>0){
         NSMutableArray *targetNotificationArray=[[NSMutableArray alloc] init];
+        
         for (UILocalNotification *eventNotification in eventNotificationArray) {
         
             NSDictionary *notificationEventDict=[eventNotification.userInfo objectForKey:@"kEventDict"];
@@ -344,13 +368,14 @@
         if([noteDay isEqualToString:currDay] && [noteTrack isEqualToString:currTrack] && 
            [noteTitle isEqualToString:currTitle]){
             
-            [targetNotificationArray addObject:eventNotification];
-            if([targetNotificationArray count]==2){
-                break;
-            }
+            [[UIApplication sharedApplication] cancelLocalNotification:eventNotification];
+            //[targetNotificationArray addObject:eventNotification];
+            //if([targetNotificationArray count]==2){
+                //break;
+            //}
         }
     }
-        //
+        /*
         if([targetNotificationArray count]>0){
         
         for (UILocalNotification *eventNotification in targetNotificationArray){
@@ -358,6 +383,7 @@
 
         }
     }
+         */
     }
 }
 
