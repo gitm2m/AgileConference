@@ -10,11 +10,15 @@
 
 @class ACAppController;
 
-@interface ACAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ACAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>{
+    
+    NSMutableDictionary *notifiedEventDict;
+    NSString *notificationType;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ACAppController *viewController;
 @property (strong, nonatomic) UINavigationController *navigationController;
--(void)showReminder:(NSString *)text;
 
+-(void)showReminder:(NSDictionary *)eventDict;
 @end

@@ -93,6 +93,7 @@
 		38F9B4C214B42CD900696426 /* show-result-BTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4C114B42CD900696426 /* show-result-BTN.png */; };
 		38F9B4C614B42E4100696426 /* ACEventDescriptionWebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */; };
 		38F9B4C714B42E4100696426 /* ACEventDescriptionWebviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */; };
+		6A192BA714C5588B00BAFC26 /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A192BA614C5588B00BAFC26 /* Catalog.plist */; };
 		6A42701D14AC442B00F91472 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42701C14AC442B00F91472 /* TestUtility.m */; };
 		6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42702314AC48B800F91472 /* SqliteDBManager.m */; };
 		6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */; };
@@ -278,6 +279,7 @@
 		38F9B4C314B42E4000696426 /* ACEventDescriptionWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDescriptionWebviewController.h; sourceTree = "<group>"; };
 		38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDescriptionWebviewController.m; sourceTree = "<group>"; };
 		38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDescriptionWebviewController.xib; sourceTree = "<group>"; };
+		6A192BA614C5588B00BAFC26 /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
 		6A42701B14AC442B00F91472 /* TestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtility.h; sourceTree = "<group>"; };
 		6A42701C14AC442B00F91472 /* TestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtility.m; sourceTree = "<group>"; };
 		6A42702214AC48B800F91472 /* SqliteDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteDBManager.h; sourceTree = "<group>"; };

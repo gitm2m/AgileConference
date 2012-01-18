@@ -20,9 +20,8 @@ static ACOrganiser *appOrganiser = nil;
 		
 		appOrganiser = [[ACOrganiser alloc]init];
         [appOrganiser getCatalogDict];
-        
 	}
-	
+    [appOrganiser updateStatusOfCatalogDict];
 	return appOrganiser;
 }
 //
@@ -64,6 +63,125 @@ static ACOrganiser *appOrganiser = nil;
     return NO;
 
 }
+
+-(void)updateStatusOfCatalogDict{
+    
+    if(catalogDict){
+        
+        NSArray *dayKeyArray=[catalogDict allKeys];
+        NSLog(@"Topic dayKeyArray.....%@", dayKeyArray);
+
+        
+        for (NSString *dayKey in dayKeyArray) {
+            
+            NSLog(@"Topic dayKey.....%@", dayKey);
+
+            NSMutableDictionary *trackDict=[catalogDict objectForKey:dayKey];
+            NSArray *trackKeyArray=[trackDict allKeys];
+            NSLog(@"Topic dayKeyArray.....%@", trackKeyArray);
+
+            for (NSMutableDictionary *trackKey in trackKeyArray) {
+
+                //
+                NSMutableArray* topicArrayInTrack=[trackDict objectForKey:trackKey];
+                //
+                for (NSMutableDictionary *topicDict in topicArrayInTrack) {
+                    
+                    NSString  *topicStatus=[topicDict objectForKey:kTopicOver];
+                   if([topicStatus isEqualToString:@"Open"] || [topicStatus isEqualToString:@"Running"]){
+                        NSLog(@"Topic dicts.....%@", topicDict);
+
+                        
+                        NSDate    *currDate=[NSDate date];
+                        NSString  *topicDay=[topicDict objectForKey:kTopicDay];
+                        NSString  *topicTime=[topicDict objectForKey:kTopicTime];
+                        NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@","];
+                        //
+                        NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
+                        NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+                        NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,startTime];
+                        NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
+
+                        //
+                        NSString  *topicTimeLastObject=[topicTimeArray lastObject];
+                        NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
+                        NSString  *eventDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,endTime];
+                        NSDate    *eventEndDate=[CommonUtility convertStringToDate:eventDayTime format:@"dd-MM-yyyy, HH:mm"];
+                    
+                        NSLog(@"currDate date>>>>%@", [NSDate date]);
+
+                        NSLog(@"Event Start date>>>>%@", eventStartDate);
+                        NSLog(@"Event end date>>>>%@", eventEndDate);
+
+                        //
+                        NSComparisonResult comparisonResultStart=[eventStartDate compare:currDate];
+                        switch (comparisonResultStart) {
+                            case NSOrderedAscending:
+                            {
+                                [topicDict setObject:@"Running" forKey:kTopicOver];
+                            }
+                                break;
+                                
+                            case NSOrderedSame:
+                            {
+                                [topicDict setObject:@"Running" forKey:kTopicOver];
+                                
+                            }
+                                break;
+                                
+                            case NSOrderedDescending:
+                            {
+                                [topicDict setObject:@"Open" forKey:kTopicOver];
+                                
+                            }
+                                break;
+                                
+                                
+                            default:
+                                break;
+                        }
+
+                        //
+                        NSComparisonResult comparisonResultEnd=[eventEndDate compare:currDate];
+                        switch (comparisonResultEnd) {
+                                
+                            case NSOrderedAscending:
+                            {
+                                [topicDict setObject:@"Closed" forKey:kTopicOver];
+                            }
+                                break;
+                                
+                            case NSOrderedSame:
+                            {
+                                [topicDict setObject:@"Closed" forKey:kTopicOver];
+
+                            }
+                                break;
+                                
+                            case NSOrderedDescending:
+                            {
+                                //[topicDict setObject:@"Closed" forKey:kTopicOver]
+
+                            }
+                                break;
+
+                                
+                            default:
+                                break;
+                        }
+                        
+
+                    }
+                    
+                    
+                }
+                
+            }
+            
+        }
+    }
+}
+
 //Search favorite participants
 -(NSMutableDictionary *)getCatalogListOfType:(NSString *)catalogType andCatalogTypeContent:(NSString *)content{
     
@@ -107,7 +225,7 @@ static ACOrganiser *appOrganiser = nil;
         
 }
     
-    ACLog(@"%@ list:%@",catalogType,favDict);
+    //ACLog(@"%@ list:%@",catalogType,favDict);
     return favDict;
 }
 //
@@ -188,7 +306,7 @@ static ACOrganiser *appOrganiser = nil;
             }
 
         }
-        ACLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
+        //ACLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
         return resultDict;
     
     }
@@ -201,7 +319,7 @@ static ACOrganiser *appOrganiser = nil;
                 [resultDict removeObjectForKey:key];
             }
         }
-        ACLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
+        //ACLog(@"Search key:%@, SearchValue:%@ list:%@",searchKey,searchValue,resultDict);
         return resultDict;
     }
     

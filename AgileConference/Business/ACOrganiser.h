@@ -29,6 +29,7 @@
 
 //
 -(NSMutableArray *)getArrayOfDict:(NSMutableDictionary *)dict;
+-(void)updateStatusOfCatalogDict;
 
 
 @end
