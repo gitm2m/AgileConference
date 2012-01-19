@@ -42,6 +42,7 @@
 
 @property (strong, nonatomic) id<ACSearchViewDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UITableView *searchResultTableView;
+@property (strong, nonatomic) IBOutlet UISearchBar *eventsSearchBar;
 -(void)searchCatalogAndShowResult;
 
 @end

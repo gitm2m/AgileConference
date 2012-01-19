@@ -7,6 +7,7 @@
 //
 
 #import "ACMatrixCatalogView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ACMatrixCatalogView
 @synthesize matrixTableView;
@@ -20,14 +21,24 @@
     return self;
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    
+    [matrixTableView.layer setCornerRadius:9.0f];
+    
+    [matrixTableView.layer setBorderColor:[UIColor blackColor].CGColor];
+    [matrixTableView.layer setBorderWidth:1.0f];
+    
+    [self.layer setCornerRadius:9.0f];
+    
+    [self.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.layer setBorderWidth:1.0f];
     // Drawing code
 }
-*/
+
 
 #pragma mark - UITableViewDelegate Methods
 
@@ -64,7 +75,7 @@
    if(indexPath.row==0) 
        return 35;
    else
-       return 39;
+       return 47;
 }
 
 

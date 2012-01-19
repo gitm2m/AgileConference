@@ -90,18 +90,19 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
- 
+    
+        
+    
+    
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ACUpcomingTableCellView *cell = (ACUpcomingTableCellView*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[ACUpcomingTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    
-        // Configure the cell.
-    
+       
     NSMutableDictionary *topicDict=[topicArray objectAtIndex:indexPath.row];
     
     
@@ -111,12 +112,17 @@
     else if([[topicDict valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    /*
+     
     ACLog(@"Topic dict:%@",topicDict);
     cell.textLabel.text = [topicDict objectForKey:kTopicTitle];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     [cell.textLabel setNumberOfLines:3];
     cell.detailTextLabel.text =[topicDict objectForKey:kTopicTime];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:11];
+     */
+    
+    [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     return cell;
 
 }

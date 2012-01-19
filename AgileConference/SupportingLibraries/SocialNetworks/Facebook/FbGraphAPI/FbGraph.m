@@ -348,7 +348,7 @@
 		
 	}else{
      
-            [cancelButton removeFromSuperview]; 
+            //[cancelButton removeFromSuperview]; 
     }
 }
 

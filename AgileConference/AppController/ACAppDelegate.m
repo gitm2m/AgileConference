@@ -38,6 +38,7 @@
         self.viewController = [[ACAppController alloc] initWithNibName:@"ACAppController_iPad" bundle:nil];
     }
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    [[self.navigationController navigationBar] setTintColor:[UIColor blackColor]];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     

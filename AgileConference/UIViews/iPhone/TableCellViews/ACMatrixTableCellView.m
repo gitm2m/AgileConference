@@ -49,6 +49,7 @@
             if ([object isKindOfClass:[ACMatrixCellView class]])
                 cellView = (ACMatrixCellView*)object;
         }   
+
 		[self.contentView addSubview: cellView];
 
         
@@ -63,7 +64,7 @@
 {
 	[super layoutSubviews];
     
-    cellView.frame = CGRectMake(0, 0, 320,39);
+    cellView.frame = CGRectMake(0, 0, 320,47);
     
     if ([isHeaderCell isEqualToString:@"YES"])
         cellView.frame = CGRectMake(0, 0, 320,35);

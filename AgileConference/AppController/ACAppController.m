@@ -18,6 +18,8 @@
 
 @implementation ACAppController
 @synthesize organizerView;
+@synthesize popOverImageView;
+@synthesize contentView;
 
 
 @synthesize infoButton;
@@ -36,6 +38,18 @@
 
 - (void)viewDidLoad
 {
+    [daysSegmentController setFrame:CGRectMake(6, 13, 304, 28)]; 
+    [daysSegmentController setBackgroundColor:[UIColor clearColor]];
+    
+        // [daysSegmentController setWidth:99 forSegmentAtIndex:0];
+        //[daysSegmentController setWidth:99 forSegmentAtIndex:1];
+        //[daysSegmentController setWidth:99 forSegmentAtIndex:2];
+    
+   
+    [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Sel.png"] forSegmentAtIndex:0];
+    [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
+    [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
+   
     preFinalTrackIndex=3;
     preFinalDayIndex=0;
     
@@ -57,6 +71,8 @@
     [self setShareFeedBackView:nil];
     [self setHomeCoverViewHolderView:nil];
     [self setOrganizerView:nil];
+    [self setPopOverImageView:nil];
+    [self setContentView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -96,7 +112,12 @@
     
     self.title = KAppName;
     
-    searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+    UIButton *srchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [srchButton setFrame:CGRectMake(0, 0, 42, 33)];
+    [srchButton setBackgroundImage:[UIImage imageNamed:@"searchIcon.png"] forState:UIControlStateNormal];
+    [srchButton addTarget:self action:@selector(searchButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    searchButton = [[UIBarButtonItem alloc] initWithCustomView:srchButton];
     
     searchDoneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(searchButtonTapped:)];
     
@@ -142,13 +163,17 @@
     contentViewController.delegate = self;
     [[contentViewController.view layer] setCornerRadius:5.0f];
 
-    
+    /*
     tracksEventsPopoverController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
     [tracksEventsPopoverController presentPopoverFromRect:CGRectMake(110, 79, 100, 100) 
                                             inView:self.view 
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
 
+     */
+    
+    [contentView addSubview:contentViewController.view];
+    
     [self setupViewsFromNib];
     
     [self showSplasScreen];
@@ -170,6 +195,21 @@
     searchHolderView.frame = CGRectMake(0, -380, 320, 380);
     [self.view addSubview:searchHolderView];
     //
+    
+    
+    
+    NSArray *matrixViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACMatrixCatalogView" owner:self options:nil];
+        // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
+    for (id object in matrixViewNibObjects) {
+        if ([object isKindOfClass:[ACMatrixCatalogView class]])
+            matrixCatalogView = (ACMatrixCatalogView*)object;
+            //splashScreenView.delegate = self;
+    }  
+    matrixCatalogView.frame = CGRectMake(0, 8, 320, 407);
+    matrixCatalogView.alpha = 0;    
+    
+    [self.view addSubview:matrixCatalogView];
+
     
     NSArray *organizerViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACOrganizerView" owner:self options:nil];
         // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
@@ -196,19 +236,7 @@
     [appDelegate.window addSubview:splashScreenView];
 
     
-    
-    NSArray *matrixViewNibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACMatrixCatalogView" owner:self options:nil];
-        // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
-    for (id object in matrixViewNibObjects) {
-        if ([object isKindOfClass:[ACMatrixCatalogView class]])
-            matrixCatalogView = (ACMatrixCatalogView*)object;
-            //splashScreenView.delegate = self;
-    }  
-    matrixCatalogView.frame = CGRectMake(0, 17, 320, 407);
-    matrixCatalogView.alpha = 0;    
-    
-    [self.view addSubview:matrixCatalogView];
-
+  
 }
 
 - (void)showSplasScreen{
@@ -274,6 +302,7 @@
         [UIView setAnimationDuration:1];
         [matrixCatalogView setAlpha:0];
         [UIView commitAnimations];
+        [tracksEventsPopoverController.view setHidden:NO];
 
     }else if (homeCoverViewHolderView.alpha == 1){
      
@@ -286,6 +315,7 @@
         [UIView setAnimationDuration:1];
         [matrixCatalogView setAlpha:1];
         [UIView commitAnimations];
+        [tracksEventsPopoverController.view setHidden:YES];
 
     }
     
@@ -344,6 +374,22 @@
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
+    
+    if ([sender selectedSegmentIndex]==0) {
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Sel.png"] forSegmentAtIndex:0];
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
+
+    }else if ([sender selectedSegmentIndex]==1){
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Norm.png"] forSegmentAtIndex:0];
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Sel.png"] forSegmentAtIndex:1];
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
+    }else if ([sender selectedSegmentIndex]==2){
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Norm.png"] forSegmentAtIndex:0];
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
+        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Sel.png"] forSegmentAtIndex:2];
+    }
+        
         NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
     
         [[ACAppSetting getAppSession]setDaySelected:daySelected];
@@ -399,6 +445,7 @@
         
     }else if([self.view viewWithTag:1234].frame.origin.y == 0){
         
+        [searchHolderView.eventsSearchBar resignFirstResponder];
         if([ self isOrganizerViewVisibleOnScreen] && [self isSearchViewVisibleOnScreen]){
             
             [UIView beginAnimations:nil context:NULL];
@@ -462,7 +509,14 @@
 
 - (void)shareButtonTapped : (id)sender{
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Switch to matrix view",@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About", nil];
+    NSString *string = nil;
+    
+    if (homeCoverViewHolderView.alpha == 0)
+        string = @"Switch to cover view";
+    else
+        string = @"Switch to matrix view";
+    
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:string,@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About Valtech", nil];
     shareActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
@@ -615,6 +669,12 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 2) {
+        
+        if (![CommonUtility isConnectedToNetwork]) {
+            [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+            return;
+        }
+        
        
         if (NSClassFromString(@"TWTweetComposeViewController")) {
                        
@@ -654,6 +714,11 @@
             
     }else if(buttonIndex == 1){
         
+        if (![CommonUtility isConnectedToNetwork]) {
+            [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+            return;
+        }
+        
         if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
             
             isFBLoginFirtTime = YES;
@@ -666,14 +731,22 @@
               
        
       
-    }else if(buttonIndex == 4){
+    }else if(buttonIndex == 2){
         
+        
+        ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
+        [aboutController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        aboutController.splashView = splashScreenView;
+        [self.navigationController presentModalViewController:aboutController animated:YES];
+        
+        /*
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1];
         [splashScreenView setAlpha:1.0];
         UITableViewCell *cell = [splashScreenView.menuTbView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         [cell.textLabel setText:@"Return to application"];
         [UIView commitAnimations];
+         */
         
 
     }else if(buttonIndex == 0){

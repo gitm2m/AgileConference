@@ -1,15 +1,17 @@
 //
-//  ACMatrixCellView.m
+//  ACUpcomingCellView.m
 //  AgileConference
 //
-//  Created by Supreeth Doddabela on 1/17/12.
+//  Created by Supreeth Doddabela on 1/18/12.
 //  Copyright (c) 2012 Valtech India. All rights reserved.
 //
 
-#import "ACMatrixCellView.h"
+#import "ACUpcomingCellView.h"
 
-@implementation ACMatrixCellView
-@synthesize trachLabel;
+@implementation ACUpcomingCellView
+@synthesize topicLabel;
+@synthesize breakImageView;
+@synthesize timeLabel;
 
 - (id)initWithFrame:(CGRect)frame
 {

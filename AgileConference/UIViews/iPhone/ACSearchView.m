@@ -10,7 +10,7 @@
 #import "ViewUtility.h"
 
 @implementation ACSearchView
-@synthesize searchResultTableView,delegate;
+@synthesize searchResultTableView,delegate,eventsSearchBar;
 
 - (id)initWithFrame:(CGRect)frame
 {

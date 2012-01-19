@@ -54,6 +54,8 @@
 @property (strong, nonatomic) IBOutlet UIView *homeCoverViewHolderView;
 @property (strong, nonatomic) IBOutlet ACSearchView *searchHolderView;
 @property (strong, nonatomic) ACOrganizerView *organizerView;
+@property (strong, nonatomic) IBOutlet UIImageView *popOverImageView;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
 
 
 

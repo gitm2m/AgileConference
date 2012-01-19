@@ -10,4 +10,5 @@
 
 @interface ACMatrixCellView : UIView
 
+@property (strong, nonatomic) IBOutlet UILabel *trachLabel;
 @end

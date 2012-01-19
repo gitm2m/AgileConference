@@ -8,6 +8,8 @@
 
 #import "ACAboutViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CommonUtility.h"
+#import "ViewUtility.h"
 
 @implementation ACAboutViewController
 @synthesize aboutWebView;
@@ -35,6 +37,12 @@
 
 - (void)viewDidLoad
 {
+ 
+    if (![CommonUtility isConnectedToNetwork]) {
+        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+       
+    }
+
     
     self.title = @"About Valtech";
     
@@ -84,11 +92,12 @@
 - (IBAction)doneBarButtonPressed:(id)sender {
     
     [self dismissModalViewControllerAnimated:YES];
-    
+    /*
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     [splashView setAlpha:1.0];
     [UIView commitAnimations];
+     */
 }
 
 - (void)backButtonTapped{
