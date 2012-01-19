@@ -133,8 +133,11 @@
     {
         if([[eventDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];
+        else if([[eventDict valueForKey:kTopicType] isEqualToString:@"BREAK"])
+            cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BREAK"];
         else if([[eventDict valueForKey:kTopicType] isEqualToString:@"NORMAL"])
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
+
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		

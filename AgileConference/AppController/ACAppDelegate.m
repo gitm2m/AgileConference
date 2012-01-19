@@ -148,9 +148,11 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                                                   otherButtonTitles:@"Write",nil];
         [alertView setDelegate:self];
         [alertView show];    
-    }else{
+    }
+    //
+    else if([notificationType isEqualToString:@"UPDATE"]){
         
-        //[[ACOrganiser getOrganiser] get];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_UPCOMING_EVENTS" object:nil];
     }
     //
 }
@@ -167,7 +169,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                 // make call to organiser andset event dict skipped yes
             }else if([notificationType isEqualToString:@"END"]){
                 
-                [notifiedEventDict setObject:@"Closed" forKey:kTopicOver];
+                [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
             }
             
             [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:notifiedEventDict];
@@ -185,7 +187,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
             }else if([notificationType isEqualToString:@"END"]){
                 
                 // call feedback view
-                [notifiedEventDict setObject:@"Closed" forKey:kTopicOver];
+                [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
 
                 
             }

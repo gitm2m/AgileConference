@@ -87,13 +87,13 @@ static ACOrganiser *appOrganiser = nil;
                 //
                 for (NSMutableDictionary *topicDict in topicArrayInTrack) {
                     
-                    NSString  *topicStatus=[topicDict objectForKey:kTopicOver];
+                    NSString  *topicStatus=[topicDict objectForKey:kTopicStatus];
                    if([topicStatus isEqualToString:@"Open"] || [topicStatus isEqualToString:@"Running"]){
                        // NSLog(@"Topic dicts.....%@", topicDict);
 
                         
                         NSDate    *currDate=[NSDate date];
-                        NSString  *topicDay=[topicDict objectForKey:kTopicDay];
+                        NSString  *topicDay=[topicDict objectForKey:kTopicDate];
                         NSString  *topicTime=[topicDict objectForKey:kTopicTime];
                         NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@","];
                         //
@@ -116,20 +116,20 @@ static ACOrganiser *appOrganiser = nil;
                         switch (comparisonResultStart) {
                             case NSOrderedAscending:
                             {
-                                [topicDict setObject:@"Running" forKey:kTopicOver];
+                                [topicDict setObject:@"Running" forKey:kTopicStatus];
                             }
                                 break;
                                 
                             case NSOrderedSame:
                             {
-                                [topicDict setObject:@"Running" forKey:kTopicOver];
+                                [topicDict setObject:@"Running" forKey:kTopicStatus];
                                 
                             }
                                 break;
                                 
                             case NSOrderedDescending:
                             {
-                                [topicDict setObject:@"Open" forKey:kTopicOver];
+                                [topicDict setObject:@"Open" forKey:kTopicStatus];
                                 
                             }
                                 break;
@@ -145,20 +145,20 @@ static ACOrganiser *appOrganiser = nil;
                                 
                             case NSOrderedAscending:
                             {
-                                [topicDict setObject:@"Closed" forKey:kTopicOver];
+                                [topicDict setObject:@"Closed" forKey:kTopicStatus];
                             }
                                 break;
                                 
                             case NSOrderedSame:
                             {
-                                [topicDict setObject:@"Closed" forKey:kTopicOver];
+                                [topicDict setObject:@"Closed" forKey:kTopicStatus];
 
                             }
                                 break;
                                 
                             case NSOrderedDescending:
                             {
-                                //[topicDict setObject:@"Closed" forKey:kTopicOver]
+                                //[topicDict setObject:@"Closed" forKey:kTopicStatus]
 
                             }
                                 break;
@@ -334,18 +334,6 @@ static ACOrganiser *appOrganiser = nil;
 -(void)updateCatalogDict:(NSMutableDictionary *)currentDict{
     
     NSString *dayKey=[currentDict objectForKey:kTopicDay];
-    if([dayKey hasPrefix:@"17"]){
-        dayKey=@"Day1";
-    }
-    else if([dayKey hasPrefix:@"18"]){
-        dayKey=@"Day2";
-
-    }
-    else if([dayKey hasPrefix:@"19"]){
-        dayKey=@"Day3";
-
-    }
-
     NSLog(@"Day key:%@",dayKey);
     NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
     
@@ -402,18 +390,7 @@ static ACOrganiser *appOrganiser = nil;
 -(void)updateCatalogDictPostNotification:(NSMutableDictionary *)currentDict{
     
     NSString *dayKey=[currentDict objectForKey:kTopicDay];
-    if([dayKey hasPrefix:@"17"]){
-        dayKey=@"Day1";
-    }
-    else if([dayKey hasPrefix:@"18"]){
-        dayKey=@"Day2";
-        
-    }
-    else if([dayKey hasPrefix:@"19"]){
-        dayKey=@"Day3";
-        
-    }
-    
+    //
     NSLog(@"Day key:%@",dayKey);
     NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
     
@@ -443,7 +420,7 @@ static ACOrganiser *appOrganiser = nil;
     
     if(isDictFound){
         NSMutableDictionary *dictFound=[tracArray objectAtIndex:topicIndex];
-        [dictFound setObject:[currentDict objectForKey:kTopicOver] forKey:kTopicOver];
+        [dictFound setObject:[currentDict objectForKey:kTopicStatus] forKey:kTopicStatus];
         [dictFound setObject:[currentDict objectForKey:kTopicParticipated] forKey:kTopicParticipated];
         [dictFound setObject:[currentDict objectForKey:kTopicMissed] forKey:kTopicMissed];
         [self saveCatalogDict];

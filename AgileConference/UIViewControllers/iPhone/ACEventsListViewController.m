@@ -43,7 +43,7 @@
 
 - (void)viewDidLoad
 {
-    self.title = [NSString stringWithFormat:@"%@,%@",[[topicArray objectAtIndex:0]valueForKey:kTopicDay],[[topicArray objectAtIndex:0]valueForKey:kTopicTrack]];
+    self.title = [NSString stringWithFormat:@"%@,%@",[[topicArray objectAtIndex:0]valueForKey:kTopicDate],[[topicArray objectAtIndex:0]valueForKey:kTopicTrack]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -97,20 +97,25 @@
     
     static NSString *cellIdentifier = @"CategoryCell";
     
-	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];	
-	if(cell == nil)
-    {
-    if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
-        cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];
-    else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"NORMAL"])
-        cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
+	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(cell == nil){
+        if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"]){
+            cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];}
+        
+        else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BREAK"]){
+            cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BREAK"];
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-		
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;}
+        
+        else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
+            cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
+            
+        }
+        
     }
 
+    //
     [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
-    
     return cell;
     
 }

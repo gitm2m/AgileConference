@@ -52,12 +52,15 @@
     if ([[inCellData valueForKey:kTopicType] isEqualToString:@"BUSINESS"]) {
         [cellView.breakImageView setHidden:YES];
     }
-    else if([[inCellData valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
+    else if([[inCellData valueForKey:kTopicType] isEqualToString:@"BREAK"]){
         [cellView.breakImageView setHidden:NO];
+    }
+    else if([[inCellData valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
+        [cellView.breakImageView setHidden:YES];
+
     }
     
     cellView.topicLabel.text = [inCellData objectForKey:kTopicTitle];
-      
     cellView.timeLabel.text =[inCellData objectForKey:kTopicTime];
        
 

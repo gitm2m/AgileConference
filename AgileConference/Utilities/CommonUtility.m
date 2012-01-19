@@ -264,7 +264,6 @@
         [[UIApplication sharedApplication] scheduleLocalNotification:notif];
         notif=nil;
     }
-    
    // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
 }
 
@@ -289,10 +288,10 @@
     }
     
 }
-
+//
 +(void)schedulPreNotificationOfEvent:(NSMutableDictionary*)favDict{
     
-    NSString *topicDay=[favDict objectForKey:kTopicDay];
+    NSString *topicDay=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
     NSLog(@"topicTime %@",topicTime);
@@ -318,10 +317,10 @@
                withNotificationDict:userDict];
     //
 }
-
+//
 +(void)schedulPostNotificationOfEvent:(NSMutableDictionary*)favDict{
     
-    NSString *topicDay=[favDict objectForKey:kTopicDay];
+    NSString *topicDay=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
     NSLog(@"topicTime %@",topicTime);
@@ -341,22 +340,43 @@
                withNotificationDict:userDict];
 
 }
+//
++(void)schedulUpdateNotificationOfEvent:(NSMutableDictionary*)favDict{
+    
+    NSString *topicDay=[favDict objectForKey:kTopicDate];
+    //
+    NSString *topicTime=[favDict objectForKey:kTopicTime];//
+    NSLog(@"topicTime %@",topicTime);
+    NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@","];
+    //
+    NSMutableDictionary *userDict=[[NSMutableDictionary alloc] init];
+    [userDict setObject:favDict forKey:@"kEventDict"];
+    NSString *topicTimeLastObject=[topicTimeArray lastObject];
+    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
+    NSLog(@"end time %@",endTime);
+    [userDict setObject:@"UPDATE" forKey:@"NOTIFICATION_TYPE"];
+    //
+    [self schedulNotificationOnDate:topicDay 
+                            andTime:endTime 
+                          andFormat:@"dd-MM-yyyy, HH:mm" 
+               withNotificationDict:userDict];
+    
+}
 
 //
-
 +(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict{
     
     NSArray *eventNotificationArray=[[UIApplication sharedApplication]scheduledLocalNotifications];
     //
     if([eventNotificationArray count]>0){
-        NSMutableArray *targetNotificationArray=[[NSMutableArray alloc] init];
+        //NSMutableArray *targetNotificationArray=[[NSMutableArray alloc] init];
         
         for (UILocalNotification *eventNotification in eventNotificationArray) {
         
             NSDictionary *notificationEventDict=[eventNotification.userInfo objectForKey:@"kEventDict"];
             
-            NSString *noteDay=[notificationEventDict objectForKey:kTopicDay];
-            NSString *currDay=[eventDict objectForKey:kTopicDay];
+            NSString *noteDay=[notificationEventDict objectForKey:kTopicDate];
+            NSString *currDay=[eventDict objectForKey:kTopicDate];
 
             NSString *noteTrack=[notificationEventDict objectForKey:kTopicTrack];
             NSString *currTrack=[eventDict objectForKey:kTopicTrack];
@@ -386,6 +406,24 @@
          */
     }
 }
++(void)cancelUpdateNotificationOfEvent:(NSMutableDictionary *)eventDict{
+    
+    NSArray *eventNotificationArray=[[UIApplication sharedApplication]scheduledLocalNotifications];
+    //
+    if([eventNotificationArray count]>0){
+        
+        for (UILocalNotification *eventNotification in eventNotificationArray) {
+            
+            NSString *notificationType=[eventNotification.userInfo objectForKey:@"NOTIFICATION_TYPE"];
+            //
+            if([notificationType isEqualToString:@"UPDATE"]){
+                [[UIApplication sharedApplication] cancelLocalNotification:eventNotification];
+                break;
+            }
+        }
+    }
+}
+
 
 
 
