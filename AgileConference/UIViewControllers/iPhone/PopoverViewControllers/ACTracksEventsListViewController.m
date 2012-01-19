@@ -30,8 +30,8 @@
         //
         for (NSMutableDictionary *topicDict in wholeTopicArray){
             NSString *topicStatus=[topicDict objectForKey:kTopicOver];
-            if([topicStatus isEqualToString:@"Running"]
-               ||[topicStatus isEqualToString:@"Open"]){
+            if([topicStatus isEqualToString:@"YES"]
+               ||[topicStatus isEqualToString:@"NO"]){
                 [topicArray addObject:topicDict];
             }
             //
@@ -190,8 +190,8 @@
     //
     for (NSMutableDictionary *topicDict in wholeTopicArray){
         NSString *topicStatus=[topicDict objectForKey:kTopicOver];
-        if([topicStatus isEqualToString:@"Running"]
-           ||[topicStatus isEqualToString:@"Open"]){
+        if([topicStatus isEqualToString:@"YES"]
+           ||[topicStatus isEqualToString:@"NO"]){
             [topicArray addObject:topicDict];
         }
         //

@@ -68,7 +68,6 @@
 - (BOOL)isOrganizerViewVisibleOnScreen;
 - (BOOL)isSearchViewVisibleOnScreen;
 - (void)showSplasScreen;
-- (void)checkForFacebookSession;
 - (void)displayFacebookShareView;
 - (void)postFacebookFeed;
 - (void)postFacebookFeedOnPage;

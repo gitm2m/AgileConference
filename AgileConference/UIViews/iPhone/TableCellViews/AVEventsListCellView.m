@@ -51,7 +51,7 @@
         [cellData setObject:@"YES" forKey:kTopicFavorite];
         [favButton setBackgroundImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
-        [CommonUtility schedulNotificationOfEvent:cellData];
+        [CommonUtility schedulPreNotificationOfEvent:cellData];
         
     }else if([[cellData valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
         
