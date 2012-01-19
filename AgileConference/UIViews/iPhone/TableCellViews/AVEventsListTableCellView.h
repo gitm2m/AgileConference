@@ -16,5 +16,5 @@
 }
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier type:(NSString *)normalBusiness;
 @property (strong,nonatomic) NSMutableDictionary *cellData;
-
+@property int rowNumber;
 @end

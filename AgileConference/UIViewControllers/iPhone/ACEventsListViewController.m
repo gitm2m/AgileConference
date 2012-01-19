@@ -98,16 +98,16 @@
     static NSString *cellIdentifier = @"CategoryCell";
     
 	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];	
-	if(cell == nil)
-    {
+        //if(cell == nil)
+        //{
     if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
         cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];
     else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"NORMAL"])
         cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-		
-    }
+	cell.rowNumber = indexPath.row;	
+        // }
 
     [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     
@@ -141,7 +141,7 @@
     if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
         return kEventTableCellHeight;
     else
-        return 35;
+        return 24;
 }
 
 #pragma mark - ACEventDetailViewControllerDelegateMethods

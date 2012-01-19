@@ -9,7 +9,7 @@
 #import "AVEventsListTableCellView.h"
 
 @implementation AVEventsListTableCellView
-@synthesize cellData;
+@synthesize cellData,rowNumber;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -63,7 +63,7 @@
     cellView.frame = CGRectMake(0, 0, 320,kEventTableCellHeight);
     
     if ([isNormalBusiness isEqualToString:@"NORMAL"])
-        cellView.frame = CGRectMake(0, 0, 320,35);
+        cellView.frame = CGRectMake(0, 0, 320,24);
     
 	[cellView setNeedsLayout];
 	[cellView setNeedsDisplay];
@@ -78,6 +78,10 @@
 
 -(void)setCellData:(NSMutableDictionary *)inCellData
 {
+    if((rowNumber % 2)==0)
+        [cellView.cellBgView setImage:[UIImage imageNamed:@"rowBg1.png"]];
+    else
+        [cellView.cellBgView setImage:[UIImage imageNamed:@"rowBg2.png"]];
     cellView.cellData = inCellData;
     
     if ([isNormalBusiness isEqualToString:@"BUSINESS"]){

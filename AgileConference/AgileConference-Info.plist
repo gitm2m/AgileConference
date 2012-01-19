@@ -38,5 +38,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AmplitudeCond-Medium.ttf</string>
+		<string>segoeuib.ttf</string>
+		<string>segoeui.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
  
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
     if (![CommonUtility isConnectedToNetwork]) {
         [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
        
@@ -49,9 +50,9 @@
     [videoTableViewCell.layer setCornerRadius:5.0f];
     [detailsTableViewCell.layer setCornerRadius:5.0f];
     
-    [videoTableViewCell.layer setBorderColor:[UIColor blackColor].CGColor];
+    [videoTableViewCell.layer setBorderColor:[UIColor whiteColor].CGColor];
     [videoTableViewCell.layer setBorderWidth:1.0f];
-    [detailsTableViewCell.layer setBorderColor:[UIColor blackColor].CGColor];
+    [detailsTableViewCell.layer setBorderColor:[UIColor whiteColor].CGColor];
     [detailsTableViewCell.layer setBorderWidth:1.0f];
     
     NSString *htmlString = @"<object style=\"height: 83px; width: 143px\"><param name=\"movie\" value=\"http://www.youtube.com/v/qctovMeRczU?version=3&feature=player_detailpage\"><param name=\"allowFullScreen\" value=\"true\"><param name=\"allowScriptAccess\" value=\"always\"><embed src=\"http://www.youtube.com/v/qctovMeRczU?version=3&feature=player_detailpage\" type=\"application/x-shockwave-flash\" allowfullscreen=\"true\" allowScriptAccess=\"always\" width=\"143\" height=\"83\"></object>";

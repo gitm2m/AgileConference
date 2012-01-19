@@ -10,6 +10,15 @@
 
 @implementation CommonUtility
 
+#pragma mark - Font
++(UIFont *)fontSegoiBold : (CGFloat)size{
+	return [UIFont fontWithName:@"SegoeUI-Bold" size:size];
+}
+
+
++(UIFont *)fontSegoi : (CGFloat)size{
+	return [UIFont fontWithName:@"SegoeUI" size:size];
+}
 
 #pragma mark - Image Utility
 + (UIImage *) getImageWithConentsOfURL:(NSString *)urlString{

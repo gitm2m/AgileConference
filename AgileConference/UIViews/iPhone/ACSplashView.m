@@ -36,7 +36,7 @@
     array = [[NSArray alloc] initWithObjects:@"Proceed to application",@"About Valtech",nil];
     
         //[menuTbView reloadData];
-    [self performSelector:@selector(removeViewFromSuperView) withObject:nil afterDelay:5.0];
+    [self performSelector:@selector(removeViewFromSuperView) withObject:nil afterDelay:3.0];
     
 }
 
