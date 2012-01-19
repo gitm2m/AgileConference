@@ -13,6 +13,7 @@
 		381A5CA514BD8CD000B0E25C /* AboutTextViewBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 381A5CA414BD8CCF00B0E25C /* AboutTextViewBG.png */; };
 		381A5CB014BDA66F00B0E25C /* ACFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381A5CAE14BDA66F00B0E25C /* ACFeedbackViewController.m */; };
 		381A5CB114BDA66F00B0E25C /* ACFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381A5CAF14BDA66F00B0E25C /* ACFeedbackViewController.xib */; };
+		3832B53814C7F8E800A4ADE8 /* Action.png in Resources */ = {isa = PBXBuildFile; fileRef = 3832B53714C7F8E800A4ADE8 /* Action.png */; };
 		38360E3114B473AB006378AA /* ACTracksEventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38360E3014B473AB006378AA /* ACTracksEventsListViewController.m */; };
 		38360E3514B48910006378AA /* bg_createProject_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3414B48910006378AA /* bg_createProject_frame.png */; };
 		38360E3714B489B0006378AA /* button_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3614B489B0006378AA /* button_close.png */; };
@@ -200,6 +201,7 @@
 		381A5CAD14BDA66F00B0E25C /* ACFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACFeedbackViewController.h; sourceTree = "<group>"; };
 		381A5CAE14BDA66F00B0E25C /* ACFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACFeedbackViewController.m; sourceTree = "<group>"; };
 		381A5CAF14BDA66F00B0E25C /* ACFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACFeedbackViewController.xib; sourceTree = "<group>"; };
+		3832B53714C7F8E800A4ADE8 /* Action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Action.png; sourceTree = "<group>"; };
 		38360E2F14B473AB006378AA /* ACTracksEventsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTracksEventsListViewController.h; sourceTree = "<group>"; };
 		38360E3014B473AB006378AA /* ACTracksEventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTracksEventsListViewController.m; sourceTree = "<group>"; };
 		38360E3414B48910006378AA /* bg_createProject_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_createProject_frame.png; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 			isa = PBXGroup;
 			children = (
 				38E9D05714C6E82D00775CEE /* backIcon.png */,
+				3832B53714C7F8E800A4ADE8 /* Action.png */,
 				38E9D05814C6E82D00775CEE /* searchIcon.png */,
 			);
 			path = NavigationBarImages;
@@ -1203,6 +1206,7 @@
 				38E9D07414C7136600775CEE /* coffeeTime.png in Resources */,
 				38E9D07514C7136600775CEE /* rowSeperator.png in Resources */,
 				38E9D07A14C7174F00775CEE /* ACUpcomingCellView.xib in Resources */,
+				3832B53814C7F8E800A4ADE8 /* Action.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

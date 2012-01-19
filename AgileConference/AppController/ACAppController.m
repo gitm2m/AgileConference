@@ -38,7 +38,7 @@
 
 - (void)viewDidLoad
 {
-    [daysSegmentController setFrame:CGRectMake(6, 13, 304, 28)]; 
+    [daysSegmentController setFrame:CGRectMake(6, 9, 304, 28)]; 
     [daysSegmentController setBackgroundColor:[UIColor clearColor]];
     
         // [daysSegmentController setWidth:99 forSegmentAtIndex:0];
@@ -123,10 +123,12 @@
     
     self.navigationItem.rightBarButtonItem = searchButton;
     
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [shareButton setFrame:CGRectMake(0, 0, 42, 33)];
+    [shareButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
+    [shareButton addTarget:self action:@selector(shareButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    self.navigationItem.leftBarButtonItem = shareButton;
+   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
     
     tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,-11, 308, 250)];
     [tracksCoverView  setBackgroundColor:[UIColor clearColor]];
@@ -174,6 +176,8 @@
     
     [contentView addSubview:contentViewController.view];
     
+    [homeCoverViewHolderView insertSubview:popOverImageView aboveSubview:tracksCoverView];
+    [homeCoverViewHolderView insertSubview:contentView aboveSubview:popOverImageView];
     [self setupViewsFromNib];
     
     [self showSplasScreen];

@@ -31,13 +31,11 @@
 
 -(void)layoutSubviews
 {
-	[super layoutSubviews];
-    
     cellView.frame = CGRectMake(0, 0, 320,49);
-    
-    
-	[cellView setNeedsLayout];
+    [cellView setNeedsLayout];
 	[cellView setNeedsDisplay];
+	[super layoutSubviews];
+  
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -140,7 +140,7 @@ const GLshort GTextures[] = {
 - (void)layoutSubviews
 {
     backingWidth = 270;
-    backingHeight = 250;
+    backingHeight = 210;
     offset = 3; // Added after analyze
     [EAGLContext setCurrentContext:context];
     [self destroyFrameBuffer];
