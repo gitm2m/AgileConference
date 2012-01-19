@@ -38,18 +38,23 @@
 
 - (void)viewDidLoad
 {
-    [daysSegmentController setFrame:CGRectMake(6, 13, 304, 28)]; 
+    
+        //ACLog(@"%@", [UIFont fontNamesForFamilyName:@"Segoe UI"]);
+    
+    [daysSegmentController setFrame:CGRectMake(6, 9, 304, 28)]; 
     [daysSegmentController setBackgroundColor:[UIColor clearColor]];
+    
     
         // [daysSegmentController setWidth:99 forSegmentAtIndex:0];
         //[daysSegmentController setWidth:99 forSegmentAtIndex:1];
         //[daysSegmentController setWidth:99 forSegmentAtIndex:2];
     
-   
+   /*
     [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Sel.png"] forSegmentAtIndex:0];
     [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
     [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
-   
+   */
+    
     preFinalTrackIndex=3;
     preFinalDayIndex=0;
     
@@ -110,8 +115,32 @@
 
 - (void) setupView{
     
-    self.title = KAppName;
     
+    //self.title = KAppName;
+
+    
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+    [label setFont:[CommonUtility fontSegoiBold:18]];
+    [label setTextAlignment:UITextAlignmentCenter];
+	[label setBackgroundColor:[UIColor clearColor]];
+	[label setTextColor:[UIColor whiteColor]];
+	[label setText:KAppName];
+	[self.navigationController.navigationBar.topItem setTitleView:label];
+     
+    searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+    
+    searchDoneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(searchButtonTapped:)];
+    
+    self.navigationItem.rightBarButtonItem = searchButton;
+    
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    
+    
+    self.navigationItem.leftBarButtonItem = shareButton;
+
+
+    /*
     UIButton *srchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [srchButton setFrame:CGRectMake(0, 0, 42, 33)];
     [srchButton setBackgroundImage:[UIImage imageNamed:@"searchIcon.png"] forState:UIControlStateNormal];
@@ -123,11 +152,15 @@
     
     self.navigationItem.rightBarButtonItem = searchButton;
     
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [shareButton setFrame:CGRectMake(0, 0, 42, 33)];
+    [shareButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
+    [shareButton addTarget:self action:@selector(shareButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.leftBarButtonItem = shareButton;
-    
+   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
+    */
+     
     tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,-11, 308, 250)];
     [tracksCoverView  setBackgroundColor:[UIColor clearColor]];
     [[tracksCoverView layer] setCornerRadius : 5.0f];
@@ -174,6 +207,8 @@
     
     [contentView addSubview:contentViewController.view];
     
+    [homeCoverViewHolderView insertSubview:popOverImageView aboveSubview:tracksCoverView];
+    [homeCoverViewHolderView insertSubview:contentView aboveSubview:popOverImageView];
     [self setupViewsFromNib];
     
     [self showSplasScreen];
@@ -244,13 +279,15 @@
     [splashScreenView setNeedsLayout];
 	[splashScreenView setNeedsDisplay];
     
+    
+    /*
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:1];
     [splashScreenView.logoImageView setFrame:CGRectMake(77, 169, 160, 80)];
     [UIView commitAnimations];
-   
+   */
 
-    [self performSelector:@selector(animateLogoImageView) withObject:nil afterDelay:2];
+    [self performSelector:@selector(animateLogoImageView) withObject:nil afterDelay:0];
     
 }
 
@@ -258,15 +295,13 @@
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:1];
-    [splashScreenView.logoImageView setFrame:CGRectMake(77, 30, 160, 80)];
+    [splashScreenView.logoImageView setFrame:CGRectMake(12, 118, 145, 115)];
     [UIView commitAnimations];
     
     
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:3];
-    [splashScreenView.logo2 setAlpha:1.0];
-    [splashScreenView.menuTbView setAlpha:1.0];
-    [splashScreenView.poweredbyLable setAlpha:1.0];
+    [UIView setAnimationDuration:1];
+    [splashScreenView.logo2 setFrame:CGRectMake(161, 118, 145, 115)];
     [UIView commitAnimations];
     
 }
@@ -374,8 +409,9 @@
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
-    
+    /*
     if ([sender selectedSegmentIndex]==0) {
+
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Sel.png"] forSegmentAtIndex:0];
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
@@ -388,7 +424,7 @@
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Norm.png"] forSegmentAtIndex:0];
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Sel.png"] forSegmentAtIndex:2];
-    }
+    }*/
         
         NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
     
@@ -516,7 +552,7 @@
     else
         string = @"Switch to matrix view";
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:string,@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About Valtech", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About Valtech", nil];
     shareActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
@@ -668,7 +704,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    if (buttonIndex == 2) {
+    if (buttonIndex == 1) {
         
         if (![CommonUtility isConnectedToNetwork]) {
             [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
@@ -712,7 +748,7 @@
         }
         
             
-    }else if(buttonIndex == 1){
+    }else if(buttonIndex == 0){
         
         if (![CommonUtility isConnectedToNetwork]) {
             [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
@@ -731,7 +767,7 @@
               
        
       
-    }else if(buttonIndex == 2){
+    }else if(buttonIndex == 3){
         
         
         ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
@@ -749,8 +785,9 @@
          */
         
 
-    }else if(buttonIndex == 0){
-        [self animateViewsOnSwitchButtonTapped];
+    }else if(buttonIndex == 2){
+        ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+        [self.navigationController presentModalViewController:feedbackViewController animated:YES];
     }
 }
 

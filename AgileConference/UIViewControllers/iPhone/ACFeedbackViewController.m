@@ -41,16 +41,16 @@
     
     [feedbackSubTextField.layer setCornerRadius:5.0f];
     
-    [feedbackSubTextField.layer setBorderColor:[UIColor blackColor].CGColor];
+    [feedbackSubTextField.layer setBorderColor:[UIColor whiteColor].CGColor];
     [feedbackSubTextField.layer setBorderWidth:1.0f];
 
-    [userName.layer setBorderColor:[UIColor blackColor].CGColor];
+    [userName.layer setBorderColor:[UIColor whiteColor].CGColor];
     [userName.layer setBorderWidth:1.0f];
     [userName.layer setCornerRadius:5.0f];  
     
     [feedbackBgTableCell.layer setCornerRadius:5.0f];
     
-    [feedbackBgTableCell.layer setBorderColor:[UIColor blackColor].CGColor];
+    [feedbackBgTableCell.layer setBorderColor:[UIColor whiteColor].CGColor];
     [feedbackBgTableCell.layer setBorderWidth:1.0f];
     
     rateView.notSelectedImage = [UIImage imageNamed:@"kermit_empty.png"];

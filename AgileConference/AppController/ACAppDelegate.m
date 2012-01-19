@@ -38,7 +38,7 @@
         self.viewController = [[ACAppController alloc] initWithNibName:@"ACAppController_iPad" bundle:nil];
     }
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    [[self.navigationController navigationBar] setTintColor:[UIColor blackColor]];
+    [[self.navigationController navigationBar] setTintColor:[UIColor grayColor]];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
@@ -126,7 +126,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
     if([notificationType isEqualToString:@"START"]){
         
-        NSString *alertMssage=[NSString stringWithFormat:@"5 minutes is remaining to begin '%@', would you like to participate?",[notifiedEventDict objectForKey:kTopicTitle]];
+        NSString *alertMssage=[NSString stringWithFormat:@"Few minutes is remaining to begin '%@', would you like to participate?",[notifiedEventDict objectForKey:kTopicTitle]];
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName
                                                             message:alertMssage delegate:nil 

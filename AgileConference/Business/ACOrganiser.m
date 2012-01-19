@@ -95,7 +95,7 @@ static ACOrganiser *appOrganiser = nil;
                         NSDate    *currDate=[NSDate date];
                         NSString  *topicDay=[topicDict objectForKey:kTopicDate];
                         NSString  *topicTime=[topicDict objectForKey:kTopicTime];
-                        NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@","];
+                        NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
                         //
                         NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
                         NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];

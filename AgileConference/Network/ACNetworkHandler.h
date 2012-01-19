@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol ACNetworkHandlerDelegate;
 @interface ACNetworkHandler : NSObject
 
 @end
+
+

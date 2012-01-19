@@ -58,7 +58,7 @@
     static NSString *cellIdentifier = @"CategoryCell";
     
 	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];	
-	if(cell == nil){
+	//if(cell == nil){
         if([[[eventArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"]){
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];}
         
@@ -71,10 +71,10 @@
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
             
         }
-        
-    }
+    //}
     
     [cell setCellData:[eventArray objectAtIndex:indexPath.row]];
+    
     
     return cell;
     

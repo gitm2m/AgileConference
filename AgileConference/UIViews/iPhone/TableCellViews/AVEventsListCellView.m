@@ -19,6 +19,7 @@
 @synthesize breakCellTopicLabel;
 @synthesize breakLabelTimeLabel;
 @synthesize dateTrackLabel;
+@synthesize cellBgView;
 
 - (id)initWithFrame:(CGRect)frame
 {

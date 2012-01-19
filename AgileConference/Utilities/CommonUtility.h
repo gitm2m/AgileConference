@@ -16,6 +16,9 @@
 @interface CommonUtility : NSObject{
     
 }
+//Font
++(UIFont *)fontSegoi : (CGFloat)size;
++(UIFont *)fontSegoiBold : (CGFloat)size;
 
 //Image
 +(UIImage *) getImageWithConentsOfURL:(NSString *)urlString;

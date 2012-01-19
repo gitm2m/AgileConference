@@ -129,8 +129,8 @@
     
     NSMutableDictionary *eventDict=[commonRowArray1 objectAtIndex:indexPath.row];
     
-	if(cell == nil)
-    {
+        //if(cell == nil)
+        //{
         if([[eventDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];
         else if([[eventDict valueForKey:kTopicType] isEqualToString:@"BREAK"])
@@ -140,10 +140,11 @@
 
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-		
-    }
+     cell.rowNumber = indexPath.row;
+        //}
 
     [cell setCellData:eventDict];
+    
 
     return cell;
     
@@ -174,7 +175,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 45.0f;
+    return 35.0f;
 }
 
 
