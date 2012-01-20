@@ -182,6 +182,8 @@
 		6A4270A714AC835C00F91472 /* Topic_1.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A4270A614AC835C00F91472 /* Topic_1.html */; };
 		6A4270A914AC945F00F91472 /* Favorite.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A4270A814AC945F00F91472 /* Favorite.plist */; };
 		6A4270AB14AC94E200F91472 /* Participated.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A4270AA14AC94E200F91472 /* Participated.plist */; };
+		6A53E55E14C9D2D900A5E371 /* ACEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */; };
+		6A53E55F14C9D2D900A5E371 /* ACEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */; };
 		6A9F7FA614A88F5300E3F55C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA514A88F5300E3F55C /* UIKit.framework */; };
 		6A9F7FA814A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FAA14A88F5300E3F55C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA914A88F5300E3F55C /* CoreGraphics.framework */; };
@@ -207,8 +209,6 @@
 		CF770DAF14AE523900DEAC5C /* AVEventsListTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF770DAE14AE523900DEAC5C /* AVEventsListTableCellView.m */; };
 		CF7EA66A14AEE8CB00061E07 /* ACAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EA66814AEE8CB00061E07 /* ACAboutViewController.m */; };
 		CF7EA66B14AEE8CB00061E07 /* ACAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7EA66914AEE8CB00061E07 /* ACAboutViewController.xib */; };
-		CF9A268714B0C34D00568DB5 /* ACEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A268514B0C34D00568DB5 /* ACEventDetailViewController.m */; };
-		CF9A268814B0C34D00568DB5 /* ACEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9A268614B0C34D00568DB5 /* ACEventDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -451,6 +451,9 @@
 		6A4270A614AC835C00F91472 /* Topic_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Topic_1.html; sourceTree = "<group>"; };
 		6A4270A814AC945F00F91472 /* Favorite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Favorite.plist; sourceTree = "<group>"; };
 		6A4270AA14AC94E200F91472 /* Participated.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Participated.plist; sourceTree = "<group>"; };
+		6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDetailViewController.m; sourceTree = "<group>"; };
+		6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDetailViewController.xib; sourceTree = "<group>"; };
+		6A53E56014C9D3A000A5E371 /* ACEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDetailViewController.h; sourceTree = "<group>"; };
 		6A9F7FA114A88F5300E3F55C /* AgileConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgileConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F7FA514A88F5300E3F55C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6A9F7FA714A88F5300E3F55C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -490,9 +493,6 @@
 		CF7EA66714AEE8CB00061E07 /* ACAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAboutViewController.h; sourceTree = "<group>"; };
 		CF7EA66814AEE8CB00061E07 /* ACAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAboutViewController.m; sourceTree = "<group>"; };
 		CF7EA66914AEE8CB00061E07 /* ACAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACAboutViewController.xib; sourceTree = "<group>"; };
-		CF9A268414B0C34D00568DB5 /* ACEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDetailViewController.h; sourceTree = "<group>"; };
-		CF9A268514B0C34D00568DB5 /* ACEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDetailViewController.m; sourceTree = "<group>"; };
-		CF9A268614B0C34D00568DB5 /* ACEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -912,6 +912,9 @@
 		6A42705714AC70FC00F91472 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				6A53E56014C9D3A000A5E371 /* ACEventDetailViewController.h */,
+				6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */,
+				6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */,
 				3878305314B73D6D0007133B /* Linkedin */,
 				6A42705814AC70FC00F91472 /* PopoverViewControllers */,
 				CF7EA66714AEE8CB00061E07 /* ACAboutViewController.h */,
@@ -920,9 +923,6 @@
 				38E9A15514B3046600C11C56 /* ACEventsListViewController.h */,
 				38E9A15614B3046600C11C56 /* ACEventsListViewController.m */,
 				38E9A15714B3046600C11C56 /* ACEventsListViewController.xib */,
-				CF9A268414B0C34D00568DB5 /* ACEventDetailViewController.h */,
-				CF9A268514B0C34D00568DB5 /* ACEventDetailViewController.m */,
-				CF9A268614B0C34D00568DB5 /* ACEventDetailViewController.xib */,
 				38F9B4C314B42E4000696426 /* ACEventDescriptionWebviewController.h */,
 				38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */,
 				38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */,
@@ -1281,7 +1281,6 @@
 				3886427C14ADF477005B520D /* ACSearchView.xib in Resources */,
 				CF770DA914AE520100DEAC5C /* AVEventsListCellView.xib in Resources */,
 				CF7EA66B14AEE8CB00061E07 /* ACAboutViewController.xib in Resources */,
-				CF9A268814B0C34D00568DB5 /* ACEventDetailViewController.xib in Resources */,
 				38F915C014B1AFF900415109 /* ACEventsListHeaderView.xib in Resources */,
 				38E384E214B1C2BC0055F31C /* A_1.png in Resources */,
 				38E384E314B1C2BC0055F31C /* A_1@2x.png in Resources */,
@@ -1382,8 +1381,10 @@
 				383EC52314C9C2A800BA2943 /* aboutValtechBg.png in Resources */,
 				383EC52514C9C2BE00BA2943 /* aboutvaltechLogo.png in Resources */,
 				383EC52714C9C36F00BA2943 /* centerStrip.png in Resources */,
+
 				383EC52E14C9CF1C00BA2943 /* agileAllianceLogoSplash.png in Resources */,
 				383EC53014C9CF2A00BA2943 /* agileIndiaLogo.png in Resources */,
+				6A53E55F14C9D2D900A5E371 /* ACEventDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1439,7 +1440,6 @@
 				CF770DAC14AE521900DEAC5C /* AVEventsListCellView.m in Sources */,
 				CF770DAF14AE523900DEAC5C /* AVEventsListTableCellView.m in Sources */,
 				CF7EA66A14AEE8CB00061E07 /* ACAboutViewController.m in Sources */,
-				CF9A268714B0C34D00568DB5 /* ACEventDetailViewController.m in Sources */,
 				38F915C314B1B22100415109 /* ACEventsListHeaderView.m in Sources */,
 				38E9A15214B2C8D900C11C56 /* ACOrganizerView.m in Sources */,
 				38E9A15814B3046600C11C56 /* ACEventsListViewController.m in Sources */,
@@ -1469,6 +1469,7 @@
 				38B6640B14C939CC00812A4E /* SBJsonStreamWriter.m in Sources */,
 				38B6641014C939DD00812A4E /* SBJsonStreamWriterAccumulator.m in Sources */,
 				38B6641114C939DD00812A4E /* SBJsonStreamWriterState.m in Sources */,
+				6A53E55E14C9D2D900A5E371 /* ACEventDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,7 +1528,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "9BD791B8-73E3-456D-A219-FD9CF6787F58";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9BD791B8-73E3-456D-A219-FD9CF6787F58";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

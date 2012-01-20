@@ -11,11 +11,12 @@
 @implementation ACEventDescriptionWebviewController
 @synthesize eventDescriptionWebview,delegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
+- (id)initWithNibName:(NSString *)nibNameOrNil andURL:(NSString*)urlString{
+    self = [super initWithNibName:nibNameOrNil bundle:nil];
     if (self) {
         // Custom initialization
+        targetURLString=urlString;
     }
     return self;
 }
@@ -44,7 +45,7 @@
     self.navigationItem.leftBarButtonItem = backButton;
 
     
-    NSURL *url = [NSURL URLWithString:@"http://submit2012india.agilealliance.org/node/8774"];
+    NSURL *url = [NSURL URLWithString:targetURLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [eventDescriptionWebview loadRequest:request];
     [super viewDidLoad];

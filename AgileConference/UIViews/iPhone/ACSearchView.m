@@ -33,17 +33,12 @@
         accordionViewCommonArray =accordionViewDayArray;
         //[commonTableView setFrame:CGRectMake(commonTableView.frame.origin.x, commonTableView.frame.origin.y, commonTableView.frame.size.width, 200)];
     }
-    
-   
-    
     [searchResultTableView reloadData];
-
-    
 }
 
 -(void)searchCatalogAndShowResult{
     
-        commonSectionArray=daySectionArray;
+        commonSectionArray=[[NSMutableArray alloc] init];
         accordionViewCommonArray =accordionViewDayArray;
         //
         if([sortBy hasPrefix:@"Topic"]){
@@ -54,18 +49,13 @@
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Speaker"
                                                                          andSearchValue:searchContent];
         }
-        //
-//       
-//        NSArray *subviews = [searchResultTableView subviews];
-//    
-//        ACLog(@"subviews %@", subviews);
-//    
-//        for (id object in subviews) 
-//            [object removeFromSuperview];
-         
-    
+        if([searchDataDictionary count]==0){
+            commonSectionArray=nil;
+            [ViewUtility showAlertViewWithMessage:@"No records found!"];
+        }else{
+            [commonSectionArray addObjectsFromArray:[CommonUtility getSortedArrayByAlphabet:[searchDataDictionary allKeys]]];
+        }
         [searchResultTableView reloadData];
-    
 }
 //
 -(void)layoutSubviews
@@ -80,10 +70,6 @@
     //
     NSMutableDictionary *catalogeDict=[[ACOrganiser getOrganiser] getCatalogDict];
     searchDataDictionary=[[NSMutableDictionary alloc] initWithDictionary:catalogeDict];
-
-    //eventsListTableHeaderArray = [[NSMutableArray alloc] initWithObjects:@"Day1",@"Day2",@"Day3",nil];
-    //array = [[NSArray  alloc ]initWithObjects:@"a",@"s",@"d",@"r", nil];
-    //eventsListTableContentsDict = [[NSDictionary alloc] initWithObjectsAndKeys:array,@"1",array,@"2",array,@"3", nil];
     sortBy=@"Topic";
 }
 
@@ -144,7 +130,6 @@
         //}
 
     [cell setCellData:eventDict];
-    
 
     return cell;
     
@@ -243,13 +228,6 @@
         [searchResultTableView reloadSections:indicies withRowAnimation:UITableViewRowAnimationAutomatic];
         [searchResultTableView endUpdates];
     }
-//    if(![accordionViewTrackArray containsObject:@"1"]){
-//        [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-//        [searchResultTableView setBackgroundColor:[UIColor clearColor]];
-//    }else{
-//        [searchResultTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-//        [searchResultTableView setBackgroundColor:[UIColor clearColor]];
-//    }
 
 }
 
@@ -299,6 +277,11 @@
     }
 
     
+}
+
+-(void)cleanSearchView{
+    commonSectionArray=nil;
+    [searchResultTableView reloadData];
 }
 
 @end

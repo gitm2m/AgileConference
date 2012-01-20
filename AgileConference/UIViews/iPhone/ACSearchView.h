@@ -44,6 +44,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *searchResultTableView;
 @property (strong, nonatomic) IBOutlet UISearchBar *eventsSearchBar;
 -(void)searchCatalogAndShowResult;
+-(void)cleanSearchView;
 
 @end
 

@@ -36,6 +36,8 @@
      //[CommonUtility schedulNotification:@"2012-01-12" andTime:@"19:32:00" andFormat:@"yyyy-MM-dd, HH:mm:ss"];
     //NSLog(@"Dict:<<<<<%@>>>>>",dict);
     
+    NSLog(@"Test method called>>>>>>");
+    
 }
 
 @end

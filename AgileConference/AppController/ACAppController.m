@@ -468,9 +468,11 @@
 
 - (void)searchButtonTapped : (id)sender{
     
-    [[[TestUtility alloc] init] test];
     
     if ([self.view viewWithTag:1234].frame.origin.y == -380) {
+        
+        [[[TestUtility alloc] init] test];
+
         
         if([ self isOrganizerViewVisibleOnScreen]){
             
@@ -495,10 +497,14 @@
         self.title = @"Search";
         self.navigationItem.rightBarButtonItem = searchDoneButton;
         
+
         
-    }else if([self.view viewWithTag:1234].frame.origin.y == 0){
+    }
+    else if([self.view viewWithTag:1234].frame.origin.y == 0){
         
         [searchHolderView.eventsSearchBar resignFirstResponder];
+        [searchHolderView.eventsSearchBar setText:@""];
+        [searchHolderView cleanSearchView];
         if([ self isOrganizerViewVisibleOnScreen] && [self isSearchViewVisibleOnScreen]){
             
             [UIView beginAnimations:nil context:NULL];

@@ -8,6 +8,15 @@
 
 #import "CommonUtility.h"
 
+NSInteger alphabeticSort(id string1, id string2, void *reverse)
+{
+    if (*(BOOL *)reverse == YES) {
+        return [string2 localizedCaseInsensitiveCompare:string1];
+    }
+    return [string1 localizedCaseInsensitiveCompare:string2];
+}
+
+
 @implementation CommonUtility
 
 #pragma mark - Font
@@ -466,6 +475,31 @@
 
 }
 
++(NSArray *)getSortedArrayByAlphabet:(NSArray *)inputArray{
+    NSArray *anArray =inputArray;
+    // note: anArray is sorted
+    NSData *sortedArrayHint = [anArray sortedArrayHint];
+    
+    NSArray *sortedArray;
+    
+    // sort using a selector
+    sortedArray =
+    [anArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    // sort using a function
+    BOOL reverseSort = NO;
+    // sortedArray =
+    //[anArray sortedArrayUsingFunction:alphabeticSort context:&reverseSort];
+    
+    // sort with a hint
+    sortedArray =
+    [anArray sortedArrayUsingFunction:alphabeticSort
+                              context:&reverseSort
+                                 hint:sortedArrayHint];
+    
+    return sortedArray;
+    
+}
 
 
 

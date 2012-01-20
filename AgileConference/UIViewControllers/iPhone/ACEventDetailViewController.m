@@ -150,7 +150,7 @@
         //[self dismissModalViewControllerAnimated:YES];
         //[delegate viewEventDescriptionButtonTapped:sender inView:self];
     
-    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" bundle:nil];
+    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" andURL:[(UIButton *)sender titleForState:UIControlStateReserved]];
     
     [self.navigationController presentModalViewController:descriptionViewController animated:YES];
 
