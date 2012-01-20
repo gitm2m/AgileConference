@@ -7,10 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SBJson.h"
 
 @protocol ACNetworkHandlerDelegate;
 @interface ACNetworkHandler : NSObject
 
+@property (strong , nonatomic)id<ACNetworkHandlerDelegate> downloadDelegate;
+
+-(void)downloadHandler : (NSDictionary *)apiParamrters context:(NSString *)context delegate:(id<ACNetworkHandlerDelegate>)delegate; 
+-(void)downloadRespone : (NSMutableURLRequest *)request;
+
 @end
 
 
+@protocol ACNetworkHandlerDelegate
+
+-(void)networkHandler :(ACNetworkHandler*)networkHandler  downloadDidComplete: (id)serverResponse ;
+
+@end

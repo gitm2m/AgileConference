@@ -18,6 +18,7 @@
 		38360E3514B48910006378AA /* bg_createProject_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3414B48910006378AA /* bg_createProject_frame.png */; };
 		38360E3714B489B0006378AA /* button_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3614B489B0006378AA /* button_close.png */; };
 		38360E3914B49002006378AA /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 38360E3814B49001006378AA /* images.png */; };
+		383EC4FA14C98B4400BA2943 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383EC4F914C98B4400BA2943 /* CoreLocation.framework */; };
 		3847DBE114BC78B900A8D542 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3847DBE014BC78B800A8D542 /* bg.png */; };
 		3847DBE514BC79B000A8D542 /* agile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3847DBE414BC79AF00A8D542 /* agile.png */; };
 		384D9A1F14C404B9001D0DC9 /* ACRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A1E14C404B8001D0DC9 /* ACRateView.xib */; };
@@ -64,6 +65,11 @@
 		3892C7DB14C8461B0024A55B /* RunningStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3892C7D814C846170024A55B /* RunningStatus.png */; };
 		3892C7DE14C849CE0024A55B /* rowBg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3892C7DC14C849CA0024A55B /* rowBg1.png */; };
 		3892C7DF14C849CE0024A55B /* rowBg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3892C7DD14C849CB0024A55B /* rowBg2.png */; };
+		38B6640914C939CC00812A4E /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640414C939CB00812A4E /* SBJsonStreamParserAdapter.m */; };
+		38B6640A14C939CC00812A4E /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640614C939CC00812A4E /* SBJsonStreamParserState.m */; };
+		38B6640B14C939CC00812A4E /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640814C939CC00812A4E /* SBJsonStreamWriter.m */; };
+		38B6641014C939DD00812A4E /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640D14C939DD00812A4E /* SBJsonStreamWriterAccumulator.m */; };
+		38B6641114C939DD00812A4E /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640F14C939DD00812A4E /* SBJsonStreamWriterState.m */; };
 		38E11CFA14B6CCB60001AC63 /* bg_moderator_notes1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E11CF914B6CCB60001AC63 /* bg_moderator_notes1.png */; };
 		38E11CFC14B6D1F40001AC63 /* ViewDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E11CFB14B6D1F40001AC63 /* ViewDetail.png */; };
 		38E11CFE14B6D4230001AC63 /* btn_active_website_comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E11CFD14B6D4220001AC63 /* btn_active_website_comment.png */; };
@@ -224,6 +230,7 @@
 		38360E3414B48910006378AA /* bg_createProject_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_createProject_frame.png; sourceTree = "<group>"; };
 		38360E3614B489B0006378AA /* button_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_close.png; sourceTree = "<group>"; };
 		38360E3814B49001006378AA /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		383EC4F914C98B4400BA2943 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3847DBE014BC78B800A8D542 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		3847DBE414BC79AF00A8D542 /* agile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agile.png; sourceTree = "<group>"; };
 		384D9A1E14C404B8001D0DC9 /* ACRateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACRateView.xib; sourceTree = "<group>"; };
@@ -286,6 +293,16 @@
 		3892C7D814C846170024A55B /* RunningStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningStatus.png; sourceTree = "<group>"; };
 		3892C7DC14C849CA0024A55B /* rowBg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rowBg1.png; sourceTree = "<group>"; };
 		3892C7DD14C849CB0024A55B /* rowBg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rowBg2.png; sourceTree = "<group>"; };
+		38B6640314C939CB00812A4E /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		38B6640414C939CB00812A4E /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		38B6640514C939CB00812A4E /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		38B6640614C939CC00812A4E /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		38B6640714C939CC00812A4E /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		38B6640814C939CC00812A4E /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		38B6640C14C939DD00812A4E /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		38B6640D14C939DD00812A4E /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		38B6640E14C939DD00812A4E /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		38B6640F14C939DD00812A4E /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		38E11CF914B6CCB60001AC63 /* bg_moderator_notes1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_moderator_notes1.png; sourceTree = "<group>"; };
 		38E11CFB14B6D1F40001AC63 /* ViewDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ViewDetail.png; sourceTree = "<group>"; };
 		38E11CFD14B6D4220001AC63 /* btn_active_website_comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_active_website_comment.png; sourceTree = "<group>"; };
@@ -451,6 +468,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383EC4FA14C98B4400BA2943 /* CoreLocation.framework in Frameworks */,
 				3878305E14B740A20007133B /* Twitter.framework in Frameworks */,
 				6A42707214AC713600F91472 /* OpenGLES.framework in Frameworks */,
 				6A42707014AC712700F91472 /* QuartzCore.framework in Frameworks */,
@@ -586,6 +604,16 @@
 				388E977014BB171500C6F0D2 /* NSObject+SBJSON.h */,
 				388E977114BB171500C6F0D2 /* NSObject+SBJSON.m */,
 				388E977214BB171500C6F0D2 /* NSString+SBJSON.h */,
+				38B6640314C939CB00812A4E /* SBJsonStreamParserAdapter.h */,
+				38B6640414C939CB00812A4E /* SBJsonStreamParserAdapter.m */,
+				38B6640514C939CB00812A4E /* SBJsonStreamParserState.h */,
+				38B6640614C939CC00812A4E /* SBJsonStreamParserState.m */,
+				38B6640714C939CC00812A4E /* SBJsonStreamWriter.h */,
+				38B6640814C939CC00812A4E /* SBJsonStreamWriter.m */,
+				38B6640C14C939DD00812A4E /* SBJsonStreamWriterAccumulator.h */,
+				38B6640D14C939DD00812A4E /* SBJsonStreamWriterAccumulator.m */,
+				38B6640E14C939DD00812A4E /* SBJsonStreamWriterState.h */,
+				38B6640F14C939DD00812A4E /* SBJsonStreamWriterState.m */,
 				388E977314BB171500C6F0D2 /* NSString+SBJSON.m */,
 				388E977414BB171500C6F0D2 /* SBJSON.h */,
 				388E977514BB171500C6F0D2 /* SBJSON.m */,
@@ -942,6 +970,7 @@
 		6A9F7FA414A88F5300E3F55C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				383EC4F914C98B4400BA2943 /* CoreLocation.framework */,
 				3878305D14B740A10007133B /* Twitter.framework */,
 				6A42707114AC713600F91472 /* OpenGLES.framework */,
 				6A42706F14AC712700F91472 /* QuartzCore.framework */,
@@ -1363,6 +1392,11 @@
 				38EA0B4214C57268002BCAEC /* ACMatrixCatalogView.m in Sources */,
 				38E9D07814C7173100775CEE /* ACUpcomingCellView.m in Sources */,
 				38E9D07D14C71A9600775CEE /* ACUpcomingTableCellView.m in Sources */,
+				38B6640914C939CC00812A4E /* SBJsonStreamParserAdapter.m in Sources */,
+				38B6640A14C939CC00812A4E /* SBJsonStreamParserState.m in Sources */,
+				38B6640B14C939CC00812A4E /* SBJsonStreamWriter.m in Sources */,
+				38B6641014C939DD00812A4E /* SBJsonStreamWriterAccumulator.m in Sources */,
+				38B6641114C939DD00812A4E /* SBJsonStreamWriterState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

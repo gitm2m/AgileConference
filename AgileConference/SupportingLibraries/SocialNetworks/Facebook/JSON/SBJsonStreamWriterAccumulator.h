@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2007-2009 Stig Brautaset. All rights reserved.
+ Copyright (C) 2011 Stig Brautaset. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -27,29 +27,13 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSString+SBJSON.h"
-#import "SBJsonParser.h"
+#import "SBJsonStreamWriter.h"
 
-@implementation NSString (NSString_SBJSON)
-
-- (id)JSONFragmentValue
-{
-    SBJsonParser *jsonParser = [SBJsonParser new];    
-    id repr = [jsonParser fragmentWithString:self];    
-    if (!repr)
-        //dbdNSLog(@"-JSONFragmentValue failed. Error trace is: %@", [jsonParser errorTrace]);
-    
-    return repr;
+@interface SBJsonStreamWriterAccumulator : NSObject <SBJsonStreamWriterDelegate> {
+@private
+    NSMutableData *data;
 }
 
-- (id)JSONValue
-{
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    id repr = [parser objectWithString:self];
-    if (!repr)
-        NSLog(@"-JSONValue failed. Error is: ");
-    return repr;
-
-}
+@property (readonly, copy) NSData* data;
 
 @end

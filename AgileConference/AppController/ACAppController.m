@@ -787,6 +787,7 @@
 
     }else if(buttonIndex == 2){
         ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+        feedbackViewController.isOverallEventFeedback = YES;
         [self.navigationController presentModalViewController:feedbackViewController animated:YES];
     }
 }

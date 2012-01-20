@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ACRateView.h"
+#import "ACNetworkHandler.h"
+#import "ViewUtility.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface ACFeedbackViewController : UIViewController<ACRateViewDelegate>
+@interface ACFeedbackViewController : UIViewController<ACRateViewDelegate,ACNetworkHandlerDelegate,CLLocationManagerDelegate>{
+    
+    CLLocationManager *locationManager;
+    NSString *ratingString;
+    NSString *lat;
+    NSString *longt;
+}
 
 @property (strong, nonatomic) IBOutlet UILabel *textViewPlaceHolderView;
 @property (strong, nonatomic) IBOutlet UITextField *feedbackSubTextField;
@@ -17,7 +26,8 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *feedbackBgTableCell;
 @property (strong, nonatomic) IBOutlet ACRateView *rateView;
 @property (strong, nonatomic) IBOutlet UITextField *userName;
-
+@property BOOL isOverallEventFeedback;
+@property (strong, nonatomic) NSDictionary *eventDetailDict;
 
 - (IBAction)cacelButtonTapped:(id)sender;
 - (IBAction)sendButtonTapped:(id)sender;

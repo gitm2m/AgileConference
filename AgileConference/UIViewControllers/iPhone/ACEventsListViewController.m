@@ -98,20 +98,21 @@
     static NSString *cellIdentifier = @"CategoryCell";
     
 	AVEventsListTableCellView *cell = (AVEventsListTableCellView*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    //if(cell == nil){
+        //  if(cell == nil){
         if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"]){
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BUSINESS"];}
         
         else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BREAK"]){
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"BREAK"];
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle = UITableViewCellSelectionStyleBlue;}
-        
+            
+        }
         else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
         }
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
       cell.rowNumber = indexPath.row;	  
-   // }
+            //}
     
     [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     return cell;
@@ -143,6 +144,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
         return kEventTableCellHeight;
+    else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"BREAK"])
+        return 24;
+    else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"NORMAL"])
+        return 24;
     else
         return 24;
 }
