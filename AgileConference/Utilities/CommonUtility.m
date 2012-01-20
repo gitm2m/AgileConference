@@ -440,7 +440,31 @@
 }
 
 
++(NSString *)convertDateToAMPMFormat:(NSString *)topicTime{
+    
+    NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
+    NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
+    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+    //
+    if([[[startTime componentsSeparatedByString:@":"] objectAtIndex:0] intValue]>=8
+       && [[[startTime componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<12){
+        startTime=[NSString stringWithFormat:@"%@ AM",startTime];
+    }else{
+        startTime=[NSString stringWithFormat:@"%@ PM",startTime];
+    }
+    //
+    NSString *topicTimeLastObject=[topicTimeArray lastObject];
+    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
+    if([[[endTime componentsSeparatedByString:@":"] objectAtIndex:0] intValue]>=8
+       && [[[endTime componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<12){
+        endTime=[NSString stringWithFormat:@"%@ AM",endTime];
+    }else{
+        endTime=[NSString stringWithFormat:@"%@ PM",endTime];
+    }
+    
+    return [NSString stringWithFormat:@"%@-%@",startTime,endTime];
 
+}
 
 
 
