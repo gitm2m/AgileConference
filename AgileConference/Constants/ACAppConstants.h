@@ -50,6 +50,7 @@ typedef enum _viewType {
 #define kTopicTitle             @"Topic_Title"
 #define kTopicSummary           @"Topic_Summary"
 #define kTopicSpeaker           @"Topic_Speaker"
+#define kTopicSpeakerSummary    @"Speaker_Summary"
 #define kTopicTime              @"Topic_Time"
 #define kTopicTrack             @"Topic_Track"
 #define kTopicDate              @"Topic_Date"

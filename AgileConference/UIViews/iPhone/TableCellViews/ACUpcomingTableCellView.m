@@ -59,7 +59,7 @@
     }
     
     cellView.topicLabel.text = [inCellData objectForKey:kTopicTitle];
-    cellView.timeLabel.text =[inCellData objectForKey:kTopicTime];
+    cellView.timeLabel.text =[CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];
        
 
 }

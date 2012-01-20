@@ -237,7 +237,11 @@
     //
     NSMutableArray *array=[[NSMutableArray alloc] init];
     NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *indwxPath1 =[NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *indwxPath2 =[NSIndexPath indexPathForRow:2 inSection:0];
     [array addObject:indwxPath0];
+    [array addObject:indwxPath1];
+    [array addObject:indwxPath2];
     //
     NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
     NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
@@ -254,6 +258,7 @@
             break;
         }
     } 
+    //
     [eventsTableView reloadData];
     [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
     [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];

@@ -100,9 +100,11 @@
         cellView.speakerLabel.text=[inCellData objectForKey:kTopicSpeaker];
         if([[inCellData objectForKey:kTopicSpeaker] isEqualToString:@""]&&[[inCellData objectForKey:kTopicType] isEqualToString:@"BUSINESS"])
             cellView.speakerLabel.text=@"Presenter";
-        cellView.timeLabel.text=[inCellData objectForKey:kTopicTime];
+        //
+        NSString *topicTime=[inCellData objectForKey:kTopicTime];//
+        cellView.timeLabel.text=[CommonUtility convertDateToAMPMFormat:topicTime];
         cellView.statusLabel.text=[inCellData objectForKey:kTopicStatus];
-        
+        //
         NSString *dayKey=[inCellData objectForKey:kTopicDay];
         if([dayKey hasSuffix:@"1"]){
             dayKey=@"D1";
@@ -132,11 +134,11 @@
     }
     else if ([isNormalBusiness isEqualToString:@"BREAK"]){
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
-        cellView.breakLabelTimeLabel.text = [inCellData objectForKey:kTopicTime];
+        cellView.breakLabelTimeLabel.text = [CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];;
     }
     else if ([isNormalBusiness isEqualToString:@"NORMAL"]){
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
-        cellView.breakLabelTimeLabel.text = [inCellData objectForKey:kTopicTime];
+        cellView.breakLabelTimeLabel.text = [CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];;
     }
 	    
 }

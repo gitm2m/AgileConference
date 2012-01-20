@@ -69,6 +69,7 @@
 //
 +(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict;
 +(void)cancelUpdateNotificationOfEvent:(NSMutableDictionary *)eventDict;
++(NSString *)convertDateToAMPMFormat:(NSString *)topicTime;
 
 
 @end
