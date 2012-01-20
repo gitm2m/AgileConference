@@ -20,25 +20,39 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+       [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                selector:@selector(notifyToReloadEvent) 
+                                                  name:@"UPDATE_UPCOMING_EVENTS" 
+                                                 object:nil];
+
         isBottomAnimation=NO;
         NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+        NSLog(@">>daySelected>>>%@",daySelected);
+
         NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+        NSLog(@">>trackSelected>>>%@",trackSelected);
+
 
         NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
         NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
         topicArray=[[NSMutableArray alloc] init];
         //
         for (NSMutableDictionary *topicDict in wholeTopicArray){
-            NSString *topicStatus=[topicDict objectForKey:kTopicOver];
-            if([topicStatus isEqualToString:@"YES"]
-               ||[topicStatus isEqualToString:@"NO"]){
+            NSString *topicStatus=[topicDict objectForKey:kTopicStatus];
+            NSLog(@">>topicStatus>>>%@",topicStatus);
+            if([topicStatus isEqualToString:@"Open"]
+               ||[topicStatus isEqualToString:@"Running"]){
                 [topicArray addObject:topicDict];
             }
             //
             if([topicArray count]>=3){
                 break;
             }
-        }   
+        } 
+        //
+       [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+       [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
          self.contentSizeForViewInPopover = CGSizeMake(300, 176);
         
     }
@@ -122,8 +136,10 @@
     
     if ([[topicDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"]) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }else if([[topicDict valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    else if([[topicDict valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
+    else if([[topicDict valueForKey:kTopicType] isEqualToString:@"BREAK"]){
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     /*
@@ -190,9 +206,9 @@
     topicArray=[[NSMutableArray alloc] init];
     //
     for (NSMutableDictionary *topicDict in wholeTopicArray){
-        NSString *topicStatus=[topicDict objectForKey:kTopicOver];
-        if([topicStatus isEqualToString:@"YES"]
-           ||[topicStatus isEqualToString:@"NO"]){
+        NSString *topicStatus=[topicDict objectForKey:kTopicStatus];
+        if([topicStatus isEqualToString:@"Open"]
+           ||[topicStatus isEqualToString:@"Running"]){
             [topicArray addObject:topicDict];
         }
         //
@@ -207,6 +223,41 @@
         [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
  
     }
+    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+
+}
+//
+-(void)notifyToReloadEvent{
+    
+    NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+    NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+    ACLog(@"daySelected:%@>>>>>>>>",daySelected);
+    ACLog(@"trackSelected:%@>>>>>>",trackSelected);
+    //
+    NSMutableArray *array=[[NSMutableArray alloc] init];
+    NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
+    [array addObject:indwxPath0];
+    //
+    NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
+    NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+    topicArray=[[NSMutableArray alloc] init];
+    //
+    for (NSMutableDictionary *topicDict in wholeTopicArray){
+        NSString *topicStatus=[topicDict objectForKey:kTopicStatus];
+        if([topicStatus isEqualToString:@"Open"]
+           ||[topicStatus isEqualToString:@"Running"]){
+            [topicArray addObject:topicDict];
+        }
+        //
+        if([topicArray count]>=3){
+            break;
+        }
+    } 
+    [eventsTableView reloadData];
+    [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
+    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
 }
 
 

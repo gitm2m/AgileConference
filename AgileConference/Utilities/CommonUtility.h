@@ -65,7 +65,10 @@
 //
 +(void)schedulPreNotificationOfEvent:(NSMutableDictionary*)favDict;
 +(void)schedulPostNotificationOfEvent:(NSMutableDictionary*)favDict;
++(void)schedulUpdateNotificationOfEvent:(NSMutableDictionary*)favDict;
+//
 +(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict;
++(void)cancelUpdateNotificationOfEvent:(NSMutableDictionary *)eventDict;
 
 
 @end

@@ -41,8 +41,11 @@
         
         if ([normalBusiness isEqualToString:@"BUSINESS"]) 
             nibObjects = [[NSBundle mainBundle] loadNibNamed:@"AVEventsListCellView" owner:self options:nil];
-        else if([normalBusiness isEqualToString:@"NORMAL"])
+        else if([normalBusiness isEqualToString:@"BREAK"])
             nibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACEventListTeaBreakCellView" owner:self options:nil];
+        else if([normalBusiness isEqualToString:@"NORMAL"])
+            nibObjects = [[NSBundle mainBundle] loadNibNamed:@"AVEventsListCellView" owner:self options:nil];
+
             // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
         for (id object in nibObjects) {
             if ([object isKindOfClass:[AVEventsListCellView class]])
@@ -62,7 +65,7 @@
 
     cellView.frame = CGRectMake(0, 0, 320,kEventTableCellHeight);
     
-    if ([isNormalBusiness isEqualToString:@"NORMAL"])
+    if ([isNormalBusiness isEqualToString:@"BREAK"])
         cellView.frame = CGRectMake(0, 0, 320,24);
     
 	[cellView setNeedsLayout];
@@ -92,17 +95,19 @@
         if([[inCellData objectForKey:kTopicSpeaker] isEqualToString:@""]&&[[inCellData objectForKey:kTopicType] isEqualToString:@"BUSINESS"])
             cellView.speakerLabel.text=@"Presenter";
         cellView.timeLabel.text=[inCellData objectForKey:kTopicTime];
-        cellView.statusLabel.text=[inCellData objectForKey:kTopicOver];
+        cellView.statusLabel.text=[inCellData objectForKey:kTopicStatus];
         
         NSString *dayKey=[inCellData objectForKey:kTopicDay];
-        if([dayKey hasPrefix:@"17"]){
+        if([dayKey hasSuffix:@"1"]){
             dayKey=@"D1";
         }
-        else if([dayKey hasPrefix:@"18"]){
+        else if([dayKey hasSuffix:@"2"]){
+
             dayKey=@"D2";
             
         }
-        else if([dayKey hasPrefix:@"19"]){
+        else if([dayKey hasSuffix:@"3"]){
+
             dayKey=@"D3";
             
         }
@@ -118,7 +123,12 @@
         else
             [cellView.favButton setBackgroundImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
 
-    }else if ([isNormalBusiness isEqualToString:@"NORMAL"]){
+    }
+    else if ([isNormalBusiness isEqualToString:@"BREAK"]){
+        cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
+        cellView.breakLabelTimeLabel.text = [inCellData objectForKey:kTopicTime];
+    }
+    else if ([isNormalBusiness isEqualToString:@"NORMAL"]){
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
         cellView.breakLabelTimeLabel.text = [inCellData objectForKey:kTopicTime];
     }

@@ -52,11 +52,12 @@ typedef enum _viewType {
 #define kTopicSpeaker           @"Topic_Speaker"
 #define kTopicTime              @"Topic_Time"
 #define kTopicTrack             @"Topic_Track"
+#define kTopicDate              @"Topic_Date"
 #define kTopicDay               @"Topic_Day"
 #define kTopicFavorite          @"Topic_Favorite"
 #define kTopicParticipated      @"Topic_Participated"
 #define kTopicMissed            @"Topic_Missed"
-#define kTopicOver              @"Topic_Over"
+#define kTopicStatus            @"Topic_Status"
 
 #define kRemindMeNotificationDataKey @"kRemindMeNotificationDataKey"
 
