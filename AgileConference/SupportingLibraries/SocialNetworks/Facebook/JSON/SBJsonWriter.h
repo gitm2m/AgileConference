@@ -95,14 +95,22 @@
 
 @private
     BOOL sortKeys, humanReadable;
+ 
+    
 }
 
 @end
 
+
+
 // don't use - exists for backwards compatibility. Will be removed in 2.3.
 @interface SBJsonWriter (Private)
 - (NSString*)stringWithFragment:(id)value;
+    //- (NSData*)dataWithObject:(id)object; 
+ 
 @end
+
+
 
 /**
  @brief Allows generation of JSON for otherwise unsupported classes.

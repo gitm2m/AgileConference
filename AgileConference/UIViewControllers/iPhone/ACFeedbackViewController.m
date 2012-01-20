@@ -9,6 +9,7 @@
 #import "ACFeedbackViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+
 @implementation ACFeedbackViewController
 @synthesize textViewPlaceHolderView;
 @synthesize feedbackSubTextField;
@@ -96,6 +97,9 @@
 - (IBAction)sendButtonTapped:(id)sender {
     
     [self dismissModalViewControllerAnimated:YES];
+    
+    ACNetworkHandler *networkHandler = [[ACNetworkHandler alloc] init];
+    [networkHandler downloadHandler:nil context:nil delegate:self];
 
 }
 
@@ -146,5 +150,12 @@
 
 - (void)rateView:(ACRateView *)rateView ratingDidChange:(float)rating {
     
+}
+
+#pragma mark - AcNetworkHandlerDelegate Methods
+
+-(void)networkHandler :(ACNetworkHandler*)networkHandler  downloadDidComplete: (id)serverResponse{
+    
+    ACLog(@"serverResponse %@" , serverResponse);
 }
 @end

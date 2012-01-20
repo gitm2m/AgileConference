@@ -28,6 +28,8 @@
  */
 
 #import "SBJsonWriter.h"
+#import "SBJsonStreamWriter.h"
+#import "SBJsonStreamWriterAccumulator.h"
 
 @interface SBJsonWriter ()
 
@@ -86,7 +88,40 @@ static NSMutableCharacterSet *kEscapeChars;
     [self addErrorWithCode:EFRAGMENT description:@"Not valid type for JSON"];
     return nil;
 }
-
+/*
+- (NSData*)dataWithObject:(id)object {	
+    
+        //self.error = nil;
+    
+    SBJsonStreamWriterAccumulator *accumulator = [[SBJsonStreamWriterAccumulator alloc] init ];
+    
+	SBJsonStreamWriter *streamWriter = [[SBJsonStreamWriter alloc] init];
+	streamWriter.sortKeys = self.sortKeys;
+	streamWriter.maxDepth = self.maxDepth;
+	streamWriter.humanReadable = self.humanReadable;
+    streamWriter.delegate = accumulator;
+	
+	BOOL ok = NO;
+	if ([object isKindOfClass:[NSDictionary class]])
+		ok = [streamWriter writeObject:object];
+	
+	else if ([object isKindOfClass:[NSArray class]])
+		ok = [streamWriter writeArray:object];
+    
+	else if ([object respondsToSelector:@selector(proxyForJson)])
+		return [self dataWithObject:[object proxyForJson]];
+	else {
+            //self.error = @"Not valid type for JSON";
+		return nil;
+	}
+	
+	if (ok)
+		return accumulator.data;
+	
+        //self.error = streamWriter.error;
+	return nil;	
+}
+*/
 
 - (NSString*)indent {
     return [@"\n" stringByPaddingToLength:1 + 2 * depth withString:@" " startingAtIndex:0];

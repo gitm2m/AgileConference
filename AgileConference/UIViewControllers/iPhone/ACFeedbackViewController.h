@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ACRateView.h"
+#import "ACNetworkHandler.h"
 
-@interface ACFeedbackViewController : UIViewController<ACRateViewDelegate>
+@interface ACFeedbackViewController : UIViewController<ACRateViewDelegate,ACNetworkHandlerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *textViewPlaceHolderView;
 @property (strong, nonatomic) IBOutlet UITextField *feedbackSubTextField;
