@@ -11,8 +11,9 @@
 #import "ACEventDetailViewController.h"
 #import "ACEventDescriptionWebviewController.h"
 #import "ACAppConstants.h"
+#import "ACCustomRootViewController.h"
 
-@interface ACEventsListViewController : UIViewController<ACEventDetailViewControllerDelegate,ACEventDescriptionWebviewControllerDelegate>{
+@interface ACEventsListViewController : ACCustomRootViewController<ACEventDetailViewControllerDelegate,ACEventDescriptionWebviewControllerDelegate>{
     
     NSIndexPath *selectedEventTrackIndexPath;
     NSMutableArray *topicArray;

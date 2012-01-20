@@ -100,6 +100,96 @@
 
 #pragma mark - Events Methods
 
+
+-(void)leftBarButtonClicked : (id)sender{
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+-(void)rightBarButtonClicked : (id)sender{
+    
+    NSString *deviceUdid = [[UIDevice currentDevice] uniqueIdentifier];
+    NSString *deviceModel = [[UIDevice currentDevice] model];
+    
+    NSMutableDictionary *apiDict = [[NSMutableDictionary alloc] init];
+    
+    if([[feedbackSubTextField text] length]>0)
+        [apiDict setValue:[feedbackSubTextField text] forKey:@"subject"];
+    else{
+        [ViewUtility showAlertViewWithMessage:@"Please fill the subject field."];
+        return;
+    }
+    
+    if([[userName text] length]>0)
+        [apiDict setValue:[userName text] forKey:@"personName"];
+    else{
+        [ViewUtility showAlertViewWithMessage:@"Please provide your name."];
+        return;
+    }
+    
+    
+    if([deviceUdid length]>0)
+        [apiDict setValue:deviceUdid forKey:@"udid"];
+    else
+        [apiDict setValue:@"NA" forKey:@"udid"];
+    
+    
+    if([deviceModel length]>0)
+        [apiDict setValue:deviceModel forKey:@"deviceType"];
+    else
+        [apiDict setValue:@"NA" forKey:@"deviceType"];
+    
+    
+    if([[feedbackTextView text] length]>0)
+        [apiDict setValue:[feedbackTextView text] forKey:@"feedBack"];
+    else
+        [apiDict setValue:@"NA" forKey:@"feedBack"];
+    
+    
+    if (isOverallEventFeedback == YES) {
+        [apiDict setValue:@"OverallEvent" forKey:@"eventType"];
+        [apiDict setValue:@"NA" forKey:@"seminarName"];
+        [apiDict setValue:@"NA" forKey:@"speakerName"];
+    }else{
+        [apiDict setValue:@"Seminar" forKey:@"eventType"];
+        
+        if([[eventDetailDict valueForKey:kTopicTitle] length]>0)
+            [apiDict setValue:[eventDetailDict valueForKey:kTopicTitle] forKey:@"seminarName"];
+        else
+            [apiDict setValue:@"NA" forKey:@"seminarName"];
+        
+        
+        if([[eventDetailDict valueForKey:kTopicSpeaker] length]>0)
+            [apiDict setValue:[eventDetailDict valueForKey:kTopicSpeaker] forKey:@"speakerName"];
+        else
+            [apiDict setValue:@"NA" forKey:@"speakerName"];
+    }
+    
+    if([ratingString length]>0)
+        [apiDict setValue:ratingString forKey:@"rating"];
+    else
+        [apiDict setValue:@"-1" forKey:@"rating"];
+    
+    if([longt length]>0)
+        [apiDict setValue:longt forKey:@"longitude"];
+    else
+        [apiDict setValue:longt forKey:@"0.0"];
+    
+    if([lat length]>0)
+        [apiDict setValue:lat forKey:@"latitude"];
+    else
+        [apiDict setValue:lat forKey:@"0.0"];
+    
+    ACLog(@"apiDict %@", apiDict);
+    
+    ACNetworkHandler *networkHandler = [[ACNetworkHandler alloc] init];
+    [networkHandler downloadHandler:apiDict context:nil delegate:self];
+    
+    [self dismissModalViewControllerAnimated:YES];
+
+    
+}
+
 - (IBAction)cacelButtonTapped:(id)sender {
     
     [self dismissModalViewControllerAnimated:YES];

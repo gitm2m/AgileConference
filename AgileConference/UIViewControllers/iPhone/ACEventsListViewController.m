@@ -62,6 +62,32 @@
     [super viewDidAppear:animated];
 }
 
+-(void)setupInitialView{
+    
+    
+    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    [bgHeader setBackgroundColor:[UIColor clearColor]];
+    [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
+    [[self view] addSubview:bgHeader];
+        //[bgHeader release];
+    
+    leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
+    [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftBarButton];
+    
+    rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(278, 10, 25, 24) ; 
+    [rightBarButton setHidden:YES];
+    [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBarButton];
+    
+    
+}
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -164,6 +190,18 @@
 #pragma mark - ACEventDescriptionWebviewControllerDelegate Methods
 -(void)eventDescriptionViewBackButtonTapped{
     [self performSelector:@selector(delayInSelectingTableCell) withObject:nil afterDelay:.5];
+}
+
+#pragma mark - Events Methods
+
+-(void)leftBarButtonClicked : (id)sender{
+        
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)rightBarButtonClicked : (id)sender{
+    
+    
 }
 
 

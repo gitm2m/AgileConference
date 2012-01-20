@@ -61,6 +61,41 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)setupInitialView{
+    
+    
+    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    [bgHeader setBackgroundColor:[UIColor clearColor]];
+    [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
+    [[self view] addSubview:bgHeader];
+        //[bgHeader release];
+    
+    
+    leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
+    [leftBarButton setHidden:YES];
+    [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftBarButton];
+    
+    rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"doneBtn.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(264, 10, 49, 23) ; 
+    [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBarButton];
+    
+    headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
+    [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
+    [headerLabel setText:KAppName];
+    [headerLabel setTextAlignment:UITextAlignmentCenter];
+    [headerLabel setTextColor:[UIColor darkGrayColor]];
+    [headerLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:headerLabel];
+    
+    
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -68,6 +103,19 @@
 }
 
 #pragma mark - Events Methods
+
+-(void)leftBarButtonClicked : (id)sender{
+    
+        //  [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)rightBarButtonClicked : (id)sender{
+    
+    [eventDescriptionWebview stopLoading];
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
 
 -(void)backButtonTapped : (id)sender{
     

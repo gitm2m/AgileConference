@@ -39,6 +39,7 @@
     }
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     [[self.navigationController navigationBar] setTintColor:[UIColor grayColor]];
+    [[self.navigationController navigationBar] setAlpha:0.0];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
