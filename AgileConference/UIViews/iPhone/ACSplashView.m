@@ -13,7 +13,7 @@
 @synthesize logo2;
 
 @synthesize menuTbView;
-@synthesize poweredbyLable,delegate;
+@synthesize poweredbyLable,delegate,agileIndiaLogoImageView;
 
 - (id)initWithFrame:(CGRect)frame
 {

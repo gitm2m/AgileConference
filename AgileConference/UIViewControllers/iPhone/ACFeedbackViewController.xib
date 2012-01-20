@@ -56,7 +56,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Agile-Home.png</string>
+							<string key="NSResourceName">aboutValtechBg.png</string>
 						</object>
 					</object>
 					<object class="IBUITableViewCell" id="207576304">
@@ -102,7 +102,7 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{3, 13}, {262, 21}}</string>
 										<reference key="NSSuperview" ref="780312823"/>
-										<reference key="NSNextKeyView" ref="474474621"/>
+										<reference key="NSNextKeyView" ref="558566766"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
 										<int key="IBUIContentMode">7</int>
@@ -145,7 +145,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="670788474"/>
+						<reference key="NSNextKeyView" ref="922569560"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSColor" key="IBUITintColor">
 							<int key="NSColorSpace">2</int>
@@ -204,6 +204,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{8, 60}, {304, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView" ref="670788474"/>
 						<reference key="IBUIBackgroundColor" ref="403220623"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -228,6 +229,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{8, 349}, {175, 52}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="403220623"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -236,6 +238,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{8, 320}, {262, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView" ref="474474621"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -495,8 +498,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">Agile-Home.png</string>
-			<string key="NS.object.0">{323, 414}</string>
+			<string key="NS.key.0">aboutValtechBg.png</string>
+			<string key="NS.object.0">{323, 398}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>

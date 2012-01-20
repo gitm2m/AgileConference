@@ -113,6 +113,7 @@
 
 #pragma mark - Views Methods
 
+
 - (void) setupView{
     
     
@@ -305,7 +306,7 @@
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:1];
-    [splashScreenView.logoImageView setFrame:CGRectMake(12, 118, 145, 115)];
+    [splashScreenView.logoImageView setFrame:CGRectMake(12, 123, 145, 115)];
     [UIView commitAnimations];
     
     
@@ -313,7 +314,12 @@
     [UIView setAnimationDuration:1];
     [splashScreenView.logo2 setFrame:CGRectMake(161, 118, 145, 115)];
     [UIView commitAnimations];
-    
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [splashScreenView.agileIndiaLogoImageView setAlpha:1.0];
+    [UIView commitAnimations];
+
 }
 
 - (void)displayFacebookShareView{
@@ -489,6 +495,7 @@
         self.title = @"Search";
         self.navigationItem.rightBarButtonItem = searchDoneButton;
         
+        
     }else if([self.view viewWithTag:1234].frame.origin.y == 0){
         
         [searchHolderView.eventsSearchBar resignFirstResponder];
@@ -517,7 +524,7 @@
         
         self.title = KAppName;
         self.navigationItem.rightBarButtonItem = searchButton;
-
+        
     }
         
     //Commented searchPopover
@@ -638,6 +645,8 @@
         
         self.title = @"Search";
         self.navigationItem.rightBarButtonItem = searchDoneButton;
+            //[rightBarButton setImage:[UIImage imageNamed:@"doneBtn.png"] forState:UIControlStateNormal];
+            //rightBarButton.frame = CGRectMake(264, 10, 49, 23) ; 
         
     }else if([self.view viewWithTag:1234].frame.origin.y ==44){
         
@@ -667,7 +676,8 @@
         
         self.title = KAppName;
         self.navigationItem.rightBarButtonItem = searchButton;
-        
+            // [rightBarButton setImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
+            //rightBarButton.frame = CGRectMake(278, 10, 25, 24) ;
     }
 
     

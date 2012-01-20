@@ -34,6 +34,8 @@
 		383EC52314C9C2A800BA2943 /* aboutValtechBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 383EC52214C9C2A800BA2943 /* aboutValtechBg.png */; };
 		383EC52514C9C2BE00BA2943 /* aboutvaltechLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 383EC52414C9C2BE00BA2943 /* aboutvaltechLogo.png */; };
 		383EC52714C9C36F00BA2943 /* centerStrip.png in Resources */ = {isa = PBXBuildFile; fileRef = 383EC52614C9C36F00BA2943 /* centerStrip.png */; };
+		383EC52E14C9CF1C00BA2943 /* agileAllianceLogoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 383EC52D14C9CF1C00BA2943 /* agileAllianceLogoSplash.png */; };
+		383EC53014C9CF2A00BA2943 /* agileIndiaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 383EC52F14C9CF2900BA2943 /* agileIndiaLogo.png */; };
 		3847DBE114BC78B900A8D542 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3847DBE014BC78B800A8D542 /* bg.png */; };
 		3847DBE514BC79B000A8D542 /* agile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3847DBE414BC79AF00A8D542 /* agile.png */; };
 		384D9A1F14C404B9001D0DC9 /* ACRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A1E14C404B8001D0DC9 /* ACRateView.xib */; };
@@ -260,6 +262,8 @@
 		383EC52214C9C2A800BA2943 /* aboutValtechBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutValtechBg.png; sourceTree = "<group>"; };
 		383EC52414C9C2BE00BA2943 /* aboutvaltechLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutvaltechLogo.png; sourceTree = "<group>"; };
 		383EC52614C9C36F00BA2943 /* centerStrip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = centerStrip.png; sourceTree = "<group>"; };
+		383EC52D14C9CF1C00BA2943 /* agileAllianceLogoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agileAllianceLogoSplash.png; sourceTree = "<group>"; };
+		383EC52F14C9CF2900BA2943 /* agileIndiaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agileIndiaLogo.png; sourceTree = "<group>"; };
 		3847DBE014BC78B800A8D542 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		3847DBE414BC79AF00A8D542 /* agile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agile.png; sourceTree = "<group>"; };
 		384D9A1E14C404B8001D0DC9 /* ACRateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACRateView.xib; sourceTree = "<group>"; };
@@ -528,6 +532,8 @@
 			isa = PBXGroup;
 			children = (
 				383EC52614C9C36F00BA2943 /* centerStrip.png */,
+				383EC52F14C9CF2900BA2943 /* agileIndiaLogo.png */,
+				383EC52D14C9CF1C00BA2943 /* agileAllianceLogoSplash.png */,
 				383EC52414C9C2BE00BA2943 /* aboutvaltechLogo.png */,
 				383EC52214C9C2A800BA2943 /* aboutValtechBg.png */,
 			);
@@ -1376,6 +1382,8 @@
 				383EC52314C9C2A800BA2943 /* aboutValtechBg.png in Resources */,
 				383EC52514C9C2BE00BA2943 /* aboutvaltechLogo.png in Resources */,
 				383EC52714C9C36F00BA2943 /* centerStrip.png in Resources */,
+				383EC52E14C9CF1C00BA2943 /* agileAllianceLogoSplash.png in Resources */,
+				383EC53014C9CF2A00BA2943 /* agileIndiaLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
