@@ -59,6 +59,11 @@ typedef enum _viewType {
 #define kTopicParticipated      @"Topic_Participated"
 #define kTopicMissed            @"Topic_Missed"
 #define kTopicStatus            @"Topic_Status"
+#define kTopicSpeakerLink       @"SpeakerLink"
+#define kTopicLink              @"Topic_Link"
+
+
+
 
 #define kRemindMeNotificationDataKey @"kRemindMeNotificationDataKey"
 

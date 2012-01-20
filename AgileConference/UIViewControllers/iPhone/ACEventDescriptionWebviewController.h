@@ -13,13 +13,15 @@
 @interface ACEventDescriptionWebviewController : UIViewController{
     
     IBOutlet UIActivityIndicatorView *activityIndicator;
+    NSString *targetURLString;
 }
 
 @property (strong, nonatomic) IBOutlet UIWebView *eventDescriptionWebview;
 @property (strong, nonatomic) id<ACEventDescriptionWebviewControllerDelegate>delegate;
 
 -(void)backButtonTapped : (id)sender;
-- (IBAction)doneBarButtonPressed:(id)sender;
+-(IBAction)doneBarButtonPressed:(id)sender;
+- (id)initWithNibName:(NSString *)nibNameOrNil andURL:(NSString*)urlString;
 
 @end
 

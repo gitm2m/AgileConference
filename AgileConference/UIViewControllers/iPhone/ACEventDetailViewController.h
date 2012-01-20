@@ -24,6 +24,8 @@
     NSMutableDictionary *topicDict;
     BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
     ACFacebookShareView *fbShareView;
+    IBOutlet UIButton *viewMoreTopicButton;
+    IBOutlet UIButton *viewMoreSpeakerButton;
 }
 
 @property (strong, nonatomic) IBOutlet UITextView *topicDescriptionLinkTextView;

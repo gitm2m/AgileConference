@@ -73,7 +73,9 @@
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
         [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
     }
-    
+    [viewMoreTopicButton setTitle:[topicDict objectForKey:kTopicLink] forState:UIControlStateReserved];
+    [viewMoreSpeakerButton setTitle:[topicDict objectForKey:kTopicSpeakerLink] forState:UIControlStateReserved];
+
     ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
     ACLog(@"[topicDict valueForKey:kTopicSummary] %@", [topicDict valueForKey:kTopicSummary]);
 
@@ -87,6 +89,8 @@
     SpeakerSummaryView = nil;
     [self setAddRemoveFavsButton:nil];
     
+    viewMoreTopicButton = nil;
+    viewMoreSpeakerButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -123,7 +127,7 @@
         //[self dismissModalViewControllerAnimated:YES];
         //[delegate viewEventDescriptionButtonTapped:sender inView:self];
     
-    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" bundle:nil];
+    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" andURL:[(UIButton *)sender titleForState:UIControlStateReserved]];
     
     [self.navigationController presentModalViewController:descriptionViewController animated:YES];
 

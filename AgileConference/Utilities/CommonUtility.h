@@ -70,6 +70,5 @@
 +(void)cancelNotificationOfEvent:(NSMutableDictionary *)eventDict;
 +(void)cancelUpdateNotificationOfEvent:(NSMutableDictionary *)eventDict;
 +(NSString *)convertDateToAMPMFormat:(NSString *)topicTime;
-
-
++(NSArray *)getSortedArrayByAlphabet:(NSArray *)inputArray;
 @end
