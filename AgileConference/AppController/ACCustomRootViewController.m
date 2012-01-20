@@ -61,19 +61,36 @@
 
 -(void)setupInitialView{
     
-    organizerButtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [organizerButtn setFrame:CGRectMake(0, 382, 320, 35)];
-    [organizerButtn setBackgroundColor:[UIColor clearColor]];
-        //[organizerButtn setTitle:@"Organizer" forState:UIControlStateNormal];
-    [organizerButtn setTitleColor:[UIColor colorWithRed:.196 green:0.3098 blue:0.52 alpha:1.0] forState:UIControlStateNormal];
-    [[organizerButtn titleLabel] setFont:[UIFont boldSystemFontOfSize:15.0f]];
-    [organizerButtn setShowsTouchWhenHighlighted:YES];
-    [organizerButtn addTarget:self action:@selector(organizerButtonTapped : ) forControlEvents:UIControlEventTouchUpInside];
-    [organizerButtn setBackgroundImage:[UIImage imageNamed:@"Organizer.png"] forState:UIControlStateNormal];
-    [self.view addSubview:organizerButtn];
+        
+    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    [bgHeader setBackgroundColor:[UIColor clearColor]];
+    [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
+    [[self view] addSubview:bgHeader];
+        //[bgHeader release];
     
-
-       
+    leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
+    [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftBarButton];
+    
+    rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(278, 10, 25, 24) ; 
+    [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBarButton];
+    
+    headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
+    [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
+    [headerLabel setText:KAppName];
+    [headerLabel setTextAlignment:UITextAlignmentCenter];
+    [headerLabel setTextColor:[UIColor darkGrayColor]];
+    [headerLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:headerLabel];
+   
+    
+   
+         
 }
 
 #pragma mark - Events Methods

@@ -114,7 +114,7 @@
 									<reference ref="4"/>
 									<reference ref="4"/>
 								</array>
-								<object class="NSColor" key="IBTintColor">
+								<object class="NSColor" key="IBTintColor" id="177091528">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 								</object>
@@ -138,13 +138,13 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUICustomView" ref="380537973"/>
 								<reference key="IBUIToolbar" ref="823880502"/>
-								<object class="NSColor" key="IBUITintColor" id="257156737">
+								<object class="NSColor" key="IBUITintColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 								</object>
 							</object>
 						</array>
-						<reference key="IBUITintColor" ref="257156737"/>
+						<reference key="IBUITintColor" ref="177091528"/>
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 381}</string>

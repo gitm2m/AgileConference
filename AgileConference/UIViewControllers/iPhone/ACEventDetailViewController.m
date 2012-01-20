@@ -67,12 +67,19 @@
     //[SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeaker]];
     
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
-        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+            //[addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
-        [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
+            //[addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
+        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
     }
     
     ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
+    
+    [speakerHeaderLabel setFont:[CommonUtility fontSegoiBold:14]];
+    [topicHeaderLabel setFont:[CommonUtility fontSegoiBold:14]];
+    [SpeakerSummaryView setFont:[CommonUtility fontSegoi:13]];
+    [topicSummaryView setFont:[CommonUtility fontSegoi:13]];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -85,6 +92,8 @@
     SpeakerSummaryView = nil;
     [self setAddRemoveFavsButton:nil];
     
+    topicHeaderLabel = nil;
+    speakerHeaderLabel = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -116,6 +125,21 @@
 
 #pragma mark - Events Methods
 
+-(void)leftBarButtonClicked : (id)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)rightBarButtonClicked : (id)sender{
+    
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"Share via" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter", nil];
+    
+        //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
+    shareActionSheet.delegate = self;
+    [shareActionSheet showInView:self.view];
+    
+}
+
 - (IBAction)viewMoreButtonTapped:(id)sender {
     
         //[self dismissModalViewControllerAnimated:YES];
@@ -144,7 +168,8 @@
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
         
         [topicDict setObject:@"YES" forKey:kTopicFavorite];
-        [addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
+        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
+            //[addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility schedulPreNotificationOfEvent:topicDict];
         
@@ -171,6 +196,7 @@
     [self.navigationController presentModalViewController:feedbackViewController animated:YES];
     
 }
+
 
 
 #pragma mark - UIActionSheetDelegate Methods
@@ -349,7 +375,8 @@
     
     if (buttonIndex == 1) {
         [topicDict setObject:@"NO" forKey:kTopicFavorite];
-        [addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
+        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
+            //[addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility cancelNotificationOfEvent:topicDict];
 

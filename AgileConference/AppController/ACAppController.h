@@ -46,6 +46,7 @@
     ACFacebookShareView *fbShareView;
     ACMatrixCatalogView *matrixCatalogView;
     BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
+     UIButton *organizerButtn;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;

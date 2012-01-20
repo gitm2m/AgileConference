@@ -12,7 +12,8 @@
 @interface ACCustomRootViewController : UIViewController{
     
     ACAppDelegate *appDelegate;
-    UIButton *organizerButtn;
+    UIButton *leftBarButton,*rightBarButton;
+    UILabel *headerLabel;
     
 }
 
@@ -21,7 +22,8 @@
 
 -(void)setupInitialView;
 -(void)organizerButtonTapped : (id)sender ;
-
+-(void)leftBarButtonClicked : (id)sender ;
+-(void)rightBarButtonClicked : (id)sender ;
 @end
 
 

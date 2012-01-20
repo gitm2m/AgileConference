@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CommonUtility.h"
 #import "ViewUtility.h"
+#import "ACEventDescriptionWebviewController.h"
 
 @implementation ACAboutViewController
 @synthesize aboutWebView;
@@ -38,6 +39,12 @@
 - (void)viewDidLoad
 {
  
+    [valtechLabel setFont:[CommonUtility fontSegoiBold:13]];
+    [videoLabel setFont:[CommonUtility fontSegoi:11]];
+    [aboutTextView setFont:[CommonUtility fontSegoi:13]];
+    
+    [leftBarButton setHidden:YES];
+    
     [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
     if (![CommonUtility isConnectedToNetwork]) {
         [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
@@ -59,6 +66,7 @@
     
     [aboutWebView loadHTMLString:htmlString baseURL:[NSURL URLWithString:@"http://www.youtube.com/watch?feature=player_detailpage&v=qctovMeRczU"]];
     
+
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] 
                                    initWithTitle: @"Back" 
@@ -77,6 +85,9 @@
     [self setVideoTableViewCell:nil];
     [self setAboutWebView:nil];
     [self setDetailsTableViewCell:nil];
+    valtechLabel = nil;
+    videoLabel = nil;
+    aboutTextView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -86,6 +97,38 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+-(void)setupInitialView{
+    
+    
+    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    [bgHeader setBackgroundColor:[UIColor clearColor]];
+    [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
+    [[self view] addSubview:bgHeader];
+        //[bgHeader release];
+    
+    leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
+    [leftBarButton setHidden:YES];
+    [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftBarButton];
+    
+    rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"doneBtn.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(264, 10, 49, 23) ; 
+    [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBarButton];
+    
+    headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
+    [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
+    [headerLabel setText:KAppName];
+    [headerLabel setTextAlignment:UITextAlignmentCenter];
+    [headerLabel setTextColor:[UIColor darkGrayColor]];
+    [headerLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:headerLabel];
 }
 
 
@@ -101,6 +144,15 @@
      */
 }
 
+- (IBAction)viewMoreButtonTapped:(id)sender {
+    
+    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" bundle:nil];
+    
+    [self.navigationController pushViewController:descriptionViewController animated:YES];
+
+
+}
+
 - (void)backButtonTapped{
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -109,5 +161,16 @@
     [splashView setAlpha:1.0];
     [UIView commitAnimations];
 }
+
+-(void)leftBarButtonClicked : (id)sender{
+
+   
+}
+
+-(void)rightBarButtonClicked : (id)sender{
+    
+     [self dismissModalViewControllerAnimated:YES];
+}
+
 
 @end

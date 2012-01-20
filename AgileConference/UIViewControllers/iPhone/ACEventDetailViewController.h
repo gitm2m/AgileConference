@@ -13,12 +13,14 @@
 #import "ACFacebookConnect.h"
 #import "ACFacebookShareView.h"
 #import "ACFeedbackViewController.h"
-
+#import "ACCustomRootViewController.h"
 
 @protocol ACEventDetailViewControllerDelegate;
 
-@interface ACEventDetailViewController : UIViewController<UIActionSheetDelegate,ACFacebookShareViewDelegate>{
+@interface ACEventDetailViewController : ACCustomRootViewController<UIActionSheetDelegate,ACFacebookShareViewDelegate>{
     
+    IBOutlet UILabel *speakerHeaderLabel;
+    IBOutlet UILabel *topicHeaderLabel;
     IBOutlet UITextView *SpeakerSummaryView;
     IBOutlet UITextView *topicSummaryView;
     NSMutableDictionary *topicDict;

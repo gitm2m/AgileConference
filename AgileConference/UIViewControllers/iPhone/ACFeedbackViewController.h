@@ -11,8 +11,9 @@
 #import "ACNetworkHandler.h"
 #import "ViewUtility.h"
 #import <CoreLocation/CoreLocation.h>
+#import "ACCustomRootViewController.h"
 
-@interface ACFeedbackViewController : UIViewController<ACRateViewDelegate,ACNetworkHandlerDelegate,CLLocationManagerDelegate>{
+@interface ACFeedbackViewController : ACCustomRootViewController<ACRateViewDelegate,ACNetworkHandlerDelegate,CLLocationManagerDelegate>{
     
     CLLocationManager *locationManager;
     NSString *ratingString;

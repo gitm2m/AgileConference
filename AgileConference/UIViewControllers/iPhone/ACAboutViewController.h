@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ACSplashView.h"
+#import "ACCustomRootViewController.h"
 
-@interface ACAboutViewController : UIViewController
+@interface ACAboutViewController : ACCustomRootViewController{
+    
+    IBOutlet UILabel *valtechLabel;
+    
+    IBOutlet UITextView *aboutTextView;
+    IBOutlet UILabel *videoLabel;
+}
 
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
@@ -19,5 +26,6 @@
 @property (strong, nonatomic) ACSplashView *splashView;
 
 - (IBAction)doneBarButtonPressed:(id)sender;
+- (IBAction)viewMoreButtonTapped:(id)sender;
 - (void)backButtonTapped;
 @end

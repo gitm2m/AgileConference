@@ -117,9 +117,19 @@
     
     
     //self.title = KAppName;
+    
+    organizerButtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [organizerButtn setFrame:CGRectMake(0, 432, 320, 35)];
+    [organizerButtn setBackgroundColor:[UIColor clearColor]];
+        //[organizerButtn setTitle:@"Organizer" forState:UIControlStateNormal];
+    [organizerButtn setTitleColor:[UIColor colorWithRed:.196 green:0.3098 blue:0.52 alpha:1.0] forState:UIControlStateNormal];
+    [[organizerButtn titleLabel] setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [organizerButtn setShowsTouchWhenHighlighted:YES];
+    [organizerButtn addTarget:self action:@selector(organizerButtonTapped : ) forControlEvents:UIControlEventTouchUpInside];
+    [organizerButtn setBackgroundImage:[UIImage imageNamed:@"Organizer.png"] forState:UIControlStateNormal];
+    [self.view addSubview:organizerButtn];
 
-    
-    
+       
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
     [label setFont:[CommonUtility fontSegoiBold:18]];
     [label setTextAlignment:UITextAlignmentCenter];
@@ -255,7 +265,7 @@
     }  
     //
     [organizerView setNeedsLayout];
-    organizerView.frame = CGRectMake(0, 415, 320, 380);
+    organizerView.frame = CGRectMake(0, 415+46, 320, 380);
     [self.view addSubview:organizerView];
     
     
@@ -584,28 +594,103 @@
     
 }
 
+-(void)leftBarButtonClicked : (id)sender{
+    
+    NSString *string = nil;
+    
+    if (homeCoverViewHolderView.alpha == 0)
+        string = @"Switch to cover view";
+    else
+        string = @"Switch to matrix view";
+    
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About Valtech", nil];
+    shareActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    shareActionSheet.delegate = self;
+    [shareActionSheet showInView:self.view];
+
+    
+}
+-(void)rightBarButtonClicked : (id)sender{
+    
+   [[[TestUtility alloc] init] test];
+    
+    if ([self.view viewWithTag:1234].frame.origin.y == -380) {
+        
+        if([ self isOrganizerViewVisibleOnScreen]){
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.3];
+            [organizerButtn setFrame:CGRectMake(0, 432, 320, 35)];
+            [organizerView setFrame:CGRectMake(0, 415+46, 320, 380)];
+            [UIView commitAnimations];
+        }
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.0001];
+        [tracksEventsPopoverController.view setAlpha:0];
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [[self.view viewWithTag:1234] setFrame:CGRectMake(0, 44, 320, 380)];
+        [homeCoverViewHolderView setFrame:CGRectMake(0, 455, 320, 380)];
+        [UIView commitAnimations];
+        
+        self.title = @"Search";
+        self.navigationItem.rightBarButtonItem = searchDoneButton;
+        
+    }else if([self.view viewWithTag:1234].frame.origin.y ==44){
+        
+        [searchHolderView.eventsSearchBar resignFirstResponder];
+        if([ self isOrganizerViewVisibleOnScreen] && [self isSearchViewVisibleOnScreen]){
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.3];
+            [organizerButtn setFrame:CGRectMake(0, 432, 320, 35)];
+            [organizerView setFrame:CGRectMake(0, 415+46, 320, 380)];
+            [UIView commitAnimations];
+            
+            return;
+        }
+        
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.9];
+        [tracksEventsPopoverController.view setAlpha:1];
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
+        [homeCoverViewHolderView setFrame:CGRectMake(0, 44, 380, 380)];
+        [UIView commitAnimations];
+        
+        self.title = KAppName;
+        self.navigationItem.rightBarButtonItem = searchButton;
+        
+    }
+
+    
+}
 
 -(void)organizerButtonTapped : (id)sender{
     
 
-    
-    if (organizerButtn.frame.origin.y == 382) {
-        
-        
+    if (organizerButtn.frame.origin.y == 432) {
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
-        [organizerButtn setFrame:CGRectMake(0, 0, 320, 35)];
-        [organizerView setFrame:CGRectMake(0, 35, 320, 380)];
+        [organizerButtn setFrame:CGRectMake(0,44, 320, 35)];
+        [organizerView setFrame:CGRectMake(0, 35+44, 320, 380)];
         [organizerView reloadTableViewData];
         [UIView commitAnimations];
 
-    }else if(organizerButtn.frame.origin.y == 0){
+    }else if(organizerButtn.frame.origin.y == 44){
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
-        [organizerButtn setFrame:CGRectMake(0, 382, 320, 35)];
-        [organizerView setFrame:CGRectMake(0, 415, 320, 380)];
+        [organizerButtn setFrame:CGRectMake(0, 432, 320, 35)];
+        [organizerView setFrame:CGRectMake(0, 415+46, 320, 380)];
         [UIView commitAnimations];
         
     }
@@ -616,7 +701,7 @@
 
 - (BOOL)isOrganizerViewVisibleOnScreen{
     
-    if(organizerButtn.frame.origin.y == 0)
+    if(organizerButtn.frame.origin.y == 44)
         return YES;
     else
         return NO;
@@ -625,7 +710,7 @@
 
 - (BOOL)isSearchViewVisibleOnScreen{
     
-    if([self.view viewWithTag:1234].frame.origin.y == 0)
+    if([self.view viewWithTag:1234].frame.origin.y == 44)
         return YES;
     else
         return NO;

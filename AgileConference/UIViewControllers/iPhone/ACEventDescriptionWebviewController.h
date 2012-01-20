@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ACCustomRootViewController.h"
 @protocol ACEventDescriptionWebviewControllerDelegate;
 
-@interface ACEventDescriptionWebviewController : UIViewController{
+@interface ACEventDescriptionWebviewController : ACCustomRootViewController{
     
     IBOutlet UIActivityIndicatorView *activityIndicator;
 }
