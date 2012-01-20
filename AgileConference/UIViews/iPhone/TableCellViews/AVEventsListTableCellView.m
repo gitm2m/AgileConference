@@ -44,7 +44,7 @@
         else if([normalBusiness isEqualToString:@"BREAK"])
             nibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACEventListTeaBreakCellView" owner:self options:nil];
         else if([normalBusiness isEqualToString:@"NORMAL"])
-            nibObjects = [[NSBundle mainBundle] loadNibNamed:@"AVEventsListCellView" owner:self options:nil];
+            nibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACEventListTeaBreakCellView" owner:self options:nil];
 
             // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
         for (id object in nibObjects) {
@@ -61,15 +61,21 @@
 
 -(void)layoutSubviews
 {
-	[super layoutSubviews];
-
-    cellView.frame = CGRectMake(0, 0, 320,kEventTableCellHeight);
     
     if ([isNormalBusiness isEqualToString:@"BREAK"])
         cellView.frame = CGRectMake(0, 0, 320,24);
+
+    if ([isNormalBusiness isEqualToString:@"NORMAL"])
+        cellView.frame = CGRectMake(0, 0, 320,24);
     
+    if ([isNormalBusiness isEqualToString:@"BUSINESS"])
+        cellView.frame = CGRectMake(0, 0, 320,kEventTableCellHeight);
+
 	[cellView setNeedsLayout];
 	[cellView setNeedsDisplay];
+
+	[super layoutSubviews];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

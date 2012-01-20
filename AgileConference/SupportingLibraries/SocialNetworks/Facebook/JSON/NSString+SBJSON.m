@@ -44,11 +44,12 @@
 
 - (id)JSONValue
 {
-    SBJsonParser *jsonParser = [SBJsonParser new];
-    id repr = [jsonParser objectWithString:self];
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    id repr = [parser objectWithString:self];
     if (!repr)
-        //dbdNSLog(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
+        NSLog(@"-JSONValue failed. Error is: ");
     return repr;
+
 }
 
 @end

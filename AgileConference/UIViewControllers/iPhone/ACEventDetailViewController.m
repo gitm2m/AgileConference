@@ -166,6 +166,8 @@
 - (IBAction)writeFeedbackButtonTapped:(id)sender {
     
     ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+    feedbackViewController.isOverallEventFeedback = NO;
+    feedbackViewController.eventDetailDict = topicDict;
     [self.navigationController presentModalViewController:feedbackViewController animated:YES];
     
 }

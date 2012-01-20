@@ -14,36 +14,47 @@
 
 -(void)downloadHandler : (NSDictionary *)apiParamrters context:(NSString *)context delegate:(id<ACNetworkHandlerDelegate>)delegate{
     
-        //if(nil != apiParamrters ){
-		
-     downloadDelegate = delegate;
+    if(nil != apiParamrters ){
     
-    SBJsonWriter *jsonWriter = [[SBJsonWriter alloc] init];
+        downloadDelegate = delegate;
+    
+        SBJsonWriter *jsonWriter = [[SBJsonWriter alloc] init];
     
     
-    NSArray *array1 = [[NSArray alloc]initWithObjects :@"Mike",@"wow",@"sdfsdf",@"5", @"event1",@"Agile s",@"Speaker",@"2222dfafsdf3af",@"0.0",@"0.0",nil];
-    NSArray *array2 = [NSArray arrayWithObjects:@"personName",@"subject",@"feedBack", @"rating", @"eventType",@"seminarName",@"speakerName",@"udid",@"latitude",@"longitude",nil];
+        NSArray *objectsArray = [[NSArray alloc]initWithObjects :[apiParamrters valueForKey:@"personName"],
+                                                                 [apiParamrters valueForKey:@"subject"],
+                                                                 [apiParamrters valueForKey:@"feedBack"],
+                                                                 [apiParamrters valueForKey:@"rating"],
+                                                                 [apiParamrters valueForKey:@"eventType"],
+                                                                 [apiParamrters valueForKey:@"seminarName"],
+                                                                 [apiParamrters valueForKey:@"speakerName"],
+                                                                 [apiParamrters valueForKey:@"udid"],
+                                                                 [apiParamrters valueForKey:@"latitude"],
+                                                                 [apiParamrters valueForKey:@"longitude"] ,nil];
+        
+        
+        NSArray *keysArray = [NSArray arrayWithObjects:@"personName",@"subject",@"feedBack", @"rating", @"eventType",@"seminarName",@"speakerName",@"udid",@"latitude",@"longitude",nil];
     
-    NSDictionary *dict = [NSDictionary 
-                          dictionaryWithObjects: array1
-                          forKeys:array2];
+        NSDictionary *dict = [NSDictionary 
+                          dictionaryWithObjects: objectsArray
+                          forKeys:keysArray];
     
-    NSString *jsonString = [jsonWriter stringWithObject:dict];
-    NSData *jsonData = [NSData dataWithBytes: [jsonString UTF8String] length: [jsonString length]];
+        NSString *jsonString = [jsonWriter stringWithObject:dict];
+        NSData *jsonData = [NSData dataWithBytes: [jsonString UTF8String] length: [jsonString length]];
     
-    ACLog(@"JSON String : %@", jsonString);
+        ACLog(@"JSON String : %@", jsonString);
     
         //Signup
-    NSURL *url = [NSURL URLWithString:@"http://59.160.128.100:8080/agileeventfeedback/valtech/agileevent/feedback"];
+        NSURL *url = [NSURL URLWithString:@"http://59.160.128.100:8080/agileeventfeedback/valtech/agileevent/feedback"];
     
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody: jsonData];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+        [request setHTTPBody: jsonData];
     
         //NSLog(@"request : %@", request);
         // NSLog(@"request headers : %@", [request allHTTPHeaderFields]);
@@ -53,9 +64,9 @@
        
        
         
-    [self downloadRespone:request];
+        [self downloadRespone:request];
 		
-        //}
+    }
 
     
 }
@@ -85,8 +96,8 @@
     
     NSString *a = [[NSString alloc] initWithData:d encoding:NSASCIIStringEncoding];
     
-        // NSLog(@"Data: %@", [a JSONValue]);
-        // [downloadDelegate networkHandler:self downloadDidComplete:[a JSONValue]];
+        //NSLog(@"Data: %@", [a JSONValue]);
+    [downloadDelegate networkHandler:self downloadDidComplete:[a JSONValue]];
 }
 
 
