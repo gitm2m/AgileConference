@@ -79,6 +79,7 @@
 - (void)viewDidUnload
 {
     [self setEventsTableView:nil];
+    viewMoreButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -95,6 +96,7 @@
 
 -(void)setupView{
     
+    [viewMoreButton.titleLabel  setFont:[CommonUtility fontSegoiBold:15]]; 
     [[eventsTableView layer] setCornerRadius:5.0f];
     [eventsTableView setBackgroundColor:[UIColor clearColor]];
     [eventsTableView setScrollEnabled:NO];

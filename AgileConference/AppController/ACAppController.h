@@ -34,6 +34,7 @@
     WEPopoverController *tracksEventsPopoverController;
     WEPopoverController *searchPopoverController;
     ACTracksEventsListViewController *contentViewController;
+    IBOutlet UIButton *aboutButton;
     ACSearchPopoverViewController *serachPopoverContentViewController;
     NSInteger finalTrackIndex;
     NSInteger preFinalTrackIndex;
@@ -73,5 +74,7 @@
 - (void)postFacebookFeed;
 - (void)postFacebookFeedOnPage;
 - (void)animateViewsOnSwitchButtonTapped;
+- (IBAction)aboutButtonTapped:(id)sender;
+
 
 @end

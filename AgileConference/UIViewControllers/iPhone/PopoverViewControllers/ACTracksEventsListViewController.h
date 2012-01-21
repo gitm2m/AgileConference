@@ -15,6 +15,7 @@
 @interface ACTracksEventsListViewController : UIViewController{
     
     NSMutableArray *topicArray;
+    IBOutlet UIButton *viewMoreButton;
     BOOL isBottomAnimation;
 }
 

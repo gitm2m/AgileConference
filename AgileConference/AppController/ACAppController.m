@@ -38,6 +38,7 @@
 
 - (void)viewDidLoad
 {
+
     
         //ACLog(@"%@", [UIFont fontNamesForFamilyName:@"Segoe UI"]);
     
@@ -78,6 +79,8 @@
     [self setOrganizerView:nil];
     [self setPopOverImageView:nil];
     [self setContentView:nil];
+    aboutButton = nil;
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -128,7 +131,10 @@
     [organizerButtn setShowsTouchWhenHighlighted:YES];
     [organizerButtn addTarget:self action:@selector(organizerButtonTapped : ) forControlEvents:UIControlEventTouchUpInside];
     [organizerButtn setBackgroundImage:[UIImage imageNamed:@"Organizer.png"] forState:UIControlStateNormal];
+    //[organizerButtn setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:organizerButtn];
+    
+    [self.view insertSubview:aboutButton aboveSubview:organizerButtn];
 
        
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
@@ -371,6 +377,8 @@
     }
     
 }
+
+
 #pragma mark - Coverflow Delegate Methods
 
 - (int)flowCoverNumberImages:(FlowCoverView *)view 
@@ -422,6 +430,15 @@
 
 
 #pragma mark - Events Methods
+
+- (IBAction)aboutButtonTapped:(id)sender {
+    
+    ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
+    [aboutController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    aboutController.splashView = splashScreenView;
+    [self.navigationController presentModalViewController:aboutController animated:YES];    
+
+}
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
@@ -691,6 +708,20 @@
 
 -(void)organizerButtonTapped : (id)sender{
     
+    if([self isSearchViewVisibleOnScreen]){
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.9];
+        [tracksEventsPopoverController.view setAlpha:1];
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
+        [homeCoverViewHolderView setFrame:CGRectMake(0, 44, 380, 380)];
+        [UIView commitAnimations];
+         
+    }
 
     if (organizerButtn.frame.origin.y == 432) {
         

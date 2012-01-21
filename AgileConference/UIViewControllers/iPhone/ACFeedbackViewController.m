@@ -37,6 +37,37 @@
 
 #pragma mark - View lifecycle
 
+-(void)setupInitialView{
+    
+    
+    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    [bgHeader setBackgroundColor:[UIColor clearColor]];
+    [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
+    [[self view] addSubview:bgHeader];
+    //[bgHeader release];
+    
+    leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"cancelBtn.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(7, 10, 49, 23); 
+    [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftBarButton];
+    
+    rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"sendBtn.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(264, 10, 49, 23) ; 
+    [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBarButton];
+    
+    headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
+    [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
+    [headerLabel setText:KAppName];
+    [headerLabel setTextAlignment:UITextAlignmentCenter];
+    [headerLabel setTextColor:[UIColor darkGrayColor]];
+    [headerLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:headerLabel];
+}
+
+
 - (void)viewDidLoad
 {
     
@@ -72,7 +103,15 @@
     rateView.editable = YES;
     rateView.maxRating = 5;
     rateView.delegate = self;
-
+    
+    [userNameLabel setFont:[CommonUtility fontSegoi:14]];
+    [subjectLabel setFont:[CommonUtility fontSegoi:14]];
+    [ratingLabel setFont:[CommonUtility fontSegoi:14]];
+    [feedbacklabel setFont:[CommonUtility fontSegoi:14]];
+    [userName setFont:[CommonUtility fontSegoi:13]];
+    [feedbackSubTextField setFont:[CommonUtility fontSegoi:13]];
+    [feedbackTextView setFont:[CommonUtility fontSegoi:13]];
+    [feedbackheaderLabel setFont:[CommonUtility fontSegoiBold:13]];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -86,6 +125,11 @@
     [self setTextViewPlaceHolderView:nil];
     [self setRateView:nil];
     [self setUserName:nil];
+    userNameLabel = nil;
+    subjectLabel = nil;
+    feedbacklabel = nil;
+    ratingLabel = nil;
+    headerLabel = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

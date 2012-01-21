@@ -15,6 +15,11 @@
 
 @interface ACFeedbackViewController : ACCustomRootViewController<ACRateViewDelegate,ACNetworkHandlerDelegate,CLLocationManagerDelegate>{
     
+    IBOutlet UILabel *feedbackheaderLabel;
+    IBOutlet UILabel *ratingLabel;
+    IBOutlet UILabel *feedbacklabel;
+    IBOutlet UILabel *subjectLabel;
+    IBOutlet UILabel *userNameLabel;
     CLLocationManager *locationManager;
     NSString *ratingString;
     NSString *lat;
