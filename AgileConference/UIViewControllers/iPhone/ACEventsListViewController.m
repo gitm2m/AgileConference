@@ -70,10 +70,11 @@
     [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
     [[self view] addSubview:bgHeader];
         //[bgHeader release];
+
     
     leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
-    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(7, 10, 49, 23);
     [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:leftBarButton];
     

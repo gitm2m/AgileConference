@@ -69,14 +69,14 @@
         //[bgHeader release];
     
     leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
-    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"actionIcon.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(15, 10, 21, 21); 
     [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:leftBarButton];
     
     rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
-    rightBarButton.frame = CGRectMake(278, 10, 25, 24) ; 
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"searchIcon.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(285, 11, 21, 21) ; 
     [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightBarButton];
     

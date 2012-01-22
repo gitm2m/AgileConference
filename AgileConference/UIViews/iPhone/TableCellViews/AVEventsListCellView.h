@@ -33,5 +33,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *cellBgView;
 
 - (IBAction)favouriteButtonTapped:(id)sender;
+- (void)changeFavBackgrounImageByDelay : (NSString *)isFav;
 
 @end

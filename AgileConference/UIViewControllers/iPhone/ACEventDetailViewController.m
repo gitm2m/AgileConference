@@ -68,14 +68,14 @@
         //[bgHeader release];
     
     leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
-    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(7, 10, 49, 23);
     [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:leftBarButton];
     
     rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
-    rightBarButton.frame = CGRectMake(278, 10, 25, 24) ; 
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"actionIcon.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(285, 11, 21, 21) ; 
     [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightBarButton];
     
@@ -108,10 +108,10 @@
     
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
             //[addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
-        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
+        [addRemoveFavsButton setImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
             //[addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
-        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
+        [addRemoveFavsButton setImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
     }
     
     ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
@@ -211,7 +211,7 @@
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
         
         [topicDict setObject:@"YES" forKey:kTopicFavorite];
-        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
+        [addRemoveFavsButton setImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
             //[addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility schedulPreNotificationOfEvent:topicDict];
@@ -418,7 +418,7 @@
     
     if (buttonIndex == 1) {
         [topicDict setObject:@"NO" forKey:kTopicFavorite];
-        [addRemoveFavsButton setBackgroundImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
+        [addRemoveFavsButton setImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
             //[addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility cancelNotificationOfEvent:topicDict];

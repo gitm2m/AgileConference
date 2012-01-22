@@ -130,7 +130,7 @@
     [[organizerButtn titleLabel] setFont:[UIFont boldSystemFontOfSize:15.0f]];
     [organizerButtn setShowsTouchWhenHighlighted:YES];
     [organizerButtn addTarget:self action:@selector(organizerButtonTapped : ) forControlEvents:UIControlEventTouchUpInside];
-    [organizerButtn setBackgroundImage:[UIImage imageNamed:@"Organizer.png"] forState:UIControlStateNormal];
+    [organizerButtn setBackgroundImage:[UIImage imageNamed:@"upArrow.png"] forState:UIControlStateNormal];
     //[organizerButtn setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:organizerButtn];
     
@@ -682,12 +682,7 @@
         
         [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Search" afterDelay:0.1];
         
-            //self.title = @"Search";
-            //self.navigationItem.rightBarButtonItem = searchDoneButton;
-        
-            //[rightBarButton setImage:[UIImage imageNamed:@"doneBtn.png"] forState:UIControlStateNormal];
-            //rightBarButton.frame = CGRectMake(264, 10, 49, 23) ; 
-        
+                  
     }else if([self.view viewWithTag:1234].frame.origin.y ==44){
         
         [searchHolderView.eventsSearchBar resignFirstResponder];
@@ -715,10 +710,6 @@
         [UIView commitAnimations];
         [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Home" afterDelay:0.1];
         
-            // self.title = KAppName;
-            //self.navigationItem.rightBarButtonItem = searchButton;
-            // [rightBarButton setImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
-            //rightBarButton.frame = CGRectMake(278, 10, 25, 24) ;
     }
 
     
@@ -726,7 +717,7 @@
 
 -(void)organizerButtonTapped : (id)sender{
     
-    if([self isSearchViewVisibleOnScreen]){
+   if([self isSearchViewVisibleOnScreen]){
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.9];
@@ -738,10 +729,14 @@
         [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
         [homeCoverViewHolderView setFrame:CGRectMake(0, 44, 380, 380)];
         [UIView commitAnimations];
+       
+       [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Home" afterDelay:0.1];
          
     }
 
     if (organizerButtn.frame.origin.y == 432) {
+        
+        [organizerButtn setBackgroundImage:[UIImage imageNamed:@"arrowDwn.png"] forState:UIControlStateNormal];
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
@@ -751,6 +746,8 @@
         [UIView commitAnimations];
 
     }else if(organizerButtn.frame.origin.y == 44){
+        
+        [organizerButtn setBackgroundImage:[UIImage imageNamed:@"upArrow.png"] forState:UIControlStateNormal];
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
