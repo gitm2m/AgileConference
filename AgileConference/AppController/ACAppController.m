@@ -339,7 +339,7 @@
     }  
     fbShareView.delegate = self;
     [[fbShareView fbShareTextView] becomeFirstResponder];
-    fbShareView.frame = CGRectMake(6, 2, 309, 232);
+    fbShareView.frame = CGRectMake(0, 46, 309, 168);
     
     [self.view addSubview:fbShareView];
 

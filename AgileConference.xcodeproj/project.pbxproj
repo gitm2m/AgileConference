@@ -897,9 +897,6 @@
 		6A42705714AC70FC00F91472 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				6A53E56014C9D3A000A5E371 /* ACEventDetailViewController.h */,
-				6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */,
-				6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */,
 				3878305314B73D6D0007133B /* Linkedin */,
 				6A42705814AC70FC00F91472 /* PopoverViewControllers */,
 				CF7EA66714AEE8CB00061E07 /* ACAboutViewController.h */,
@@ -908,6 +905,9 @@
 				38E9A15514B3046600C11C56 /* ACEventsListViewController.h */,
 				38E9A15614B3046600C11C56 /* ACEventsListViewController.m */,
 				38E9A15714B3046600C11C56 /* ACEventsListViewController.xib */,
+				6A53E56014C9D3A000A5E371 /* ACEventDetailViewController.h */,
+				6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */,
+				6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */,
 				38F9B4C314B42E4000696426 /* ACEventDescriptionWebviewController.h */,
 				38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */,
 				38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */,
