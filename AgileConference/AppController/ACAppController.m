@@ -902,6 +902,11 @@
             
     }else if(buttonIndex == 0){
         
+        
+        [ViewUtility showAlertViewWithMessage:@"Could not connect to facebook,please try again later."];
+        
+        /*
+        
         if (![CommonUtility isConnectedToNetwork]) {
             [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
             return;
@@ -918,7 +923,7 @@
              [self displayFacebookShareView];
         }
         
-              
+         */     
        
       
     }else if(buttonIndex == 3){

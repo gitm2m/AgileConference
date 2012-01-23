@@ -293,7 +293,10 @@
         
     }else
         if(buttonIndex == 0){
+            
+            [ViewUtility showAlertViewWithMessage:@"Could not connect to facebook,please try again later."];
         
+        /*
         if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
             
             isFBLoginFirtTime = YES;
@@ -304,7 +307,7 @@
         }
         
         
-        
+        */
         
     }
 
