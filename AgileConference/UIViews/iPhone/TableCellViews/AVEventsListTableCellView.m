@@ -97,6 +97,11 @@
         
         cellView.cellData = inCellData;
         cellView.topicLabel.text=[inCellData objectForKey:kTopicTitle];
+        
+        float height =[CommonUtility getHeightFromText:cellView.topicLabel.text font:[CommonUtility fontSegoiBold:13.0] maxWidth:185];
+        NSLog(@"Topic text:%@",cellView.topicLabel.text);
+        NSLog(@"Topic text:%f",height);
+
         cellView.speakerLabel.text=[inCellData objectForKey:kTopicSpeaker];
         if([[inCellData objectForKey:kTopicSpeaker] isEqualToString:@""]&&[[inCellData objectForKey:kTopicType] isEqualToString:@"BUSINESS"])
             cellView.speakerLabel.text=@"Presenter";
@@ -106,6 +111,7 @@
         cellView.statusLabel.text=[inCellData objectForKey:kTopicStatus];
         //
         NSString *dayKey=[inCellData objectForKey:kTopicDay];
+        //
         if([dayKey hasSuffix:@"1"]){
             dayKey=@"D1";
         }
@@ -130,8 +136,7 @@
             [cellView.favButton setBackgroundImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
         else
             [cellView.favButton setBackgroundImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
-
-    }
+        }
     else if ([isNormalBusiness isEqualToString:@"BREAK"]){
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
         cellView.breakLabelTimeLabel.text = [CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];;
@@ -140,6 +145,19 @@
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
         cellView.breakLabelTimeLabel.text = [CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];;
     }
+    
+    if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Closed"]){
+        [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
+        
+    } else if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Open"]){
+        [cellView.statusImageView setImage:[UIImage imageNamed:@"openStatus.png"]];
+        
+    } else if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Running"]){
+        [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
+        
+    }
+
+    
 	    
 }
 

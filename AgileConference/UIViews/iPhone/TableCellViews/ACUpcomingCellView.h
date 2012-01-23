@@ -13,4 +13,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *topicLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *breakImageView;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *statusImageView;
 @end

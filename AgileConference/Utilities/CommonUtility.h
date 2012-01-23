@@ -72,4 +72,5 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse);
 +(void)cancelUpdateNotificationOfEvent:(NSMutableDictionary *)eventDict;
 +(NSString *)convertDateToAMPMFormat:(NSString *)topicTime;
 +(NSArray *)getSortedArrayByAlphabet:(NSArray *)inputArray;
++ (float) getHeightFromText:(NSString*)aText font:(UIFont*)font maxWidth:(float)aWidth;
 @end

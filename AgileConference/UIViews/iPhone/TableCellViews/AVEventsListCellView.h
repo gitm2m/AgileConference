@@ -31,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *breakLabelTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateTrackLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *cellBgView;
+@property (strong, nonatomic) IBOutlet UIImageView *statusImageView;
 
 - (IBAction)favouriteButtonTapped:(id)sender;
 

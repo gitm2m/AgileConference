@@ -501,6 +501,17 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     
 }
 
+////
+
++ (float) getHeightFromText:(NSString*)aText font:(UIFont*)font maxWidth:(float)aWidth
+{
+	CGSize maximumLabelSize = CGSizeMake(aWidth, MAXFLOAT);
+	CGSize expecteSize = [aText sizeWithFont:font
+                           constrainedToSize:maximumLabelSize 
+                               lineBreakMode:UILineBreakModeWordWrap];
+	
+	return expecteSize.height;
+}
 
 
 

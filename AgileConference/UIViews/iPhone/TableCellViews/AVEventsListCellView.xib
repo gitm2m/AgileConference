@@ -91,7 +91,7 @@
 					<object class="IBUILabel" id="823432539">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">300</int>
-						<string key="NSFrame">{{31, -7}, {185, 50}}</string>
+						<string key="NSFrame">{{31, -4}, {185, 40}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="595825458"/>
@@ -4544,7 +4544,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<object class="IBUIImageView" id="783968537">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{4, 7}, {16, 16}}</string>
+						<string key="NSFrame">{{4, 9}, {16, 16}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="823432539"/>
@@ -4561,6 +4561,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="NSFrame">{{215, 39}, {140, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="790959557"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -4614,6 +4615,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="NSFrame">{{0, 60}, {320, 1}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
 						<reference key="IBUIBackgroundColor" ref="616576181"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -4694,6 +4696,14 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="destination" ref="943991906"/>
 					</object>
 					<int key="connectionID">44</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">statusImageView</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="783968537"/>
+					</object>
+					<int key="connectionID">46</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -4807,7 +4817,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">45</int>
+			<int key="maxID">46</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4833,6 +4843,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="favButton">UIButton</string>
 						<string key="favImageView">UIImageView</string>
 						<string key="speakerLabel">UILabel</string>
+						<string key="statusImageView">UIImageView</string>
 						<string key="statusLabel">UILabel</string>
 						<string key="timeLabel">UILabel</string>
 						<string key="topicLabel">UILabel</string>
@@ -4865,6 +4876,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<object class="IBToOneOutletInfo" key="speakerLabel">
 							<string key="name">speakerLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="statusImageView">
+							<string key="name">statusImageView</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="statusLabel">
 							<string key="name">statusLabel</string>

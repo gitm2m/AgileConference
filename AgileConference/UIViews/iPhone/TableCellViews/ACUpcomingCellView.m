@@ -12,6 +12,7 @@
 @synthesize topicLabel;
 @synthesize breakImageView;
 @synthesize timeLabel;
+@synthesize statusImageView;
 
 - (id)initWithFrame:(CGRect)frame
 {

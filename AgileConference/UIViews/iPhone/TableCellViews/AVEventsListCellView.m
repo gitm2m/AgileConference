@@ -20,6 +20,7 @@
 @synthesize breakLabelTimeLabel;
 @synthesize dateTrackLabel;
 @synthesize cellBgView;
+@synthesize statusImageView;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -41,7 +42,7 @@
 
 -(void)layoutSubviews
 {
-    [topicLabel setFont:[CommonUtility fontSegoiBold:13.0f]];
+    [topicLabel setFont:[CommonUtility fontSegoiBold:11.0f]];
     [timeLabel setFont:[CommonUtility fontSegoi:10.0f]];
     [speakerLabel setFont:[CommonUtility fontSegoi:11.0f]];
     [dateTrackLabel setFont:[CommonUtility fontSegoi:10.0f]];

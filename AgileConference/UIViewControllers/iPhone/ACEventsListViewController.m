@@ -145,7 +145,7 @@
         else if([[[topicArray objectAtIndex:indexPath.row] valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
             cell = [[AVEventsListTableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier type:@"NORMAL"];
         }
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
       cell.rowNumber = indexPath.row;	  
             //}
     
