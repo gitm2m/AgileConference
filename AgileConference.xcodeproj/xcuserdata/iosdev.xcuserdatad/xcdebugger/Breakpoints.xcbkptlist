@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AgileConference/AppController/ACAppController.m"
-         timestampString = "348132591.406081"
+         timestampString = "349025486.854915"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "298"
-         endingLineNumber = "298"
+         startingLineNumber = "297"
+         endingLineNumber = "297"
          landmarkName = "-showSplasScreen"
          landmarkType = "5">
       </FileBreakpoint>

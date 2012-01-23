@@ -223,7 +223,6 @@
      */
     
     [contentView addSubview:contentViewController.view];
-    
     [homeCoverViewHolderView insertSubview:popOverImageView aboveSubview:tracksCoverView];
     [homeCoverViewHolderView insertSubview:contentView aboveSubview:popOverImageView];
     [self setupViewsFromNib];
@@ -405,7 +404,8 @@
 -(void)didSelectSlide:(NSInteger)index{
     
     if(preFinalTrackIndex!=finalTrackIndex){
-
+        
+        [[ACOrganiser getOrganiser] getCatalogDict];
         ACLog(@"did select slide>>>>>>>>>>%i",finalTrackIndex);
         NSString *trackSelected=[NSString stringWithFormat:@"Track%i",finalTrackIndex+1];
         [[ACAppSetting getAppSession]setTrackSelected:trackSelected];
@@ -472,6 +472,7 @@
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
         [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Sel.png"] forSegmentAtIndex:2];
     }*/
+        [[ACOrganiser getOrganiser] getCatalogDict];
         
         NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
     
@@ -499,7 +500,8 @@
 
 - (void)searchButtonTapped : (id)sender{
     
-    
+    [[ACOrganiser getOrganiser] getCatalogDict];
+
     if ([self.view viewWithTag:1234].frame.origin.y == -380) {
         
         [[[TestUtility alloc] init] test];
@@ -717,6 +719,8 @@
 
 -(void)organizerButtonTapped : (id)sender{
     
+    [[ACOrganiser getOrganiser] getCatalogDict];
+
    if([self isSearchViewVisibleOnScreen]){
         
         [UIView beginAnimations:nil context:NULL];

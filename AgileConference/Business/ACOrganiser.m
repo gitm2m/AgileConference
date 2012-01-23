@@ -11,6 +11,7 @@
 #import "ACAppConstants.h"
 static ACOrganiser *appOrganiser = nil;
 
+
 @implementation ACOrganiser
 
 //
@@ -21,7 +22,6 @@ static ACOrganiser *appOrganiser = nil;
 		appOrganiser = [[ACOrganiser alloc]init];
         [appOrganiser getCatalogDict];
 	}
-    [appOrganiser updateStatusOfCatalogDict];
 	return appOrganiser;
 }
 //
@@ -45,8 +45,8 @@ static ACOrganiser *appOrganiser = nil;
         }
         catalogDict=[[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     }
+    //[appOrganiser updateStatusOfCatalogDict];
     return catalogDict;
-    
 }
 //
 -(BOOL)saveCatalogDict{
@@ -67,116 +67,116 @@ static ACOrganiser *appOrganiser = nil;
 -(void)updateStatusOfCatalogDict{
     
     if(catalogDict){
-        
-        NSArray *dayKeyArray=[catalogDict allKeys];
-       // NSLog(@"Topic dayKeyArray.....%@", dayKeyArray);
+        NSMutableDictionary *tempDict=[[NSMutableDictionary alloc] initWithDictionary:catalogDict];
 
-        
-        for (NSString *dayKey in dayKeyArray) {
+        NSDate    *currDate=[NSDate date];
+        NSString *currDateAsString=[CommonUtility convertDateToString:currDate format:@"dd-MM-yyyy"];
+        NSLog(@"currDateAsString>>>%@",currDateAsString);
+        NSString *dayKey=@"";
+        if([currDateAsString hasPrefix:@"17"]){
+            dayKey=@"Day1";
+        }
+        else if([currDateAsString hasPrefix:@"18"]){
+            dayKey=@"Day2";
+        }
+        else if([currDateAsString hasPrefix:@"20"]){
+            dayKey=@"Day3";
+        }
+
+        NSMutableDictionary *trackDict=[tempDict objectForKey:dayKey];
+        NSArray *trackKeyArray=[trackDict allKeys];
+        for (NSMutableDictionary *trackKey in trackKeyArray) {
             
-           // NSLog(@"Topic dayKey.....%@", dayKey);
-
-            NSMutableDictionary *trackDict=[catalogDict objectForKey:dayKey];
-            NSArray *trackKeyArray=[trackDict allKeys];
-            //NSLog(@"Topic dayKeyArray.....%@", trackKeyArray);
-
-            for (NSMutableDictionary *trackKey in trackKeyArray) {
-
-                //
-                NSMutableArray* topicArrayInTrack=[trackDict objectForKey:trackKey];
-                //
-                for (NSMutableDictionary *topicDict in topicArrayInTrack) {
+            //
+            NSMutableArray* topicArrayInTrack=[trackDict objectForKey:trackKey];
+            NSMutableArray *tempTopicArrayInTrack=[[NSMutableArray alloc] init];
+            //
+            for (NSMutableDictionary *topicDict in topicArrayInTrack) {
+                NSMutableDictionary *tempTopicDict=[[NSMutableDictionary alloc] initWithDictionary:topicDict];
+                NSString  *topicStatus=[topicDict objectForKey:kTopicStatus];
+                if([topicStatus isEqualToString:@"Open"] || [topicStatus isEqualToString:@"Running"]){
+                    // NSLog(@"Topic dicts.....%@", topicDict);
                     
-                    NSString  *topicStatus=[topicDict objectForKey:kTopicStatus];
-                   if([topicStatus isEqualToString:@"Open"] || [topicStatus isEqualToString:@"Running"]){
-                       // NSLog(@"Topic dicts.....%@", topicDict);
-
-                        
-                        NSDate    *currDate=[NSDate date];
-                        NSString  *topicDay=[topicDict objectForKey:kTopicDate];
-                        NSString  *topicTime=[topicDict objectForKey:kTopicTime];
-                        NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
-                        //
-                        NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
-                        NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
-                        NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,startTime];
-                        NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
-
-                        //
-                        NSString  *topicTimeLastObject=[topicTimeArray lastObject];
-                        NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
-                        NSString  *eventDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,endTime];
-                        NSDate    *eventEndDate=[CommonUtility convertStringToDate:eventDayTime format:@"dd-MM-yyyy, HH:mm"];
+                    NSString  *topicDay=[topicDict objectForKey:kTopicDate];
+                    NSString  *topicTime=[topicDict objectForKey:kTopicTime];
+                    NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
+                    //
+                    NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
+                    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+                    NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,startTime];
+                    NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
+                    //
+                    NSString  *topicTimeLastObject=[topicTimeArray lastObject];
+                    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
+                    NSString  *eventDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,endTime];
+                    NSDate    *eventEndDate=[CommonUtility convertStringToDate:eventDayTime format:@"dd-MM-yyyy, HH:mm"];
                     
-                       // NSLog(@"currDate date>>>>%@", [NSDate date]);
-                       // NSLog(@"Event Start date>>>>%@", eventStartDate);
-                       // NSLog(@"Event end date>>>>%@", eventEndDate);
-                        //
-                        NSComparisonResult comparisonResultStart=[eventStartDate compare:currDate];
-                        switch (comparisonResultStart) {
-                            case NSOrderedAscending:
-                            {
-                                [topicDict setObject:@"Running" forKey:kTopicStatus];
-                            }
-                                break;
-                                
-                            case NSOrderedSame:
-                            {
-                                [topicDict setObject:@"Running" forKey:kTopicStatus];
-                                
-                            }
-                                break;
-                                
-                            case NSOrderedDescending:
-                            {
-                                [topicDict setObject:@"Open" forKey:kTopicStatus];
-                                
-                            }
-                                break;
-                                
-                                
-                            default:
-                                break;
+                    // NSLog(@"currDate date>>>>%@", [NSDate date]);
+                    // NSLog(@"Event Start date>>>>%@", eventStartDate);
+                    // NSLog(@"Event end date>>>>%@", eventEndDate);
+                    //
+                    NSComparisonResult comparisonResultStart=[eventStartDate compare:currDate];
+                    switch (comparisonResultStart) {
+                        case NSOrderedAscending:
+                        {
+                            [tempTopicDict setObject:@"Running" forKey:kTopicStatus];
                         }
-
-                        //
-                        NSComparisonResult comparisonResultEnd=[eventEndDate compare:currDate];
-                        switch (comparisonResultEnd) {
-                                
-                            case NSOrderedAscending:
-                            {
-                                [topicDict setObject:@"Closed" forKey:kTopicStatus];
-                            }
-                                break;
-                                
-                            case NSOrderedSame:
-                            {
-                                [topicDict setObject:@"Closed" forKey:kTopicStatus];
-
-                            }
-                                break;
-                                
-                            case NSOrderedDescending:
-                            {
-                                //[topicDict setObject:@"Closed" forKey:kTopicStatus]
-
-                            }
-                                break;
-
-                                
-                            default:
-                                break;
+                            break;
+                            
+                        case NSOrderedSame:
+                        {
+                            [tempTopicDict setObject:@"Running" forKey:kTopicStatus];
+                            
                         }
-                        
-
+                            break;
+                            
+                        case NSOrderedDescending:
+                        {
+                            [tempTopicDict setObject:@"Open" forKey:kTopicStatus];
+                            
+                        }
+                            break;
+                            
+                            
+                        default:
+                            break;
                     }
-                    
-                    
+                    //
+                    NSComparisonResult comparisonResultEnd=[eventEndDate compare:currDate];
+                    switch (comparisonResultEnd) {
+                            
+                        case NSOrderedAscending:
+                        {
+                            [tempTopicDict setObject:@"Closed" forKey:kTopicStatus];
+                        }
+                            break;
+                            
+                        case NSOrderedSame:
+                        {
+                            [tempTopicDict setObject:@"Closed" forKey:kTopicStatus];
+                            
+                        }
+                            break;
+                            
+                        case NSOrderedDescending:
+                        {
+                            //[topicDict setObject:@"Closed" forKey:kTopicStatus]
+                            
+                        }
+                            break;
+                            
+                            
+                        default:
+                            break;
+                    }
                 }
-                
+                [tempTopicArrayInTrack addObject:tempTopicDict];
             }
+            [trackDict setObject:tempTopicArrayInTrack forKey:trackKey];
             
         }
+        catalogDict=tempDict;
+
     }
 }
 

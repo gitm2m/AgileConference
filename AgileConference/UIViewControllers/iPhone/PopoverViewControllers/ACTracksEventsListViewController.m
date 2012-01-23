@@ -51,8 +51,8 @@
             }
         } 
         //
-       [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
-       [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+       //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+       //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
          self.contentSizeForViewInPopover = CGSizeMake(300, 176);
         
     }
@@ -225,8 +225,8 @@
         [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
  
     }
-    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
-    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+    //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+   // [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
 
 }
 //
@@ -263,8 +263,8 @@
     //
     [eventsTableView reloadData];
     [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
-    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
-    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
 }
 
 
