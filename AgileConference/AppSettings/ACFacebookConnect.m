@@ -15,7 +15,7 @@ static ACFacebookConnect *facebookConnectObject = nil;
 
 @implementation ACFacebookConnect
 @synthesize fbGraph;
-@synthesize feedPostId;
+@synthesize feedPostId,callbackObjct;
 
 +(ACFacebookConnect *)getFacebookConnectObject{
     
@@ -30,6 +30,7 @@ static ACFacebookConnect *facebookConnectObject = nil;
 -(void)checkForSessionWithCallbackObject : (id)callbackObject andSelector:(SEL)selector{
     
     NSString *client_id = kFaceBookAPIKey;
+    self.callbackObjct = callbackObject;
 	
         //alloc and initalize our FbGraph instance
 	self.fbGraph = [[FbGraph alloc] initWithFbClientID:client_id];
@@ -37,7 +38,7 @@ static ACFacebookConnect *facebookConnectObject = nil;
     
        
         //begin the authentication process.....
-	[fbGraph authenticateUserWithCallbackObject:callbackObject andSelector:selector 
+	[fbGraph authenticateUserWithCallbackObject:self.callbackObjct andSelector:selector 
 						 andExtendedPermissions:@"user_photos,user_videos,publish_stream,offline_access,user_checkins,friends_checkins"];
 }
 

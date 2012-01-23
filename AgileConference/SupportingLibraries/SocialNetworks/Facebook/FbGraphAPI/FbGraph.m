@@ -67,7 +67,7 @@
 	self.callbackObject = anObject;
 	self.callbackSelector = selector;
 	
-	NSString *url_string = [NSString stringWithFormat:@"https://graph.facebook.com/oauth/authorize?client_id=%@&redirect_uri=%@&scope=%@&type=user_agent&display=touch", facebookClientID, redirectUri, extended_permissions];
+	NSString *url_string = [NSString stringWithFormat:@"http://graph.facebook.com/oauth/authorize?client_id=%@&redirect_uri=%@&scope=%@&type=user_agent&display=touch", facebookClientID, redirectUri, extended_permissions];
 	NSURL *url = [NSURL URLWithString:url_string];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
@@ -322,10 +322,10 @@
 		[self.webView removeFromSuperview];
 		
 		//tell our callback function that we're done logging in :)
-		if ( (self.callbackObject != nil) && (callbackSelector != nil) ) {
-                //[self.callbackObject performSelector:callbackSelector];
-            objc_msgSend(callbackObject, callbackSelector);
-		}
+		if ( (self.callbackObject != nil) && (self.callbackSelector != nil) ) {
+            [callbackObject performSelector:@selector(fbGraphCallback:)];
+                //objc_msgSend(callbackObject, self.callbackSelector);
+        }
 		
 		//the user pressed cancel
 	} else if (cancel_range.length > 0) {
@@ -343,7 +343,7 @@
 		//tell our callback function that we're done logging in :)
 		if ( (self.callbackObject != nil) && (self.callbackSelector != nil) ) {
                 //[self.callbackObject performSelector:callbackSelector];
-            objc_msgSend(callbackObject, callbackSelector);
+            objc_msgSend(callbackObject, self.callbackSelector);
         }
 		
 	}else{

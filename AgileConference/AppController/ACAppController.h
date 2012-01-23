@@ -76,5 +76,6 @@
 - (void)animateViewsOnSwitchButtonTapped;
 - (IBAction)aboutButtonTapped:(id)sender;
 - (void)changeNavigationViewBydelayWithName : (NSString*)navigationName;
+- (void)fbGraphCallback:(id)sender;
 
 @end
