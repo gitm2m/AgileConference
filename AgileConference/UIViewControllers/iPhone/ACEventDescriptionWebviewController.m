@@ -99,7 +99,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return UIInterfaceOrientationLandscapeRight|UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationPortrait;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Events Methods

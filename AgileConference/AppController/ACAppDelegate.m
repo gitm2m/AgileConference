@@ -24,6 +24,9 @@
 {
     //Load catalog dict
     [[ACOrganiser getOrganiser] getCatalogDict];
+    
+    NSDate *date=[CommonUtility convertStringToDate:@"17-12-2012" format:@"dd-MM-yyyy"];
+    NSLog(@">>>>>Comapre :%i",[date compare:[NSDate date]]);
 
     
     if (![CommonUtility isConnectedToNetwork]) {

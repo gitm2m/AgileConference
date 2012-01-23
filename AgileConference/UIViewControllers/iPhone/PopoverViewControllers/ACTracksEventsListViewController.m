@@ -28,10 +28,10 @@
 
         isBottomAnimation=NO;
         NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
-        NSLog(@">>daySelected>>>%@",daySelected);
+            //NSLog(@">>daySelected>>>%@",daySelected);
 
         NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
-        NSLog(@">>trackSelected>>>%@",trackSelected);
+            // NSLog(@">>trackSelected>>>%@",trackSelected);
 
 
         NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
@@ -40,7 +40,7 @@
         //
         for (NSMutableDictionary *topicDict in wholeTopicArray){
             NSString *topicStatus=[topicDict objectForKey:kTopicStatus];
-            NSLog(@">>topicStatus>>>%@",topicStatus);
+                // NSLog(@">>topicStatus>>>%@",topicStatus);
             if([topicStatus isEqualToString:@"Open"]
                ||[topicStatus isEqualToString:@"Running"]){
                 [topicArray addObject:topicDict];
@@ -51,8 +51,8 @@
             }
         } 
         //
-       //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
-       //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+        // [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+        //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
          self.contentSizeForViewInPopover = CGSizeMake(300, 176);
         
     }
@@ -225,8 +225,8 @@
         [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
  
     }
-    //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
-   // [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+        // [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+        //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
 
 }
 //
@@ -263,8 +263,8 @@
     //
     [eventsTableView reloadData];
     [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
-    //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
-    //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+        //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+        //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
 }
 
 

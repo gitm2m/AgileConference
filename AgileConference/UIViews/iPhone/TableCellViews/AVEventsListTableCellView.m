@@ -87,6 +87,7 @@
 
 -(void)setCellData:(NSMutableDictionary *)inCellData
 {
+    
     if((rowNumber % 2)==0)
         [cellView.cellBgView setImage:[UIImage imageNamed:@"rowBg1.png"]];
     else
@@ -157,7 +158,7 @@
         [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
         
     }
-
+     
     
 	    
 }
