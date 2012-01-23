@@ -77,6 +77,13 @@
 		38B6640B14C939CC00812A4E /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640814C939CC00812A4E /* SBJsonStreamWriter.m */; };
 		38B6641014C939DD00812A4E /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640D14C939DD00812A4E /* SBJsonStreamWriterAccumulator.m */; };
 		38B6641114C939DD00812A4E /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6640F14C939DD00812A4E /* SBJsonStreamWriterState.m */; };
+		38C7C73F14CD3F0600EB13AE /* segoeui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73814CD3F0600EB13AE /* segoeui.ttf */; };
+		38C7C74014CD3F0600EB13AE /* segoeuib.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73914CD3F0600EB13AE /* segoeuib.ttf */; };
+		38C7C74114CD3F0600EB13AE /* segoeuii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73A14CD3F0600EB13AE /* segoeuii.ttf */; };
+		38C7C74214CD3F0600EB13AE /* segoeuil.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73B14CD3F0600EB13AE /* segoeuil.ttf */; };
+		38C7C74314CD3F0600EB13AE /* segoeuiz.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73C14CD3F0600EB13AE /* segoeuiz.ttf */; };
+		38C7C74414CD3F0600EB13AE /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73D14CD3F0600EB13AE /* seguisb.ttf */; };
+		38C7C74514CD3F0600EB13AE /* seguisym.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73E14CD3F0600EB13AE /* seguisym.ttf */; };
 		38E11CFA14B6CCB60001AC63 /* bg_moderator_notes1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E11CF914B6CCB60001AC63 /* bg_moderator_notes1.png */; };
 		38E11CFC14B6D1F40001AC63 /* ViewDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E11CFB14B6D1F40001AC63 /* ViewDetail.png */; };
 		38E11CFE14B6D4230001AC63 /* btn_active_website_comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E11CFD14B6D4220001AC63 /* btn_active_website_comment.png */; };
@@ -322,6 +329,13 @@
 		38B6640D14C939DD00812A4E /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
 		38B6640E14C939DD00812A4E /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
 		38B6640F14C939DD00812A4E /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		38C7C73814CD3F0600EB13AE /* segoeui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeui.ttf; sourceTree = "<group>"; };
+		38C7C73914CD3F0600EB13AE /* segoeuib.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuib.ttf; sourceTree = "<group>"; };
+		38C7C73A14CD3F0600EB13AE /* segoeuii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuii.ttf; sourceTree = "<group>"; };
+		38C7C73B14CD3F0600EB13AE /* segoeuil.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuil.ttf; sourceTree = "<group>"; };
+		38C7C73C14CD3F0600EB13AE /* segoeuiz.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuiz.ttf; sourceTree = "<group>"; };
+		38C7C73D14CD3F0600EB13AE /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
+		38C7C73E14CD3F0600EB13AE /* seguisym.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisym.ttf; sourceTree = "<group>"; };
 		38E11CF914B6CCB60001AC63 /* bg_moderator_notes1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_moderator_notes1.png; sourceTree = "<group>"; };
 		38E11CFB14B6D1F40001AC63 /* ViewDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ViewDetail.png; sourceTree = "<group>"; };
 		38E11CFD14B6D4220001AC63 /* btn_active_website_comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_active_website_comment.png; sourceTree = "<group>"; };
@@ -781,6 +795,13 @@
 		6A42702B14AC4D9900F91472 /* AppResources */ = {
 			isa = PBXGroup;
 			children = (
+				38C7C73814CD3F0600EB13AE /* segoeui.ttf */,
+				38C7C73914CD3F0600EB13AE /* segoeuib.ttf */,
+				38C7C73A14CD3F0600EB13AE /* segoeuii.ttf */,
+				38C7C73B14CD3F0600EB13AE /* segoeuil.ttf */,
+				38C7C73C14CD3F0600EB13AE /* segoeuiz.ttf */,
+				38C7C73D14CD3F0600EB13AE /* seguisb.ttf */,
+				38C7C73E14CD3F0600EB13AE /* seguisym.ttf */,
 				6A4270A314AC828E00F91472 /* Files */,
 				6A42702C14AC4D9900F91472 /* Database */,
 				6A42702E14AC4D9900F91472 /* Images */,
@@ -1376,6 +1397,13 @@
 				CF446E9F14CB341C00CF7016 /* nameTxtFld.png in Resources */,
 				CF446EA114CB3A2000CF7016 /* topicRow1inverted.png in Resources */,
 				CF14A7B214CB450C00D53010 /* valtechIcon.png in Resources */,
+				38C7C73F14CD3F0600EB13AE /* segoeui.ttf in Resources */,
+				38C7C74014CD3F0600EB13AE /* segoeuib.ttf in Resources */,
+				38C7C74114CD3F0600EB13AE /* segoeuii.ttf in Resources */,
+				38C7C74214CD3F0600EB13AE /* segoeuil.ttf in Resources */,
+				38C7C74314CD3F0600EB13AE /* segoeuiz.ttf in Resources */,
+				38C7C74414CD3F0600EB13AE /* seguisb.ttf in Resources */,
+				38C7C74514CD3F0600EB13AE /* seguisym.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1518,8 +1546,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "9BD791B8-73E3-456D-A219-FD9CF6787F58";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9BD791B8-73E3-456D-A219-FD9CF6787F58";
+				PROVISIONING_PROFILE = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1537,8 +1565,8 @@
 				INFOPLIST_FILE = "AgileConference/AgileConference-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9BD791B8-73E3-456D-A219-FD9CF6787F58";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9BD791B8-73E3-456D-A219-FD9CF6787F58";
+				PROVISIONING_PROFILE = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

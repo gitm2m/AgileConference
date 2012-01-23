@@ -124,7 +124,7 @@
     
     headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
     [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
-    [headerLabel setText:KAppName];
+    [headerLabel setText:@"About Valtech"];
     [headerLabel setTextAlignment:UITextAlignmentCenter];
     [headerLabel setTextColor:[UIColor darkGrayColor]];
     [headerLabel setBackgroundColor:[UIColor clearColor]];
@@ -135,7 +135,7 @@
 #pragma mark - Events Methodsr
 - (IBAction)doneBarButtonPressed:(id)sender {
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
     /*
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
@@ -146,9 +146,10 @@
 
 - (IBAction)viewMoreButtonTapped:(id)sender {
     
-    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" bundle:nil];
+   
+    ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" andURL:@"http://www.valtech.com"];
     
-    [self.navigationController pushViewController:descriptionViewController animated:YES];
+    [self presentModalViewController:descriptionViewController animated:YES];
 
 
 }
@@ -169,7 +170,7 @@
 
 -(void)rightBarButtonClicked : (id)sender{
     
-     [self dismissModalViewControllerAnimated:YES];
+     [self.navigationController popViewControllerAnimated:YES];
 }
 
 

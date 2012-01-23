@@ -428,6 +428,20 @@
     //ACLog(@"Track : %d", inIndex);
 }
 
+- (void)changeNavigationViewBydelayWithName : (NSString*)navigationName{
+    
+    if ([navigationName isEqualToString:@"Search"]) {
+        [headerLabel setText:@"Search"];
+        [rightBarButton setImage:[UIImage imageNamed:@"doneBtn.png"] forState:UIControlStateNormal];
+        rightBarButton.frame = CGRectMake(264, 10, 49, 23) ;
+    }else{
+        [headerLabel setText:@"Agile 2012"];
+        [rightBarButton setImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
+        rightBarButton.frame = CGRectMake(278, 10, 25, 24) ;
+    }
+    
+}
+
 
 #pragma mark - Events Methods
 
@@ -436,7 +450,7 @@
     ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
     [aboutController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     aboutController.splashView = splashScreenView;
-    [self.navigationController presentModalViewController:aboutController animated:YES];    
+    [self.navigationController pushViewController:aboutController animated:YES];    
 
 }
 
@@ -666,8 +680,11 @@
         [homeCoverViewHolderView setFrame:CGRectMake(0, 455, 320, 380)];
         [UIView commitAnimations];
         
-        self.title = @"Search";
-        self.navigationItem.rightBarButtonItem = searchDoneButton;
+        [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Search" afterDelay:0.1];
+        
+            //self.title = @"Search";
+            //self.navigationItem.rightBarButtonItem = searchDoneButton;
+        
             //[rightBarButton setImage:[UIImage imageNamed:@"doneBtn.png"] forState:UIControlStateNormal];
             //rightBarButton.frame = CGRectMake(264, 10, 49, 23) ; 
         
@@ -696,9 +713,10 @@
         [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
         [homeCoverViewHolderView setFrame:CGRectMake(0, 44, 380, 380)];
         [UIView commitAnimations];
+        [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Home" afterDelay:0.1];
         
-        self.title = KAppName;
-        self.navigationItem.rightBarButtonItem = searchButton;
+            // self.title = KAppName;
+            //self.navigationItem.rightBarButtonItem = searchButton;
             // [rightBarButton setImage:[UIImage imageNamed:@"Search.png"] forState:UIControlStateNormal];
             //rightBarButton.frame = CGRectMake(278, 10, 25, 24) ;
     }
@@ -905,7 +923,7 @@
         ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
         [aboutController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         aboutController.splashView = splashScreenView;
-        [self.navigationController presentModalViewController:aboutController animated:YES];
+        [self.navigationController pushViewController:aboutController animated:YES];
         
         /*
         [UIView beginAnimations:nil context:NULL];

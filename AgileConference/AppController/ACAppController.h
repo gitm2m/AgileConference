@@ -47,7 +47,7 @@
     ACFacebookShareView *fbShareView;
     ACMatrixCatalogView *matrixCatalogView;
     BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
-     UIButton *organizerButtn;
+    UIButton *organizerButtn;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
@@ -75,6 +75,6 @@
 - (void)postFacebookFeedOnPage;
 - (void)animateViewsOnSwitchButtonTapped;
 - (IBAction)aboutButtonTapped:(id)sender;
-
+- (void)changeNavigationViewBydelayWithName : (NSString*)navigationName;
 
 @end
