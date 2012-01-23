@@ -85,6 +85,15 @@
     [self.view addSubview:rightBarButton];
     
     
+    headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
+    [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
+    [headerLabel setText:[NSString stringWithFormat:@"%@,%@",[[topicArray objectAtIndex:0]valueForKey:kTopicDay],[[topicArray objectAtIndex:0]valueForKey:kTopicTrack]]];
+    [headerLabel setTextAlignment:UITextAlignmentCenter];
+    [headerLabel setTextColor:[UIColor darkGrayColor]];
+    [headerLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:headerLabel];
+
+    
 }
 
 

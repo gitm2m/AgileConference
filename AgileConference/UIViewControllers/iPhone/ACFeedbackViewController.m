@@ -60,7 +60,7 @@
     
     headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
     [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
-    [headerLabel setText:KAppName];
+    [headerLabel setText:@"Feedback"];
     [headerLabel setTextAlignment:UITextAlignmentCenter];
     [headerLabel setTextColor:[UIColor darkGrayColor]];
     [headerLabel setBackgroundColor:[UIColor clearColor]];
