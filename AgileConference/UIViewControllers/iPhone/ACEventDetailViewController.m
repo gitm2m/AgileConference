@@ -114,18 +114,26 @@
         [addRemoveFavsButton setImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
     }
     
-    ACLog(@"[topicDict valueForKey:kTopicFavorite] %@", [topicDict valueForKey:kTopicFavorite]);
-    ACLog(@"[topicDict valueForKey:kTopicSummary] %@", [topicDict valueForKey:kTopicSummary]);
-
-    
     [speakerHeaderLabel setFont:[CommonUtility fontSegoiBold:14]];
     [topicHeaderLabel setFont:[CommonUtility fontSegoiBold:14]];
     [SpeakerSummaryView setFont:[CommonUtility fontSegoi:13]];
     [topicSummaryView setFont:[CommonUtility fontSegoi:13]];
     
+    [topicSummaryView flashScrollIndicators];
+    [SpeakerSummaryView flashScrollIndicators];
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(animateScrollIndicators) userInfo:nil repeats:YES];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+}
+
+- (void) animateScrollIndicators {
+    
+    [topicSummaryView flashScrollIndicators];
+    [SpeakerSummaryView flashScrollIndicators];
 }
 
 - (void)viewDidUnload

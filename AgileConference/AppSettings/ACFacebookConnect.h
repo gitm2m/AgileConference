@@ -17,6 +17,7 @@
 
 @property (nonatomic, retain) FbGraph *fbGraph;
 @property (nonatomic, retain) NSString *feedPostId;
+@property (nonatomic,strong) id callbackObjct;
 
 +(ACFacebookConnect *)getFacebookConnectObject;
 -(void)checkForSessionWithCallbackObject : (id)callbackObject andSelector:(SEL)selector;

@@ -43,7 +43,8 @@
 - (void)postFacebookFeedOnPage;
 - (void)postFacebookFeed;
 - (IBAction)writeFeedbackButtonTapped:(id)sender;
-
+- (void) animateScrollIndicators ;
+- (void)fbGraphCallback:(id)sender;
 
 @end
 

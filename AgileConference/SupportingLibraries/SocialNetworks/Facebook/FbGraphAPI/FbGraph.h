@@ -38,6 +38,7 @@
 #import <Foundation/Foundation.h>
 #import "FbGraphResponse.h"
 
+
 @interface FbGraph : NSObject <UIWebViewDelegate> {
 
 	NSString *facebookClientID;
@@ -57,7 +58,6 @@
 @property (nonatomic, retain) NSString *redirectUri;
 @property (nonatomic, retain) NSString *accessToken;
 @property (nonatomic, retain) UIWebView *webView;
-
 @property (nonatomic, strong) id callbackObject;
 @property (assign) SEL callbackSelector;
 
@@ -70,4 +70,6 @@
 
 - (void) cancelButtonTapped;
 
+
 @end
+
