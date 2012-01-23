@@ -21,7 +21,7 @@ static ACOrganiser *appOrganiser = nil;
 		appOrganiser = [[ACOrganiser alloc]init];
         [appOrganiser getCatalogDict];
 	}
-    [appOrganiser updateStatusOfCatalogDict];
+        //[appOrganiser updateStatusOfCatalogDict];
 	return appOrganiser;
 }
 //

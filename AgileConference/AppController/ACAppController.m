@@ -716,7 +716,7 @@
 }
 
 -(void)organizerButtonTapped : (id)sender{
-    
+   
    if([self isSearchViewVisibleOnScreen]){
         
         [UIView beginAnimations:nil context:NULL];
@@ -733,7 +733,8 @@
        [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Home" afterDelay:0.1];
          
     }
-
+    
+    
     if (organizerButtn.frame.origin.y == 432) {
         
         [organizerButtn setBackgroundImage:[UIImage imageNamed:@"arrowDwn.png"] forState:UIControlStateNormal];

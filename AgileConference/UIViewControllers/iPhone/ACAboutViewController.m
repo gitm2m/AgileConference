@@ -147,6 +147,11 @@
 
 - (IBAction)viewMoreButtonTapped:(id)sender {
     
+    if (![CommonUtility isConnectedToNetwork]) {
+        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+        return ;
+        
+    }
    
     ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" andURL:@"http://www.valtech.com"];
     

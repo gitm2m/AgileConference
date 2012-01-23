@@ -187,6 +187,13 @@
 
 - (IBAction)viewMoreButtonTapped:(id)sender {
     
+    if (![CommonUtility isConnectedToNetwork]) {
+        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+        return ;
+        
+    }
+
+    
         //[self dismissModalViewControllerAnimated:YES];
         //[delegate viewEventDescriptionButtonTapped:sender inView:self];
     
