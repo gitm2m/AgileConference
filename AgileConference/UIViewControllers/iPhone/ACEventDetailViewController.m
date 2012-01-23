@@ -67,6 +67,9 @@
     self.navigationItem.rightBarButtonItem = shareButton;
     [topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
     [SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeakerSummary]];
+    [viewTopicSummaryButton setTitle:[topicDict objectForKey:kTopicLink] forState:UIControlStateReserved];
+    [viewSpeakerSummaryButton setTitle:[topicDict objectForKey:kTopicSpeakerLink] forState:UIControlStateReserved];
+
     
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
             //[addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
@@ -99,6 +102,8 @@
     
     topicHeaderLabel = nil;
     speakerHeaderLabel = nil;
+    viewTopicSummaryButton = nil;
+    viewSpeakerSummaryButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -151,9 +156,7 @@
         //[delegate viewEventDescriptionButtonTapped:sender inView:self];
     
     ACEventDescriptionWebviewController *descriptionViewController = [[ACEventDescriptionWebviewController alloc] initWithNibName:@"ACEventDescriptionWebviewController" andURL:[(UIButton *)sender titleForState:UIControlStateReserved]];
-    
     [self.navigationController presentModalViewController:descriptionViewController animated:YES];
-
 
 }
 

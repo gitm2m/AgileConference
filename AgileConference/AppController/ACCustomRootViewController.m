@@ -99,5 +99,12 @@
     
     
 }
+-(void)leftBarButtonClicked : (id)sender{
+    
+}
+-(void)rightBarButtonClicked : (id)sender{
+    
+}
+
 
 @end

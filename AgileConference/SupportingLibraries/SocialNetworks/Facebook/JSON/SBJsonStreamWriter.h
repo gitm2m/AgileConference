@@ -33,7 +33,7 @@
 #import <Foundation/Foundation.h>
 
 /// Enable JSON writing for non-native objects
-@interface NSObject (SBProxyForJson)
+@interface NSObject (SBStreamProxyForJson)
 
 /**
  @brief Allows generation of JSON for otherwise unsupported classes.

@@ -16,6 +16,7 @@
 @interface CommonUtility : NSObject{
     
 }
+NSInteger alphabeticSort(id string1, id string2, void *reverse);
 //Font
 +(UIFont *)fontSegoi : (CGFloat)size;
 +(UIFont *)fontSegoiBold : (CGFloat)size;
