@@ -133,10 +133,11 @@
         cellView.dateTrackLabel.text = [NSString stringWithFormat:@"%@,%@",dayKey,trackKey];
         
         if ([[inCellData objectForKey:kTopicFavorite] isEqualToString:@"YES"])
-            [cellView.favButton setBackgroundImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
+            [cellView.favButton setImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
         else
-            [cellView.favButton setBackgroundImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
-        }
+            [cellView.favButton setImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
+
+    }
     else if ([isNormalBusiness isEqualToString:@"BREAK"]){
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
         cellView.breakLabelTimeLabel.text = [CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];;

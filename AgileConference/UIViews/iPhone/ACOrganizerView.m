@@ -34,14 +34,16 @@
 -(void)layoutSubviews{
     
     [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(reloadTableViewData) 
-                                                 name:@"UPDATE_ORGANISER" 
-                                               object:nil];
+                                           selector:@selector(reloadTableViewData) 
+                                              name:@"UPDATE_ORGANISER" 
+                                        object:nil];
+     
     selectedInndex=0;
     NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
                                                             andCatalogTypeContent:@"YES"];
     eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
     [organizerListTableView setSeparatorColor:[UIColor clearColor]];
+     
 }
 
 

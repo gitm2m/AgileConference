@@ -110,17 +110,18 @@
         //[bgHeader release];
     
     leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
-    leftBarButton.frame = CGRectMake(15, 10, 25, 24); 
-    [leftBarButton setHidden:YES];
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(7, 10, 49, 23);
     [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:leftBarButton];
-    
+
+    /*
     rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBarButton setBackgroundImage:[UIImage imageNamed:@"doneBtn.png"] forState:UIControlStateNormal];
     rightBarButton.frame = CGRectMake(264, 10, 49, 23) ; 
     [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightBarButton];
+     */
     
     headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
     [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
@@ -164,13 +165,13 @@
 }
 
 -(void)leftBarButtonClicked : (id)sender{
-
+    [self.navigationController popViewControllerAnimated:YES];
    
 }
 
 -(void)rightBarButtonClicked : (id)sender{
     
-     [self.navigationController popViewControllerAnimated:YES];
+     
 }
 
 

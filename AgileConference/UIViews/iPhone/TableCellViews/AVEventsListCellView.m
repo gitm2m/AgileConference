@@ -49,15 +49,33 @@
 	
 }
 
+- (void)changeFavBackgrounImageByDelay : (NSString *)isFav{
+    
+    if ([isFav isEqualToString:@"YES"]){
+        [cellData setObject:@"YES" forKey:kTopicFavorite];
+        [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
+        [CommonUtility schedulPreNotificationOfEvent:cellData];
+    }
+       
+    else{
+        [cellData setObject:@"NO" forKey:kTopicFavorite];
+        [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
+        [CommonUtility cancelNotificationOfEvent:cellData];
+    }
+        
+    
+}
 
 #pragma Events Methods
 - (IBAction)favouriteButtonTapped:(id)sender {
     
     if ([[cellData valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
-        [cellData setObject:@"YES" forKey:kTopicFavorite];
-        [favButton setBackgroundImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
-        [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
-        [CommonUtility schedulPreNotificationOfEvent:cellData];
+        
+        [favButton setImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
+            //[self performSelectorInBackground:@selector(changeFavBackgrounImageByDelay:) withObject:@"YES"];
+            //
+        [self performSelector:@selector(changeFavBackgrounImageByDelay:) withObject:@"YES" afterDelay:0.2];
+        
         
     }else if([[cellData valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
         
@@ -79,10 +97,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 1) {
-        [cellData setObject:@"NO" forKey:kTopicFavorite];
-        [favButton setBackgroundImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
-        [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
-        [CommonUtility cancelNotificationOfEvent:cellData];
+        
+        [favButton setImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
+            //[self performSelectorInBackground:@selector(changeFavBackgrounImageByDelay:) withObject:@"NO"];
+        [self performSelector:@selector(changeFavBackgrounImageByDelay:) withObject:@"NO" afterDelay:0.2];
+        
         
     }
 }
