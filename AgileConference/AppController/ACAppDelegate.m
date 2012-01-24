@@ -56,7 +56,7 @@
 	}
 	
 	application.applicationIconBadgeNumber = 0;
-    [[[TestUtility alloc] init] test];
+   // [[[TestUtility alloc] init] test];
 
     return YES;
 }
@@ -162,14 +162,14 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     //
     
     
-    // call feedback view
-    [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
-    // call notification view
-    ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
-    feedbackViewController.isOverallEventFeedback = NO;
-    feedbackViewController.eventDetailDict = notifiedEventDict;
-    [self.navigationController presentModalViewController:feedbackViewController animated:YES];
-    
+//    // call feedback view
+//    [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
+//    // call notification view
+//    ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+//    feedbackViewController.isOverallEventFeedback = NO;
+//    feedbackViewController.eventDetailDict = notifiedEventDict;
+//    [self.navigationController presentModalViewController:feedbackViewController animated:YES];
+//    
 
 }
 

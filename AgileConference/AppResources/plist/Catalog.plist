@@ -4937,7 +4937,7 @@
 				<key>Topic_Speaker</key>
 				<string>Feroz Sheikh, Nagaraju Pappu</string>
 				<key>Topic_Time</key>
-				<string>02:15-02:45, 03:00-03:30</string>
+				<string>02:15-02:45</string>
 				<key>Topic_Track</key>
 				<string>Track4</string>
 				<key>Topic_Date</key>
@@ -4987,7 +4987,7 @@
 				<key>Topic_Type</key>
 				<string>BUSINESS</string>
 				<key>Topic_Title</key>
-				<string>WHOSE VIEW IS IT ANYWAY? ADDRESSING MULTIPLE STAKEHOLDER CONCERNS</string>
+				<string>WHOSE VIEW IS IT ANYWAY? ADDRESSING MULTIPLE STAKEHOLDER CONCERNS (Cont..)</string>
 				<key>Topic_Summary</key>
 				<string>The debate around prioritization of stories based on business v/s technical value is probably too skewed. Functional stories get priority over the quality attributes of a system such as maintainability and modifiability, which get pushed out to later releases leading to expensive refactoring. In this session, we present a method that addresses multiple stakeholder concerns and transforms these into features realizing business value, and how to organize these stakeholders’ perspectives into a release plan. </string>
 				<key>Topic_Speaker</key>
