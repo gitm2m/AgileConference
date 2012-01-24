@@ -13,6 +13,7 @@
 #import "ACOrganiser.h"
 #import "ACFacebookConnect.h"
 #import "ViewUtility.h"
+#import "ACFeedbackViewController.h"
 
 
 @implementation ACAppDelegate
@@ -25,30 +26,8 @@
     //Load catalog dict
     [[ACOrganiser getOrganiser] getCatalogDict];
     
-    NSDate *date=[CommonUtility convertStringToDate:@"17-02-2012" format:@"dd-MM-yyyy"];
-    NSLog(@">>>date>>Comapre :%i",[date compare:[NSDate date]]);
-    
-    NSDate *date1=[CommonUtility convertStringToDate:@"23-01-2012" format:@"dd-MM-yyyy"];
-    NSLog(@">>>date1>>Comapre........ :%@",date1);
-    NSLog(@">>>date1>>Comapre :%@",[NSDate date]);
-    NSLog(@">>>date1>>Comapre :%i",[date1 compare:[NSDate date]]);
-    
-    NSDate *date2=[CommonUtility convertStringToDate:@"22-01-2012" format:@"dd-MM-yyyy"];
-    NSLog(@">>>date2>>Comapre :%i",[date2 compare:[NSDate date]]);
-    ///
-    
-    NSString *CurrentTimeString;
-    NSDate *CurrentTime = [[NSDate alloc] init];
-    NSTimeZone *currentDateTimeZone = [NSTimeZone localTimeZone];
-    NSDateFormatter *dateformat = [[NSDateFormatter alloc] init];
-    [dateformat setTimeZone:currentDateTimeZone];
-    [dateformat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    CurrentTimeString = [dateformat stringFromDate:CurrentTime];
-    NSLog(@"TimeString :%@",CurrentTime);
-
-    
     if (![CommonUtility isConnectedToNetwork]) {
-        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+        //[ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
     }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -77,6 +56,8 @@
 	}
 	
 	application.applicationIconBadgeNumber = 0;
+   // [[[TestUtility alloc] init] test];
+
     return YES;
 }
 
@@ -120,6 +101,8 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 	
 	application.applicationIconBadgeNumber = 0;
 	[self showReminder:notification.userInfo];
+    
+    
 
 }
 
@@ -177,6 +160,17 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_UPCOMING_EVENTS" object:nil];
     }
     //
+    
+    
+//    // call feedback view
+//    [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
+//    // call notification view
+//    ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+//    feedbackViewController.isOverallEventFeedback = NO;
+//    feedbackViewController.eventDetailDict = notifiedEventDict;
+//    [self.navigationController presentModalViewController:feedbackViewController animated:YES];
+//    
+
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -204,16 +198,20 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
             if([notificationType isEqualToString:@"START"]){
                 
                 [notifiedEventDict setObject:@"YES" forKey:kTopicParticipated];
+                [CommonUtility schedulPostNotificationOfEvent:notifiedEventDict];
 
                 // make call to organiser andset event dict participated yes
             }else if([notificationType isEqualToString:@"END"]){
                 
                 // call feedback view
                 [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
-
+                // call notification view
+                ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
+                feedbackViewController.isOverallEventFeedback = NO;
+                feedbackViewController.eventDetailDict = notifiedEventDict;
+                [self.navigationController presentModalViewController:feedbackViewController animated:YES];
                 
             }
-            
             [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:notifiedEventDict];
 
         }

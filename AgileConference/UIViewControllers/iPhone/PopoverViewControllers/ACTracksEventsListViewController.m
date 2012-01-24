@@ -39,12 +39,36 @@
         topicArray=[[NSMutableArray alloc] init];
         //
         for (NSMutableDictionary *topicDict in wholeTopicArray){
-            NSString *topicStatus=[topicDict objectForKey:kTopicStatus];
-                // NSLog(@">>topicStatus>>>%@",topicStatus);
-            if([topicStatus isEqualToString:@"Open"]
-               ||[topicStatus isEqualToString:@"Running"]){
-                [topicArray addObject:topicDict];
-            }
+            
+            NSString *timeAMPM=[CommonUtility convertDateToAMPMFormat:[topicDict objectForKey:kTopicTime]];
+            switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
+                case -1:{
+                   // [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
+                    NSLog(@"-1111111111111111");
+                    [topicArray addObject:topicDict];
+
+                    
+                }
+                    break;
+                    
+                case 0:{
+                    [topicArray addObject:topicDict];
+                    
+                }
+                    break;
+                    
+                case 1:{
+                    [topicArray addObject:topicDict];
+                    
+                }
+                    
+                    break;
+                    
+                    
+                default:
+                    break;
+            }    
+
             //
             if([topicArray count]>=3){
                 break;
@@ -143,6 +167,9 @@
     }
     else if([[topicDict valueForKey:kTopicType] isEqualToString:@"BREAK"]){
         cell.accessoryType = UITableViewCellAccessoryNone;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+
     }
     /*
      
@@ -189,43 +216,73 @@
 }
 
 -(void)reloadEventTableViewWithAnimation:(BOOL)animated{
+    
     isBottomAnimation=animated;
     NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
     NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
     ACLog(@"daySelected:%@>>>>>>>>",daySelected);
     ACLog(@"trackSelected:%@>>>>>>",trackSelected);
     //
-    NSMutableArray *array=[[NSMutableArray alloc] init];
-    NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
-    NSIndexPath *indwxPath1 =[NSIndexPath indexPathForRow:1 inSection:0];
-    NSIndexPath *indwxPath2 =[NSIndexPath indexPathForRow:2 inSection:0];
-    [array addObject:indwxPath0];
-    [array addObject:indwxPath1];
-    [array addObject:indwxPath2];
-    //
     NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
     NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
     topicArray=[[NSMutableArray alloc] init];
     //
     for (NSMutableDictionary *topicDict in wholeTopicArray){
-        NSString *topicStatus=[topicDict objectForKey:kTopicStatus];
-        if([topicStatus isEqualToString:@"Open"]
-           ||[topicStatus isEqualToString:@"Running"]){
-            [topicArray addObject:topicDict];
-        }
+        
+        NSString *timeAMPM=[CommonUtility convertDateToAMPMFormat:[topicDict objectForKey:kTopicTime]];
+        switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
+            case -1:{
+                // [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
+                [topicArray addObject:topicDict];
+
+            }
+                break;
+                
+            case 0:{
+                [topicArray addObject:topicDict];
+                
+            }
+                break;
+                
+            case 1:{
+                [topicArray addObject:topicDict];
+                
+            }
+                
+                break;
+                
+                
+            default:
+                break;
+        }    
         //
         if([topicArray count]>=3){
             break;
         }
-    }   
-    if(isBottomAnimation){
-        [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationBottom];
-
-    }else{
-        [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
- 
+    }  
+    
+    if([topicArray count]==0){
+        
     }
-        // [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+    
+    NSMutableArray *array=[[NSMutableArray alloc] init];
+    for (int index=0;index<[topicArray count];index++) {
+        NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:index inSection:0];
+        [array addObject:indwxPath0];
+    }
+    
+    NSLog(@">>>>>%i",[array count]);
+
+    if([array count]>0){
+        if(isBottomAnimation){
+            [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationBottom];
+            
+        }else{
+            [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
+            
+        }
+   }
+        //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
         //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
 
 }
@@ -250,11 +307,34 @@
     topicArray=[[NSMutableArray alloc] init];
     //
     for (NSMutableDictionary *topicDict in wholeTopicArray){
-        NSString *topicStatus=[topicDict objectForKey:kTopicStatus];
-        if([topicStatus isEqualToString:@"Open"]
-           ||[topicStatus isEqualToString:@"Running"]){
-            [topicArray addObject:topicDict];
-        }
+        
+        NSString *timeAMPM=[CommonUtility convertDateToAMPMFormat:[topicDict objectForKey:kTopicTime]];
+        switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
+            case -1:{
+                // [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
+                [topicArray addObject:topicDict];
+
+                
+            }
+                break;
+                
+            case 0:{
+                [topicArray addObject:topicDict];
+                
+            }
+                break;
+                
+            case 1:{
+                [topicArray addObject:topicDict];
+                
+            }
+                
+                break;
+                
+                
+            default:
+                break;
+        }    
         //
         if([topicArray count]>=3){
             break;

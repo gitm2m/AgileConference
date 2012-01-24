@@ -61,16 +61,30 @@
     cellView.topicLabel.text = [inCellData objectForKey:kTopicTitle];
     cellView.timeLabel.text =[CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];
        
-    if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Closed"]){
-        [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
-        
-    } else if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Open"]){
-        [cellView.statusImageView setImage:[UIImage imageNamed:@"openStatus.png"]];
-        
-    } else if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Running"]){
-        [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
-        
-    }
+    switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:cellView.timeLabel.text andDate:[inCellData objectForKey:kTopicDate]]) {
+        case -1:{
+            [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
+            
+        }
+            break;
+            
+        case 0:{
+            [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
+            
+        }
+            break;
+            
+        case 1:{
+            [cellView.statusImageView setImage:[UIImage imageNamed:@"openStatus.png"]];
+            
+        }
+            
+            break;
+            
+            
+        default:
+            break;
+    }    
 
 }
 
