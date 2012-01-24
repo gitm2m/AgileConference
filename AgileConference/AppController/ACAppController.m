@@ -130,7 +130,7 @@
     [[organizerButtn titleLabel] setFont:[UIFont boldSystemFontOfSize:15.0f]];
     [organizerButtn setShowsTouchWhenHighlighted:YES];
     [organizerButtn addTarget:self action:@selector(organizerButtonTapped : ) forControlEvents:UIControlEventTouchUpInside];
-    [organizerButtn setBackgroundImage:[UIImage imageNamed:@"upArrow.png"] forState:UIControlStateNormal];
+    [organizerButtn setBackgroundImage:[UIImage imageNamed:@"arrowUp.png"] forState:UIControlStateNormal];
     //[organizerButtn setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:organizerButtn];
     
@@ -752,7 +752,7 @@
 
     }else if(organizerButtn.frame.origin.y == 44){
         
-        [organizerButtn setBackgroundImage:[UIImage imageNamed:@"upArrow.png"] forState:UIControlStateNormal];
+        [organizerButtn setBackgroundImage:[UIImage imageNamed:@"arrowUp.png"] forState:UIControlStateNormal];
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
