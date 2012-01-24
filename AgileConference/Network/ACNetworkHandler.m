@@ -96,7 +96,7 @@
     
     NSString *a = [[NSString alloc] initWithData:d encoding:NSASCIIStringEncoding];
     
-        //NSLog(@"Data: %@", [a JSONValue]);
+    NSLog(@"Data: %@", [a JSONValue]);
     [downloadDelegate networkHandler:self downloadDidComplete:[a JSONValue]];
 }
 

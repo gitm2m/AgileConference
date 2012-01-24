@@ -75,7 +75,7 @@
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    [locationManager startUpdatingLocation];
+                                                                        //[locationManager startUpdatingLocation];
     
     ratingString = [[NSString alloc] init];
     ratingString = @"-1";
@@ -217,12 +217,12 @@
     if([longt length]>0)
         [apiDict setValue:longt forKey:@"longitude"];
     else
-        [apiDict setValue:longt forKey:@"0.0"];
+        [apiDict setValue:@"0.0" forKey:@"longitude"];
     
     if([lat length]>0)
         [apiDict setValue:lat forKey:@"latitude"];
     else
-        [apiDict setValue:lat forKey:@"0.0"];
+        [apiDict setValue:@"0.0" forKey:@"longitude"];
     
     ACLog(@"apiDict %@", apiDict);
     
@@ -410,14 +410,14 @@
     double decimal = fabs(newLocation.coordinate.latitude - degrees);
     int minutes = decimal * 60;
     double seconds = decimal * 3600 - minutes * 60;
-     lat = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
-                     degrees, minutes, seconds];
+        //lat = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
+        //  degrees, minutes, seconds];
     degrees = newLocation.coordinate.longitude;
     decimal = fabs(newLocation.coordinate.longitude - degrees);
     minutes = decimal * 60;
     seconds = decimal * 3600 - minutes * 60;
-    longt = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
-                       degrees, minutes, seconds];
+        //longt = [NSString stringWithFormat:@"%d° %d' %1.4f\"", 
+        //    degrees, minutes, seconds];
    
 }
 @end
