@@ -323,8 +323,8 @@
 		
 		//tell our callback function that we're done logging in :)
 		if ( (self.callbackObject != nil) && (self.callbackSelector != nil) ) {
-            [callbackObject performSelector:@selector(fbGraphCallback:)];
-                //objc_msgSend(callbackObject, self.callbackSelector);
+                //[callbackObject performSelector:@selector(fbGraphCallback:)];
+            objc_msgSend(self.callbackObject, self.callbackSelector);
         }
 		
 		//the user pressed cancel
@@ -343,7 +343,7 @@
 		//tell our callback function that we're done logging in :)
 		if ( (self.callbackObject != nil) && (self.callbackSelector != nil) ) {
                 //[self.callbackObject performSelector:callbackSelector];
-            objc_msgSend(callbackObject, self.callbackSelector);
+            objc_msgSend(self.callbackObject, self.callbackSelector);
         }
 		
 	}else{

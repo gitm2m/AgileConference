@@ -163,7 +163,7 @@
     }  
     fbShareView.delegate = self;
     [[fbShareView fbShareTextView] becomeFirstResponder];
-    fbShareView.frame = CGRectMake(6, 2, 309, 232);
+    fbShareView.frame = CGRectMake(0, 46, 320, 194);
     
     [self.view addSubview:fbShareView];
     
@@ -294,9 +294,9 @@
     }else
         if(buttonIndex == 0){
             
-            [ViewUtility showAlertViewWithMessage:@"Could not connect to facebook,please try again later."];
+                //[ViewUtility showAlertViewWithMessage:@"Could not connect to facebook,please try again later."];
         
-        /*
+        
         if ( ([[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken == nil) || ([[[ACFacebookConnect getFacebookConnectObject] fbGraph].accessToken length] == 0) ){
             
             isFBLoginFirtTime = YES;
@@ -307,7 +307,7 @@
         }
         
         
-        */
+        
         
     }
 

@@ -34,9 +34,7 @@ static ACFacebookConnect *facebookConnectObject = nil;
 	
         //alloc and initalize our FbGraph instance
 	self.fbGraph = [[FbGraph alloc] initWithFbClientID:client_id];
-	
-    
-       
+        
         //begin the authentication process.....
 	[fbGraph authenticateUserWithCallbackObject:self.callbackObjct andSelector:selector 
 						 andExtendedPermissions:@"user_photos,user_videos,publish_stream,offline_access,user_checkins,friends_checkins"];
