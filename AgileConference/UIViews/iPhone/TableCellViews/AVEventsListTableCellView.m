@@ -137,6 +137,33 @@
             [cellView.favButton setImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
         else
             [cellView.favButton setImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
+        //
+        
+        switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:cellView.timeLabel.text andDate:[inCellData objectForKey:kTopicDate]]) {
+            case -1:{
+                [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
+                
+            }
+                break;
+                
+            case 0:{
+                [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
+                
+            }
+                break;
+                
+            case 1:{
+                [cellView.statusImageView setImage:[UIImage imageNamed:@"openStatus.png"]];
+                
+            }
+                
+                break;
+                
+                
+            default:
+                break;
+        }    
+
 
     }
     else if ([isNormalBusiness isEqualToString:@"BREAK"]){
@@ -147,20 +174,8 @@
         cellView.breakCellTopicLabel.text = [inCellData objectForKey:kTopicTitle];
         cellView.breakLabelTimeLabel.text = [CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];;
     }
-    
-    if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Closed"]){
-        [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
-        
-    } else if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Open"]){
-        [cellView.statusImageView setImage:[UIImage imageNamed:@"openStatus.png"]];
-        
-    } else if([[inCellData objectForKey:kTopicStatus] isEqualToString:@"Running"]){
-        [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
-        
-    }
-     
-    
-	    
+
+
 }
 
 

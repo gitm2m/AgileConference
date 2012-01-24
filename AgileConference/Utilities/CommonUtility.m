@@ -88,7 +88,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
 	[dateFrmt setDateFormat:format];
 	
 	//Optionally for time zone converstions
-	[dateFrmt setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+	[dateFrmt setTimeZone:[NSTimeZone localTimeZone]];
 	NSString *date = [dateFrmt stringFromDate:firstDate];
 	if( !date )
 		return nil;
@@ -269,7 +269,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
         
         UILocalNotification *notif = [[cls alloc] init];
         notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
-        notif.timeZone = [NSTimeZone defaultTimeZone];
+        notif.timeZone = [NSTimeZone localTimeZone];
         NSLog(@"fire date:%@",notif.fireDate);
         notif.alertBody = @"Agile Conference 2012";
         notif.alertAction = @"Show me";
@@ -297,7 +297,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
         
         UILocalNotification *notif = [[cls alloc] init];
         notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
-        notif.timeZone = [NSTimeZone defaultTimeZone];
+        notif.timeZone = [NSTimeZone localTimeZone];
         NSLog(@"fire date with dict:%@",notif.fireDate);
         notif.alertBody = @"Agile Conference 2012";
         notif.alertAction = @"Show me";
@@ -326,10 +326,13 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDay, startTime];
     NSDate *eventStartDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 
     NSLog(@"eventStartDate before:%@",eventStartDate);
-    if([eventStartDate compare:currDate]==NSOrderedSame){
-        return;
-    }  
-    else  if([eventStartDate compare:currDate]==NSOrderedAscending){
+    
+    if([eventStartDate compare:currDate]==NSOrderedAscending){
+        
+        NSLog(@"eventStartDate NSOrderedAscending:%@",eventStartDate);   
+        NSLog(@"currDate NSOrderedAscending:%@",currDate);
+
+
         return;
 
     }

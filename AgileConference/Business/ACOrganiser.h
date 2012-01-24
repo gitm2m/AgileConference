@@ -29,7 +29,7 @@
 
 //
 -(NSMutableArray *)getArrayOfDict:(NSMutableDictionary *)dict;
--(void)updateStatusOfCatalogDict;
+-(NSInteger)updateStatusOfEventOnTime:(NSString *)topicTime andDate:(NSString *)topicDate;
 -(void)updateCatalogDictPostNotification:(NSMutableDictionary *)currentDict;
 
 

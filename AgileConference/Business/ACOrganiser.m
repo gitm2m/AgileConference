@@ -22,6 +22,7 @@ static ACOrganiser *appOrganiser = nil;
 		appOrganiser = [[ACOrganiser alloc]init];
         [appOrganiser getCatalogDict];
 	}
+
 	return appOrganiser;
 }
 //
@@ -45,7 +46,6 @@ static ACOrganiser *appOrganiser = nil;
         }
         catalogDict=[[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     }
-    //[appOrganiser updateStatusOfCatalogDict];
     return catalogDict;
 }
 //
@@ -63,123 +63,76 @@ static ACOrganiser *appOrganiser = nil;
     return NO;
 
 }
-
--(void)updateStatusOfCatalogDict{
+//
+-(NSInteger)updateStatusOfEventOnTime:(NSString *)topicTime andDate:(NSString *)topicDate{
     
-    if(catalogDict){
-        NSMutableDictionary *tempDict=[[NSMutableDictionary alloc] initWithDictionary:catalogDict];
-
-        NSDate    *currDate=[NSDate date];
-        NSString *currDateAsString=[CommonUtility convertDateToString:currDate format:@"dd-MM-yyyy"];
-        NSLog(@"currDateAsString>>>%@",currDateAsString);
-        NSString *dayKey=@"";
-        if([currDateAsString hasPrefix:@"17"]){
-            dayKey=@"Day1";
-        }
-        else if([currDateAsString hasPrefix:@"18"]){
-            dayKey=@"Day2";
-        }
-        else if([currDateAsString hasPrefix:@"20"]){
-            dayKey=@"Day3";
-        }
-
-        NSMutableDictionary *trackDict=[tempDict objectForKey:dayKey];
-        NSArray *trackKeyArray=[trackDict allKeys];
-        for (NSMutableDictionary *trackKey in trackKeyArray) {
-            
-            //
-            NSMutableArray* topicArrayInTrack=[trackDict objectForKey:trackKey];
-            NSMutableArray *tempTopicArrayInTrack=[[NSMutableArray alloc] init];
-            //
-            for (NSMutableDictionary *topicDict in topicArrayInTrack) {
-                NSMutableDictionary *tempTopicDict=[[NSMutableDictionary alloc] initWithDictionary:topicDict];
-                NSString  *topicStatus=[topicDict objectForKey:kTopicStatus];
-                if([topicStatus isEqualToString:@"Open"] || [topicStatus isEqualToString:@"Running"]){
-                    // NSLog(@"Topic dicts.....%@", topicDict);
-                    
-                    NSString  *topicDay=[topicDict objectForKey:kTopicDate];
-                    NSString  *topicTime=[topicDict objectForKey:kTopicTime];
-                    NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
+                NSInteger status=-1;
+    
+                    NSArray   *topicTimeArray=[topicTime componentsSeparatedByString:@"-"];
                     //
                     NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
-                    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
-                    NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,startTime];
+                    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@" "] objectAtIndex:0];
+                    NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDate,startTime];
                     NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
+    
+                if([topicTimeFirstObject hasSuffix:@"PM"]){
+                    
+                    if([[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]>=1
+                       && [[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<12){
+                        eventStartDate=[eventStartDate dateByAddingTimeInterval:12*60*60];
+                    }
+
+                }
                     //
                     NSString  *topicTimeLastObject=[topicTimeArray lastObject];
-                    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
-                    NSString  *eventDayTime=[NSString stringWithFormat:@"%@, %@",topicDay,endTime];
+                    NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@" "] objectAtIndex:0];
+                    NSString  *eventDayTime=[NSString stringWithFormat:@"%@, %@",topicDate,endTime];
                     NSDate    *eventEndDate=[CommonUtility convertStringToDate:eventDayTime format:@"dd-MM-yyyy, HH:mm"];
-                    
-                    // NSLog(@"currDate date>>>>%@", [NSDate date]);
-                    // NSLog(@"Event Start date>>>>%@", eventStartDate);
-                    // NSLog(@"Event end date>>>>%@", eventEndDate);
-                    //
-                    NSComparisonResult comparisonResultStart=[eventStartDate compare:currDate];
-                    switch (comparisonResultStart) {
-                        case NSOrderedAscending:
-                        {
-                            [tempTopicDict setObject:@"Running" forKey:kTopicStatus];
-                        }
-                            break;
-                            
-                        case NSOrderedSame:
-                        {
-                            [tempTopicDict setObject:@"Running" forKey:kTopicStatus];
-                            
-                        }
-                            break;
-                            
-                        case NSOrderedDescending:
-                        {
-                            [tempTopicDict setObject:@"Open" forKey:kTopicStatus];
-                            
-                        }
-                            break;
-                            
-                            
-                        default:
-                            break;
-                    }
-                    //
-                    NSComparisonResult comparisonResultEnd=[eventEndDate compare:currDate];
-                    switch (comparisonResultEnd) {
-                            
-                        case NSOrderedAscending:
-                        {
-                            [tempTopicDict setObject:@"Closed" forKey:kTopicStatus];
-                        }
-                            break;
-                            
-                        case NSOrderedSame:
-                        {
-                            [tempTopicDict setObject:@"Closed" forKey:kTopicStatus];
-                            
-                        }
-                            break;
-                            
-                        case NSOrderedDescending:
-                        {
-                            //[topicDict setObject:@"Closed" forKey:kTopicStatus]
-                            
-                        }
-                            break;
-                            
-                            
-                        default:
-                            break;
+                if([topicTimeFirstObject hasSuffix:@"PM"]){
+        
+                    if([[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]>=1
+                       && [[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<12){
+                        eventEndDate=[eventEndDate dateByAddingTimeInterval:12*60*60];
                     }
                 }
-                [tempTopicArrayInTrack addObject:tempTopicDict];
-            }
-            [trackDict setObject:tempTopicArrayInTrack forKey:trackKey];
-            
-        }
-        catalogDict=tempDict;
 
-    }
+                    NSDate    *currDate    =[NSDate date];
+                    //
+                    
+                    NSLog(@"Sratdate:%@",eventStartDate);
+                    NSLog(@"currDate:%@",currDate);
+                    NSLog(@"eventEndDate:%@",eventEndDate);
+
+                    
+                    if([eventEndDate compare:currDate]==-1){
+                        status=-1;
+
+                    }else if([eventEndDate compare:currDate]==0){
+                        status=-1;
+
+                    }else if([eventEndDate compare:currDate]==1){
+                        status=1;
+
+                    }
+                    
+                    if(status==1){
+                        
+                        if([eventStartDate compare:currDate]==-1){
+                            status=0;
+                            
+                        }else if([eventStartDate compare:currDate]==0){
+                            status=0;
+                            
+                        }else if([eventStartDate compare:currDate]==1){
+                            status=1;
+                            
+                        }
+
+                        
+                    }
+                    
+                return status;
 }
-
 //Search favorite participants
 -(NSMutableDictionary *)getCatalogListOfType:(NSString *)catalogType andCatalogTypeContent:(NSString *)content{
     

@@ -25,8 +25,26 @@
     //Load catalog dict
     [[ACOrganiser getOrganiser] getCatalogDict];
     
-    NSDate *date=[CommonUtility convertStringToDate:@"17-12-2012" format:@"dd-MM-yyyy"];
-    NSLog(@">>>>>Comapre :%i",[date compare:[NSDate date]]);
+    NSDate *date=[CommonUtility convertStringToDate:@"17-02-2012" format:@"dd-MM-yyyy"];
+    NSLog(@">>>date>>Comapre :%i",[date compare:[NSDate date]]);
+    
+    NSDate *date1=[CommonUtility convertStringToDate:@"23-01-2012" format:@"dd-MM-yyyy"];
+    NSLog(@">>>date1>>Comapre........ :%@",date1);
+    NSLog(@">>>date1>>Comapre :%@",[NSDate date]);
+    NSLog(@">>>date1>>Comapre :%i",[date1 compare:[NSDate date]]);
+    
+    NSDate *date2=[CommonUtility convertStringToDate:@"22-01-2012" format:@"dd-MM-yyyy"];
+    NSLog(@">>>date2>>Comapre :%i",[date2 compare:[NSDate date]]);
+    ///
+    
+    NSString *CurrentTimeString;
+    NSDate *CurrentTime = [[NSDate alloc] init];
+    NSTimeZone *currentDateTimeZone = [NSTimeZone localTimeZone];
+    NSDateFormatter *dateformat = [[NSDateFormatter alloc] init];
+    [dateformat setTimeZone:currentDateTimeZone];
+    [dateformat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    CurrentTimeString = [dateformat stringFromDate:CurrentTime];
+    NSLog(@"TimeString :%@",CurrentTime);
 
     
     if (![CommonUtility isConnectedToNetwork]) {
@@ -98,7 +116,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     // Application was in the background when notification
     // was delivered.
 	// }
-	
+	NSLog(@"jhjhj=========================");
 	
 	application.applicationIconBadgeNumber = 0;
 	[self showReminder:notification.userInfo];
