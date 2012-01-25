@@ -44,7 +44,7 @@
             switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
                 case -1:{
                     // [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
-                    NSLog(@"-1111111111111111");
+                   // NSLog(@"-1111111111111111");
                     //[topicArray addObject:topicDict];
                     
                     
@@ -78,8 +78,9 @@
         //
         if([topicArray count]<3){
             for(int index=0; index<3;index++){
-                NSString* object=@"";
-                [topicArray addObject:object];
+                NSMutableDictionary *blankDict=[[NSMutableDictionary alloc] init];
+                [blankDict setObject:@"BLANK" forKey:kTopicType];
+                [topicArray addObject:blankDict];
                 if([topicArray count]==3){
                     break;  
                 }
@@ -87,8 +88,8 @@
         }
         
         //
-        // [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
-        //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+        [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+        [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
         self.contentSizeForViewInPopover = CGSizeMake(300, 176);
         
     }
@@ -164,25 +165,19 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     NSMutableDictionary *topicDict=[topicArray objectAtIndex:indexPath.row];
     
-    if([topicDict isKindOfClass:[NSString class]]){
-        NSMutableDictionary *blankDict=[[NSMutableDictionary alloc] init];
-        [blankDict setObject:@"BLANK" forKey:kTopicType];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [cell setCellData:blankDict];
-        
-    }else{
-        
-        if ([[topicDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"]) {
+    if ([[topicDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"]) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }else if([[topicDict valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
+    }else if([[topicDict valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
             cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        else if([[topicDict valueForKey:kTopicType] isEqualToString:@"BREAK"]){
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
-        
     }
+    else if([[topicDict valueForKey:kTopicType] isEqualToString:@"BREAK"]){
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        
+    } else if([[topicDict valueForKey:kTopicType] isEqualToString:@"BLANK"]){
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+
+        [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     
     return cell;
     
@@ -199,11 +194,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSMutableDictionary *topicDict=[topicArray objectAtIndex:indexPath.row];
-    
-    if([topicDict isKindOfClass:[NSString class]]){
+    if([[topicDict objectForKey:kTopicType] isEqualToString:@"BLANK"]){
         return;
     }
-    
+    [[ACAppSetting getAppSession] setUpCommingEventDict:topicDict];
     if (![[topicDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"]){
         
         [ViewUtility showAlertViewWithMessage:[NSString stringWithFormat:@"%@ \n %@",[topicDict objectForKey:kTopicTitle],[topicDict objectForKey:kTopicTime]]];
@@ -279,8 +273,9 @@
     //
     if([topicArray count]<3){
         for(int index=0; index<3;index++){
-            NSString* object=@"";
-            [topicArray addObject:object];
+            NSMutableDictionary *blankDict=[[NSMutableDictionary alloc] init];
+            [blankDict setObject:@"BLANK" forKey:kTopicType];
+            [topicArray addObject:blankDict];
             if([topicArray count]==3){
                 break;  
             }
@@ -295,39 +290,32 @@
         [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
         
     }
-    //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
-    //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:1]];
+    
+    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
     
 }
 
 //
 -(void)notifyToReloadEvent{
     
+    ACLog(@"notified:%@>>>>>>>>");
+
     NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
     NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
     ACLog(@"daySelected:%@>>>>>>>>",daySelected);
     ACLog(@"trackSelected:%@>>>>>>",trackSelected);
     //
-    NSMutableArray *array=[[NSMutableArray alloc] init];
-    NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
-    NSIndexPath *indwxPath1 =[NSIndexPath indexPathForRow:1 inSection:0];
-    NSIndexPath *indwxPath2 =[NSIndexPath indexPathForRow:2 inSection:0];
-    [array addObject:indwxPath0];
-    [array addObject:indwxPath1];
-    [array addObject:indwxPath2];
-    //
     NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
     NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
-    topicArray=[[NSMutableArray alloc] init];
+    [topicArray removeAllObjects];
     //
     for (NSMutableDictionary *topicDict in wholeTopicArray){
         
         NSString *timeAMPM=[CommonUtility convertDateToAMPMFormat:[topicDict objectForKey:kTopicTime]];
-        switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
+        switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM 
+                                                              andDate:[topicDict objectForKey:kTopicDate]]) {
             case -1:{
-                // [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
-                [topicArray addObject:topicDict];
-                
                 
             }
                 break;
@@ -353,12 +341,35 @@
         if([topicArray count]>=3){
             break;
         }
-    } 
+    }  
     //
-    [eventsTableView reloadData];
+    NSMutableArray *array=[[NSMutableArray alloc] init];
+    //
+    NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
+    [array addObject:indwxPath0];
+    //
+    NSIndexPath *indwxPath1 =[NSIndexPath indexPathForRow:1 inSection:0];
+    [array addObject:indwxPath1];
+    //
+    NSIndexPath *indwxPath2 =[NSIndexPath indexPathForRow:2 inSection:0];
+    [array addObject:indwxPath2];
+    //
+    if([topicArray count]<3){
+        for(int index=0; index<3;index++){
+            NSMutableDictionary *blankDict=[[NSMutableDictionary alloc] init];
+            [blankDict setObject:@"BLANK" forKey:kTopicType];
+            [topicArray addObject:blankDict];
+            if([topicArray count]==3){
+                break;  
+            }
+        }
+    }
+    //
+    
     [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
-    //[CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
-    //[CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    
 }
 
 

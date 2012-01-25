@@ -41,8 +41,7 @@
     NSInteger preFinalDayIndex;
     UIBarButtonItem *searchButton;
     UIBarButtonItem *searchDoneButton;
-
-
+    //
     ACSplashView *splashScreenView;
     ACFacebookShareView *fbShareView;
     ACMatrixCatalogView *matrixCatalogView;

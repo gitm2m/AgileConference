@@ -8,34 +8,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "AgileConference/UIViewControllers/iPhone/ACEventsListViewController.m"
-         timestampString = "347542449.416226"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
-         landmarkName = "-setupInitialView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "AgileConference/UIViewControllers/iPhone/ACEventsListViewController.m"
-         timestampString = "347542456.422376"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-setupInitialView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "AgileConference/SupportingLibraries/SocialNetworks/LinkedIn Library/Categories/NSString+URLEncoding.m"
          timestampString = "347897251.550453"
          startingColumnNumber = "9223372036854775807"
@@ -118,20 +90,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "AgileConference/UIViewControllers/iPhone/ACEventDetailViewController.m"
-         timestampString = "348758928.874556"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-setupInitialView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "AgileConference/Utilities/CommonUtility.m"
          timestampString = "351164242.697955"
          startingColumnNumber = "9223372036854775807"
@@ -153,6 +111,20 @@
          startingLineNumber = "318"
          endingLineNumber = "318"
          landmarkName = "+schedulPreNotificationOfEvent:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/AppController/ACAppController.m"
+         timestampString = "351347834.196931"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "520"
+         endingLineNumber = "520"
+         landmarkName = "-rightBarButtonClicked:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

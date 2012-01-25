@@ -13,9 +13,12 @@
     
     NSString *daySelected;
     NSString *trackSelected;
+    NSMutableDictionary *upCommingEventDict;
 }
-@property(strong,nonatomic) NSString *daySelected;
-@property (strong,nonatomic)NSString *trackSelected;
+@property(strong,nonatomic)     NSString *daySelected;
+@property (strong,nonatomic)    NSString *trackSelected;
+@property (strong,nonatomic)    NSMutableDictionary *upCommingEventDict;
+
 
 
 

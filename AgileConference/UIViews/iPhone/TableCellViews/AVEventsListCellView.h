@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewUtility.h"
 
 @interface AVEventsListCellView : UIView{
     

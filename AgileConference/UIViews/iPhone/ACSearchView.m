@@ -40,18 +40,22 @@
     
         commonSectionArray=[[NSMutableArray alloc] init];
         accordionViewCommonArray =accordionViewDayArray;
+        NSString *alertMessage=@"";
         //
         if([sortBy hasPrefix:@"Topic"]){
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Title"
                                                                      andSearchValue:searchContent];
+            alertMessage=@"No topic records found!";
 
         }else{
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Speaker"
                                                                          andSearchValue:searchContent];
+            alertMessage=@"No speaker records found!";
+
         }
         if([searchDataDictionary count]==0){
             commonSectionArray=nil;
-            [ViewUtility showAlertViewWithMessage:@"No records found!"];
+            [ViewUtility showAlertViewWithMessage:alertMessage];
         }else{
             [commonSectionArray addObjectsFromArray:[CommonUtility getSortedArrayByAlphabet:[searchDataDictionary allKeys]]];
         }

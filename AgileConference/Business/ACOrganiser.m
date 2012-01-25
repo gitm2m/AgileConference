@@ -99,9 +99,9 @@ static ACOrganiser *appOrganiser = nil;
                     NSDate    *currDate    =[NSDate date];
                     //
                     
-                    NSLog(@"Sratdate:%@",eventStartDate);
-                    NSLog(@"currDate:%@",currDate);
-                    NSLog(@"eventEndDate:%@",eventEndDate);
+                   // NSLog(@"Sratdate:%@",eventStartDate);
+                   // NSLog(@"currDate:%@",currDate);
+                    //NSLog(@"eventEndDate:%@",eventEndDate);
 
                     
                     if([eventEndDate compare:currDate]==-1){

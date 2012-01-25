@@ -107,10 +107,8 @@
 
     
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
-            //[addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
         [addRemoveFavsButton setImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
-            //[addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
         [addRemoveFavsButton setImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
     }
     
@@ -227,9 +225,9 @@
         
         [topicDict setObject:@"YES" forKey:kTopicFavorite];
         [addRemoveFavsButton setImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
-            //[addRemoveFavsButton setTitle:kRemoveFromFavs forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility schedulPreNotificationOfEvent:topicDict];
+        [ViewUtility showAlertViewWithMessage:@"Event has been added to your favorite list."];
         
     }else if([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
      
@@ -263,7 +261,7 @@
     
     if (buttonIndex == 1) {
         TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
-        [twitter setInitialText:@"It's really that simple!"];
+        [twitter setInitialText:[[topicDict objectForKey:kTopicTitle] capitalizedString]];
         [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
         
         [self presentViewController:twitter animated:YES completion:nil];
@@ -437,9 +435,10 @@
     if (buttonIndex == 1) {
         [topicDict setObject:@"NO" forKey:kTopicFavorite];
         [addRemoveFavsButton setImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
-            //[addRemoveFavsButton setTitle:kAddtoFavs forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility cancelNotificationOfEvent:topicDict];
+        [ViewUtility showAlertViewWithMessage:@"Event has been removed from your favorite list."];
+
 
         
         if(isNavigatedFromOrganizerView)

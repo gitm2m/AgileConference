@@ -12,6 +12,7 @@ static ACAppSetting *appSession = nil;
 @implementation ACAppSetting
 @synthesize     daySelected;
 @synthesize     trackSelected;
+@synthesize     upCommingEventDict;
 
 
 

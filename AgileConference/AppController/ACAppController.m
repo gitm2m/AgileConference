@@ -154,7 +154,7 @@
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
     
-    self.navigationItem.leftBarButtonItem = shareButton;
+    self.navigationItem.leftBarButtonItem = nil;
 
 
     /*
@@ -456,22 +456,6 @@
 
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
-    /*
-    if ([sender selectedSegmentIndex]==0) {
-
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Sel.png"] forSegmentAtIndex:0];
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
-
-    }else if ([sender selectedSegmentIndex]==1){
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Norm.png"] forSegmentAtIndex:0];
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Sel.png"] forSegmentAtIndex:1];
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
-    }else if ([sender selectedSegmentIndex]==2){
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Norm.png"] forSegmentAtIndex:0];
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
-        [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Sel.png"] forSegmentAtIndex:2];
-    }*/
         [[ACOrganiser getOrganiser] getCatalogDict];
         
         NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
@@ -498,106 +482,7 @@
 
 }
 
-- (void)searchButtonTapped : (id)sender{
-    
-    [[ACOrganiser getOrganiser] getCatalogDict];
 
-    if ([self.view viewWithTag:1234].frame.origin.y == -380) {
-        
-        [[[TestUtility alloc] init] test];
-
-        
-        if([ self isOrganizerViewVisibleOnScreen]){
-            
-            [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDuration:0.3];
-            [organizerButtn setFrame:CGRectMake(0, 382, 320, 35)];
-            [organizerView setFrame:CGRectMake(0, 415, 320, 380)];
-            [UIView commitAnimations];
-        }
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.0001];
-        [tracksEventsPopoverController.view setAlpha:0];
-        [UIView commitAnimations];
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.5];
-        [[self.view viewWithTag:1234] setFrame:CGRectMake(0, 0, 320, 380)];
-        [homeCoverViewHolderView setFrame:CGRectMake(0, 455, 320, 380)];
-        [UIView commitAnimations];
-        
-        self.title = @"Search";
-        self.navigationItem.rightBarButtonItem = searchDoneButton;
-        
-
-        
-    }
-    else if([self.view viewWithTag:1234].frame.origin.y == 0){
-        
-        [searchHolderView.eventsSearchBar resignFirstResponder];
-        [searchHolderView.eventsSearchBar setText:@""];
-        [searchHolderView cleanSearchView];
-        if([ self isOrganizerViewVisibleOnScreen] && [self isSearchViewVisibleOnScreen]){
-            
-            [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDuration:0.3];
-            [organizerButtn setFrame:CGRectMake(0, 382, 320, 35)];
-            [organizerView setFrame:CGRectMake(0, 415, 320, 380)];
-            [UIView commitAnimations];
-            
-            return;
-        }
-
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.9];
-        [tracksEventsPopoverController.view setAlpha:1];
-        [UIView commitAnimations];
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.5];
-        [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
-        [homeCoverViewHolderView setFrame:CGRectMake(0, 0, 380, 380)];
-        [UIView commitAnimations];
-        
-        self.title = KAppName;
-        self.navigationItem.rightBarButtonItem = searchButton;
-        
-    }
-        
-    //Commented searchPopover
-    /*
-    if([searchPopoverController isPopoverVisible]) {
-        [searchPopoverController dismissPopoverAnimated:YES];
-        [searchPopoverController setDelegate:nil];
-        searchPopoverController = nil;
-    }
-    
-    CGRect screenBounds = [UIScreen mainScreen].bounds;
-    
-    serachPopoverContentViewController = [[ACSearchPopoverViewController alloc] initWithNibName:@"ACSearchPopoverViewController" bundle:nil];
-    [[serachPopoverContentViewController.view layer] setCornerRadius:5.0f];
-    
-    
-    searchPopoverController = [[WEPopoverController alloc] initWithContentViewController:serachPopoverContentViewController];
-    [searchPopoverController setDelegate:self];
-    [searchPopoverController presentPopoverFromRect:CGRectMake(screenBounds.size.width, 0, 50, 57)
-                                                   inView:self.navigationController.view 
-                                 permittedArrowDirections:UIPopoverArrowDirectionUp
-                                                 animated:YES];
-    
-   
-
-    [tracksCoverView setUserInteractionEnabled:NO];
-    [tracksEventsPopoverController.view setUserInteractionEnabled:NO];
-    [daysSegmentController setUserInteractionEnabled:NO];
-    [infoButton setUserInteractionEnabled:NO];
-     */
-
-
-    
-}
 
 - (void)shareButtonTapped : (id)sender{
     
@@ -614,30 +499,6 @@
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
     shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
-
-
-    /*
-    [self.view insertSubview:shareFeedBackView aboveSubview:tracksEventsPopoverController.view];
-    
-    [self.view insertSubview:shareFeedBackView aboveSubview:organizerButtn];
-    if (shareFeedBackView.frame.origin.y == 463) {
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.2];
-        shareFeedBackView.frame=CGRectMake(0, 303, 320, 113);
-        [UIView commitAnimations];
-            
-    }else if (shareFeedBackView.frame.origin.y == 303){
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.2];
-        shareFeedBackView.frame=CGRectMake(0, 463, 320, 113);
-        [UIView commitAnimations];
-        
-    }
-    
-     */
-    
 }
 
 -(void)leftBarButtonClicked : (id)sender{
@@ -658,10 +519,11 @@
 }
 -(void)rightBarButtonClicked : (id)sender{
     
-   [[[TestUtility alloc] init] test];
     
     if ([self.view viewWithTag:1234].frame.origin.y == -380) {
         
+        [leftBarButton setHidden:YES];
+
         if([ self isOrganizerViewVisibleOnScreen]){
             
             [UIView beginAnimations:nil context:NULL];
@@ -686,6 +548,8 @@
         
                   
     }else if([self.view viewWithTag:1234].frame.origin.y ==44){
+        [leftBarButton setHidden:NO];
+
         
         [searchHolderView.eventsSearchBar resignFirstResponder];
         if([ self isOrganizerViewVisibleOnScreen] && [self isSearchViewVisibleOnScreen]){
@@ -835,7 +699,9 @@
 
 - (void)eventsTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicIndex:indexPath.row];
+    ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" 
+                                                                                                      bundle:nil 
+                                                                                                andTopicDict:[[ACAppSetting getAppSession]upCommingEventDict]];
     
     [detailViewController setIsNavigatedFromOrganizerView:NO];
     [self.navigationController pushViewController:detailViewController animated:YES];

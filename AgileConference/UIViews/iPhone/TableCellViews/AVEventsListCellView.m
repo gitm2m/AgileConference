@@ -72,10 +72,9 @@
     if ([[cellData valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
         
         [favButton setImage:[UIImage imageNamed:@"Fav.png"] forState:UIControlStateNormal];
-            //[self performSelectorInBackground:@selector(changeFavBackgrounImageByDelay:) withObject:@"YES"];
-            //
         [self performSelector:@selector(changeFavBackgrounImageByDelay:) withObject:@"YES" afterDelay:0.2];
-        
+        [ViewUtility showAlertViewWithMessage:@"Event has been added to your favorite list."];
+
         
     }else if([[cellData valueForKey:kTopicFavorite] isEqualToString:@"YES"]){
         
@@ -99,9 +98,8 @@
     if (buttonIndex == 1) {
         
         [favButton setImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
-            //[self performSelectorInBackground:@selector(changeFavBackgrounImageByDelay:) withObject:@"NO"];
         [self performSelector:@selector(changeFavBackgrounImageByDelay:) withObject:@"NO" afterDelay:0.2];
-        
+        [ViewUtility showAlertViewWithMessage:@"Event has been removed from your favorite list."];
         
     }
 }
