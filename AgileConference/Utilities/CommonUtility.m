@@ -308,12 +308,75 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     
 }
 //
+
+
+
++(NSDate *)ripStartDate : (NSMutableDictionary*)dict{
+    
+    NSString *topicDay=[dict objectForKey:kTopicDate];
+    
+    NSString *topicTime=[dict objectForKey:kTopicTime];//
+                                                             
+    NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
+    NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
+    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+        //
+        
+    NSInteger startprefix=0;
+    NSArray *startTimeArray=[startTime componentsSeparatedByString:@":"];
+       
+    if([[startTimeArray objectAtIndex:0] intValue]>=1
+       && [[startTimeArray objectAtIndex:0] intValue]<=8){
+        
+        startprefix=12+[[startTimeArray objectAtIndex:0] intValue];
+        NSString *timeSuffix=[startTimeArray objectAtIndex:1];
+        startTime=[NSString stringWithFormat:@"%i:%@",startprefix, timeSuffix];
+           
+    }
+    NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDay, startTime];
+    NSDate *eventStartDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 
+    
+    return eventStartDate;
+
+    
+}
+
++(NSDate *)ripEndDate :  (NSMutableDictionary*)dict{
+    
+    NSString *topicDay=[dict objectForKey:kTopicDate];
+    
+    NSString *topicTime=[dict objectForKey:kTopicTime];//
+    
+    NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
+    NSString *topicTimeFirstObject=[topicTimeArray lastObject];
+    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+        //
+    
+    NSInteger startprefix=0;
+    NSArray *startTimeArray=[startTime componentsSeparatedByString:@":"];
+    
+    if([[startTimeArray objectAtIndex:0] intValue]>=1
+       && [[startTimeArray objectAtIndex:0] intValue]<=8){
+        
+        startprefix=12+[[startTimeArray objectAtIndex:0] intValue];
+        NSString *timeSuffix=[startTimeArray objectAtIndex:1];
+        startTime=[NSString stringWithFormat:@"%i:%@",startprefix, timeSuffix];
+        
+    }
+    NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDay, startTime];
+    NSDate *eventEndDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 
+    
+    return eventEndDate;
+
+    
+}
+
 +(void)schedulPreNotificationOfEvent:(NSMutableDictionary*)favDict{
     
     NSString *topicDay=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
-    NSLog(@"topicTime %@",topicTime);
+    //NSLog(@"topicTime %@",topicTime);
 
     NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
     NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];

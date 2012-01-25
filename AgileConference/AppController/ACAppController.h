@@ -27,7 +27,7 @@
 #import "TestUtility.h"
 #import "ACMatrixCatalogView.h"
 
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate,ACSplashViewDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate,ACSplashViewDelegate,CLLocationManagerDelegate>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;
@@ -48,6 +48,7 @@
     ACMatrixCatalogView *matrixCatalogView;
     BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
     UIButton *organizerButtn;
+    CLLocationManager *locationManager;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
@@ -80,5 +81,5 @@
 - (IBAction)aboutButtonTapped:(id)sender;
 - (void)changeNavigationViewBydelayWithName : (NSString*)navigationName;
 - (void)fbGraphCallback:(id)sender;
-
+- (void)getDirectionWithLatitude : (CLLocation *)location;
 @end

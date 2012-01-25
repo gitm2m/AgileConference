@@ -644,6 +644,7 @@
     
      */
     
+    
 }
 
 -(void)leftBarButtonClicked : (id)sender{
@@ -655,7 +656,7 @@
     else
         string = @"Switch to matrix view";
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About Valtech", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"Road Assistance",@"About Valtech", nil];
     shareActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
@@ -910,9 +911,6 @@
         
         
             //[ViewUtility showAlertViewWithMessage:@"Could not connect to facebook,please try again later."];
-        
-        
-        
         if (![CommonUtility isConnectedToNetwork]) {
             [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
             return;
@@ -932,28 +930,36 @@
              
        
       
-    }else if(buttonIndex == 3){
+    }else if(buttonIndex == 4){
         
         
         ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
         [aboutController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         aboutController.splashView = splashScreenView;
         [self.navigationController pushViewController:aboutController animated:YES];
-        
-        /*
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:1];
-        [splashScreenView setAlpha:1.0];
-        UITableViewCell *cell = [splashScreenView.menuTbView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        [cell.textLabel setText:@"Return to application"];
-        [UIView commitAnimations];
-         */
-        
+            
 
     }else if(buttonIndex == 2){
         ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
         feedbackViewController.isOverallEventFeedback = YES;
         [self.navigationController presentModalViewController:feedbackViewController animated:YES];
+    }else if(buttonIndex == 3){
+        
+        
+        if (![CommonUtility isConnectedToNetwork]) {
+            [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+            return;
+        }
+
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName message:@"This action will take you out of the application to google maps direction, do you want to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil]; 
+        alertView.tag = 44444;
+        
+        [alertView show];
+        
+        
+                
+       
     }
 }
 
@@ -1087,5 +1093,56 @@
     [self.navigationController pushViewController:aboutController animated:YES];
 }
 
+
+#pragma mark - UIAlertView Delagate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if ([alertView tag]==44444) {
+        if (buttonIndex == 1) {
+            locationManager = [[CLLocationManager alloc] init];
+            locationManager.delegate = self;
+            locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+            [locationManager startUpdatingLocation];
+        }
+    }
+}
+
+
+
+
+#pragma mark - CLLocationManager Methods
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation{
+        
+    if(newLocation.coordinate.latitude <= 0 && newLocation.coordinate.longitude <= 0){
+        [ViewUtility showAlertViewWithMessage:@"Could not connect to google to google maps,Please try again later."];
+        return;
+    }
+   
+    [self getDirectionWithLatitude:newLocation];
+    
+}
+
+- (void)getDirectionWithLatitude : (CLLocation *)location{
+    
+    
+    NSString *destinationAddress = [NSString stringWithFormat:@"LE Meridian+Bengaluru+Karnataka"];
+    
+    
+    
+    NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%@",
+                     location.coordinate.latitude,location.coordinate.longitude,
+                     [destinationAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
+    
+     [locationManager stopUpdatingLocation];
+    [locationManager setDelegate:nil];
+
+}
 
 @end
