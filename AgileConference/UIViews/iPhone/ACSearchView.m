@@ -156,7 +156,24 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return kEventTableCellHeight;
+    NSString *keyString=[commonSectionArray objectAtIndex:indexPath.section];
+    NSMutableDictionary *trackDict=[searchDataDictionary objectForKey:keyString];
+    NSMutableArray *commonRowArray1=[[NSMutableArray alloc] init];
+    NSArray *allKeys=[trackDict allKeys];
+    for (NSString *key in allKeys) {
+        NSMutableArray *array1=[trackDict objectForKey:key];
+        [commonRowArray1 addObjectsFromArray:array1];
+    }
+
+    
+    NSMutableDictionary *eventDict=[commonRowArray1 objectAtIndex:indexPath.row];
+    
+    if([[eventDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
+          return kEventTableCellHeight;
+    else 
+        return 24.0f;
+      
+  
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

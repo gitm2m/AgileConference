@@ -58,6 +58,9 @@
 @property (strong, nonatomic) ACOrganizerView *organizerView;
 @property (strong, nonatomic) IBOutlet UIImageView *popOverImageView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (strong, nonatomic) IBOutlet UIButton *segmentBtn1;
+@property (strong, nonatomic) IBOutlet UIButton *segmentBtn2;
+@property (strong, nonatomic) IBOutlet UIButton *segmentBtn3;
 
 
 

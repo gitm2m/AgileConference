@@ -35,6 +35,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *addRemoveFavsButton;
 @property BOOL isNavigatedFromOrganizerView;
 
+- (IBAction)addToiCalButtonTapped:(id)sender;
 - (IBAction)viewMoreButtonTapped:(id)sender;
 - (void)shareButtonTapped : (id)sender;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andTopicIndex:(NSInteger)topicIndex;

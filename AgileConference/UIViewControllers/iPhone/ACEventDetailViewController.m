@@ -10,6 +10,7 @@
 #import "Twitter/TWTweetComposeViewController.h"
 #import "SBJSON.h"
 #import "ViewUtility.h"
+#import <EventKit/EventKit.h>
 
 @implementation ACEventDetailViewController
 @synthesize addRemoveFavsButton;
@@ -28,7 +29,6 @@
         NSMutableArray *topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
         topicDict=[topicArray objectAtIndex:index];
         
-               
     }
     return self;
 }
@@ -190,6 +190,26 @@
         //[[[shareActionSheet valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"facebookIcon.png"] forState:UIControlStateNormal];
     shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
+    
+}
+
+- (IBAction)addToiCalButtonTapped:(id)sender {
+    
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    
+    EKEvent *event  = [EKEvent eventWithEventStore:eventStore];
+    event.title     = [topicDict objectForKey:kTopicTitle];
+    
+    event.startDate = [[NSDate alloc] init];
+    event.endDate   = [[NSDate alloc] initWithTimeInterval:600 sinceDate:event.startDate];
+    
+    [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+    NSError *err;
+    [eventStore saveEvent:event span:EKSpanThisEvent error:&err];     
+    
+    if ([err code] != noErr) {
+        [ViewUtility showAlertViewWithMessage:@"Event adding to calender failed, you can also add as favourite to get the notification!!"];        
+    }
     
 }
 
