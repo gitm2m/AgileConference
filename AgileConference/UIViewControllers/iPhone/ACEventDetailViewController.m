@@ -10,6 +10,7 @@
 #import "Twitter/TWTweetComposeViewController.h"
 #import "SBJSON.h"
 #import "ViewUtility.h"
+#import <EventKit/EventKit.h>
 
 @implementation ACEventDetailViewController
 @synthesize addRemoveFavsButton;
@@ -28,7 +29,6 @@
         NSMutableArray *topicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
         topicDict=[topicArray objectAtIndex:index];
         
-               
     }
     return self;
 }
@@ -121,7 +121,7 @@
     [SpeakerSummaryView flashScrollIndicators];
     
     
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(animateScrollIndicators) userInfo:nil repeats:YES];
+        //[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(animateScrollIndicators) userInfo:nil repeats:YES];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -189,6 +189,57 @@
     shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
     
+}
+
+- (IBAction)addToiCalButtonTapped:(id)sender {
+    
+    if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"NO"]) {
+        
+        
+        EKEvent *event  = [EKEvent eventWithEventStore:[appDelegate eventStore]];
+        event.title     = [topicDict objectForKey:kTopicTitle];
+        
+        event.startDate = [CommonUtility ripStartDate:topicDict] ;
+        event.endDate   = [CommonUtility ripEndDate:topicDict];
+        
+        [event setCalendar:[[appDelegate eventStore] defaultCalendarForNewEvents]];
+        NSError *err;
+        [[appDelegate eventStore] saveEvent:event span:EKSpanThisEvent error:&err];     
+        
+        if ([err code] != noErr) {
+            [ViewUtility showAlertViewWithMessage:@"Event adding to calender failed, you can also add as favourite to get the notification!!"];        
+        }
+        if ([[event eventIdentifier] length]>0) {
+            [topicDict setObject:[event eventIdentifier] forKey:@"Topic_Cal_Eid"];
+            [topicDict setObject:@"YES" forKey:@"Topic_In_Cal"];
+        }
+         
+        
+        
+    }else if([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"]){
+        
+        EKEvent* eventToRemove = nil;
+        
+        if ([[topicDict objectForKey:@"Topic_Cal_Eid"] length]>0){
+            eventToRemove = [[appDelegate eventStore] eventWithIdentifier:[topicDict objectForKey:@"Topic_Cal_Eid"]];
+        }
+            
+          
+        ACLog(@"eventToRemoveIdentifier %@ , asdasd %@ ", [eventToRemove eventIdentifier],[topicDict objectForKey:@"Topic_Cal_Eid"]);
+        
+        NSError* error = nil;
+        
+        if (eventToRemove) {
+            [[appDelegate eventStore] removeEvent:eventToRemove span:EKSpanThisEvent error:&error];
+       
+     
+        [topicDict setObject:@"NO" forKey:@"Topic_In_Cal"];
+        [topicDict setObject:@"" forKey:@"Topic_Cal_Eid"];
+
+         }
+    }
+    
+       
 }
 
 - (IBAction)viewMoreButtonTapped:(id)sender {

@@ -20,6 +20,9 @@
 @synthesize organizerView;
 @synthesize popOverImageView;
 @synthesize contentView;
+@synthesize segmentBtn1;
+@synthesize segmentBtn2;
+@synthesize segmentBtn3;
 
 
 @synthesize infoButton;
@@ -81,6 +84,9 @@
     [self setContentView:nil];
     aboutButton = nil;
     
+    [self setSegmentBtn1:nil];
+    [self setSegmentBtn2:nil];
+    [self setSegmentBtn3:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -157,27 +163,6 @@
     self.navigationItem.leftBarButtonItem = nil;
 
 
-    /*
-    UIButton *srchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [srchButton setFrame:CGRectMake(0, 0, 42, 33)];
-    [srchButton setBackgroundImage:[UIImage imageNamed:@"searchIcon.png"] forState:UIControlStateNormal];
-    [srchButton addTarget:self action:@selector(searchButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
-    searchButton = [[UIBarButtonItem alloc] initWithCustomView:srchButton];
-    
-    searchDoneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(searchButtonTapped:)];
-    
-    self.navigationItem.rightBarButtonItem = searchButton;
-    
-    
-    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareButton setFrame:CGRectMake(0, 0, 42, 33)];
-    [shareButton setBackgroundImage:[UIImage imageNamed:@"Action.png"] forState:UIControlStateNormal];
-    [shareButton addTarget:self action:@selector(shareButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
-   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
-    */
-     
     tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,-11, 308, 250)];
     [tracksCoverView  setBackgroundColor:[UIColor clearColor]];
     [[tracksCoverView layer] setCornerRadius : 5.0f];
@@ -188,22 +173,38 @@
     NSString *dateAsString=[CommonUtility convertDateToString:[NSDate date] format:@"dd-MM-yyyy"];
     //
     if([dateAsString isEqualToString:@"17-02-2012"]){
-        [daysSegmentController setSelectedSegmentIndex:0];
+            //[daysSegmentController setSelectedSegmentIndex:0];
+        [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1Sel.png"] forState:UIControlStateNormal];
+        ;
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2.png"] forState:UIControlStateNormal];
+        [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3.png"] forState:UIControlStateNormal];
         [[ACAppSetting getAppSession] setDaySelected:@"Day1"];
         preFinalDayIndex=0;
         
     }else if([dateAsString isEqualToString:@"18-02-2012"]){
-        [daysSegmentController setSelectedSegmentIndex:1];
+            // [daysSegmentController setSelectedSegmentIndex:1];
+        [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1.png"] forState:UIControlStateNormal];
+        ;
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2Sel.png"] forState:UIControlStateNormal];
+        [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3.png"] forState:UIControlStateNormal];
         [[ACAppSetting getAppSession] setDaySelected:@"Day2"];
         preFinalDayIndex=1;
 
     }else if([dateAsString isEqualToString:@"19-02-2012"]){
-        [daysSegmentController setSelectedSegmentIndex:2];
+        [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1.png"] forState:UIControlStateNormal];
+        ;
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2.png"] forState:UIControlStateNormal];
+        [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3Sel.png"] forState:UIControlStateNormal];
+            //[daysSegmentController setSelectedSegmentIndex:2];
         [[ACAppSetting getAppSession] setDaySelected:@"Day3"];
         preFinalDayIndex=2;
         
     }else{
-        [daysSegmentController setSelectedSegmentIndex:0];
+            //[daysSegmentController setSelectedSegmentIndex:0];
+        [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1Sel.png"] forState:UIControlStateNormal];
+        ;
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2.png"] forState:UIControlStateNormal];
+        [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3.png"] forState:UIControlStateNormal];
         [[ACAppSetting getAppSession] setDaySelected:@"Day1"];
         preFinalDayIndex=0;
     }
@@ -225,9 +226,13 @@
     [contentView addSubview:contentViewController.view];
     [homeCoverViewHolderView insertSubview:popOverImageView aboveSubview:tracksCoverView];
     [homeCoverViewHolderView insertSubview:contentView aboveSubview:popOverImageView];
+    [homeCoverViewHolderView insertSubview:segmentBtn1 aboveSubview:tracksCoverView];
+    [homeCoverViewHolderView insertSubview:segmentBtn2 aboveSubview:tracksCoverView];
+    [homeCoverViewHolderView insertSubview:segmentBtn3 aboveSubview:tracksCoverView];
     [self setupViewsFromNib];
     
     [self showSplasScreen];
+    
     
 }
 
@@ -457,19 +462,36 @@
 - (IBAction)daysSegmentControllerValueChanged:(id)sender {
     
         [[ACOrganiser getOrganiser] getCatalogDict];
-        
-        NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender selectedSegmentIndex]+1];
+    if ([sender tag]==0) {
+        [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1Sel.png"] forState:UIControlStateNormal];
+        ;
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2.png"] forState:UIControlStateNormal];
+        [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3.png"] forState:UIControlStateNormal];
+    }else if([sender tag]==1){
+        [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1.png"] forState:UIControlStateNormal];
+        ;
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2.png"] forState:UIControlStateNormal];
+        [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3.png"] forState:UIControlStateNormal];
+    }else if([sender tag]==2){
+        [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1.png"] forState:UIControlStateNormal];
+        ;
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2.png"] forState:UIControlStateNormal];
+        [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3Sel.png"] forState:UIControlStateNormal];
+    }
     
-        [[ACAppSetting getAppSession]setDaySelected:daySelected];
-    //
-        if(preFinalDayIndex<[sender selectedSegmentIndex]){
+    
+        
+    NSString *daySelected=[NSString stringWithFormat:@"Day%i",[sender tag]+1];
+    
+    [[ACAppSetting getAppSession]setDaySelected:daySelected];
+    
+    if(preFinalDayIndex<[sender tag]){
+        [contentViewController reloadEventTableViewWithAnimation:NO];
+    }else{
+        [contentViewController reloadEventTableViewWithAnimation:YES];
+    }
 
-            [contentViewController reloadEventTableViewWithAnimation:NO];
-        }else{
-            [contentViewController reloadEventTableViewWithAnimation:YES];
-        }
-//
-        preFinalDayIndex=[sender selectedSegmentIndex];
+    preFinalDayIndex=[sender tag];
 
 }
 
@@ -510,7 +532,7 @@
     else
         string = @"Switch to matrix view";
     
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"About Valtech", nil];
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"Road Assistance",@"About Valtech", nil];
     shareActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
@@ -770,9 +792,6 @@
         
         
             //[ViewUtility showAlertViewWithMessage:@"Could not connect to facebook,please try again later."];
-        
-        
-        
         if (![CommonUtility isConnectedToNetwork]) {
             [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
             return;
@@ -792,28 +811,36 @@
              
        
       
-    }else if(buttonIndex == 3){
+    }else if(buttonIndex == 4){
         
         
         ACAboutViewController *aboutController = [[ACAboutViewController alloc] init];
         [aboutController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         aboutController.splashView = splashScreenView;
         [self.navigationController pushViewController:aboutController animated:YES];
-        
-        /*
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:1];
-        [splashScreenView setAlpha:1.0];
-        UITableViewCell *cell = [splashScreenView.menuTbView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        [cell.textLabel setText:@"Return to application"];
-        [UIView commitAnimations];
-         */
-        
+            
 
     }else if(buttonIndex == 2){
         ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
         feedbackViewController.isOverallEventFeedback = YES;
         [self.navigationController presentModalViewController:feedbackViewController animated:YES];
+    }else if(buttonIndex == 3){
+        
+        
+        if (![CommonUtility isConnectedToNetwork]) {
+            [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+            return;
+        }
+
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName message:@"This action will take you out of the application to google maps direction, do you want to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil]; 
+        alertView.tag = 44444;
+        
+        [alertView show];
+        
+        
+                
+       
     }
 }
 
@@ -947,5 +974,56 @@
     [self.navigationController pushViewController:aboutController animated:YES];
 }
 
+
+#pragma mark - UIAlertView Delagate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if ([alertView tag]==44444) {
+        if (buttonIndex == 1) {
+            locationManager = [[CLLocationManager alloc] init];
+            locationManager.delegate = self;
+            locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+            [locationManager startUpdatingLocation];
+        }
+    }
+}
+
+
+
+
+#pragma mark - CLLocationManager Methods
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation{
+        
+    if(newLocation.coordinate.latitude <= 0 && newLocation.coordinate.longitude <= 0){
+        [ViewUtility showAlertViewWithMessage:@"Could not connect to google to google maps,Please try again later."];
+        return;
+    }
+   
+    [self getDirectionWithLatitude:newLocation];
+    
+}
+
+- (void)getDirectionWithLatitude : (CLLocation *)location{
+    
+    
+    NSString *destinationAddress = [NSString stringWithFormat:@"LE Meridian+Bengaluru+Karnataka"];
+    
+    
+    
+    NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%@",
+                     location.coordinate.latitude,location.coordinate.longitude,
+                     [destinationAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
+    
+     [locationManager stopUpdatingLocation];
+    [locationManager setDelegate:nil];
+
+}
 
 @end

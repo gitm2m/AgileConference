@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
 
 @class ACAppController;
 
@@ -14,11 +15,13 @@
     
     NSMutableDictionary *notifiedEventDict;
     NSString *notificationType;
+    EKEventStore *eventStore;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ACAppController *viewController;
 @property (strong, nonatomic) UINavigationController *navigationController;
+@property (strong, nonatomic) EKEventStore *eventStore ;
 
 -(void)showReminder:(NSDictionary *)eventDict;
 @end

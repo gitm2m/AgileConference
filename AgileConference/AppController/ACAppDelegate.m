@@ -16,14 +16,19 @@
 #import "ACFeedbackViewController.h"
 
 
+
 @implementation ACAppDelegate
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 @synthesize navigationController = _navigationController;
+@synthesize eventStore;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Load catalog dict
+    
+    eventStore = [[EKEventStore alloc] init];
+    
     [[ACOrganiser getOrganiser] getCatalogDict];
     
     if (![CommonUtility isConnectedToNetwork]) {
