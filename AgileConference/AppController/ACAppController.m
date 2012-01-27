@@ -565,7 +565,11 @@
         [homeCoverViewHolderView setFrame:CGRectMake(0, 455, 320, 380)];
         [UIView commitAnimations];
         
+        [aboutButton setHidden:YES];
+        
         [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Search" afterDelay:0.1];
+        
+        
         
                   
     }else if([self.view viewWithTag:1234].frame.origin.y ==44){
@@ -595,6 +599,8 @@
         [[self.view viewWithTag:1234] setFrame:CGRectMake(0, -380, 320, 380)];
         [homeCoverViewHolderView setFrame:CGRectMake(0, 44, 380, 380)];
         [UIView commitAnimations];
+        
+        [aboutButton setHidden:NO];
         [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Home" afterDelay:0.1];
         
     }

@@ -245,25 +245,15 @@
         
     }else if([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"]){
         
-        EKEvent* eventToRemove = nil;
         
-        if ([[topicDict objectForKey:@"Topic_Cal_Eid"] length]>0){
-            eventToRemove = [[appDelegate eventStore] eventWithIdentifier:[topicDict objectForKey:@"Topic_Cal_Eid"]];
-        }
-            
-        NSError* error = nil;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName 
+                                                            message:@"Are you sure you want to remove from calendar." 
+                                                           delegate:self 
+                                                  cancelButtonTitle:@"No" 
+                                                  otherButtonTitles:@"Yes", nil];
+        alertView.tag = 12345;
+        [alertView show];
         
-
-        
-        if (eventToRemove) {
-            [[appDelegate eventStore] removeEvent:eventToRemove span:EKSpanThisEvent error:&error];
-       
-     
-            [topicDict setObject:@"NO" forKey:@"Topic_In_Cal"];
-            [topicDict setObject:@"" forKey:@"Topic_Cal_Eid"];
-            [ViewUtility showAlertViewWithMessage:@"Event removed from calendar successfully."];
-
-         }
     }
     
        
@@ -535,11 +525,36 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 1) {
+        
+        if ([alertView tag]==12345) {
+            EKEvent* eventToRemove = nil;
+            
+            if ([[topicDict objectForKey:@"Topic_Cal_Eid"] length]>0){
+                eventToRemove = [[appDelegate eventStore] eventWithIdentifier:[topicDict objectForKey:@"Topic_Cal_Eid"]];
+            }
+            
+            NSError* error = nil;
+            
+            
+            
+            if (eventToRemove) {
+                [[appDelegate eventStore] removeEvent:eventToRemove span:EKSpanThisEvent error:&error];
+                
+                
+                [topicDict setObject:@"NO" forKey:@"Topic_In_Cal"];
+                [topicDict setObject:@"" forKey:@"Topic_Cal_Eid"];
+                
+                
+            }
+
+            return;
+        }
+        
         [topicDict setObject:@"NO" forKey:kTopicFavorite];
         [addRemoveFavsButton setImage:[UIImage imageNamed:@"starDull.png"] forState:UIControlStateNormal];
         [[ACOrganiser getOrganiser]updateCatalogDict:topicDict];
         [CommonUtility cancelNotificationOfEvent:topicDict];
-        [ViewUtility showAlertViewWithMessage:@"Event has been removed from your favourite list."];
+            //[ViewUtility showAlertViewWithMessage:@"Event has been removed from your favourite list."];
 
 
         
