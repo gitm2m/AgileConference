@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AgileConference/AppController/ACAppController.m"
-         timestampString = "349025486.854915"
+         timestampString = "349340600.424121"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "297"
-         endingLineNumber = "297"
+         startingLineNumber = "296"
+         endingLineNumber = "296"
          landmarkName = "@implementation ACAppController"
          landmarkType = "3">
       </FileBreakpoint>

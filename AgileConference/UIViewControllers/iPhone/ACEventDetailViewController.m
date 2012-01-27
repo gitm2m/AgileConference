@@ -7,7 +7,6 @@
 //
 
 #import "ACEventDetailViewController.h"
-#import "Twitter/TWTweetComposeViewController.h"
 #import "SBJSON.h"
 #import "ViewUtility.h"
 #import <EventKit/EventKit.h>
@@ -311,6 +310,11 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 1) {
+        
+        
+        //
+        if (NSClassFromString(@"TWTweetComposeViewController")) {
+
         TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
         [twitter setInitialText:[[topicDict objectForKey:kTopicTitle] capitalizedString]];
         [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
@@ -338,7 +342,15 @@
             [self dismissModalViewControllerAnimated:YES];
             
             
+            
+            
         };
+        
+    }
+        else{
+            [ViewUtility showAlertViewWithMessage:@"You can able to tweet only with iOS5, Sorry for the inconvenience."];
+        }
+
         
     }else
         if(buttonIndex == 0){

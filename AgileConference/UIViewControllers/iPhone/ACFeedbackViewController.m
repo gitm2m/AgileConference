@@ -114,7 +114,7 @@
     [feedbackSubTextField setFont:[CommonUtility fontSegoi:13]];
     [feedbackTextView setFont:[CommonUtility fontSegoi:13]];
     [feedbackheaderLabel setFont:[CommonUtility fontSegoiBold:13]];
-    [feedbackTextView setText:@"h22>>>>>>>>>>>>>>>>>>"];
+    //[feedbackTextView setText:@"h22>>>>>>>>>>>>>>>>>>"];
     // Do any additional setup after loading the view from its nib.
 }
 

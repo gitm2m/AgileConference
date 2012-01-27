@@ -9,7 +9,6 @@
 #import "ACAppController.h"
 #import "ACOrganiser.h"
 #import "ACAppSetting.h"
-#import "Twitter/TWTweetComposeViewController.h"
 #import "SBJSON.h"
 #import "FbGraphFile.h"
 #import "ACFacebookConnect.h"
@@ -783,8 +782,9 @@
                 
             };
 
-        }else{
-            [ViewUtility showAlertViewWithMessage:@"You can able to tweet only with iOS5,Sorry for the inconvenience"];
+        }
+        else{
+            [ViewUtility showAlertViewWithMessage:@"You can able to tweet only with iOS5, Sorry for the inconvenience."];
         }
         
             
