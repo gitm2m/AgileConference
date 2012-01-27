@@ -463,20 +463,20 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     NSString *topicDate=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
-   NSLog(@"topicTime>>>>>>>>>>>>>>>>>> %@",topicTime);
+   //NSLog(@"topicTime>>>>>>>>>>>>>>>>>> %@",topicTime);
     NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
     //
     NSMutableDictionary *userDict=[[NSMutableDictionary alloc] init];
     [userDict setObject:favDict forKey:@"kEventDict"];
     NSString *topicTimeLastObject=[topicTimeArray lastObject];
     NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
-    NSLog(@"end time before %@",endTime);
+    //NSLog(@"end time before %@",endTime);
     NSArray *endTimeArray=[endTime componentsSeparatedByString:@":"];
     if([[endTimeArray objectAtIndex:0] intValue]>=1
        &&[[endTimeArray objectAtIndex:0] intValue]<7){
         endTime=[NSString stringWithFormat:@"%i:%@",[[endTimeArray objectAtIndex:0] intValue]+12,[endTimeArray objectAtIndex:1]];
     }
-    NSLog(@"end time after %@",endTime);
+    //NSLog(@"end time after %@",endTime);
 
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDate, endTime];
     NSDate *eventStartDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 

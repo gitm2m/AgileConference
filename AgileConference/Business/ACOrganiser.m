@@ -182,6 +182,9 @@ static ACOrganiser *appOrganiser = nil;
 //
 -(NSMutableDictionary *)searchCatalogListOfType:(NSString *)catalogType andCatalogTypeContent:(NSString *)content{
     
+    //NSLog(@"Catalog Type:%@",catalogType);
+   // NSLog(@"andCatalogTypeContent:%@",content);
+    //
     NSMutableDictionary *favDict=[[NSMutableDictionary alloc] init];
     NSArray *dayKeyArray=[catalogDict allKeys];
     
@@ -207,8 +210,6 @@ static ACOrganiser *appOrganiser = nil;
                 //NSLog(@">>>search content>>%@",content);
                // NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
 
-                
-
                 if([[[topicDict objectForKey:catalogType] uppercaseString] rangeOfString:[content uppercaseString]].length>0 && [[topicDict objectForKey:kTopicType] isEqualToString:@"BUSINESS"]){
                     //
                     NSMutableDictionary *favTopicDict= [[NSMutableDictionary alloc] initWithDictionary:topicDict];
@@ -228,7 +229,7 @@ static ACOrganiser *appOrganiser = nil;
         
     }
     
-    ACLog(@"%@ search list:%@",catalogType,favDict);
+    //ACLog(@"%@ search list:%@",catalogType,favDict);
     return favDict;
 }
 
@@ -287,11 +288,11 @@ static ACOrganiser *appOrganiser = nil;
 -(void)updateCatalogDict:(NSMutableDictionary *)currentDict{
     
     NSString *dayKey=[currentDict objectForKey:kTopicDay];
-    NSLog(@"Day key:%@",dayKey);
+   // NSLog(@"Day key:%@",dayKey);
     NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
     
     NSString *tracKey=[currentDict objectForKey:kTopicTrack];
-    NSLog(@"tracKey key:%@",tracKey);
+   // NSLog(@"tracKey key:%@",tracKey);
 
     NSMutableArray *tracArray=[dayDict objectForKey:tracKey];
 
@@ -344,11 +345,11 @@ static ACOrganiser *appOrganiser = nil;
     
     NSString *dayKey=[currentDict objectForKey:kTopicDay];
     //
-    NSLog(@"Day key:%@",dayKey);
+   // NSLog(@"Day key:%@",dayKey);
     NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
     
     NSString *tracKey=[currentDict objectForKey:kTopicTrack];
-    NSLog(@"tracKey key:%@",tracKey);
+   // NSLog(@"tracKey key:%@",tracKey);
     
     NSMutableArray *tracArray=[dayDict objectForKey:tracKey];
     
