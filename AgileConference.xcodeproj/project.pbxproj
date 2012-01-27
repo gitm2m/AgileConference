@@ -49,7 +49,6 @@
 		385F83DF14CEEA460091225E /* 1265719291498412564.png in Resources */ = {isa = PBXBuildFile; fileRef = 385F83DE14CEEA460091225E /* 1265719291498412564.png */; };
 		3878300714B723530007133B /* ACSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3878300614B723530007133B /* ACSplashView.m */; };
 		3878300914B723740007133B /* ACSplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3878300814B723730007133B /* ACSplashView.xib */; };
-		3878305E14B740A20007133B /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3878305D14B740A10007133B /* Twitter.framework */; };
 		3886425014ADCF33005B520D /* ACAppController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3886424F14ADCF33005B520D /* ACAppController_iPhone.xib */; };
 		3886427014ADE9F9005B520D /* ACSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886426F14ADE9F9005B520D /* ACSearchView.m */; };
 		3886427C14ADF477005B520D /* ACSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3886427B14ADF476005B520D /* ACSearchView.xib */; };
@@ -171,6 +170,7 @@
 		6A9F7FC914A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FD114A88F5300E3F55C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A9F7FCF14A88F5300E3F55C /* InfoPlist.strings */; };
 		6A9F7FD414A88F5300E3F55C /* AgileConferenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F7FD314A88F5300E3F55C /* AgileConferenceTests.m */; };
+		6A9FBF5E14D2806500AE10D6 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3878305D14B740A10007133B /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6AE5515814A9DEBB00391597 /* ACAppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5515714A9DEBB00391597 /* ACAppSetting.m */; };
 		6AE5516414A9EB4200391597 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516314A9EB4200391597 /* CFNetwork.framework */; };
 		6AE5516614A9EB8C00391597 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5516514A9EB8B00391597 /* SystemConfiguration.framework */; };
@@ -467,9 +467,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9FBF5E14D2806500AE10D6 /* Twitter.framework in Frameworks */,
 				385F83DD14CEE7F50091225E /* EventKit.framework in Frameworks */,
 				383EC4FA14C98B4400BA2943 /* CoreLocation.framework in Frameworks */,
-				3878305E14B740A20007133B /* Twitter.framework in Frameworks */,
 				6A42707214AC713600F91472 /* OpenGLES.framework in Frameworks */,
 				6A42707014AC712700F91472 /* QuartzCore.framework in Frameworks */,
 				6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */,
@@ -1470,15 +1470,15 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
-				SDKROOT = iphoneos5.0;
+				PROVISIONING_PROFILE = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1495,8 +1495,9 @@
 				INFOPLIST_FILE = "AgileConference/AgileConference-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2EA72EBA-BA80-4558-BE33-BB65A769EEA1";
+				PROVISIONING_PROFILE = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

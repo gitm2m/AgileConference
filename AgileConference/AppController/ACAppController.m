@@ -9,7 +9,6 @@
 #import "ACAppController.h"
 #import "ACOrganiser.h"
 #import "ACAppSetting.h"
-#import "Twitter/TWTweetComposeViewController.h"
 #import "SBJSON.h"
 #import "FbGraphFile.h"
 #import "ACFacebookConnect.h"
@@ -755,8 +754,10 @@
         if (NSClassFromString(@"TWTweetComposeViewController")) {
                        
             TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
-            [twitter setInitialText:@"Write your text here!!"];
+            [twitter setInitialText:@"Agile 2012"];
                 //[twitter addImage:[UIImage imageNamed:@"bg_moderator_notes1.png"]];
+            
+            [twitter addURL:[NSURL URLWithString:@"http://agile2012.in/"]];
             
             [self presentViewController:twitter animated:YES completion:nil];
             
@@ -783,8 +784,9 @@
                 
             };
 
-        }else{
-            [ViewUtility showAlertViewWithMessage:@"You can able to tweet only with iOS5,Sorry for the inconvenience"];
+        }
+        else{
+            [ViewUtility showAlertViewWithMessage:@"You can able to tweet only with iOS5, Sorry for the inconvenience."];
         }
         
             

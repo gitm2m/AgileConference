@@ -9,7 +9,7 @@
 #import "ACFacebookShareView.h"
 
 @implementation ACFacebookShareView
-@synthesize fbShareTextView,delegate;
+@synthesize fbShareTextView,delegate,topicDict;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -20,14 +20,45 @@
     return self;
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    
 }
-*/
+
+
+-(void)layoutSubviews{
+    
+    if (topicDict != nil) {
+        NSString *shareFormatSrtring = [NSString stringWithFormat:@"%@ \n",kShareMessage];
+        NSMutableString *shareMessage = [[NSMutableString alloc] init];
+        if ([[topicDict valueForKey:kTopicTitle] length]>0) {
+            
+            [shareMessage appendFormat:[NSString stringWithFormat:shareFormatSrtring,[topicDict valueForKey:kTopicTitle]]];
+            
+        }else{
+            [shareMessage appendString:@"Write your share message here..!!"];
+        }
+        
+        if ([[topicDict valueForKey:kTopicLink] length]>0){
+            [shareMessage appendString:[topicDict valueForKey:kTopicLink]];
+        }
+        
+        ACLog(@"shareMessage %@", topicDict);
+        if ([shareMessage length]>0) {
+            [fbShareTextView setText:shareMessage];
+        }
+
+    }else{
+        [fbShareTextView setText:@"Agile 2012 \nhttp://agile2012.in/"];
+    }
+    
+   
+    
+}
 
 #pragma mark - Events Methods
 

@@ -7,7 +7,6 @@
 //
 
 #import "ACEventDetailViewController.h"
-#import "Twitter/TWTweetComposeViewController.h"
 #import "SBJSON.h"
 #import "ViewUtility.h"
 #import <EventKit/EventKit.h>
@@ -121,6 +120,19 @@
     [SpeakerSummaryView flashScrollIndicators];
     
     
+    if ([[topicDict valueForKey:kTopicLink] isEqualToString:@"N/A"]) {
+        [viewTopicSummaryButton setEnabled:NO];
+    }else{
+        [viewTopicSummaryButton setEnabled:YES];
+    }
+    
+    if ([[topicDict valueForKey:kTopicSpeakerLink] isEqualToString:@"N/A"]) {
+        [viewSpeakerSummaryButton setEnabled:NO];
+    }else{
+        [viewSpeakerSummaryButton setEnabled:YES];
+    }
+    
+    
         //[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(animateScrollIndicators) userInfo:nil repeats:YES];
     
     [super viewDidLoad];
@@ -160,8 +172,13 @@
             fbShareView = (ACFacebookShareView*)object;
     }  
     fbShareView.delegate = self;
+    fbShareView.topicDict = topicDict;
     [[fbShareView fbShareTextView] becomeFirstResponder];
     fbShareView.frame = CGRectMake(0, 46, 320, 194);
+    
+    [fbShareView setNeedsLayout];
+    [fbShareView setNeedsDisplay];
+    
     
     [self.view addSubview:fbShareView];
     
@@ -311,34 +328,57 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 1) {
-        TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
-        [twitter setInitialText:[[topicDict objectForKey:kTopicTitle] capitalizedString]];
-        [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
         
-        [self presentViewController:twitter animated:YES completion:nil];
+            NSString *shareFormatSrtring = [NSString stringWithFormat:@"%@",kShareMessage];
+            ACLog(@"kShareMessage %@", kShareMessage);
         
-        twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+        //
+            if (NSClassFromString(@"TWTweetComposeViewController")) {
+
+                TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
+                if ([[topicDict valueForKey:kTopicTitle] length]>0) {
+                    [twitter setInitialText:[NSString stringWithFormat:shareFormatSrtring,[topicDict valueForKey:kTopicTitle]]];
+                }else{
+                    [twitter setInitialText:@"Write your share message here..!!"];
+                }
+        
             
-            if(res == TWTweetComposeViewControllerResultDone)
+                if([[topicDict valueForKey:kTopicLink] length] > 0){
+                
+                    [twitter addURL:[NSURL URLWithString:[topicDict valueForKey:kTopicLink]]];
+                }
+            
+                [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
+        
+                [self presentViewController:twitter animated:YES completion:nil];
+        
+                twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+            
+                if(res == TWTweetComposeViewControllerResultDone)
                 {
                 
-                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Succes!" message:@"Your Tweet was posted succesfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Succes!" message:@"Your Tweet was posted succesfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
-                [alertView show];
+                    [alertView show];
                 
                 }else if(res == TWTweetComposeViewControllerResultCancelled)
-                    {
+                {
                     
                         //  UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your Tweet was not posted" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     
                         // [alertView show];
                     
-                    }
+                }
             
-            [self dismissModalViewControllerAnimated:YES];
-            
+                [self dismissModalViewControllerAnimated:YES];
             
         };
+        
+    }
+        else{
+            [ViewUtility showAlertViewWithMessage:@"You can able to tweet only with iOS5, Sorry for the inconvenience."];
+        }
+
         
     }else
         if(buttonIndex == 0){
