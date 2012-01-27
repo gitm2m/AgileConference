@@ -114,6 +114,7 @@
     [feedbackSubTextField setFont:[CommonUtility fontSegoi:13]];
     [feedbackTextView setFont:[CommonUtility fontSegoi:13]];
     [feedbackheaderLabel setFont:[CommonUtility fontSegoiBold:13]];
+
     //[feedbackTextView setText:@"h22>>>>>>>>>>>>>>>>>>"];
     // Do any additional setup after loading the view from its nib.
 }
@@ -171,15 +172,16 @@
         [ViewUtility showAlertViewWithMessage:@"Please provide your name."];
         return;
     }
-    NSLog(@"feedbackTextView :%@",feedbackTextView.text);
-    NSLog(@"ratingString:%@",ratingString);
+        
+        //NSLog(@"feedbackTextView :%@",feedbackTextView.text);
+        //NSLog(@"ratingString:%@",ratingString);
 
        if([[feedbackTextView text] length]>0){
            
-        }else if(![ratingString isEqualToString:@"-1"]){
+       }else if(![ratingString isEqualToString:@"-1"]){
             
         }else {
-            [ViewUtility showAlertViewWithMessage:@"Please enter your comments or provide ratings"];
+            [ViewUtility showAlertViewWithMessage:@"Please enter your comments or provide rating"];
             return;
         }
     

@@ -754,8 +754,10 @@
         if (NSClassFromString(@"TWTweetComposeViewController")) {
                        
             TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
-            [twitter setInitialText:@"Write your text here!!"];
+            [twitter setInitialText:@"Agile 2012"];
                 //[twitter addImage:[UIImage imageNamed:@"bg_moderator_notes1.png"]];
+            
+            [twitter addURL:[NSURL URLWithString:@"http://agile2012.in/"]];
             
             [self presentViewController:twitter animated:YES completion:nil];
             

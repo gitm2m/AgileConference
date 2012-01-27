@@ -62,6 +62,8 @@
 	
 	application.applicationIconBadgeNumber = 0;
    // [[[TestUtility alloc] init] test];
+    
+    [Appirater appLaunched];
 
     return YES;
 }
@@ -86,6 +88,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 	
+    [Appirater appEnteredForeground:YES];
+    
     if (![CommonUtility isConnectedToNetwork]) {
         [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
     }

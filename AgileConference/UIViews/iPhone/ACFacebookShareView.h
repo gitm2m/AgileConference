@@ -14,11 +14,14 @@
 
 @property (strong, nonatomic) IBOutlet UITextView *fbShareTextView;
 @property (strong, nonatomic) id<ACFacebookShareViewDelegate>delegate;
+@property (strong, nonatomic) NSDictionary *topicDict;
 
 - (IBAction)cancelButtonTapped:(id)sender;
 - (IBAction)sendButtonTapped:(id)sender;
 
+
 @end
+
 
 
 @protocol ACFacebookShareViewDelegate 

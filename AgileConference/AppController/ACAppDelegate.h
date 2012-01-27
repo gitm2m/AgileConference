@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <EventKit/EventKit.h>
+#import "Appirater.h"
 
 @class ACAppController;
 

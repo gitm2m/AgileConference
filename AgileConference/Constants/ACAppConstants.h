@@ -67,6 +67,8 @@ typedef enum _viewType {
 
 #define kRemindMeNotificationDataKey @"kRemindMeNotificationDataKey"
 
+#define kShareMessage @"Check out %@ found using Agile 2012(powered by Valtech) on my iPhone"
+
 
 
 
