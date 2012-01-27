@@ -82,6 +82,7 @@
 		38C7C74314CD3F0600EB13AE /* segoeuiz.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73C14CD3F0600EB13AE /* segoeuiz.ttf */; };
 		38C7C74414CD3F0600EB13AE /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73D14CD3F0600EB13AE /* seguisb.ttf */; };
 		38C7C74514CD3F0600EB13AE /* seguisym.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73E14CD3F0600EB13AE /* seguisym.ttf */; };
+		38CB89F614D2C57E00247C73 /* addToCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CB89F514D2C57E00247C73 /* addToCalendar.png */; };
 		38D5A35E14D008F4002C9AB4 /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38D5A35D14D008F4002C9AB4 /* Catalog.plist */; };
 		38D5A36914D03F34002C9AB4 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5A36814D03F34002C9AB4 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		38E384E214B1C2BC0055F31C /* A_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E384DD14B1C2BC0055F31C /* A_1.png */; };
@@ -315,6 +316,7 @@
 		38C7C73C14CD3F0600EB13AE /* segoeuiz.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuiz.ttf; sourceTree = "<group>"; };
 		38C7C73D14CD3F0600EB13AE /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
 		38C7C73E14CD3F0600EB13AE /* seguisym.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisym.ttf; sourceTree = "<group>"; };
+		38CB89F514D2C57E00247C73 /* addToCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addToCalendar.png; sourceTree = "<group>"; };
 		38D5A35D14D008F4002C9AB4 /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
 		38D5A36714D03F34002C9AB4 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		38D5A36814D03F34002C9AB4 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 			children = (
 				385F83DE14CEEA460091225E /* 1265719291498412564.png */,
 				3834162714CCD85800DBE51A /* sepIcon.png */,
+				38CB89F514D2C57E00247C73 /* addToCalendar.png */,
 				384D9A2814C408BC001D0DC9 /* kermit_full.png */,
 				383EC50A14C99F9C00BA2943 /* star.png */,
 				383EC50B14C99F9D00BA2943 /* starDull.png */,
@@ -1333,6 +1336,7 @@
 				385F83D414CEB1580091225E /* day3Sel.png in Resources */,
 				385F83DF14CEEA460091225E /* 1265719291498412564.png in Resources */,
 				38D5A35E14D008F4002C9AB4 /* Catalog.plist in Resources */,
+				38CB89F614D2C57E00247C73 /* addToCalendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
