@@ -33,6 +33,9 @@
 
 -(void)layoutSubviews{
     
+    [(UILabel *)[self viewWithTag:1234] setFont:[CommonUtility fontSegoiBold:16]];
+
+    
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                            selector:@selector(reloadTableViewData) 
                                               name:@"UPDATE_ORGANISER" 
@@ -42,6 +45,13 @@
     NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
                                                             andCatalogTypeContent:@"YES"];
     eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
+    
+    if([eventArray count]==0){
+        [[self viewWithTag:1234] setHidden:NO];
+    }else{
+        [[self viewWithTag:1234] setHidden:YES];
+ 
+    }
     [organizerListTableView setSeparatorColor:[UIColor clearColor]];
      
 }
@@ -139,6 +149,14 @@
             break;
     }
     
+    if([eventArray count]==0){
+        [[self viewWithTag:1234] setHidden:NO];
+    }else{
+        [[self viewWithTag:1234] setHidden:YES];
+        
+    }
+
+    
     [organizerListTableView reloadData];
     ACLog(@">>>>>>>>>>>>>>>>segment value changed");
     
@@ -181,6 +199,13 @@
             break;
     }
     
+    
+    if([eventArray count]==0){
+        [[self viewWithTag:1234] setHidden:NO];
+    }else{
+        [[self viewWithTag:1234] setHidden:YES];
+        
+    }
     [organizerListTableView reloadData];
 
 }
