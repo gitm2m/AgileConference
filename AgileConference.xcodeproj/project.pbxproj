@@ -84,6 +84,7 @@
 		38C7C74414CD3F0600EB13AE /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73D14CD3F0600EB13AE /* seguisb.ttf */; };
 		38C7C74514CD3F0600EB13AE /* seguisym.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73E14CD3F0600EB13AE /* seguisym.ttf */; };
 		38D5A35E14D008F4002C9AB4 /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38D5A35D14D008F4002C9AB4 /* Catalog.plist */; };
+		38D5A36914D03F34002C9AB4 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5A36814D03F34002C9AB4 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		38E384E214B1C2BC0055F31C /* A_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E384DD14B1C2BC0055F31C /* A_1.png */; };
 		38E384E314B1C2BC0055F31C /* A_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E384DE14B1C2BC0055F31C /* A_1@2x.png */; };
 		38E384E414B1C2BC0055F31C /* A_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E384DF14B1C2BC0055F31C /* A_5.png */; };
@@ -315,6 +316,8 @@
 		38C7C73D14CD3F0600EB13AE /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
 		38C7C73E14CD3F0600EB13AE /* seguisym.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisym.ttf; sourceTree = "<group>"; };
 		38D5A35D14D008F4002C9AB4 /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
+		38D5A36714D03F34002C9AB4 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		38D5A36814D03F34002C9AB4 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		38E384DD14B1C2BC0055F31C /* A_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A_1.png; sourceTree = "<group>"; };
 		38E384DE14B1C2BC0055F31C /* A_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_1@2x.png"; sourceTree = "<group>"; };
 		38E384DF14B1C2BC0055F31C /* A_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A_5.png; sourceTree = "<group>"; };
@@ -654,6 +657,15 @@
 			path = SplashScreen;
 			sourceTree = "<group>";
 		};
+		38D5A36314D03F09002C9AB4 /* AppstoreFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				38D5A36714D03F34002C9AB4 /* Appirater.h */,
+				38D5A36814D03F34002C9AB4 /* Appirater.m */,
+			);
+			path = AppstoreFeedback;
+			sourceTree = "<group>";
+		};
 		38E384DC14B1C2BC0055F31C /* EventsListTableImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,6 +803,7 @@
 		6A42703E14AC70FB00F91472 /* SupportingLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				38D5A36314D03F09002C9AB4 /* AppstoreFeedback */,
 				388E976514BB171500C6F0D2 /* SocialNetworks */,
 				6A42703F14AC70FB00F91472 /* CoverFlow */,
 				6A42704414AC70FB00F91472 /* CustomPopover */,
@@ -1405,6 +1418,7 @@
 				6A53E55E14C9D2D900A5E371 /* ACEventDetailViewController.m in Sources */,
 				6A60B08A14EFADD000E74FEA /* ACUpcomingTableCellView.m in Sources */,
 				6A60B08B14EFADD000E74FEA /* ACUpcomingCellView.m in Sources */,
+				38D5A36914D03F34002C9AB4 /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
