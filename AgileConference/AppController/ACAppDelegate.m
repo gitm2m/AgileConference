@@ -106,7 +106,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     // Application was in the background when notification
     // was delivered.
 	// }
-	NSLog(@"jhjhj=========================");
+	//NSLog(@"jhjhj=========================");
 	
 	application.applicationIconBadgeNumber = 0;
 	[self showReminder:notification.userInfo];
@@ -184,7 +184,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    NSLog(@"Button Inex:%i",buttonIndex);
+   // NSLog(@"Button Inex:%i",buttonIndex);
     switch (buttonIndex) {
         case 0:
         {

@@ -22,20 +22,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "AgileConference/AppController/ACAppController.m"
-         timestampString = "349340600.424121"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "296"
-         endingLineNumber = "296"
-         landmarkName = "@implementation ACAppController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "AgileConference/Business/ACOrganiser.m"
          timestampString = "351154479.886897"
          startingColumnNumber = "9223372036854775807"
@@ -68,7 +54,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "176"
          endingLineNumber = "176"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkName = "-showReminder:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -96,7 +82,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "322"
          endingLineNumber = "322"
-         landmarkName = "+schedulPreNotificationOfEvent:"
+         landmarkName = "+ripStartDate:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -110,7 +96,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "318"
          endingLineNumber = "318"
-         landmarkName = "+schedulPreNotificationOfEvent:"
+         landmarkName = "+ripStartDate:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -125,6 +111,62 @@
          startingLineNumber = "520"
          endingLineNumber = "520"
          landmarkName = "-shareButtonTapped:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/Business/ACOrganiser.m"
+         timestampString = "349350957.239456"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "188"
+         endingLineNumber = "188"
+         landmarkName = "-searchCatalogListOfType:andCatalogTypeContent:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/UIViews/iPhone/ACSearchView.m"
+         timestampString = "349351641.029225"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "-searchCatalogAndShowResult"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/UIViews/iPhone/ACSearchView.m"
+         timestampString = "349351641.029225"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-searchCatalogAndShowResult"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/UIViews/iPhone/ACSearchView.m"
+         timestampString = "349351205.902078"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "29"
+         endingLineNumber = "29"
+         landmarkName = "-searchCatalogAndShowResult"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

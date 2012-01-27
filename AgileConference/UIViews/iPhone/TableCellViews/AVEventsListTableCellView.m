@@ -100,8 +100,8 @@
         cellView.topicLabel.text=[inCellData objectForKey:kTopicTitle];
         
         float height =[CommonUtility getHeightFromText:cellView.topicLabel.text font:[CommonUtility fontSegoiBold:13.0] maxWidth:185];
-        NSLog(@"Topic text:%@",cellView.topicLabel.text);
-        NSLog(@"Topic text:%f",height);
+        //NSLog(@"Topic text:%@",cellView.topicLabel.text);
+        //NSLog(@"Topic text:%f",height);
 
         cellView.speakerLabel.text=[inCellData objectForKey:kTopicSpeaker];
         if([[inCellData objectForKey:kTopicSpeaker] isEqualToString:@""]&&[[inCellData objectForKey:kTopicType] isEqualToString:@"BUSINESS"])

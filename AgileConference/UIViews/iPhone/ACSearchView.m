@@ -22,36 +22,28 @@
 }
 
 //
--(void)setSectionArrayForSearchView:(NSString *)sectionType{
-    
-    if([sectionType hasPrefix:@"Track"]){
-        commonSectionArray=trackSectionArray;
-        accordionViewCommonArray =accordionViewTrackArray;
-        
-    }else{
-        commonSectionArray=daySectionArray;
-        accordionViewCommonArray =accordionViewDayArray;
-        //[commonTableView setFrame:CGRectMake(commonTableView.frame.origin.x, commonTableView.frame.origin.y, commonTableView.frame.size.width, 200)];
-    }
-    [searchResultTableView reloadData];
-}
-
 -(void)searchCatalogAndShowResult{
     
         commonSectionArray=[[NSMutableArray alloc] init];
         accordionViewCommonArray =accordionViewDayArray;
         NSString *alertMessage=@"";
         //
+        // NSLog(@"Sortby%@",sortBy);
         if([sortBy hasPrefix:@"Topic"]){
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Title"
                                                                      andSearchValue:searchContent];
             alertMessage=@"No topic records found!";
 
-        }else{
+        }else   if([sortBy hasPrefix:@"Speaker"]){
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Speaker"
                                                                          andSearchValue:searchContent];
             alertMessage=@"No speaker records found!";
 
+        }else   if([sortBy hasPrefix:@"Stage"]){
+            searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Agile_Stage"
+                                                                         andSearchValue:searchContent];
+            alertMessage=@"No records found for given stage!";
+            
         }
         if([searchDataDictionary count]==0){
             commonSectionArray=nil;
@@ -153,8 +145,6 @@
     }
     
     NSMutableDictionary *eventDict=[commonRowArray1 objectAtIndex:indexPath.row];
-
-    
     [delegate tableView:tableView didSelectRowAtIndexPath:indexPath withDict:eventDict];
 }
 
@@ -168,8 +158,6 @@
         NSMutableArray *array1=[trackDict objectForKey:key];
         [commonRowArray1 addObjectsFromArray:array1];
     }
-
-    
     NSMutableDictionary *eventDict=[commonRowArray1 objectAtIndex:indexPath.row];
     
     if([[eventDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"])
@@ -185,19 +173,11 @@
 }
 
 
-/*
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-    return @"17th Feb";
-    
-}*/
-
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"ACEventsListHeaderView" owner:self options:nil];
         // assuming the view is the only top-level object in the nib file (besides File's Owner and First Responder)
-    ACLog(@"nibObjects %@", nibObjects);
+    //ACLog(@"nibObjects %@", nibObjects);
     
     for (id object in nibObjects) {
         if ([object isKindOfClass:[ACEventsListHeaderView class]]){
@@ -228,26 +208,22 @@
 - (void)eventsListHeaderButtonTapped : (id)sender inView : (ACEventsListHeaderView *)headerView{
     
        
-    ACLog(@"eventsListHeaderButtonTapped %d",headerView);
+   // ACLog(@"eventsListHeaderButtonTapped %d",headerView);
     if([[headerView headerAccesoryImage] tag]==1111){
         
         [[headerView headerAccesoryImage] setImage:[UIImage imageNamed:@"A_5@2x.png"]];
         [[headerView headerAccesoryImage] setTag:2222];
         [accordionViewCommonArray replaceObjectAtIndex:[sender tag] withObject:@"1"];
-        NSIndexSet *indicies = [NSIndexSet indexSetWithIndex:[sender tag]];
-        
-        [searchResultTableView beginUpdates];
-        [searchResultTableView reloadSections:indicies withRowAnimation:UITableViewRowAnimationAutomatic];
-        [searchResultTableView endUpdates];
+        [searchResultTableView reloadData];
     }else if([[headerView headerAccesoryImage] tag]==2222){
         
         [[headerView headerAccesoryImage] setImage:[UIImage imageNamed:@"A_1@2x.png"]];
         [[headerView headerAccesoryImage] setTag:1111];
         [accordionViewCommonArray replaceObjectAtIndex:[sender tag] withObject:@"0"];
-        NSIndexSet *indicies = [NSIndexSet indexSetWithIndex:[sender tag]];
-        [searchResultTableView beginUpdates];
-        [searchResultTableView reloadSections:indicies withRowAnimation:UITableViewRowAnimationAutomatic];
-        [searchResultTableView endUpdates];
+        //NSIndexSet *indicies = [NSIndexSet indexSetWithIndex:[sender tag]];
+        //[searchResultTableView beginUpdates];
+        [searchResultTableView reloadData];
+        //[searchResultTableView endUpdates];
     }
 
 }
@@ -267,7 +243,7 @@
 }
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope{
     
-    ACLog(@">>>>>>%i", selectedScope);
+    //ACLog(@">>>>>>%i", selectedScope);
     searchContent=[searchBar text];
     switch (selectedScope) {
         case 0:{
@@ -277,8 +253,11 @@
             break;
         case 1:{
             sortBy=@"Speaker";
+            break;
         }
-
+        case 2:{
+            sortBy=@"Stage";
+        }
             break;
         default:
             break;
@@ -293,7 +272,7 @@
         
     }else{
         //[searchBar setSelectedScopeButtonIndex:];
-        [ViewUtility showAlertViewWithMessage:@"Please enter the Topic/Speaker in search field"];
+        [ViewUtility showAlertViewWithMessage:@"Please enter the Topic or Speaker/Stage in search field"];
         
     }
 
@@ -301,6 +280,7 @@
 }
 
 -(void)cleanSearchView{
+    
     commonSectionArray=nil;
     [searchResultTableView reloadData];
 }
