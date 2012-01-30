@@ -45,10 +45,15 @@
             alertMessage=@"No records found for given stage.";
             
         }
+    
+
         if([searchDataDictionary count]==0){
             commonSectionArray=nil;
-            [ViewUtility showAlertViewWithMessage:alertMessage];
+            [(UILabel *)[self viewWithTag:12345] setHidden:NO];
+            //[ViewUtility showAlertViewWithMessage:alertMessage];
         }else{
+            
+            [(UILabel *)[self viewWithTag:12345] setHidden:YES];
             [commonSectionArray addObjectsFromArray:[CommonUtility getSortedArrayByAlphabet:[searchDataDictionary allKeys]]];
         }
         [searchResultTableView reloadData];
@@ -56,6 +61,9 @@
 //
 -(void)layoutSubviews
 {
+    [(UILabel *)[self viewWithTag:12345] setFont:[CommonUtility fontSegoiBold:16]];
+    [(UILabel *)[self viewWithTag:12345] setHidden:YES];
+
     reloadHeaderNeeded = YES;
     accordionViewDayArray = [[NSMutableArray alloc] initWithObjects:@"1",@"0",@"0",nil];
     accordionViewTrackArray = [[NSMutableArray alloc] initWithObjects:@"1",@"0",@"0",@"0",@"0",@"0",@"0",nil];
@@ -272,11 +280,32 @@
         
     }else{
         //[searchBar setSelectedScopeButtonIndex:];
+
         [ViewUtility showAlertViewWithMessage:@"Please provide the Topic/Speaker/Stage name in search field"];
         
     }
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    searchContent=[[searchBar text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if([searchContent length]==0){
+        [self cleanSearchView];  
+    }else if([searchContent length]>0){
+        [self searchCatalogAndShowResult];    
+    }
 
+}// called when text ends editing
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
+// called when text changes (including clear)
+    
+    searchContent=[[searchBar text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if([searchContent length]==0){
+        [self cleanSearchView];  
+    }else if([searchContent length]>0){
+        [self searchCatalogAndShowResult];    
+        
+    }
 }
 
 -(void)cleanSearchView{
