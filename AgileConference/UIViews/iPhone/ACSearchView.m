@@ -32,17 +32,17 @@
         if([sortBy hasPrefix:@"Topic"]){
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Title"
                                                                      andSearchValue:searchContent];
-            alertMessage=@"No topic records found!";
+            alertMessage=@"No topic records found.";
 
         }else   if([sortBy hasPrefix:@"Speaker"]){
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Speaker"
                                                                          andSearchValue:searchContent];
-            alertMessage=@"No speaker records found!";
+            alertMessage=@"No speaker records found.";
 
         }else   if([sortBy hasPrefix:@"Stage"]){
             searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Agile_Stage"
                                                                          andSearchValue:searchContent];
-            alertMessage=@"No records found for given stage!";
+            alertMessage=@"No records found for given stage.";
             
         }
         if([searchDataDictionary count]==0){
@@ -272,7 +272,7 @@
         
     }else{
         //[searchBar setSelectedScopeButtonIndex:];
-        [ViewUtility showAlertViewWithMessage:@"Please enter the Topic or Speaker/Stage in search field"];
+        [ViewUtility showAlertViewWithMessage:@"Please provide the Topic/Speaker/Stage name in search field"];
         
     }
 
