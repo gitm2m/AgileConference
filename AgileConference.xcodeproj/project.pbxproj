@@ -46,7 +46,6 @@
 		385F83D314CEB1580091225E /* day3.png in Resources */ = {isa = PBXBuildFile; fileRef = 385F83CD14CEB1580091225E /* day3.png */; };
 		385F83D414CEB1580091225E /* day3Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 385F83CE14CEB1580091225E /* day3Sel.png */; };
 		385F83DD14CEE7F50091225E /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385F83DC14CEE7F40091225E /* EventKit.framework */; };
-		385F83DF14CEEA460091225E /* 1265719291498412564.png in Resources */ = {isa = PBXBuildFile; fileRef = 385F83DE14CEEA460091225E /* 1265719291498412564.png */; };
 		3878300714B723530007133B /* ACSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3878300614B723530007133B /* ACSplashView.m */; };
 		3878300914B723740007133B /* ACSplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3878300814B723730007133B /* ACSplashView.xib */; };
 		3886425014ADCF33005B520D /* ACAppController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3886424F14ADCF33005B520D /* ACAppController_iPhone.xib */; };
@@ -260,7 +259,6 @@
 		385F83CD14CEB1580091225E /* day3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day3.png; sourceTree = "<group>"; };
 		385F83CE14CEB1580091225E /* day3Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day3Sel.png; sourceTree = "<group>"; };
 		385F83DC14CEE7F40091225E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		385F83DE14CEEA460091225E /* 1265719291498412564.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1265719291498412564.png; sourceTree = "<group>"; };
 		3878300514B723520007133B /* ACSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSplashView.h; sourceTree = "<group>"; };
 		3878300614B723530007133B /* ACSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSplashView.m; sourceTree = "<group>"; };
 		3878300814B723730007133B /* ACSplashView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACSplashView.xib; sourceTree = "<group>"; };
@@ -730,7 +728,6 @@
 		38F9B4BF14B42CB800696426 /* EventDetailScreenImages */ = {
 			isa = PBXGroup;
 			children = (
-				385F83DE14CEEA460091225E /* 1265719291498412564.png */,
 				3834162714CCD85800DBE51A /* sepIcon.png */,
 				38CB89F514D2C57E00247C73 /* addToCalendar.png */,
 				384D9A2814C408BC001D0DC9 /* kermit_full.png */,
@@ -1334,7 +1331,6 @@
 				385F83D114CEB1580091225E /* day2.png in Resources */,
 				385F83D314CEB1580091225E /* day3.png in Resources */,
 				385F83D414CEB1580091225E /* day3Sel.png in Resources */,
-				385F83DF14CEEA460091225E /* 1265719291498412564.png in Resources */,
 				38D5A35E14D008F4002C9AB4 /* Catalog.plist in Resources */,
 				38CB89F614D2C57E00247C73 /* addToCalendar.png in Resources */,
 			);

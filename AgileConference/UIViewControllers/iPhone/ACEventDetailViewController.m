@@ -136,7 +136,7 @@
         [topicSummaryView  setText:@"No information available."];
     }
     
-    if([topicDict valueForKey:kTopicSpeakerSummary])
+    if([[topicDict valueForKey:kTopicSpeakerSummary]isEqualToString:@"N/A" ])
         [SpeakerSummaryView setText:@"No information available."];
     
         //[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(animateScrollIndicators) userInfo:nil repeats:YES];

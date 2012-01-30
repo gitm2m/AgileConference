@@ -99,7 +99,7 @@
         
         [favButton setImage:[UIImage imageNamed:@"EmptyFavourites Icon.png"] forState:UIControlStateNormal];
         [self performSelector:@selector(changeFavBackgrounImageByDelay:) withObject:@"NO" afterDelay:0.2];
-        [ViewUtility showAlertViewWithMessage:@"Event has been removed from your favorite list."];
+            //[ViewUtility showAlertViewWithMessage:@"Event has been removed from your favorite list."];
         
     }
 }
