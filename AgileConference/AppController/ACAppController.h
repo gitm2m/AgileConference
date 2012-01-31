@@ -26,8 +26,9 @@
 #import "ACSplashView.h"
 #import "TestUtility.h"
 #import "ACMatrixCatalogView.h"
+#import "GCCalendar.h"
 
-@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate,ACSplashViewDelegate,CLLocationManagerDelegate>{
+@interface ACAppController : ACCustomRootViewController<FlowCoverViewDelegate,PopoverControllerDelegate,ACSearchViewDelegate,ACTracksEventsListViewControllerDelegate,UIActionSheetDelegate,ACOrganizerViewDelegate,UIWebViewDelegate,ACFacebookShareViewDelegate,ACSplashViewDelegate,CLLocationManagerDelegate,GCCalendarDelegate,GCCalendarDataSource>{
     
     FlowCoverView *tracksCoverView;
     NSArray *tracksCoverFlowImgsArray;
@@ -48,6 +49,11 @@
     BOOL isFBLoginFirtTime,didFinishedPostingOnWall;
     UIButton *organizerButtn;
     CLLocationManager *locationManager;
+    GCCalendarPortraitView *calendar ;
+    UIScrollView *tracksScrollView;
+    NSDate *selectedDateFromCalendarView;
+    NSMutableArray *topicArray;
+    BOOL isCoverFlowView;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
@@ -81,4 +87,6 @@
 - (void)changeNavigationViewBydelayWithName : (NSString*)navigationName;
 - (void)fbGraphCallback:(id)sender;
 - (void)getDirectionWithLatitude : (CLLocation *)location;
+- (void)calendarTrackButtonTapped : (id)sender;
+- (void)delayTrckScrollViewAnimate ;
 @end
