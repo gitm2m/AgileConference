@@ -23,6 +23,7 @@
 - (id)init {
 	if(self = [super init]) {
         
+        self.frame = CGRectMake(0, 0, 320,33);
 		self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"GCDatePickerControlBackground.png"]];
 		
 		// left button
@@ -75,7 +76,7 @@
 
 #pragma mark view notifications
 - (CGSize)sizeThatFits:(CGSize)size {
-	return CGSizeMake(size.width, 45.0f);
+	return CGSizeMake(size.width, 33.0f);
 }
 - (void)layoutSubviews {
 #define kButtonWidth 40
@@ -83,13 +84,13 @@
 	
 	CGRect tempFrame;
 	
-	tempFrame = CGRectMake(0, 0, kButtonWidth, 45);
+	tempFrame = CGRectMake(0, 0, kButtonWidth, 33);
 	backButton.frame = tempFrame;
 	
-	tempFrame = CGRectMake(self.frame.size.width - kButtonWidth, 0, kButtonWidth, 45);
+	tempFrame = CGRectMake(self.frame.size.width - kButtonWidth, 0, kButtonWidth, 33);
 	forwardButton.frame = tempFrame;
 	
-	tempFrame = CGRectMake(kButtonWidth, 0, self.frame.size.width - (kButtonWidth * 2), 45);
+	tempFrame = CGRectMake(kButtonWidth+3, -6, self.frame.size.width - (kButtonWidth * 2), 45);
 	titleLabel.frame = tempFrame;
 }
 
@@ -118,9 +119,10 @@
 							[monthStrings objectAtIndex:month - 1],
 							day, year];
 	titleLabel.text = toDisplay;
+    [titleLabel setFont:[CommonUtility fontSegoiBold:13]];
 }
 - (void)setFrame:(CGRect)newFrame {
-	newFrame.size.height = 45;
+	newFrame.size.height = 33;
 	super.frame = newFrame;
 	
 	[self setNeedsLayout];
@@ -147,6 +149,7 @@
 	if(sender == backButton) {
 		NSDate *newDate = [[NSDate alloc] initWithTimeInterval:-kSecondsInDay sinceDate:date];
 		self.date = newDate;
+        
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
         [dateFormatter setDateFormat:@"dd-MM-yyyy"];

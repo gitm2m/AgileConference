@@ -116,7 +116,7 @@
 	[super loadView];
 	
 	self.date = [[NSUserDefaults standardUserDefaults] objectForKey:@"GCCalendarDate"];
-	if (date == nil) {
+        //if (date == nil) {
         
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
@@ -125,12 +125,12 @@
 		
         
         self.date = outDate;//[NSDate date];
-	}
+                            //}
 	
 	// setup day picker
 	dayPicker = [[GCDatePickerControl alloc] init];
-	dayPicker.frame = CGRectMake(0, 0, self.view.frame.size.width, 0);
-	dayPicker.autoresizingMask = UIViewAutoresizingNone;
+	dayPicker.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - dayPicker.frame.size.height);
+        //dayPicker.autoresizingMask = UIViewAutoresizingNone;
 	dayPicker.date = date;
 	[dayPicker addTarget:self action:@selector(datePickerDidChangeDate:) forControlEvents:UIControlEventValueChanged];
 	[self.view addSubview:dayPicker];
@@ -143,7 +143,7 @@
         //   self.view.frame.size.height - dayPicker.frame.size.height);
     
     dayView.frame = CGRectMake(0,
-							   44,
+							   33,
 							   self.view.frame.size.width,
 							   385);
 	dayView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);

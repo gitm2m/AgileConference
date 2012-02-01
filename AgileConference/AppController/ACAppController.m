@@ -22,6 +22,7 @@
 @synthesize segmentBtn1;
 @synthesize segmentBtn2;
 @synthesize segmentBtn3;
+@synthesize switchMenuViewButton;
 
 
 @synthesize infoButton;
@@ -84,6 +85,7 @@
     [self setSegmentBtn1:nil];
     [self setSegmentBtn2:nil];
     [self setSegmentBtn3:nil];
+    [self setSwitchMenuViewButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -119,7 +121,6 @@
 
 #pragma mark - Views Methods
 
-
 - (void) setupView{
     
     
@@ -138,6 +139,7 @@
     [self.view addSubview:organizerButtn];
     
     [self.view insertSubview:aboutButton aboveSubview:organizerButtn];
+    [self.view insertSubview:switchMenuViewButton aboveSubview:organizerButtn];
 
        
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
@@ -160,7 +162,7 @@
     self.navigationItem.leftBarButtonItem = nil;
 
 
-    tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,-11, 308, 250)];
+    tracksCoverView = [[FlowCoverView alloc] initWithFrame:CGRectMake(6,-17, 308, 250)];
     [tracksCoverView  setBackgroundColor:[UIColor clearColor]];
     [[tracksCoverView layer] setCornerRadius : 5.0f];
     [tracksCoverView setDelegate:self];
@@ -229,7 +231,7 @@
     [self setupViewsFromNib];
     
     
-    tracksScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0,379,556,50)];
+    tracksScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0,370,556,50)];
     [tracksScrollView setBackgroundColor:[UIColor clearColor]];
     [tracksScrollView setShowsHorizontalScrollIndicator:NO];
     [tracksScrollView setShowsVerticalScrollIndicator:NO];
@@ -485,6 +487,67 @@
 
 #pragma mark - Events Methods
 
+- (IBAction)switchMenuViewButtonTapped:(id)sender {
+      
+    if ([sender tag]==9876) {
+        [sender setTag:6789];
+    
+        tracksScrollView.hidden = NO;
+        isCoverFlowView = NO;
+        if (!calendar) {
+            calendar = [[GCCalendarPortraitView alloc] init];
+            calendar.dataSource = self;
+            calendar.delegate = self;
+            
+                //calendar.view.hidden = YES;
+            [self.view addSubview:calendar.view];
+            [self.view insertSubview:organizerButtn aboveSubview:calendar.view];
+            [self.view insertSubview:organizerView aboveSubview:calendar.view];
+            [self.view insertSubview:aboutButton aboveSubview:organizerButtn];
+            [self.view insertSubview:tracksScrollView aboveSubview:calendar.view];
+            [self.view insertSubview:switchMenuViewButton aboveSubview:organizerButtn];
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.3];
+            [calendar.view setAlpha:1.0];
+            [homeCoverViewHolderView setAlpha:0.0];
+            [UIView commitAnimations];
+                //calendar.view.hidden = NO;
+                //homeCoverViewHolderView.hidden = YES;
+            return;
+        }
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.3];
+        [calendar.view setAlpha:1.0];
+        [homeCoverViewHolderView setAlpha:0.0];
+            //[tracksScrollView setAlpha:1.0];
+        [UIView commitAnimations];
+
+
+    
+    }else if ([sender tag]==6789){
+        [sender setTag:9876];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.3];
+        [calendar.view setAlpha:0.0];
+        [homeCoverViewHolderView setAlpha:1.0];
+            //[tracksScrollView setAlpha:0.0];
+        [UIView commitAnimations];
+
+            // calendar.view.hidden = YES;
+            // homeCoverViewHolderView.hidden = NO;
+        tracksScrollView.hidden = YES;
+        isCoverFlowView = YES;
+        return;
+
+      
+    }
+
+
+}
+
+
 - (void)calendarTrackButtonTapped : (id)sender{
     
      NSString *trackSelected=[NSString stringWithFormat:@"Track%d",[sender tag]+1];
@@ -592,15 +655,8 @@
 }
  
 -(void)leftBarButtonClicked : (id)sender{
-    
-    NSString *string = nil;
-    
-    if (homeCoverViewHolderView.isHidden == YES)
-        string = @"Switch to cover view";
-    else
-        string = @"Switch to calendar view";
-    
-    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"Road Assistance",@"About Valtech",string, nil];
+       
+    UIActionSheet *shareActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share via Facebook",@"Share via Twitter",@"Write Feedback",@"Road Assistance",@"About Valtech", nil];
     shareActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     shareActionSheet.delegate = self;
     [shareActionSheet showInView:self.view];
@@ -645,6 +701,7 @@
         [UIView commitAnimations];
         
         [aboutButton setHidden:YES];
+        [switchMenuViewButton setHidden:YES];
         
         [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Search" afterDelay:0.1];
         
@@ -685,6 +742,7 @@
         [UIView commitAnimations];
         
         [aboutButton setHidden:NO];
+        [switchMenuViewButton setHidden:NO];
         [self performSelector:@selector(changeNavigationViewBydelayWithName:) withObject:@"Home" afterDelay:0.1];
         
     }
@@ -726,6 +784,7 @@
         [UIView commitAnimations];
         
         [aboutButton setHidden:YES];
+        [switchMenuViewButton setHidden:YES];
 
     }else if(organizerButtn.frame.origin.y == 44){
         
@@ -738,6 +797,7 @@
         [UIView commitAnimations];
         
         [aboutButton setHidden:NO];
+        [switchMenuViewButton setHidden:NO];
         
     }
     
@@ -937,37 +997,6 @@
         
                 
        
-    }else if(buttonIndex == 5){
-        
-    
-        if (homeCoverViewHolderView.isHidden == YES) {
-            calendar.view.hidden = YES;
-            homeCoverViewHolderView.hidden = NO;
-            tracksScrollView.hidden = YES;
-            isCoverFlowView = YES;
-            return;
-        }else if(homeCoverViewHolderView.isHidden == NO){
-            tracksScrollView.hidden = NO;
-            isCoverFlowView = NO;
-            if (!calendar) {
-                calendar = [[GCCalendarPortraitView alloc] init];
-                calendar.dataSource = self;
-                calendar.delegate = self;
-                calendar.view.hidden = YES;
-                [self.view addSubview:calendar.view];
-                [self.view insertSubview:organizerButtn aboveSubview:calendar.view];
-                [self.view insertSubview:organizerView aboveSubview:calendar.view];
-                [self.view insertSubview:aboutButton aboveSubview:organizerButtn];
-                [self.view insertSubview:tracksScrollView aboveSubview:calendar.view];
-                
-                calendar.view.hidden = NO;
-                homeCoverViewHolderView.hidden = YES;
-                return;
-            }
-            calendar.view.hidden = NO;
-            homeCoverViewHolderView.hidden = YES;
-
-        }
     }
 }
 
@@ -1019,7 +1048,7 @@
             event.eventTag = i;
             event.eventType = [[topicArray objectAtIndex:i] valueForKey:kTopicType];
             
-            event.eventName = [[topicArray objectAtIndex:i] valueForKey:kTopicTitle];
+            event.eventName = [[[topicArray objectAtIndex:i] valueForKey:kTopicTitle] capitalizedString];
                 //event.eventDescription = [[topicArray objectAtIndex:i] valueForKey:kTopicSpeaker];
                        
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
