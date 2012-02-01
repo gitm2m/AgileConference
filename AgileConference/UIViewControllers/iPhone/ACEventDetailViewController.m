@@ -13,6 +13,7 @@
 
 @implementation ACEventDetailViewController
 @synthesize addRemoveFavsButton;
+@synthesize addToiCalButton;
 @synthesize topicDescriptionLinkTextView,delegate,isNavigatedFromOrganizerView;
 
 
@@ -140,6 +141,36 @@
         [SpeakerSummaryView setText:@"No information available."];
     
         //[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(animateScrollIndicators) userInfo:nil repeats:YES];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+
+    NSString *timeAMPM=[CommonUtility convertDateToAMPMFormat:[topicDict objectForKey:kTopicTime]];
+    switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
+        case -1:{
+                //[topicArray addObject:topicDict];
+            [addToiCalButton setEnabled:NO];
+            
+        }
+            break;
+            
+        case 0:{
+            [addToiCalButton setEnabled:NO];
+            
+        }
+            break;
+            
+        case 1:{
+            
+            [addToiCalButton setEnabled:YES];
+        }
+            
+            break;
+            
+            
+        default:
+            break;
+    }    
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -163,6 +194,7 @@
     speakerHeaderLabel = nil;
     viewTopicSummaryButton = nil;
     viewSpeakerSummaryButton = nil;
+    [self setAddToiCalButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
