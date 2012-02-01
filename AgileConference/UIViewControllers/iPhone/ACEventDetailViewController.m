@@ -337,17 +337,17 @@
 
                 TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
                 
-                if ([[topicDict valueForKey:kTopicTitle] length]>0 &&[[topicDict valueForKey:kTopicTitle] length]<=120) {
-                    [twitter setInitialText:[NSString stringWithFormat:shareFormatSrtring,[topicDict valueForKey:kTopicTitle]]];
-                }else{
-                    [twitter setInitialText:@"Write your share message here..!!"];
-                }
-        
-            
-                if([[topicDict valueForKey:kTopicLink] length] > 0){
+                NSString *shareString = [NSString stringWithFormat:shareFormatSrtring,[topicDict valueForKey:kTopicLink]];
                 
-                    [twitter addURL:[NSURL URLWithString:[topicDict valueForKey:kTopicLink]]];
+                ACLog(@"[shareString length] %d", [shareString length]);
+                if ([shareString length] > 0 && [shareString length]<=140) {
+                    [twitter setInitialText:shareString];
+                    
+                }else{
+                    [twitter setInitialText:[topicDict valueForKey:kTopicLink]];
                 }
+            
+               
             
                 [twitter addImage:[UIImage imageNamed:@"twitter.png"]];
         
@@ -467,7 +467,7 @@
     
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
     
-    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    NSString *string = [[NSString alloc] initWithFormat:@"%@",[[fbShareView fbShareTextView]text]];
     
     [variables setObject:string forKey:@"message"];
         //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
@@ -486,6 +486,7 @@
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
     NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
     NSLog(@"Now log into Facebook and look at your profile...");
+    [ViewUtility showAlertViewWithMessage:@"Your comment got posted on your facebook wall successfully."];
     
     didFinishedPostingOnWall = YES;
     [self postFacebookFeedOnPage];
@@ -496,7 +497,7 @@
 - (void)postFacebookFeedOnPage{
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
     
-    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    NSString *string = [[NSString alloc] initWithFormat:@"%@",[[fbShareView fbShareTextView]text]];
     
     [variables setObject:string forKey:@"message"];
         //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
