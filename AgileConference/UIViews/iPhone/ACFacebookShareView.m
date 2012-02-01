@@ -53,7 +53,7 @@
         }
 
     }else{
-        [fbShareTextView setText:@"Agile 2012 \nhttp://agile2012.in/"];
+        [fbShareTextView setText:@"Agile 2012 \nhttp://agile2012.in/ - Posted via Valtech's Agile2012 iPhone app."];
     }
     
    

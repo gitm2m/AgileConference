@@ -848,30 +848,30 @@
         if (NSClassFromString(@"TWTweetComposeViewController")) {
                        
             TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc]init];
-            [twitter setInitialText:@"Agile 2012"];
+            [twitter setInitialText:@"Agile 2012 \nhttp://agile2012.in/ - Posted via Valtech's Agile2012 iPhone app"];
                 //[twitter addImage:[UIImage imageNamed:@"bg_moderator_notes1.png"]];
             
-            [twitter addURL:[NSURL URLWithString:@"http://agile2012.in/"]];
+                //[twitter addURL:[NSURL URLWithString:@"http://agile2012.in/"]];
             
             [self presentViewController:twitter animated:YES completion:nil];
             
             twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
                 
                 if(res == TWTweetComposeViewControllerResultDone)
-                    {
+                {
                     
                     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Succes!" message:@"Your Tweet was posted succesfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     
                     [alertView show];
                     
-                    }else if(res == TWTweetComposeViewControllerResultCancelled)
-                        {
+                }else if(res == TWTweetComposeViewControllerResultCancelled)
+                {
                         
                             // UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your Tweet was not posted" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                         
                             //  [alertView show];
                         
-                        }
+                }
                 
                 [self dismissModalViewControllerAnimated:YES];
                 
@@ -1206,7 +1206,7 @@
     
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
     
-    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's Agile2012 iPhone app",[[fbShareView fbShareTextView]text]];
     
     [variables setObject:string forKey:@"message"];
         //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
@@ -1220,11 +1220,12 @@
     SBJSON *parser = [[SBJSON alloc] init];
     NSDictionary *facebook_response = [parser objectWithString:fb_graph_response.htmlResponse error:nil];	
     
-    
+    ACLog(@"facebook_response %@", facebook_response);
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
     NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
     NSLog(@"Now log into Facebook and look at your profile...");
+    [ViewUtility showAlertViewWithMessage:@"Your comment got posted on your facebook wall successfully."];
     
     didFinishedPostingOnWall = YES;
     [self postFacebookFeedOnPage];
@@ -1234,7 +1235,7 @@
 - (void)postFacebookFeedOnPage{
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
     
-    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's AgileConference2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's Agile2012 iPhone app",[[fbShareView fbShareTextView]text]];
     
     [variables setObject:string forKey:@"message"];
         //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
