@@ -1497,7 +1497,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1513,6 +1513,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AgileConference/AgileConference-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AgileConferenceTests/AgileConferenceTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
