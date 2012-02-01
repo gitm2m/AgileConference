@@ -36,6 +36,7 @@
 		384D9A2314C404D1001D0DC9 /* ACRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D9A2214C404D1001D0DC9 /* ACRateView.m */; };
 		384D9A2714C404FD001D0DC9 /* kermit_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A2514C404FD001D0DC9 /* kermit_empty.png */; };
 		384D9A2914C408BC001D0DC9 /* kermit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A2814C408BC001D0DC9 /* kermit_full.png */; };
+		3853426014D9683F0013D4C2 /* cover_flow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3853425F14D9683E0013D4C2 /* cover_flow.png */; };
 		3858C70A14AC9FA200C19AA5 /* ACSearchPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */; };
 		3858C70B14AC9FA200C19AA5 /* ACSearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */; };
 		385F83C614CEAEDB0091225E /* arrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 385F83C414CEAEDB0091225E /* arrowUp.png */; };
@@ -268,6 +269,7 @@
 		384D9A2214C404D1001D0DC9 /* ACRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRateView.m; sourceTree = "<group>"; };
 		384D9A2514C404FD001D0DC9 /* kermit_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_empty.png; sourceTree = "<group>"; };
 		384D9A2814C408BC001D0DC9 /* kermit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_full.png; sourceTree = "<group>"; };
+		3853425F14D9683E0013D4C2 /* cover_flow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover_flow.png; sourceTree = "<group>"; };
 		3858C70714AC9FA100C19AA5 /* ACSearchPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSearchPopoverViewController.h; sourceTree = "<group>"; };
 		3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSearchPopoverViewController.m; sourceTree = "<group>"; };
 		3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACSearchPopoverViewController.xib; sourceTree = "<group>"; };
@@ -1016,6 +1018,7 @@
 				3847DBE414BC79AF00A8D542 /* agile.png */,
 				385F83C414CEAEDB0091225E /* arrowUp.png */,
 				385F83C514CEAEDB0091225E /* arrowDwn.png */,
+				3853425F14D9683E0013D4C2 /* cover_flow.png */,
 				381A5C9C14BD622000B0E25C /* Valtech_Logo.png */,
 				6A42708414AC71E800F91472 /* CoverFlowImages */,
 			);
@@ -1433,6 +1436,7 @@
 				38D3DE9114D6D84A0084776C /* GCDatePickerControlBackground.png in Resources */,
 				38D3DE9214D6D84A0084776C /* GCDatePickerControlLeft.png in Resources */,
 				38D3DE9314D6D84A0084776C /* GCDatePickerControlRight.png in Resources */,
+				3853426014D9683F0013D4C2 /* cover_flow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

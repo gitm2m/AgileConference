@@ -494,6 +494,7 @@
     
         tracksScrollView.hidden = NO;
         isCoverFlowView = NO;
+        [switchMenuViewButton setImage:[UIImage imageNamed:@"cover_flow.png"] forState:UIControlStateNormal];
         if (!calendar) {
             calendar = [[GCCalendarPortraitView alloc] init];
             calendar.dataSource = self;
@@ -527,6 +528,8 @@
     
     }else if ([sender tag]==6789){
         [sender setTag:9876];
+        
+        [switchMenuViewButton setImage:[UIImage imageNamed:@"Calendar.png"] forState:UIControlStateNormal];
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.3];
