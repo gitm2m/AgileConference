@@ -1045,13 +1045,13 @@
             [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
             [dateFormatter setDateFormat:@"HH"];
             
-            startTime = [[dateFormatter stringFromDate:[CommonUtility ripEndDate:[topicArray objectAtIndex:i]]] intValue];
+            startTime = [[dateFormatter stringFromDate:[CommonUtility ripEndDateCalendarView:[topicArray objectAtIndex:i]]] intValue];
             [components setHour:startTime];
             
             [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
             [dateFormatter setDateFormat:@"mm"];
             ACLog(@"stringfromtime %@", [dateFormatter stringFromDate:[CommonUtility ripEndDate:[topicArray objectAtIndex:i]]]);
-            endTime = [[dateFormatter stringFromDate:[CommonUtility ripEndDate:[topicArray objectAtIndex:i]]] intValue];
+            endTime = [[dateFormatter stringFromDate:[CommonUtility ripEndDateCalendarView:[topicArray objectAtIndex:i]]] intValue];
             
             [components setMinute:endTime+30];
             
