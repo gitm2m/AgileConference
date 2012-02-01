@@ -333,6 +333,8 @@ static NSArray *timeStrings;
 	scrollView.contentSize = CGSizeMake(self.frame.size.width, 1078);
 	scrollView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [scrollView setContentOffset:CGPointMake(0,400)];
+    UIEdgeInsets edgeInsets = {-360,-2,-279,-2};
+    scrollView.contentInset = edgeInsets;
 	[self addSubview:scrollView];
 	
 	// create today view
