@@ -100,10 +100,15 @@
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
     self.navigationItem.rightBarButtonItem = shareButton;
-    [topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
-    [SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeakerSummary]];
+
+    [topicSummaryView  setText:[NSString stringWithFormat:@"%@ : \n%@",[[topicDict objectForKey:kTopicTitle]uppercaseString],[topicDict objectForKey:kTopicSummary]]];
+    [SpeakerSummaryView setText:[NSString stringWithFormat:@"%@ : \n%@",[[topicDict objectForKey:kTopicSpeaker]uppercaseString],[topicDict objectForKey:kTopicSpeakerSummary]]];
     [viewTopicSummaryButton setTitle:[topicDict objectForKey:kTopicLink] forState:UIControlStateReserved];
-    [viewSpeakerSummaryButton setTitle:[topicDict objectForKey:kTopicSpeakerLink] forState:UIControlStateReserved];
+    NSString *speakerLink=[topicDict objectForKey:kTopicSpeakerLink];
+    NSArray *speakerLinkArray=[speakerLink componentsSeparatedByString:@","];
+    speakerLink=[speakerLinkArray objectAtIndex:0];
+    speakerLink=[speakerLink stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [viewSpeakerSummaryButton setTitle:speakerLink forState:UIControlStateReserved];
 
     
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {
