@@ -36,7 +36,8 @@
 		384D9A2314C404D1001D0DC9 /* ACRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D9A2214C404D1001D0DC9 /* ACRateView.m */; };
 		384D9A2714C404FD001D0DC9 /* kermit_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A2514C404FD001D0DC9 /* kermit_empty.png */; };
 		384D9A2914C408BC001D0DC9 /* kermit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 384D9A2814C408BC001D0DC9 /* kermit_full.png */; };
-		3853426014D9683F0013D4C2 /* cover_flow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3853425F14D9683E0013D4C2 /* cover_flow.png */; };
+		3853426214D97CD90013D4C2 /* cover_flow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3853426114D97CD80013D4C2 /* cover_flow.png */; };
+		3853426414D97E530013D4C2 /* cover_flow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3853426314D97E520013D4C2 /* cover_flow.png */; };
 		3858C70A14AC9FA200C19AA5 /* ACSearchPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */; };
 		3858C70B14AC9FA200C19AA5 /* ACSearchPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */; };
 		385F83C614CEAEDB0091225E /* arrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 385F83C414CEAEDB0091225E /* arrowUp.png */; };
@@ -83,7 +84,6 @@
 		38C7C74414CD3F0600EB13AE /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73D14CD3F0600EB13AE /* seguisb.ttf */; };
 		38C7C74514CD3F0600EB13AE /* seguisym.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C7C73E14CD3F0600EB13AE /* seguisym.ttf */; };
 		38CB89F614D2C57E00247C73 /* addToCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CB89F514D2C57E00247C73 /* addToCalendar.png */; };
-		38D3DE8014D6D84A0084776C /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D3DE6214D6D84A0084776C /* Calendar.png */; };
 		38D3DE8114D6D84A0084776C /* CalendarBubbleBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D3DE6314D6D84A0084776C /* CalendarBubbleBlue.png */; };
 		38D3DE8214D6D84A0084776C /* CalendarBubbleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D3DE6414D6D84A0084776C /* CalendarBubbleGreen.png */; };
 		38D3DE8314D6D84A0084776C /* CalendarBubbleGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D3DE6514D6D84A0084776C /* CalendarBubbleGrey.png */; };
@@ -145,6 +145,7 @@
 		38F915C314B1B22100415109 /* ACEventsListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F915C214B1B22100415109 /* ACEventsListHeaderView.m */; };
 		38F9B4C614B42E4100696426 /* ACEventDescriptionWebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */; };
 		38F9B4C714B42E4100696426 /* ACEventDescriptionWebviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */; };
+		38FF5BA514DA601500BB4464 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FF5BA414DA601500BB4464 /* Calendar.png */; };
 		6A42701D14AC442B00F91472 /* TestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42701C14AC442B00F91472 /* TestUtility.m */; };
 		6A42702414AC48B800F91472 /* SqliteDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42702314AC48B800F91472 /* SqliteDBManager.m */; };
 		6A42702614AC4AA000F91472 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A42702514AC4AA000F91472 /* libsqlite3.0.dylib */; };
@@ -269,7 +270,8 @@
 		384D9A2214C404D1001D0DC9 /* ACRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRateView.m; sourceTree = "<group>"; };
 		384D9A2514C404FD001D0DC9 /* kermit_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_empty.png; sourceTree = "<group>"; };
 		384D9A2814C408BC001D0DC9 /* kermit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_full.png; sourceTree = "<group>"; };
-		3853425F14D9683E0013D4C2 /* cover_flow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover_flow.png; sourceTree = "<group>"; };
+		3853426114D97CD80013D4C2 /* cover_flow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover_flow.png; sourceTree = "<group>"; };
+		3853426314D97E520013D4C2 /* cover_flow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover_flow.png; sourceTree = "<group>"; };
 		3858C70714AC9FA100C19AA5 /* ACSearchPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSearchPopoverViewController.h; sourceTree = "<group>"; };
 		3858C70814AC9FA100C19AA5 /* ACSearchPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSearchPopoverViewController.m; sourceTree = "<group>"; };
 		3858C70914AC9FA100C19AA5 /* ACSearchPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACSearchPopoverViewController.xib; sourceTree = "<group>"; };
@@ -337,7 +339,6 @@
 		38C7C73D14CD3F0600EB13AE /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
 		38C7C73E14CD3F0600EB13AE /* seguisym.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisym.ttf; sourceTree = "<group>"; };
 		38CB89F514D2C57E00247C73 /* addToCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addToCalendar.png; sourceTree = "<group>"; };
-		38D3DE6214D6D84A0084776C /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
 		38D3DE6314D6D84A0084776C /* CalendarBubbleBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleBlue.png; sourceTree = "<group>"; };
 		38D3DE6414D6D84A0084776C /* CalendarBubbleGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleGreen.png; sourceTree = "<group>"; };
 		38D3DE6514D6D84A0084776C /* CalendarBubbleGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarBubbleGrey.png; sourceTree = "<group>"; };
@@ -417,6 +418,7 @@
 		38F9B4C314B42E4000696426 /* ACEventDescriptionWebviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDescriptionWebviewController.h; sourceTree = "<group>"; };
 		38F9B4C414B42E4100696426 /* ACEventDescriptionWebviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDescriptionWebviewController.m; sourceTree = "<group>"; };
 		38F9B4C514B42E4100696426 /* ACEventDescriptionWebviewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDescriptionWebviewController.xib; sourceTree = "<group>"; };
+		38FF5BA414DA601500BB4464 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
 		6A42701B14AC442B00F91472 /* TestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtility.h; sourceTree = "<group>"; };
 		6A42701C14AC442B00F91472 /* TestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtility.m; sourceTree = "<group>"; };
 		6A42702214AC48B800F91472 /* SqliteDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteDBManager.h; sourceTree = "<group>"; };
@@ -711,9 +713,10 @@
 		38D3DE6114D6D8490084776C /* GCCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				38D3DE6214D6D84A0084776C /* Calendar.png */,
 				38D3DE6314D6D84A0084776C /* CalendarBubbleBlue.png */,
+				3853426314D97E520013D4C2 /* cover_flow.png */,
 				38D3DE6414D6D84A0084776C /* CalendarBubbleGreen.png */,
+				38FF5BA414DA601500BB4464 /* Calendar.png */,
 				38D3DE6514D6D84A0084776C /* CalendarBubbleGrey.png */,
 				38D3DE6614D6D84A0084776C /* CalendarBubbleMagenta.png */,
 				38D3DE6714D6D84A0084776C /* CalendarBubbleOrange.png */,
@@ -1016,9 +1019,9 @@
 				38E9D06D14C7090600775CEE /* infoPanel.png */,
 				38E9D05B14C6E84C00775CEE /* Agile-Home.png */,
 				3847DBE414BC79AF00A8D542 /* agile.png */,
+				3853426114D97CD80013D4C2 /* cover_flow.png */,
 				385F83C414CEAEDB0091225E /* arrowUp.png */,
 				385F83C514CEAEDB0091225E /* arrowDwn.png */,
-				3853425F14D9683E0013D4C2 /* cover_flow.png */,
 				381A5C9C14BD622000B0E25C /* Valtech_Logo.png */,
 				6A42708414AC71E800F91472 /* CoverFlowImages */,
 			);
@@ -1423,7 +1426,6 @@
 				385F83D414CEB1580091225E /* day3Sel.png in Resources */,
 				38D5A35E14D008F4002C9AB4 /* Catalog.plist in Resources */,
 				38CB89F614D2C57E00247C73 /* addToCalendar.png in Resources */,
-				38D3DE8014D6D84A0084776C /* Calendar.png in Resources */,
 				38D3DE8114D6D84A0084776C /* CalendarBubbleBlue.png in Resources */,
 				38D3DE8214D6D84A0084776C /* CalendarBubbleGreen.png in Resources */,
 				38D3DE8314D6D84A0084776C /* CalendarBubbleGrey.png in Resources */,
@@ -1436,7 +1438,9 @@
 				38D3DE9114D6D84A0084776C /* GCDatePickerControlBackground.png in Resources */,
 				38D3DE9214D6D84A0084776C /* GCDatePickerControlLeft.png in Resources */,
 				38D3DE9314D6D84A0084776C /* GCDatePickerControlRight.png in Resources */,
-				3853426014D9683F0013D4C2 /* cover_flow.png in Resources */,
+				3853426214D97CD90013D4C2 /* cover_flow.png in Resources */,
+				3853426414D97E530013D4C2 /* cover_flow.png in Resources */,
+				38FF5BA514DA601500BB4464 /* Calendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
