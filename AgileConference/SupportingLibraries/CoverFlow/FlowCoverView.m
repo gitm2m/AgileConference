@@ -116,7 +116,7 @@ const GLshort GTextures[] = {
 	
     if(glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
 #if TARGET_IPHONE_SIMULATOR
-        NSLog(@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
+        //NSLog(@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
 #endif
         return NO;
     }
@@ -491,7 +491,7 @@ static void *GData = NULL;
 - (void)endAnimation
 {
     
-    NSLog(@"end animatioon....");
+    //NSLog(@"end animatioon....");
 	if (timer) {
 		int max = [self numTiles] - 1;
 		offset = floor(offset + 0.5);
@@ -501,7 +501,7 @@ static void *GData = NULL;
 		
 		[timer invalidate];
 		timer = nil;
-        NSLog(@"end animatioon..in timer condition..");
+        //NSLog(@"end animatioon..in timer condition..");
         [delegate didSelectSlide:max];
 	}
 }

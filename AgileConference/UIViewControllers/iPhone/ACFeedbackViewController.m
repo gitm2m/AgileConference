@@ -180,8 +180,8 @@
         return;
     }
         
-        //NSLog(@"feedbackTextView :%@",feedbackTextView.text);
-        //NSLog(@"ratingString:%@",ratingString);
+        ////NSLog(@"feedbackTextView :%@",feedbackTextView.text);
+        ////NSLog(@"ratingString:%@",ratingString);
 
        if([[feedbackTextView text] length]>0){
            

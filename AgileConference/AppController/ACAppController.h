@@ -54,6 +54,7 @@
     NSDate *selectedDateFromCalendarView;
     NSMutableArray *topicArray;
     BOOL isCoverFlowView;
+    IBOutlet UIButton *aboutValtechButton;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;

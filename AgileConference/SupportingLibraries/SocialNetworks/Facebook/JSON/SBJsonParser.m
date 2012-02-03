@@ -341,7 +341,7 @@ static char ctrl[0x22];
             return NO;
             
         } else {
-            //dbdNSLog(@"should not be able to get here");
+            //dbd//NSLog(@"should not be able to get here");
         }
     } while (*c);
     

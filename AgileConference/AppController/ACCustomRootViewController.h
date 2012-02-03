@@ -14,6 +14,7 @@
     ACAppDelegate *appDelegate;
     UIButton *leftBarButton,*rightBarButton;
     UILabel *headerLabel;
+    UIImageView *bgHeader;
     
 }
 
