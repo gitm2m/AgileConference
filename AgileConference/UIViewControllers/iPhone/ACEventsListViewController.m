@@ -58,6 +58,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [eventsListTableView flashScrollIndicators];
     [eventsListTableView reloadData];
     [super viewDidAppear:animated];
 }
@@ -65,7 +66,7 @@
 -(void)setupInitialView{
     
     
-    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
     [bgHeader setBackgroundColor:[UIColor clearColor]];
     [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
     [[self view] addSubview:bgHeader];

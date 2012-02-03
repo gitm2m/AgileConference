@@ -67,7 +67,7 @@
     
     if (_notSelectedImage == nil) return;
     
-    //NSLog(@"%f, %d, %d, %d", self.frame.size.width, _leftMargin, _midMargin, _imageViews.count);
+    NSLog(@"%f, %d, %d, %d", self.frame.size.width, _leftMargin, _midMargin, _imageViews.count);
         //float desiredImageWidth = (self.frame.size.width - (_leftMargin*2) - (_midMargin*_imageViews.count)) / _imageViews.count;
     float imageWidth = 30;// MAX(_minImageSize.width, desiredImageWidth);
     float imageHeight = 30;// MAX(_minImageSize.height, self.frame.size.height);

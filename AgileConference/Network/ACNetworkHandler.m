@@ -56,9 +56,9 @@
         [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
         [request setHTTPBody: jsonData];
     
-        ////NSLog(@"request : %@", request);
-        // //NSLog(@"request headers : %@", [request allHTTPHeaderFields]);
-        // //NSLog(@"request body : %@", [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding]);
+        //NSLog(@"request : %@", request);
+        // NSLog(@"request headers : %@", [request allHTTPHeaderFields]);
+        // NSLog(@"request body : %@", [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding]);
 
     
        
@@ -75,7 +75,7 @@
     
     [NSURLConnection connectionWithRequest:request  delegate:self];  
     
-	ACLog(@"requestURL %@",[request URL]);
+        //ACLog(@"requestURL %@",[request URL]);
 	/*
 	NSURLResponse *response = nil;
 	NSError *requestError = nil;	
@@ -96,8 +96,9 @@
     
     NSString *a = [[NSString alloc] initWithData:d encoding:NSASCIIStringEncoding];
     
-    //NSLog(@"Data: %@", [a JSONValue]);
-    [downloadDelegate networkHandler:self downloadDidComplete:[a JSONValue]];
+    NSLog(@"Data: %@", [a JSONValue]);
+    NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:[a JSONValue]];
+    [downloadDelegate networkHandler:self downloadDidComplete:dict];
 }
 
 

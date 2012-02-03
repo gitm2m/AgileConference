@@ -40,7 +40,7 @@
 -(void)setupInitialView{
     
     
-    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
     [bgHeader setBackgroundColor:[UIColor clearColor]];
     [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
     [[self view] addSubview:bgHeader];
@@ -180,8 +180,8 @@
         return;
     }
         
-        ////NSLog(@"feedbackTextView :%@",feedbackTextView.text);
-        ////NSLog(@"ratingString:%@",ratingString);
+        //NSLog(@"feedbackTextView :%@",feedbackTextView.text);
+        //NSLog(@"ratingString:%@",ratingString);
 
        if([[feedbackTextView text] length]>0){
            
@@ -245,7 +245,7 @@
     else
         [apiDict setValue:@"0.0" forKey:@"longitude"];
     
-    ACLog(@"apiDict %@", apiDict);
+    NSLog(@"apiDict %@", apiDict);
     
     ACNetworkHandler *networkHandler = [[ACNetworkHandler alloc] init];
     [networkHandler downloadHandler:apiDict context:nil delegate:self];
@@ -412,9 +412,10 @@
 
 -(void)networkHandler :(ACNetworkHandler*)networkHandler  downloadDidComplete: (id)serverResponse{
     
-    ACLog(@"serverResponse %@" , [[serverResponse valueForKey:@"status"] valueForKey:@"message"]);
+        // ACLog(@"serverResponse %@" , [[serverResponse valueForKey:@"status"] valueForKey:@"message"]);
+    NSDictionary *dict= [[NSDictionary alloc] initWithDictionary:serverResponse];
     
-    if ([[[serverResponse valueForKey:@"status"] valueForKey:@"message"] isEqualToString:@"Success"]) {
+    if ([[[dict valueForKey:@"status"] valueForKey:@"message"] isEqualToString:@"Success"]) {
         [ViewUtility showAlertViewWithMessage:@"Your feedback posted successfully."];
     }else{
         [ViewUtility showAlertViewWithMessage:@"Feedback post unsuccessful,Please try again later.Sorry for inconvinience."];

@@ -158,6 +158,13 @@
     //  action:@selector(today)];
         //self.navigationItem.leftBarButtonItem = button;
         //[button release];
+    
+    if (viewDirty) {
+		[self reloadDayAnimated:NO context:NULL];
+		viewDirty = NO;
+	}
+	
+	viewVisible = YES;
 }
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];

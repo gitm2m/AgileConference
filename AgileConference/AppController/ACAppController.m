@@ -465,7 +465,7 @@
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
 	
-    ////NSLog(@"Track didSelect selected:%i",image);
+    //NSLog(@"Track didSelect selected:%i",image);
 
    // 0,1,2,6,5,4,3
    // 1,2,3,4,5,6,7
@@ -601,12 +601,12 @@
                                                                    fromDate:selectedDateFromCalendarView];
     [components setSecond:0];
     
-        ////NSLog(@"topic array count %d",[topicArray count]);
+        //NSLog(@"topic array count %d",[topicArray count]);
     NSMutableArray *events = [NSMutableArray array];
     
     for (NSInteger i = 0; i < [topicArray count]; i++) {
         
-            // //NSLog(@"topic array count %d",i);
+            // NSLog(@"topic array count %d",i);
         
         GCCalendarEvent *event = [[GCCalendarEvent alloc] init];
         event.color = [[GCCalendar colors] objectAtIndex:1];
@@ -1044,7 +1044,7 @@
     
     selectedDateFromCalendarView = date;
     
-    //NSLog(@"date %@ %@",date,[NSDate date]);
+    NSLog(@"date %@ %@",date,[NSDate date]);
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
@@ -1071,12 +1071,12 @@
                                                                    fromDate:date];
     [components setSecond:0];
     
-    //NSLog(@"topic array count %d",[topicArray count]);
+    NSLog(@"topic array count %d",[topicArray count]);
      NSMutableArray *events = [NSMutableArray array];
     
     for (NSInteger i = 0; i < [topicArray count]; i++) {
         
-         //NSLog(@"topic array count %d",i);
+         NSLog(@"topic array count %d",i);
         
         if (![[[topicArray objectAtIndex:i] valueForKey:kTopicType] isEqualToString:@"BREAK"]) {
             
@@ -1201,7 +1201,7 @@
         [ViewUtility showAlertViewWithMessage:[NSString stringWithFormat:@"%@ \n %@",[[topicArray objectAtIndex:event.eventTag] objectForKey:kTopicTitle],[[topicArray objectAtIndex:event.eventTag] objectForKey:kTopicTime]]];
         return;
     }
-    //NSLog(@"Touch event %@", event.eventName);
+    NSLog(@"Touch event %@", event.eventName);
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:[topicArray objectAtIndex:event.eventTag]];
     [detailViewController setIsNavigatedFromOrganizerView:NO];
     
@@ -1281,7 +1281,7 @@
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
     FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"me/feed" withPostVars:variables];
-    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -1290,8 +1290,8 @@
     ACLog(@"facebook_response %@", facebook_response);
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    //NSLog(@"Now log into Facebook and look at your profile...");
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
     [ViewUtility showAlertViewWithMessage:@"Your comment got posted on your facebook wall successfully."];
     
     didFinishedPostingOnWall = YES;
@@ -1309,8 +1309,8 @@
         //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
-    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"288032337926603/feed" withPostVars:variables];
-    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"372037692812891/feed" withPostVars:variables];
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -1319,8 +1319,8 @@
     
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    //NSLog(@"Now log into Facebook and look at your profile...");
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
 
     
 }

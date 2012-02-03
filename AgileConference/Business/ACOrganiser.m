@@ -99,9 +99,9 @@ static ACOrganiser *appOrganiser = nil;
                     NSDate    *currDate    =[NSDate date];
                     //
                     
-                   // //NSLog(@"Sratdate:%@",eventStartDate);
-                   // //NSLog(@"currDate:%@",currDate);
-                    ////NSLog(@"eventEndDate:%@",eventEndDate);
+                   // NSLog(@"Sratdate:%@",eventStartDate);
+                   // NSLog(@"currDate:%@",currDate);
+                    //NSLog(@"eventEndDate:%@",eventEndDate);
 
                     
                     if([eventEndDate compare:currDate]==-1){
@@ -182,8 +182,8 @@ static ACOrganiser *appOrganiser = nil;
 //
 -(NSMutableDictionary *)searchCatalogListOfType:(NSString *)catalogType andCatalogTypeContent:(NSString *)content{
     
-    ////NSLog(@"Catalog Type:%@",catalogType);
-   // //NSLog(@"andCatalogTypeContent:%@",content);
+    //NSLog(@"Catalog Type:%@",catalogType);
+   // NSLog(@"andCatalogTypeContent:%@",content);
     //
     NSMutableDictionary *favDict=[[NSMutableDictionary alloc] init];
     NSArray *dayKeyArray=[catalogDict allKeys];
@@ -206,10 +206,10 @@ static ACOrganiser *appOrganiser = nil;
             //
             for (NSMutableDictionary *topicDict in topicArrayInTrack) {
                 
-                ////NSLog(@">>>catalog type>>%@",catalogType);
-                ////NSLog(@">>>event key value>>%@",[topicDict objectForKey:catalogType]);
-                ////NSLog(@">>>search content>>%@",content);
-                ////NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
+                //NSLog(@">>>catalog type>>%@",catalogType);
+                //NSLog(@">>>event key value>>%@",[topicDict objectForKey:catalogType]);
+                //NSLog(@">>>search content>>%@",content);
+                //NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
 
                 if([[[topicDict objectForKey:catalogType] uppercaseString] rangeOfString:[content uppercaseString]].length>0 && [[topicDict objectForKey:kTopicType] isEqualToString:@"BUSINESS"]){
                     //
@@ -289,14 +289,14 @@ static ACOrganiser *appOrganiser = nil;
 -(void)updateCatalogDict:(NSMutableDictionary *)currentDict{
     
     NSString *dayKey=[currentDict objectForKey:kTopicDay];
-   // //NSLog(@"Day key:%@",dayKey);
+   // NSLog(@"Day key:%@",dayKey);
     NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
     
     NSString *tracKey=[currentDict objectForKey:kTopicTrack];
-   // //NSLog(@"tracKey key:%@",tracKey);
+   // NSLog(@"tracKey key:%@",tracKey);
 
     NSMutableArray *tracArray=[dayDict objectForKey:tracKey];
-   // //NSLog(@"Day key:%@",[dayDict objectForKey:kTopicTrack];);
+   // NSLog(@"Day key:%@",[dayDict objectForKey:kTopicTrack];);
 
     NSString *currentTopicTitle=[currentDict objectForKey:kTopicTitle];
     //
@@ -307,9 +307,9 @@ static ACOrganiser *appOrganiser = nil;
         
         NSString *tempTopicTitle=[topicDict objectForKey:kTopicTitle];
         if([tempTopicTitle isEqualToString:currentTopicTitle]){
-            ////NSLog(@"current title topic matches");
-            ////NSLog(@"title to be updated:%@",currentTopicTitle);
-            ////NSLog(@"current title:%@",currentTopicTitle);
+            //NSLog(@"current title topic matches");
+            //NSLog(@"title to be updated:%@",currentTopicTitle);
+            //NSLog(@"current title:%@",currentTopicTitle);
 
             isDictFound=YES;
             break;
@@ -347,17 +347,17 @@ static ACOrganiser *appOrganiser = nil;
     
     NSString *dayKey=[currentDict objectForKey:kTopicDay];
     //
-   // //NSLog(@"Day key:%@",dayKey);
+   // NSLog(@"Day key:%@",dayKey);
     NSMutableDictionary *dayDict=[catalogDict objectForKey:dayKey];
     
     NSString *tracKey=[currentDict objectForKey:kTopicTrack];
-   // //NSLog(@"tracKey key:%@",tracKey);
+   // NSLog(@"tracKey key:%@",tracKey);
     
     NSMutableArray *tracArray=[dayDict objectForKey:tracKey];
     
     
     
-    // //NSLog(@"Day key:%@",[dayDict objectForKey:kTopicTrack];);
+    // NSLog(@"Day key:%@",[dayDict objectForKey:kTopicTrack];);
     
     NSString *currentTopicTitle=[currentDict objectForKey:kTopicTitle];
     //

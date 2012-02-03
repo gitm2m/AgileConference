@@ -59,7 +59,7 @@
 	
 	if (sqlite3_open([file fileSystemRepresentation], &database) != SQLITE_OK)
 	{
-		//NSLog(@"SQLite Opening Error: %s", sqlite3_errmsg(database));
+		NSLog(@"SQLite Opening Error: %s", sqlite3_errmsg(database));
 		return NO;
 	}
 	
@@ -78,7 +78,7 @@
 	int rc;
 	rc = sqlite3_close(database);
 	if (rc != SQLITE_OK)
-		//NSLog(@"SQLite %@ Closing Error: %s", dbFileName, sqlite3_errmsg(database));
+		NSLog(@"SQLite %@ Closing Error: %s", dbFileName, sqlite3_errmsg(database));
 	dbFileName = nil;
 	database = nil;
 }
@@ -291,7 +291,7 @@
 	rc = sqlite3_step(stmt);	//execute the statement
 	if (rc == SQLITE_OK || rc == SQLITE_DONE)
 		return YES;
-	//NSLog(@"SQLite Step Failed: %s", sqlite3_errmsg(database));
+	NSLog(@"SQLite Step Failed: %s", sqlite3_errmsg(database));
 	return NO;
 }
 
@@ -305,11 +305,11 @@
 {
 	int rc;
 	rc = sqlite3_prepare_v2(database, [sql UTF8String], -1, stmt, NULL);	//prepare the statement
-//	//NSLog(@" - Query: %@", sql);
+//	NSLog(@" - Query: %@", sql);
 	if (rc == SQLITE_OK)
 		return YES;
-	//NSLog(@"SQLite Prepare Failed: %s", sqlite3_errmsg(database));
-	//NSLog(@" - Query: %@", sql);
+	NSLog(@"SQLite Prepare Failed: %s", sqlite3_errmsg(database));
+	NSLog(@" - Query: %@", sql);
 	return NO;
 }
 
@@ -374,7 +374,7 @@
 	if (rc == SQLITE_ROW)
 		return YES;
 	if (rc != SQLITE_DONE)
-		//NSLog(@"SQLite Prepare Failed: %s", sqlite3_errmsg(database));
+		NSLog(@"SQLite Prepare Failed: %s", sqlite3_errmsg(database));
 	return NO;
 }
 
