@@ -50,7 +50,7 @@
     preFinalTrackIndex=3;
     preFinalDayIndex=0;
     
-    tracksCoverFlowImgsArray = [[NSArray alloc] initWithObjects:@"track1.png",@"track2.png",@"track3.png",@"track4.png",@"track5.png",@"track6.png",@"track7.png", nil];
+    tracksCoverFlowImgsArray = [[NSArray alloc] initWithObjects:@"track11.png",@"track21.png",@"track31.png",@"track41.png",@"track51.png",@"track61.png",@"track71.png", nil];
     
     [self setupView];
     [super viewDidLoad];
