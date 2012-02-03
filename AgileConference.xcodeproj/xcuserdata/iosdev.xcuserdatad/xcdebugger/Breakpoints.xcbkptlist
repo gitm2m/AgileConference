@@ -68,8 +68,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "520"
          endingLineNumber = "520"
-         landmarkName = "-switchMenuViewButtonTapped:"
-         landmarkType = "5">
+         landmarkName = "@implementation ACAppController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -96,8 +96,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "862"
          endingLineNumber = "862"
-         landmarkName = "@implementation ACAppController"
-         landmarkType = "3">
+         landmarkName = "-isSearchViewVisibleOnScreen"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -125,6 +125,20 @@
          startingLineNumber = "880"
          endingLineNumber = "880"
          landmarkName = "-touchesBegan:withEvent:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AgileConference/UIViewControllers/iPhone/ACFeedbackViewController.m"
+         timestampString = "349975320.045776"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
+         landmarkName = "-rightBarButtonClicked:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

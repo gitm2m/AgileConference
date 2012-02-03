@@ -154,11 +154,11 @@
 }
 -(void)rightBarButtonClicked : (id)sender{
     
-    if (![CommonUtility isConnectedToNetwork]) {
-        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
-        return ;
-        
-    }
+//    if (![CommonUtility isConnectedToNetwork]) {
+//        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+//        return ;
+//        
+//    }
 
     
     NSString *deviceUdid = [[UIDevice currentDevice] uniqueIdentifier];
@@ -245,12 +245,11 @@
     else
         [apiDict setValue:@"0.0" forKey:@"longitude"];
     
-    ACLog(@"apiDict %@", apiDict);
+    ACLog(@"apiDict>>>>>>>>>>>>>>>>>>>>>>> %@", apiDict);
     
     ACNetworkHandler *networkHandler = [[ACNetworkHandler alloc] init];
     [networkHandler downloadHandler:apiDict context:nil delegate:self];
     
-    [self dismissModalViewControllerAnimated:YES];
 
     
 }
@@ -416,8 +415,12 @@
     
     if ([[[serverResponse valueForKey:@"status"] valueForKey:@"message"] isEqualToString:@"Success"]) {
         [ViewUtility showAlertViewWithMessage:@"Your feedback posted successfully."];
+        //[self dismissModalViewControllerAnimated:YES];
+
     }else{
         [ViewUtility showAlertViewWithMessage:@"Feedback post unsuccessful,Please try again later.Sorry for inconvinience."];
+        //[self dismissModalViewControllerAnimated:YES];
+
     }
 }
 
