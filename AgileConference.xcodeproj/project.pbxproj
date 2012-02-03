@@ -1662,7 +1662,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6A9F7FD614A88F5300E3F55C /* Release */ = {
+		6A9F7FD614A88F5300E3F55C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1684,9 +1684,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		6A9F7FD914A88F5300E3F55C /* Release */ = {
+		6A9F7FD914A88F5300E3F55C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
@@ -1703,9 +1703,9 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
-			name = Release;
+			name = Debug;
 		};
-		6A9F7FDC14A88F5300E3F55C /* Release */ = {
+		6A9F7FDC14A88F5300E3F55C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AgileConference.app/AgileConference";
@@ -1721,7 +1721,7 @@
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1729,26 +1729,26 @@
 		6A9F7F9B14A88F5300E3F55C /* Build configuration list for PBXProject "AgileConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FD614A88F5300E3F55C /* Release */,
+				6A9F7FD614A88F5300E3F55C /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		6A9F7FD714A88F5300E3F55C /* Build configuration list for PBXNativeTarget "AgileConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FD914A88F5300E3F55C /* Release */,
+				6A9F7FD914A88F5300E3F55C /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		6A9F7FDA14A88F5300E3F55C /* Build configuration list for PBXNativeTarget "AgileConferenceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FDC14A88F5300E3F55C /* Release */,
+				6A9F7FDC14A88F5300E3F55C /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
