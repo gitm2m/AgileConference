@@ -176,7 +176,7 @@
     } else if([[topicDict valueForKey:kTopicType] isEqualToString:@"BLANK"]){
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-
+        [cell setCurrindex:indexPath.row];
         [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     
     return cell;

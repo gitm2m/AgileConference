@@ -272,7 +272,7 @@
     
     for(int i=0; i<[websiteList count];i++){
         
-        NSString *trackImageString = [NSString stringWithFormat:@"trackScroll%d.png",i+1];
+        NSString *trackImageString = [NSString stringWithFormat:@"trackscroll%i.png",i+1];
         
         NSString *websiteName=[websiteList objectAtIndex:i];		
         UIButton *trackButton = [UIButton buttonWithType:UIButtonTypeCustom];

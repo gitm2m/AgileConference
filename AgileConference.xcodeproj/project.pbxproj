@@ -162,8 +162,6 @@
 		38DC89A514DC570A0042590C /* Valtech_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC892A14DC570A0042590C /* Valtech_Logo.png */; };
 		38DC89A614DC570A0042590C /* valtechIcon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC892B14DC570A0042590C /* valtechIcon-1.png */; };
 		38DC89A714DC570A0042590C /* valtechIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC892C14DC570A0042590C /* valtechIcon.png */; };
-		38DC89A814DC570A0042590C /* icon_app.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC892D14DC570A0042590C /* icon_app.png */; };
-		38DC89A914DC570A0042590C /* icon_app@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC892E14DC570A0042590C /* icon_app@2x.png */; };
 		38DC89AA14DC570A0042590C /* clockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC893014DC570A0042590C /* clockIcon.png */; };
 		38DC89AB14DC570A0042590C /* coffeeTime.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC893114DC570A0042590C /* coffeeTime.png */; };
 		38DC89AC14DC570A0042590C /* rowSeperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC893214DC570A0042590C /* rowSeperator.png */; };
@@ -233,6 +231,15 @@
 		6A60B08A14EFADD000E74FEA /* ACUpcomingTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A60B08714EFADD000E74FEA /* ACUpcomingTableCellView.m */; };
 		6A60B08B14EFADD000E74FEA /* ACUpcomingCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A60B08914EFADD000E74FEA /* ACUpcomingCellView.m */; };
 		6A98698114EF074800579042 /* ACAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A98698014EF074800579042 /* ACAlertView.m */; };
+		6A9BDA9614DC7B21007E8C2D /* trackscroll7.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDA8F14DC7B21007E8C2D /* trackscroll7.png */; };
+		6A9BDA9714DC7B21007E8C2D /* trackscroll5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDA9014DC7B21007E8C2D /* trackscroll5.png */; };
+		6A9BDA9814DC7B21007E8C2D /* trackscroll4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDA9114DC7B21007E8C2D /* trackscroll4.png */; };
+		6A9BDA9914DC7B21007E8C2D /* trackscroll3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDA9214DC7B21007E8C2D /* trackscroll3.png */; };
+		6A9BDA9A14DC7B21007E8C2D /* trackscroll2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDA9314DC7B21007E8C2D /* trackscroll2.png */; };
+		6A9BDA9B14DC7B21007E8C2D /* trackscroll1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDA9414DC7B21007E8C2D /* trackscroll1.png */; };
+		6A9BDA9C14DC7B21007E8C2D /* trackscroll6.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDA9514DC7B21007E8C2D /* trackscroll6.png */; };
+		6A9BDAA414DC870B007E8C2D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDAA214DC870B007E8C2D /* Icon.png */; };
+		6A9BDAA514DC870B007E8C2D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BDAA314DC870B007E8C2D /* Icon@2x.png */; };
 		6A9F7FA614A88F5300E3F55C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA514A88F5300E3F55C /* UIKit.framework */; };
 		6A9F7FA814A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FAA14A88F5300E3F55C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA914A88F5300E3F55C /* CoreGraphics.framework */; };
@@ -472,8 +479,6 @@
 		38DC892A14DC570A0042590C /* Valtech_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Valtech_Logo.png; sourceTree = "<group>"; };
 		38DC892B14DC570A0042590C /* valtechIcon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "valtechIcon-1.png"; sourceTree = "<group>"; };
 		38DC892C14DC570A0042590C /* valtechIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = valtechIcon.png; sourceTree = "<group>"; };
-		38DC892D14DC570A0042590C /* icon_app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app.png; sourceTree = "<group>"; };
-		38DC892E14DC570A0042590C /* icon_app@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_app@2x.png"; sourceTree = "<group>"; };
 		38DC893014DC570A0042590C /* clockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockIcon.png; sourceTree = "<group>"; };
 		38DC893114DC570A0042590C /* coffeeTime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffeeTime.png; sourceTree = "<group>"; };
 		38DC893214DC570A0042590C /* rowSeperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rowSeperator.png; sourceTree = "<group>"; };
@@ -565,6 +570,15 @@
 		6A60B08914EFADD000E74FEA /* ACUpcomingCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACUpcomingCellView.m; sourceTree = "<group>"; };
 		6A98697F14EF074800579042 /* ACAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlertView.h; sourceTree = "<group>"; };
 		6A98698014EF074800579042 /* ACAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlertView.m; sourceTree = "<group>"; };
+		6A9BDA8F14DC7B21007E8C2D /* trackscroll7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackscroll7.png; sourceTree = "<group>"; };
+		6A9BDA9014DC7B21007E8C2D /* trackscroll5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackscroll5.png; sourceTree = "<group>"; };
+		6A9BDA9114DC7B21007E8C2D /* trackscroll4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackscroll4.png; sourceTree = "<group>"; };
+		6A9BDA9214DC7B21007E8C2D /* trackscroll3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackscroll3.png; sourceTree = "<group>"; };
+		6A9BDA9314DC7B21007E8C2D /* trackscroll2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackscroll2.png; sourceTree = "<group>"; };
+		6A9BDA9414DC7B21007E8C2D /* trackscroll1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackscroll1.png; sourceTree = "<group>"; };
+		6A9BDA9514DC7B21007E8C2D /* trackscroll6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackscroll6.png; sourceTree = "<group>"; };
+		6A9BDAA214DC870B007E8C2D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		6A9BDAA314DC870B007E8C2D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6A9F7FA114A88F5300E3F55C /* AgileConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgileConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F7FA514A88F5300E3F55C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6A9F7FA714A88F5300E3F55C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -814,8 +828,6 @@
 				38DC88E914DC570A0042590C /* FacebookShareView */,
 				38DC88EB14DC570A0042590C /* FeedbackView */,
 				38DC88F014DC570A0042590C /* HomeScreen */,
-				38DC892D14DC570A0042590C /* icon_app.png */,
-				38DC892E14DC570A0042590C /* icon_app@2x.png */,
 				38DC892F14DC570A0042590C /* LatestTableCellImages */,
 				38DC893314DC570A0042590C /* NavigationBarImages */,
 				38DC893B14DC570A0042590C /* SplashScreen */,
@@ -916,6 +928,8 @@
 		38DC88F014DC570A0042590C /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				6A9BDAA214DC870B007E8C2D /* Icon.png */,
+				6A9BDAA314DC870B007E8C2D /* Icon@2x.png */,
 				38DC88F114DC570A0042590C /* Agile-Home.png */,
 				38DC88F214DC570A0042590C /* Agile-Home@2x.png */,
 				38DC88F314DC570A0042590C /* agile.png */,
@@ -946,6 +960,13 @@
 				38DC88F814DC570A0042590C /* track1.png */,
 				38DC88F914DC570A0042590C /* track1@2x.png */,
 				38DC88FA14DC570A0042590C /* track2.png */,
+				6A9BDA8F14DC7B21007E8C2D /* trackscroll7.png */,
+				6A9BDA9014DC7B21007E8C2D /* trackscroll5.png */,
+				6A9BDA9114DC7B21007E8C2D /* trackscroll4.png */,
+				6A9BDA9214DC7B21007E8C2D /* trackscroll3.png */,
+				6A9BDA9314DC7B21007E8C2D /* trackscroll2.png */,
+				6A9BDA9414DC7B21007E8C2D /* trackscroll1.png */,
+				6A9BDA9514DC7B21007E8C2D /* trackscroll6.png */,
 				38DC88FB14DC570A0042590C /* track2@2x.png */,
 				38DC88FC14DC570A0042590C /* track3.png */,
 				38DC88FD14DC570A0042590C /* track3@2x.png */,
@@ -1607,8 +1628,6 @@
 				38DC89A514DC570A0042590C /* Valtech_Logo.png in Resources */,
 				38DC89A614DC570A0042590C /* valtechIcon-1.png in Resources */,
 				38DC89A714DC570A0042590C /* valtechIcon.png in Resources */,
-				38DC89A814DC570A0042590C /* icon_app.png in Resources */,
-				38DC89A914DC570A0042590C /* icon_app@2x.png in Resources */,
 				38DC89AA14DC570A0042590C /* clockIcon.png in Resources */,
 				38DC89AB14DC570A0042590C /* coffeeTime.png in Resources */,
 				38DC89AC14DC570A0042590C /* rowSeperator.png in Resources */,
@@ -1622,6 +1641,15 @@
 				38DC89B414DC570A0042590C /* agileLogo.png in Resources */,
 				38DC89B514DC570A0042590C /* splashBg.png in Resources */,
 				38DC89B614DC570A0042590C /* valtechLogo.png in Resources */,
+				6A9BDA9614DC7B21007E8C2D /* trackscroll7.png in Resources */,
+				6A9BDA9714DC7B21007E8C2D /* trackscroll5.png in Resources */,
+				6A9BDA9814DC7B21007E8C2D /* trackscroll4.png in Resources */,
+				6A9BDA9914DC7B21007E8C2D /* trackscroll3.png in Resources */,
+				6A9BDA9A14DC7B21007E8C2D /* trackscroll2.png in Resources */,
+				6A9BDA9B14DC7B21007E8C2D /* trackscroll1.png in Resources */,
+				6A9BDA9C14DC7B21007E8C2D /* trackscroll6.png in Resources */,
+				6A9BDAA414DC870B007E8C2D /* Icon.png in Resources */,
+				6A9BDAA514DC870B007E8C2D /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1766,50 +1794,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6A9F7FD614A88F5300E3F55C /* Debug */ = {
+		6A9BDA9D14DC7BFE007E8C2D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Valtech India Systems Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Valtech India Systems Private Limited";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				PROVISIONING_PROFILE = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Distribution;
 		};
-		6A9F7FD914A88F5300E3F55C /* Debug */ = {
+		6A9BDA9E14DC7BFE007E8C2D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Valtech India Systems Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Valtech India Systems Private Limited";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AgileConference/AgileConference-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AgileConference/AgileConference-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				PROVISIONING_PROFILE = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv6";
 				WRAPPER_EXTENSION = app;
 			};
-			name = Debug;
+			name = Distribution;
 		};
-		6A9F7FDC14A88F5300E3F55C /* Debug */ = {
+		6A9BDA9F14DC7BFE007E8C2D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AgileConference.app/AgileConference";
@@ -1825,7 +1858,7 @@
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
-			name = Debug;
+			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1833,26 +1866,26 @@
 		6A9F7F9B14A88F5300E3F55C /* Build configuration list for PBXProject "AgileConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FD614A88F5300E3F55C /* Debug */,
+				6A9BDA9D14DC7BFE007E8C2D /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Distribution;
 		};
 		6A9F7FD714A88F5300E3F55C /* Build configuration list for PBXNativeTarget "AgileConference" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FD914A88F5300E3F55C /* Debug */,
+				6A9BDA9E14DC7BFE007E8C2D /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Distribution;
 		};
 		6A9F7FDA14A88F5300E3F55C /* Build configuration list for PBXNativeTarget "AgileConferenceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A9F7FDC14A88F5300E3F55C /* Debug */,
+				6A9BDA9F14DC7BFE007E8C2D /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Distribution;
 		};
 /* End XCConfigurationList section */
 	};

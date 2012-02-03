@@ -10,11 +10,11 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>icon_app@2x.png</string>
-		<string>icon_app.png</string>
+		<string>Icon.png</string>
+		<string>Icon@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.valtech.valtechlabs</string>
+	<string>com.valtech.agile2012</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -29,6 +29,12 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AmplitudeCond-Medium.ttf</string>
+		<string>segoeuib.ttf</string>
+		<string>segoeui.ttf</string>
+	</array>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -38,14 +44,10 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
+	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
-		<string>AmplitudeCond-Medium.ttf</string>
-		<string>segoeuib.ttf</string>
-		<string>segoeui.ttf</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 </dict>
 </plist>

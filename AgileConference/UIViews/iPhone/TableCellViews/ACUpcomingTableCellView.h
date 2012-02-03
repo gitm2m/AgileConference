@@ -11,6 +11,9 @@
 
 @interface ACUpcomingTableCellView : UITableViewCell{
      ACUpcomingCellView *cellView;
+    NSInteger currindex;
 }
 @property (strong,nonatomic) NSMutableDictionary *cellData;
+@property (nonatomic) NSInteger currindex;
+
 @end
