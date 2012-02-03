@@ -705,7 +705,7 @@
     if ([self.view viewWithTag:1234].frame.origin.y == -436) {
         
         [leftBarButton setHidden:YES];
-        
+        [aboutValtechButton setHidden:YES];
         
         [organizerButtn setHidden:YES];
         [organizerView setHidden:YES];
@@ -749,6 +749,8 @@
         [leftBarButton setHidden:NO];
         [organizerButtn setHidden:NO];
         [organizerView setHidden:NO];
+        
+        [aboutValtechButton setHidden:NO];
         
         [searchHolderView.eventsSearchBar resignFirstResponder];
         if([ self isOrganizerViewVisibleOnScreen] && [self isSearchViewVisibleOnScreen]){
