@@ -25,7 +25,7 @@
 
 #define SPREADIMAGE			0.1		// spread between images (screen measured from -1 to 1)
 #define FLANKSPREAD			0.4		// flank spread out; this is how much an image moves way from center
-#define FRICTION			30.0	// friction
+#define FRICTION			70.0	// friction
 #define MAXSPEED			10.0	// throttle speed to this value
 
 /************************************************************************/

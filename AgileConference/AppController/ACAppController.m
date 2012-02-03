@@ -233,8 +233,9 @@
     
     tracksScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0,370,556,50)];
     [tracksScrollView setBackgroundColor:[UIColor clearColor]];
-    [tracksScrollView setShowsHorizontalScrollIndicator:NO];
+    [tracksScrollView setShowsHorizontalScrollIndicator:YES];
     [tracksScrollView setShowsVerticalScrollIndicator:NO];
+    [tracksScrollView flashScrollIndicators];
     [tracksScrollView setHidden:YES];
     
     NSArray *websiteList=[NSArray arrayWithObjects:@"Track1",@"Track2",@"Track3",@"Track4",@"Track5",@"Track6",@"Track7", nil];
@@ -244,7 +245,7 @@
     
     for(int i=0; i<[websiteList count];i++){
         
-        NSString *trackImageString = [NSString stringWithFormat:@"track%d.png",i+1];
+        NSString *trackImageString = [NSString stringWithFormat:@"trackScroll%d.png",i+1];
         
         NSString *websiteName=[websiteList objectAtIndex:i];		
         UIButton *trackButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -493,6 +494,7 @@
         [sender setTag:6789];
     
         [headerLabel setText:@"Program Schedule"];
+        [tracksScrollView flashScrollIndicators];
         tracksScrollView.hidden = NO;
         isCoverFlowView = NO;
         [switchMenuViewButton setImage:[UIImage imageNamed:@"cover_flow.png"] forState:UIControlStateNormal];
@@ -626,7 +628,7 @@
     }else if([sender tag]==1){
         [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1.png"] forState:UIControlStateNormal];
         ;
-        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2.png"] forState:UIControlStateNormal];
+        [segmentBtn2 setBackgroundImage:[UIImage imageNamed:@"day2Sel.png"] forState:UIControlStateNormal];
         [segmentBtn3 setBackgroundImage:[UIImage imageNamed:@"day3.png"] forState:UIControlStateNormal];
     }else if([sender tag]==2){
         [segmentBtn1 setBackgroundImage:[UIImage imageNamed:@"day1.png"] forState:UIControlStateNormal];
@@ -1049,7 +1051,7 @@
         if (![[[topicArray objectAtIndex:i] valueForKey:kTopicType] isEqualToString:@"BREAK"]) {
             
             GCCalendarEvent *event = [[GCCalendarEvent alloc] init];
-            event.color = [[GCCalendar colors] objectAtIndex:1];
+            event.color = [[GCCalendar colors] objectAtIndex:2];
             event.allDayEvent = NO;
             event.eventTag = i;
             event.eventType = [[topicArray objectAtIndex:i] valueForKey:kTopicType];

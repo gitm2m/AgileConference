@@ -154,6 +154,13 @@
 }
 -(void)rightBarButtonClicked : (id)sender{
     
+    if (![CommonUtility isConnectedToNetwork]) {
+        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+        return ;
+        
+    }
+
+    
     NSString *deviceUdid = [[UIDevice currentDevice] uniqueIdentifier];
     NSString *deviceModel = [[UIDevice currentDevice] model];
     

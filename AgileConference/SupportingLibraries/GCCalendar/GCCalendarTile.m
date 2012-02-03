@@ -24,10 +24,10 @@
 		
 		titleLabel = [[UILabel alloc] init];
 		titleLabel.backgroundColor = [UIColor clearColor];
-		titleLabel.textColor = [UIColor whiteColor];
+		titleLabel.textColor = [UIColor blackColor];
 		titleLabel.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
             //titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
-        [titleLabel setFont:[CommonUtility fontSegoiBold:12]];
+        [titleLabel setFont:[CommonUtility fontSegoi:10]];
 		
 		descriptionLabel = [[UILabel alloc] init];
 		descriptionLabel.backgroundColor = [UIColor clearColor];
