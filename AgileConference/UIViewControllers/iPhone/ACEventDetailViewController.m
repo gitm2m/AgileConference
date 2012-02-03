@@ -541,7 +541,7 @@
         //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
-    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"40796308305/feed" withPostVars:variables];
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"288032337926603/feed" withPostVars:variables];
     NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json

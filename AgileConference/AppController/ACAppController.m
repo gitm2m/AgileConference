@@ -492,6 +492,7 @@
     if ([sender tag]==9876) {
         [sender setTag:6789];
     
+        [headerLabel setText:@"Program Schedule"];
         tracksScrollView.hidden = NO;
         isCoverFlowView = NO;
         [switchMenuViewButton setImage:[UIImage imageNamed:@"cover_flow.png"] forState:UIControlStateNormal];
@@ -529,6 +530,8 @@
     }else if ([sender tag]==6789){
         [sender setTag:9876];
         
+        
+        [headerLabel setText:KAppName];
         [switchMenuViewButton setImage:[UIImage imageNamed:@"Calendar.png"] forState:UIControlStateNormal];
         
         [UIView beginAnimations:nil context:NULL];
@@ -1238,7 +1241,7 @@
     
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
     
-    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's Agile2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    NSString *string = [[NSString alloc] initWithFormat:@"%@",[[fbShareView fbShareTextView]text]];
     
     [variables setObject:string forKey:@"message"];
         //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
@@ -1267,14 +1270,14 @@
 - (void)postFacebookFeedOnPage{
     NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
     
-    NSString *string = [[NSString alloc] initWithFormat:@"%@ - Posted via Valtech's Agile2012 iPhone app",[[fbShareView fbShareTextView]text]];
+    NSString *string = [[NSString alloc] initWithFormat:@"%@",[[fbShareView fbShareTextView]text]];
     
     [variables setObject:string forKey:@"message"];
         //[variables setObject:@"http://bit.ly/bFTnqd" forKey:@"link"];
         //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
-    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"40796308305/feed" withPostVars:variables];
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"288032337926603/feed" withPostVars:variables];
     NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
