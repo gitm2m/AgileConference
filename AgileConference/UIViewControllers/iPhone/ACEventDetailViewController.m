@@ -93,8 +93,22 @@
     
     if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"NO"])
         [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
-    else if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"])
-        [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
+    else if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"]){
+        EKEvent* eventToRemove = nil;
+        
+        if ([[topicDict objectForKey:@"Topic_Cal_Eid"] length]>0){
+            eventToRemove = [[appDelegate eventStore] eventWithIdentifier:[topicDict objectForKey:@"Topic_Cal_Eid"]];
+        }
+        ACLog(@"eventToRemove %@",eventToRemove);
+        if(eventToRemove == NULL){
+            [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
+            [topicDict setObject:@"NO" forKey:@"Topic_In_Cal"];
+            [topicDict setObject:@"" forKey:@"Topic_Cal_Eid"];
+        }else
+            [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
+        
+    }
+
 }
 
 
@@ -104,8 +118,22 @@
     // Do any additional setup after loading the view from its nib.
     if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"NO"])
         [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
-    else if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"])
-        [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
+    else if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"]){
+        EKEvent* eventToRemove = nil;
+        
+        if ([[topicDict objectForKey:@"Topic_Cal_Eid"] length]>0){
+            eventToRemove = [[appDelegate eventStore] eventWithIdentifier:[topicDict objectForKey:@"Topic_Cal_Eid"]];
+        }
+        ACLog(@"eventToRemove %@",eventToRemove);
+        if(eventToRemove == NULL){
+            [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
+            [topicDict setObject:@"NO" forKey:@"Topic_In_Cal"];
+            [topicDict setObject:@"" forKey:@"Topic_Cal_Eid"];
+        }else
+            [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
+
+    }
+        
 
    
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];

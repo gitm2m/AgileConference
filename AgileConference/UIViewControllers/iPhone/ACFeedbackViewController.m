@@ -180,17 +180,17 @@
         return;
     }
         
-        //NSLog(@"feedbackTextView :%@",feedbackTextView.text);
-        //NSLog(@"ratingString:%@",ratingString);
+    ACLog(@"feedbackTextView :%d",[[feedbackTextView text] length]);
+    ACLog(@"ratingString:%@",ratingString);
 
-       if([[feedbackTextView text] length]>0){
+    if([[feedbackTextView text] length]>0){
            
-       }else if(![ratingString isEqualToString:@"-1"]){
+    }else if(![ratingString isEqualToString:@"-1"] && ![ratingString isEqualToString:@"0"]){
             
-        }else {
-            [ViewUtility showAlertViewWithMessage:@"Please enter your comments or provide rating"];
-            return;
-        }
+    }else {
+        [ViewUtility showAlertViewWithMessage:@"Please enter your comments or provide rating."];
+        return;
+    }
     
     
     if([deviceUdid length]>0)

@@ -175,13 +175,6 @@
 		38DC89B414DC570A0042590C /* agileLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC893C14DC570A0042590C /* agileLogo.png */; };
 		38DC89B514DC570A0042590C /* splashBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC893D14DC570A0042590C /* splashBg.png */; };
 		38DC89B614DC570A0042590C /* valtechLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC893E14DC570A0042590C /* valtechLogo.png */; };
-		38DC89BE14DC6E3B0042590C /* trackscroll1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC89B714DC6E2C0042590C /* trackscroll1.png */; };
-		38DC89BF14DC6E3B0042590C /* trackscroll2.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC89B814DC6E2D0042590C /* trackscroll2.png */; };
-		38DC89C014DC6E3B0042590C /* trackscroll3.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC89B914DC6E2E0042590C /* trackscroll3.png */; };
-		38DC89C114DC6E3B0042590C /* trackscroll4.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC89BA14DC6E2E0042590C /* trackscroll4.png */; };
-		38DC89C214DC6E3C0042590C /* trackscroll5.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC89BB14DC6E310042590C /* trackscroll5.png */; };
-		38DC89C314DC6E3C0042590C /* trackscroll6.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC89BC14DC6E320042590C /* trackscroll6.png */; };
-		38DC89C414DC6E3C0042590C /* trackscroll7.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DC89BD14DC6E390042590C /* trackscroll7.png */; };
 		38E7FAE214BC0243000E21FA /* ACFacebookShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E7FAE114BC0243000E21FA /* ACFacebookShareView.m */; };
 		38E7FAE514BC0268000E21FA /* ACFacebookShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E7FAE414BC0268000E21FA /* ACFacebookShareView.xib */; };
 		38E9A15214B2C8D900C11C56 /* ACOrganizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9A15114B2C8D900C11C56 /* ACOrganizerView.m */; };
@@ -1662,7 +1655,6 @@
 				38DC89B414DC570A0042590C /* agileLogo.png in Resources */,
 				38DC89B514DC570A0042590C /* splashBg.png in Resources */,
 				38DC89B614DC570A0042590C /* valtechLogo.png in Resources */,
-
 				6A9BDA9614DC7B21007E8C2D /* trackscroll7.png in Resources */,
 				6A9BDA9714DC7B21007E8C2D /* trackscroll5.png in Resources */,
 				6A9BDA9814DC7B21007E8C2D /* trackscroll4.png in Resources */,
@@ -1672,7 +1664,6 @@
 				6A9BDA9C14DC7B21007E8C2D /* trackscroll6.png in Resources */,
 				6A9BDAA414DC870B007E8C2D /* Icon.png in Resources */,
 				6A9BDAA514DC870B007E8C2D /* Icon@2x.png in Resources */,
-27ab841266d8384e3cf6f7e0af4b06f5f7b276fa
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1826,8 +1817,8 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Valtech India Systems Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Valtech India Systems Private Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -1836,8 +1827,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
+				PROVISIONING_PROFILE = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1848,16 +1839,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Valtech India Systems Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Valtech India Systems Private Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Deepak Shukla (LR24ZCJX67)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AgileConference/AgileConference-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AgileConference/AgileConference-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E670A98E-04A3-42B9-82E5-1FDCAB50E35D";
+				PROVISIONING_PROFILE = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F9D9CDE-4CD6-41D0-96D4-1BBF8EB22EAD";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv6";
