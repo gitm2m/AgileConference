@@ -154,11 +154,11 @@
 }
 -(void)rightBarButtonClicked : (id)sender{
     
-    if (![CommonUtility isConnectedToNetwork]) {
-        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
-        return ;
-        
-    }
+//    if (![CommonUtility isConnectedToNetwork]) {
+//        [ViewUtility showAlertViewWithMessage:@"Network connection attempt failed,Please check your internet connection."];
+//        return ;
+//        
+//    }
 
     
     NSString *deviceUdid = [[UIDevice currentDevice] uniqueIdentifier];
@@ -250,7 +250,6 @@
     ACNetworkHandler *networkHandler = [[ACNetworkHandler alloc] init];
     [networkHandler downloadHandler:apiDict context:nil delegate:self];
     
-    [self dismissModalViewControllerAnimated:YES];
 
     
 }
@@ -342,7 +341,7 @@
     ACNetworkHandler *networkHandler = [[ACNetworkHandler alloc] init];
     [networkHandler downloadHandler:apiDict context:nil delegate:self];
 
-    [self dismissModalViewControllerAnimated:YES];
+    //[self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark - UITextViewDelegateMethods 
@@ -417,8 +416,12 @@
     
     if ([[[dict valueForKey:@"status"] valueForKey:@"message"] isEqualToString:@"Success"]) {
         [ViewUtility showAlertViewWithMessage:@"Your feedback posted successfully."];
+        [self dismissModalViewControllerAnimated:YES];
+
     }else{
-        [ViewUtility showAlertViewWithMessage:@"Feedback post unsuccessful,Please try again later.Sorry for inconvinience."];
+        [ViewUtility showAlertViewWithMessage:@"Feedback post failled. Please try again later."];
+        //[self dismissModalViewControllerAnimated:YES];
+
     }
 }
 

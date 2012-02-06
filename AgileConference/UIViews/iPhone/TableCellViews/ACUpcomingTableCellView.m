@@ -10,6 +10,8 @@
 
 @implementation ACUpcomingTableCellView
 @synthesize cellData;
+@synthesize currindex;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -90,8 +92,17 @@
             
         default:
             break;
-    }    
+    }   
+    
+    
+    if([[cellView.topicLabel.text uppercaseString] isEqualToString:@"LUNCH"] && self.currindex==0 ){  
+        [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
+
+    }
 
 }
+        
+
+
 
 @end

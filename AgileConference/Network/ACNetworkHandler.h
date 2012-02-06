@@ -10,7 +10,9 @@
 #import "SBJson.h"
 
 @protocol ACNetworkHandlerDelegate;
-@interface ACNetworkHandler : NSObject
+@interface ACNetworkHandler : NSObject{
+    NSMutableData *d;
+}
 
 @property (strong , nonatomic)id<ACNetworkHandlerDelegate> downloadDelegate;
 

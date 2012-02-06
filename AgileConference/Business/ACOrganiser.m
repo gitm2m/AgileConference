@@ -73,12 +73,15 @@ static ACOrganiser *appOrganiser = nil;
                     NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
                     NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@" "] objectAtIndex:0];
                     NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDate,startTime];
+                   // NSLog(@"eventStartDayTime in string::::::%@",eventStartDayTime);
                     NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
+                    //NSLog(@"eventStartDayTime in date::::::%@",eventStartDate);
+
     
                 if([topicTimeFirstObject hasSuffix:@"PM"]){
                     
                     if([[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]>=1
-                       && [[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<12){
+                       && [[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<=12){
                         eventStartDate=[eventStartDate dateByAddingTimeInterval:12*60*60];
                     }
 
@@ -88,10 +91,11 @@ static ACOrganiser *appOrganiser = nil;
                     NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@" "] objectAtIndex:0];
                     NSString  *eventDayTime=[NSString stringWithFormat:@"%@, %@",topicDate,endTime];
                     NSDate    *eventEndDate=[CommonUtility convertStringToDate:eventDayTime format:@"dd-MM-yyyy, HH:mm"];
+    
                 if([topicTimeFirstObject hasSuffix:@"PM"]){
         
                     if([[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]>=1
-                       && [[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<12){
+                       && [[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]<=12){
                         eventEndDate=[eventEndDate dateByAddingTimeInterval:12*60*60];
                     }
                 }
@@ -99,8 +103,8 @@ static ACOrganiser *appOrganiser = nil;
                     NSDate    *currDate    =[NSDate date];
                     //
                     
-                   // NSLog(@"Sratdate:%@",eventStartDate);
-                   // NSLog(@"currDate:%@",currDate);
+                  // NSLog(@"Sratdate:%@",eventStartDate);
+                  // NSLog(@"currDate:%@",currDate);
                     //NSLog(@"eventEndDate:%@",eventEndDate);
 
                     

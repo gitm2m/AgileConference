@@ -102,4 +102,15 @@
 }
 
 
+//- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+//    NSLog(@"respnse got");
+//
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+//    NSLog(@"Connection failed");
+//}
+
+
+
 @end

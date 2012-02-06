@@ -176,7 +176,7 @@
     } else if([[topicDict valueForKey:kTopicType] isEqualToString:@"BLANK"]){
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-
+        [cell setCurrindex:indexPath.row];
         [cell setCellData:[topicArray objectAtIndex:indexPath.row]];
     
     return cell;
@@ -236,6 +236,8 @@
         switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
             case -1:{
                 //[topicArray addObject:topicDict];
+                NSLog(@">>>>timeAMPMtimeAMPMtimeAMPMtimeAMPMtimeAMPM>>%@",timeAMPM);
+
                 
             }
                 break;
@@ -302,7 +304,7 @@
 //
 -(void)notifyToReloadEvent{
     
-    ACLog(@"notified:%@>>>>>>>>");
+   // ACLog(@"notified:%@>>>>>>>>");
 
     NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
     NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];

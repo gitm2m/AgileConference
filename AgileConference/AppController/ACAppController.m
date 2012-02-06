@@ -272,7 +272,7 @@
     
     for(int i=0; i<[websiteList count];i++){
         
-        NSString *trackImageString = [NSString stringWithFormat:@"trackScroll%d.png",i+1];
+        NSString *trackImageString = [NSString stringWithFormat:@"trackscroll%i.png",i+1];
         
         NSString *websiteName=[websiteList objectAtIndex:i];		
         UIButton *trackButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -309,6 +309,9 @@
     [searchHolderView setTag:1234];
     searchHolderView.frame = CGRectMake(0, -436, 320, 436);
     [self.view addSubview:searchHolderView];
+   // UISearchBar *searchBar =searchHolderView.eventsSearchBar;
+    //[searchBar setTintColor:[UIColor redColor]];
+
     //
     
     
@@ -531,7 +534,7 @@
             calendar.dataSource = self;
             calendar.delegate = self;
             
-                //calendar.view.hidden = YES;
+                //calendar.view.hidden = YES;];
             [self.view addSubview:calendar.view];
             [self.view insertSubview:organizerButtn aboveSubview:calendar.view];
             [self.view insertSubview:organizerView aboveSubview:calendar.view];
