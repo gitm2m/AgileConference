@@ -95,6 +95,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"NO"])
+        [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
+    else if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"])
+        [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
 
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
@@ -271,6 +276,7 @@
         }
         
         [ViewUtility showAlertViewWithMessage:@"Event added to calendar successfully."];
+        [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
         
         if ([[event eventIdentifier] length]>0) {
             [topicDict setObject:[event eventIdentifier] forKey:@"Topic_Cal_Eid"];
@@ -540,7 +546,7 @@
         //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
-    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"40796308305/feed" withPostVars:variables];
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"288032337926603/feed" withPostVars:variables];
     NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
@@ -580,7 +586,7 @@
                 
                 [topicDict setObject:@"NO" forKey:@"Topic_In_Cal"];
                 [topicDict setObject:@"" forKey:@"Topic_Cal_Eid"];
-                
+                [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
                 
             }
 
