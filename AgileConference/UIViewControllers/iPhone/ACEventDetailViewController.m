@@ -102,7 +102,11 @@
     [topicSummaryView  setText:[topicDict objectForKey:kTopicSummary]];
     [SpeakerSummaryView setText:[topicDict objectForKey:kTopicSpeakerSummary]];
     [viewTopicSummaryButton setTitle:[topicDict objectForKey:kTopicLink] forState:UIControlStateReserved];
-    [viewSpeakerSummaryButton setTitle:[topicDict objectForKey:kTopicSpeakerLink] forState:UIControlStateReserved];
+    NSString *speakerLink=[topicDict objectForKey:kTopicSpeakerLink];
+    NSArray *speakerLinkArray=[speakerLink componentsSeparatedByString:@","];
+    speakerLink=[speakerLinkArray objectAtIndex:0];
+    speakerLink=[speakerLink stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [viewSpeakerSummaryButton setTitle:speakerLink forState:UIControlStateReserved];
 
     
     if ([[topicDict valueForKey:kTopicFavorite] isEqualToString:@"NO"]) {

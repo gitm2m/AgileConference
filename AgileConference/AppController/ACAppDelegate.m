@@ -153,6 +153,9 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     }
     //
     else if([notificationType isEqualToString:@"END"]){
+        NSLog(@"notifiedEventDict end ........");
+
+
         
         NSString *alertMssage=[NSString stringWithFormat:@"Would you like to write feedback on '%@'?",[notifiedEventDict objectForKey:kTopicTitle]];
         
@@ -165,6 +168,8 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     }
     //
     else if([notificationType isEqualToString:@"UPDATE"]){
+        NSLog(@"notifiedEventDict end ........");
+
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_UPCOMING_EVENTS" object:nil];
     }
@@ -212,6 +217,10 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                 // make call to organiser andset event dict participated yes
             }else if([notificationType isEqualToString:@"END"]){
                 
+                NSLog(@"Notification end:%@",notificationType);
+                NSLog(@"notifiedEventDict :%@",notifiedEventDict);
+
+                
                 // call feedback view
                 [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
                 // call notification view
@@ -219,6 +228,8 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                 feedbackViewController.isOverallEventFeedback = NO;
                 feedbackViewController.eventDetailDict = notifiedEventDict;
                 [self.navigationController presentModalViewController:feedbackViewController animated:YES];
+                //
+                NSLog(@"notifiedEventDict :%@",@"end event finished");
                 
             }
             [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:notifiedEventDict];
