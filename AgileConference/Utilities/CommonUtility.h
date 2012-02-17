@@ -73,4 +73,5 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse);
 +(NSString *)convertDateToAMPMFormat:(NSString *)topicTime;
 +(NSArray *)getSortedArrayByAlphabet:(NSArray *)inputArray;
 + (float) getHeightFromText:(NSString*)aText font:(UIFont*)font maxWidth:(float)aWidth;
++(void)schedulNotification:(NSString *)date andTime:(NSString *)time andFormat:(NSString *)format;
 @end

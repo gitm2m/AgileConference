@@ -323,16 +323,25 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     [userDict setObject:favDict forKey:@"kEventDict"];
     [userDict setObject:@"START" forKey:@"NOTIFICATION_TYPE"];
     NSDate *currDate=[NSDate date];
+   // NSLog(@">>>>>>start time:%@", startTime);
+    NSInteger startprefix=0;
+    NSArray *startTimeArray=[startTime componentsSeparatedByString:@":"];
+    //NSLog(@"eventStartDate before:%@",eventStartDate);
+    if([[startTimeArray objectAtIndex:0] intValue]>=1
+       && [[startTimeArray objectAtIndex:0] intValue]<=8){
+        startprefix=12+[[startTimeArray objectAtIndex:0] intValue];
+        NSString *timeSuffix=[startTimeArray objectAtIndex:1];
+        startTime=[NSString stringWithFormat:@"%i:%@",startprefix, timeSuffix];
+        //NSLog(@">>>>>>start time...after:%@", startTime);
+    }
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDay, startTime];
     NSDate *eventStartDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 
-    NSLog(@"eventStartDate before:%@",eventStartDate);
-    
+   // NSLog(@">>>>>>startprefix as int:%i", startprefix);
+
     if([eventStartDate compare:currDate]==NSOrderedAscending){
         
         NSLog(@"eventStartDate NSOrderedAscending:%@",eventStartDate);   
         NSLog(@"currDate NSOrderedAscending:%@",currDate);
-
-
         return;
 
     }
@@ -352,6 +361,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
 //
 +(void)schedulPostNotificationOfEvent:(NSMutableDictionary*)favDict{
     
+    NSLog(@"Post no>>>>>>>");
     NSString *topicDay=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
@@ -364,6 +374,19 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
     NSLog(@"end time %@",endTime);
     [userDict setObject:@"END" forKey:@"NOTIFICATION_TYPE"];
+    
+    // NSLog(@">>>>>>start time:%@", startTime);
+    NSInteger startprefix=0;
+    NSArray *endTimeArray=[endTime componentsSeparatedByString:@":"];
+    //NSLog(@"eventStartDate before:%@",eventStartDate);
+    if([[endTimeArray objectAtIndex:0] intValue]>=1
+       && [[endTimeArray objectAtIndex:0] intValue]<=8){
+        startprefix=12+[[endTimeArray objectAtIndex:0] intValue];
+        NSString *timeSuffix=[endTimeArray objectAtIndex:1];
+        endTime=[NSString stringWithFormat:@"%i:%@",startprefix, timeSuffix];
+        NSLog(@">>>>>>start time...after:%@", endTime);
+    }
+
     
     
     [self schedulNotificationOnDate:topicDay 

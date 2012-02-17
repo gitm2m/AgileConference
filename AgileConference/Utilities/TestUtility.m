@@ -33,7 +33,7 @@
     //[[ACOrganiser getOrganiser]getCatalogListOfType:kTopicFavorite andCatalogTypeContent:@"YES"];
     //[[ACOrganiser getOrganiser]searchCatalogWithSearchKey:@"Track" andSearchValue:@"Track1"];
     
-     //[CommonUtility schedulNotification:@"2012-01-12" andTime:@"19:32:00" andFormat:@"yyyy-MM-dd, HH:mm:ss"];
+     [CommonUtility schedulNotification:@"17-02-2012" andTime:@"10:35" andFormat:@"dd-MM-yyyy, HH:mm"];
     //NSLog(@"Dict:<<<<<%@>>>>>",dict);
     
     NSLog(@"Test method called>>>>>>");
