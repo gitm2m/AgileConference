@@ -7,6 +7,9 @@
 //
 
 #import "ACOrganizerView.h"
+#import "ACAppSetting.h"
+
+
 
 @implementation ACOrganizerView
 @synthesize organizerListTableView,delegate;
@@ -42,6 +45,8 @@
                                         object:nil];
      
     selectedInndex=0;
+    [[ACAppSetting getAppSession] setOrganiserSegmentIndex:selectedInndex];
+
     NSMutableDictionary *favDict=[[ACOrganiser getOrganiser] getCatalogListOfType:kTopicFavorite
                                                             andCatalogTypeContent:@"YES"];
     eventArray=[[ACOrganiser getOrganiser] getArrayOfDict:favDict];
@@ -110,6 +115,7 @@
 - (IBAction)segmentValueChanged:(UISegmentedControl *)sender {
     
     selectedInndex=sender.selectedSegmentIndex;
+    [[ACAppSetting getAppSession] setOrganiserSegmentIndex:selectedInndex];
     
     switch (sender.selectedSegmentIndex) {
         case 0:{

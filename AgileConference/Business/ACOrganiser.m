@@ -296,9 +296,6 @@ static ACOrganiser *appOrganiser = nil;
    // NSLog(@"tracKey key:%@",tracKey);
 
     NSMutableArray *tracArray=[dayDict objectForKey:tracKey];
-
-    
-    
    // NSLog(@"Day key:%@",[dayDict objectForKey:kTopicTrack];);
 
     NSString *currentTopicTitle=[currentDict objectForKey:kTopicTitle];
@@ -310,6 +307,10 @@ static ACOrganiser *appOrganiser = nil;
         
         NSString *tempTopicTitle=[topicDict objectForKey:kTopicTitle];
         if([tempTopicTitle isEqualToString:currentTopicTitle]){
+            //NSLog(@"current title topic matches");
+            //NSLog(@"title to be updated:%@",currentTopicTitle);
+            //NSLog(@"current title:%@",currentTopicTitle);
+
             isDictFound=YES;
             break;
         }

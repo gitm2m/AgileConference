@@ -13,6 +13,7 @@ static ACAppSetting *appSession = nil;
 @synthesize     daySelected;
 @synthesize     trackSelected;
 @synthesize     upCommingEventDict;
+@synthesize     organiserSegmentIndex;
 
 
 
@@ -41,6 +42,7 @@ static ACAppSetting *appSession = nil;
     
     daySelected=@"Day1";
     trackSelected=@"Track4";
+    upCommingEventDict=nil;
 }
 //
 -(void)resetToDefaultValues{

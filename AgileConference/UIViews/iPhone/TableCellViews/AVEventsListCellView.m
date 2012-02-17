@@ -52,12 +52,13 @@
 - (void)changeFavBackgrounImageByDelay : (NSString *)isFav{
     
     if ([isFav isEqualToString:@"YES"]){
+        
         [cellData setObject:@"YES" forKey:kTopicFavorite];
         [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
         [CommonUtility schedulPreNotificationOfEvent:cellData];
-    }
-       
-    else{
+        
+    }else{
+        
         [cellData setObject:@"NO" forKey:kTopicFavorite];
         [[ACOrganiser getOrganiser]updateCatalogDict:cellData];
         [CommonUtility cancelNotificationOfEvent:cellData];

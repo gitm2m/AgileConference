@@ -27,6 +27,7 @@
 -(void)setupView;
 -(void)changeCellsLables : (NSArray *)topicNamesArray;
 -(void)reloadEventTableViewWithAnimation:(BOOL)animated;
+-(void)updateContentArray;
 
 
 @end

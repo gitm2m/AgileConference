@@ -197,7 +197,9 @@
     if([[topicDict objectForKey:kTopicType] isEqualToString:@"BLANK"]){
         return;
     }
+    //
     [[ACAppSetting getAppSession] setUpCommingEventDict:topicDict];
+    //
     if (![[topicDict valueForKey:kTopicType] isEqualToString:@"BUSINESS"]){
         
         [ViewUtility showAlertViewWithMessage:[NSString stringWithFormat:@"%@ \n %@",[topicDict objectForKey:kTopicTitle],[topicDict objectForKey:kTopicTime]]];
@@ -371,6 +373,81 @@
     [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
     
 }
+//
+-(void)updateContentArray{
+    
+    ACLog(@"notified:%@>>>>>>>>");
+    NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
+    NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
+    ACLog(@"daySelected:%@>>>>>>>>",daySelected);
+    ACLog(@"trackSelected:%@>>>>>>",trackSelected);
+    //
+    NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
+    NSMutableArray *wholeTopicArray=[[catalogDict objectForKey:daySelected] objectForKey:trackSelected];
+    [topicArray removeAllObjects];
+    //
+    for (NSMutableDictionary *topicDict in wholeTopicArray){
+        
+        NSString *timeAMPM=[CommonUtility convertDateToAMPMFormat:[topicDict objectForKey:kTopicTime]];
+        switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM 
+                                                              andDate:[topicDict objectForKey:kTopicDate]]) {
+            case -1:{
+                
+            }
+                break;
+                
+            case 0:{
+                [topicArray addObject:topicDict];
+                
+            }
+                break;
+                
+            case 1:{
+                [topicArray addObject:topicDict];
+                
+            }
+                
+                break;
+                
+                
+            default:
+                break;
+        }    
+        //
+        if([topicArray count]>=3){
+            break;
+        }
+    }  
+    //
+    NSMutableArray *array=[[NSMutableArray alloc] init];
+    //
+    NSIndexPath *indwxPath0 =[NSIndexPath indexPathForRow:0 inSection:0];
+    [array addObject:indwxPath0];
+    //
+    NSIndexPath *indwxPath1 =[NSIndexPath indexPathForRow:1 inSection:0];
+    [array addObject:indwxPath1];
+    //
+    NSIndexPath *indwxPath2 =[NSIndexPath indexPathForRow:2 inSection:0];
+    [array addObject:indwxPath2];
+    //
+    if([topicArray count]<3){
+        for(int index=0; index<3;index++){
+            NSMutableDictionary *blankDict=[[NSMutableDictionary alloc] init];
+            [blankDict setObject:@"BLANK" forKey:kTopicType];
+            [topicArray addObject:blankDict];
+            if([topicArray count]==3){
+                break;  
+            }
+        }
+    }
+    //
+    
+    [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
+    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
+    
+}
+
 
 
 

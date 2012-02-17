@@ -14,10 +14,13 @@
     NSString *daySelected;
     NSString *trackSelected;
     NSMutableDictionary *upCommingEventDict;
+    NSInteger organiserSegmentIndex;
 }
 @property(strong,nonatomic)     NSString *daySelected;
 @property (strong,nonatomic)    NSString *trackSelected;
 @property (strong,nonatomic)    NSMutableDictionary *upCommingEventDict;
+@property (nonatomic)    NSInteger  organiserSegmentIndex;
+
 
 
 

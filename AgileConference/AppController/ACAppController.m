@@ -712,8 +712,8 @@
         
                   
     }else if([self.view viewWithTag:1234].frame.origin.y ==44){
-        [leftBarButton setHidden:NO];
         
+        [leftBarButton setHidden:NO];
         [organizerButtn setHidden:NO];
         [organizerView setHidden:NO];
         
