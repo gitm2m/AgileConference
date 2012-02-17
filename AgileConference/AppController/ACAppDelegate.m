@@ -126,6 +126,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [[ACOrganiser getOrganiser] saveCatalogDict];
+    
     /*
      Called when the application is about to terminate.
      Save data if appropriate.

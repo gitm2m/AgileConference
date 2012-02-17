@@ -26,7 +26,8 @@
 		titleLabel.backgroundColor = [UIColor clearColor];
 		titleLabel.textColor = [UIColor whiteColor];
 		titleLabel.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
-		titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
+            //titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
+        [titleLabel setFont:[CommonUtility fontSegoiBold:12]];
 		
 		descriptionLabel = [[UILabel alloc] init];
 		descriptionLabel.backgroundColor = [UIColor clearColor];

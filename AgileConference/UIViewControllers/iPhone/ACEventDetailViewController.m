@@ -232,7 +232,7 @@
         [event setCalendar:[[appDelegate eventStore] defaultCalendarForNewEvents]];
         NSError *err;
         [[appDelegate eventStore] saveEvent:event span:EKSpanThisEvent error:&err];     
-        
+        ACLog(@"[err code] %@ %@ %@ %@ %d",topicDict,[CommonUtility ripStartDate:topicDict],[CommonUtility ripEndDate:topicDict], err,[err code]);
         if ([err code] != noErr) {
             [ViewUtility showAlertViewWithMessage:@"Event adding to calender failed, you can also add as favourite to get the notification!!"];   
             return;

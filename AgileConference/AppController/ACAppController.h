@@ -67,9 +67,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *segmentBtn1;
 @property (strong, nonatomic) IBOutlet UIButton *segmentBtn2;
 @property (strong, nonatomic) IBOutlet UIButton *segmentBtn3;
+@property (strong, nonatomic) IBOutlet UIButton *switchMenuViewButton;
 
 
 
+- (IBAction)switchMenuViewButtonTapped:(id)sender;
 - (void) setupView;
 - (void) setupViewsFromNib;
 - (IBAction)daysSegmentControllerValueChanged:(id)sender;

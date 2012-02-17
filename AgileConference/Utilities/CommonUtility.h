@@ -77,5 +77,6 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse);
 
 +(NSDate *)ripStartDate :  (NSMutableDictionary*)dict;
 +(NSDate *)ripEndDate :  (NSMutableDictionary*)dict;
++(NSDate *)ripEndDateCalendarView :  (NSMutableDictionary*)dict;
 
 @end
