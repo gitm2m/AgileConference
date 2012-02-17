@@ -73,9 +73,9 @@ static ACOrganiser *appOrganiser = nil;
                     NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
                     NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@" "] objectAtIndex:0];
                     NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDate,startTime];
-                    NSLog(@"eventStartDayTime in string::::::%@",eventStartDayTime);
+                   // NSLog(@"eventStartDayTime in string::::::%@",eventStartDayTime);
                     NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
-                    NSLog(@"eventStartDayTime in date::::::%@",eventStartDate);
+                    //NSLog(@"eventStartDayTime in date::::::%@",eventStartDate);
 
     
                 if([topicTimeFirstObject hasSuffix:@"PM"]){
@@ -103,9 +103,9 @@ static ACOrganiser *appOrganiser = nil;
                     NSDate    *currDate    =[NSDate date];
                     //
                     
-                   NSLog(@"Sratdate:%@",eventStartDate);
-                   NSLog(@"currDate:%@",currDate);
-                    NSLog(@"eventEndDate:%@",eventEndDate);
+                  // NSLog(@"Sratdate:%@",eventStartDate);
+                  // NSLog(@"currDate:%@",currDate);
+                    //NSLog(@"eventEndDate:%@",eventEndDate);
 
                     
                     if([eventEndDate compare:currDate]==-1){

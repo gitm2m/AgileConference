@@ -304,7 +304,7 @@
 //
 -(void)notifyToReloadEvent{
     
-    ACLog(@"notified:%@>>>>>>>>");
+   // ACLog(@"notified:%@>>>>>>>>");
 
     NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
     NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];

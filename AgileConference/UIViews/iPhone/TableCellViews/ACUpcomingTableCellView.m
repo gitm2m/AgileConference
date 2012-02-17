@@ -93,33 +93,65 @@
     }   
     
     
-    NSString *topicDate=[inCellData objectForKey:kTopicDate];
-    NSArray   *topicTimeArray=[cellView.timeLabel.text componentsSeparatedByString:@"-"];
-    NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
-    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@" "] objectAtIndex:0];
-    NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDate,startTime];
-   // NSLog(@"eventStartDayTime in string::::::%@",eventStartDayTime);
-    NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
-   // NSLog(@"eventStartDayTime in date::::::%@",eventStartDate);
-    
-    if([topicTimeFirstObject hasSuffix:@"PM"]){
+    if([[cellView.topicLabel.text uppercaseString] isEqualToString:@"LUNCH"]){    
+
         
-        if([[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]==12){
-            NSString *currentDateAsString=[CommonUtility convertDateToString:[NSDate date] format:@"dd-MM-yyyy,HH:mm"];
-            NSString  *currTime=[[currentDateAsString componentsSeparatedByString:@","] objectAtIndex:1];
-            NSString  *currTime2=[[currTime componentsSeparatedByString:@":"] objectAtIndex:0];
+        NSString *topicDay=[inCellData objectForKey:kTopicDate];
+        NSString *topicTime=[inCellData objectForKey:kTopicTime];//
+        
+        NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
+        NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
+        NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@"-"] objectAtIndex:0];
+        //
+        
+        NSInteger startprefix=0;
+        NSArray *startTimeArray=[startTime componentsSeparatedByString:@":"];
+        
+        if([[startTimeArray objectAtIndex:0] intValue]>=1
+           && [[startTimeArray objectAtIndex:0] intValue]<=8){
             
-            if([currTime2 intValue]==12){
+            startprefix=12+[[startTimeArray objectAtIndex:0] intValue];
+            NSString *timeSuffix=[startTimeArray objectAtIndex:1];
+            startTime=[NSString stringWithFormat:@"%i:%@",startprefix, timeSuffix];
+            
+        }
+        NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDay, startTime];
+        NSDate *eventStartDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 
+        //
+        
+        NSString *topicTimeFirstObject1=[topicTimeArray lastObject];
+        NSString  *startTime1=[[topicTimeFirstObject1 componentsSeparatedByString:@"-"] objectAtIndex:1];
+        //
+        
+        NSInteger startprefix1=0;
+        NSArray *startTimeArray1=[startTime1 componentsSeparatedByString:@":"];
+        
+        if([[startTimeArray1 objectAtIndex:0] intValue]>=1
+           && [[startTimeArray1 objectAtIndex:0] intValue]<=8){
+            
+            startprefix1=12+[[startTimeArray1 objectAtIndex:0] intValue];
+            NSString *timeSuffix1=[startTimeArray1 objectAtIndex:1];
+            startTime1=[NSString stringWithFormat:@"%i:%@",startprefix1, timeSuffix1];
+            
+        }
+        NSString *stringDate1=[NSString stringWithFormat:@"%@, %@",topicDay, startTime1];
+        NSDate *evenEendDate=[CommonUtility convertStringToDate:stringDate1 format:@"dd-MM-yyyy, HH:mm"]; 
+        
+        if([[NSDate date] isEqualToDate:eventStartDate] || [[NSDate date] laterDate:eventStartDate]){
+            
+            if( [[NSDate date] earlierDate:evenEendDate]){
+                
                 [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
 
             }
 
-
             
         }
-        
-    }
 
+
+
+}
+        
 
 
 }
