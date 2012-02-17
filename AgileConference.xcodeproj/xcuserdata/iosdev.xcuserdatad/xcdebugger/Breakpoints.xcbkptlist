@@ -96,8 +96,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "862"
          endingLineNumber = "862"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:withDict:"
-         landmarkType = "5">
+         landmarkName = "@implementation ACAppController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -110,8 +110,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "872"
          endingLineNumber = "872"
-         landmarkName = "-viewMoreTopicsButtonTapped:inView:"
-         landmarkType = "5">
+         landmarkName = "@implementation ACAppController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -124,7 +124,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "880"
          endingLineNumber = "880"
-         landmarkName = "-eventsTableView:didSelectRowAtIndexPath:"
+         landmarkName = "-viewMoreTopicsButtonTapped:inView:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

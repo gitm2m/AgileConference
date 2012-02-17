@@ -190,7 +190,8 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [self updateContentArray];
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSMutableDictionary *topicDict=[topicArray objectAtIndex:indexPath.row];
@@ -376,7 +377,7 @@
 //
 -(void)updateContentArray{
     
-    ACLog(@"notified:%@>>>>>>>>");
+    ACLog(@"notified:>>>>>>>>");
     NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
     NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
     ACLog(@"daySelected:%@>>>>>>>>",daySelected);
@@ -441,10 +442,6 @@
         }
     }
     //
-    
-    [eventsTableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationTop];
-    [CommonUtility cancelUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
-    [CommonUtility schedulUpdateNotificationOfEvent:[topicArray objectAtIndex:0]];
     
 }
 
