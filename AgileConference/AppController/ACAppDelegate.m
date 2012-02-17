@@ -27,6 +27,20 @@
 {
     //Load catalog dict
     
+//    for (int i=0; i<10; i++) {
+//        
+//        ACAlertView *alertView = [[ACAlertView alloc] initWithTitle:KAppName
+//                                                            message:@"Message" delegate:self 
+//                                                  cancelButtonTitle:@"NO" 
+//                                                  otherButtonTitles:@"YES",nil];
+//        [alertView setNotificationType:@""];
+//        [alertView setNoteTopicDict:nil];
+//        [alertView setDelegate:self];
+//        [alertView show];    
+//
+//    }
+//    [self clearAlertViews];
+    
     eventStore = [[EKEventStore alloc] init];
     
     [[ACOrganiser getOrganiser] getCatalogDict];
@@ -136,104 +150,99 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 -(void)showReminder:(NSDictionary *)notificationDict {
     
-    notifiedEventDict=[[NSMutableDictionary alloc] initWithDictionary:[notificationDict objectForKey:@"kEventDict"]];
-    notificationType=[notificationDict objectForKey:@"NOTIFICATION_TYPE"];
+    NSMutableDictionary *notifiedEventDict=[[NSMutableDictionary alloc] initWithDictionary:[notificationDict objectForKey:@"kEventDict"]];
+    NSString *notificationType=[notificationDict objectForKey:@"NOTIFICATION_TYPE"];
 
     if([notificationType isEqualToString:@"START"]){
         
         NSString *alertMssage=[NSString stringWithFormat:@"Few minutes is remaining to begin '%@', would you like to participate?",[notifiedEventDict objectForKey:kTopicTitle]];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName
+        ACAlertView *alertView = [[ACAlertView alloc] initWithTitle:KAppName
                                                             message:alertMssage delegate:nil 
                                                   cancelButtonTitle:@"NO" 
                                                   otherButtonTitles:@"YES",nil];
+        [alertView setNotificationType:@"START"];
+        [alertView setNoteTopicDict:notifiedEventDict];
         [alertView setDelegate:self];
         [alertView show];    
-
-        
     }
     //
     else if([notificationType isEqualToString:@"END"]){
-        NSLog(@"notifiedEventDict end ........");
-
-
         
+        NSLog(@"notifiedEventDict end ........");
         NSString *alertMssage=[NSString stringWithFormat:@"Would you like to write feedback on '%@'?",[notifiedEventDict objectForKey:kTopicTitle]];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:KAppName
+        ACAlertView *alertView = [[ACAlertView alloc] initWithTitle:KAppName
                                                             message:alertMssage delegate:nil 
                                                   cancelButtonTitle:@"Later" 
                                                   otherButtonTitles:@"Write",nil];
+        [alertView setNotificationType:@"END"];
+        [alertView setNoteTopicDict:notifiedEventDict];
         [alertView setDelegate:self];
         [alertView show];    
     }
     //
     else if([notificationType isEqualToString:@"UPDATE"]){
         NSLog(@"notifiedEventDict end ........");
-
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_UPCOMING_EVENTS" object:nil];
     }
     //
     
-    
-//    // call feedback view
-//    [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
-//    // call notification view
-//    ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
-//    feedbackViewController.isOverallEventFeedback = NO;
-//    feedbackViewController.eventDetailDict = notifiedEventDict;
-//    [self.navigationController presentModalViewController:feedbackViewController animated:YES];
-//    
 
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(ACAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
    // NSLog(@"Button Inex:%i",buttonIndex);
     switch (buttonIndex) {
         case 0:
         {
-            if([notificationType isEqualToString:@"START"]){
+            NSLog(@"clicked at index 0");
+            if([alertView.notificationType isEqualToString:@"START"]){
                 
-                [notifiedEventDict setObject:@"YES" forKey:kTopicMissed];
-                // make call to organiser andset event dict skipped yes
-            }else if([notificationType isEqualToString:@"END"]){
+                [alertView.noteTopicDict setObject:@"YES" forKey:kTopicMissed];
                 
-                [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
+            }else if([alertView.notificationType isEqualToString:@"END"]){
+                
+                [alertView.noteTopicDict setObject:@"Closed" forKey:kTopicStatus];
             }
             
-            [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:notifiedEventDict];
+            [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:alertView.noteTopicDict];
+            [alertView dismissWithClickedButtonIndex:0 animated:NO];
+
 
         }
             break;
             
         case 1:
         {
-            if([notificationType isEqualToString:@"START"]){
+            if([alertView.notificationType isEqualToString:@"START"]){
                 
-                [notifiedEventDict setObject:@"YES" forKey:kTopicParticipated];
-                [CommonUtility schedulPostNotificationOfEvent:notifiedEventDict];
+                [alertView.noteTopicDict setObject:@"YES" forKey:kTopicParticipated];
+                [CommonUtility schedulPostNotificationOfEvent:alertView.noteTopicDict];
 
                 // make call to organiser andset event dict participated yes
-            }else if([notificationType isEqualToString:@"END"]){
+            }else if([alertView.notificationType isEqualToString:@"END"]){
                 
-                NSLog(@"Notification end:%@",notificationType);
-                NSLog(@"notifiedEventDict :%@",notifiedEventDict);
+                //NSLog(@"Notification end:%@",notificationType);
+               // NSLog(@"notifiedEventDict :%@",notifiedEventDict);
 
                 
                 // call feedback view
-                [notifiedEventDict setObject:@"Closed" forKey:kTopicStatus];
+                [alertView.noteTopicDict setObject:@"Closed" forKey:kTopicStatus];
                 // call notification view
                 ACFeedbackViewController *feedbackViewController = [[ACFeedbackViewController alloc] initWithNibName:@"ACFeedbackViewController" bundle:nil];
                 feedbackViewController.isOverallEventFeedback = NO;
-                feedbackViewController.eventDetailDict = notifiedEventDict;
+                feedbackViewController.eventDetailDict = alertView.noteTopicDict;
                 [self.navigationController presentModalViewController:feedbackViewController animated:YES];
                 //
                 NSLog(@"notifiedEventDict :%@",@"end event finished");
                 
             }
-            [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:notifiedEventDict];
+            [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:alertView.noteTopicDict];
+            [alertView dismissWithClickedButtonIndex:0 animated:NO];
+            [self clearAlertViews];
+
 
         }
             break;
@@ -243,6 +252,43 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
             break;
     }
 }
+
+-(void) clearAlertViews {
+	
+    NSLog(@">>>>>>>>>>clear alerview start>>>>>>>>>>>");
+	for (UIWindow* window1 in [UIApplication sharedApplication].windows) {
+		
+           // NSLog(@">>>window is not kind of UIwindow>");
+           // NSLog(@">>>window is %@>",[window1 class]);
+           // NSLog(@">>>window is %@>",[window1 subviews]);
+
+            for (UIView *sb in window1.subviews) {
+                
+               // NSLog(@">>>subview  %@>",sb);
+
+                if ([sb isKindOfClass:[ACAlertView class]]) {
+                    
+                    NSLog(@">>>alertview is acalert view>");
+                    ACAlertView *alertView = (ACAlertView *)sb;
+                    [alertView setDelegate:self];
+                    [alertView.noteTopicDict setObject:@"YES" forKey:kTopicMissed];
+                    [[ACOrganiser getOrganiser]updateCatalogDictPostNotification:alertView.noteTopicDict];
+                    [alertView dismissWithClickedButtonIndex:0 animated:NO];
+                }
+                
+                
+            }
+        // END OF SECOND FOR LOOP..
+            
+		
+	}
+    // END OF MAIN FOR LOOP..
+    
+    NSLog(@">>>>>>>>>>clear alerview end >>>>>>>>>>>");
+
+	
+}
+
 
 
 @end

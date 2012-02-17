@@ -87,7 +87,6 @@
     [headerLabel setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:headerLabel];
     
-    
 }
 
 
