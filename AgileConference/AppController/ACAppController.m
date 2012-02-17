@@ -520,6 +520,7 @@
     if ([sender tag]==9876) {
         [sender setTag:6789];
     
+        [aboutValtechButton setHidden:YES];
         [headerLabel setText:@"Program Schedule"];
         [tracksScrollView flashScrollIndicators];
         tracksScrollView.hidden = NO;
@@ -559,7 +560,7 @@
     }else if ([sender tag]==6789){
         [sender setTag:9876];
         
-        
+        [aboutValtechButton setHidden:NO];
         [headerLabel setText:KAppName];
         [switchMenuViewButton setImage:[UIImage imageNamed:@"Calendar.png"] forState:UIControlStateNormal];
         

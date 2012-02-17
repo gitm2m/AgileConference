@@ -42,7 +42,7 @@
 						<string key="NSFrameSize">{320, 480}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="294860707"/>
+						<reference key="NSNextKeyView" ref="243911184"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -50,10 +50,10 @@
 							<string key="NSResourceName">Agile-Home.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="294860707">
+					<object class="IBUIButton" id="243911184">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{106, 17}, {15, 15}}</string>
+						<string key="NSFrame">{{95, 12}, {37, 26}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="358646393"/>
@@ -74,7 +74,7 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">valtechIcon.png</string>
 						</object>
@@ -82,7 +82,7 @@
 							<int key="type">2</int>
 							<double key="pointSize">15</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="592692055">
+						<object class="NSFont" key="IBUIFont" id="451450309">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
@@ -114,7 +114,7 @@
 									<string key="NSResourceName">day1Sel.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="628635339"/>
-								<reference key="IBUIFont" ref="592692055"/>
+								<reference key="IBUIFont" ref="451450309"/>
 							</object>
 							<object class="IBUIButton" id="250127474">
 								<reference key="NSNextResponder" ref="358646393"/>
@@ -139,7 +139,7 @@
 									<string key="NSResourceName">day2.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="628635339"/>
-								<reference key="IBUIFont" ref="592692055"/>
+								<reference key="IBUIFont" ref="451450309"/>
 							</object>
 							<object class="IBUIButton" id="50916827">
 								<reference key="NSNextResponder" ref="358646393"/>
@@ -164,7 +164,7 @@
 									<string key="NSResourceName">day3.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="628635339"/>
-								<reference key="IBUIFont" ref="592692055"/>
+								<reference key="IBUIFont" ref="451450309"/>
 							</object>
 							<object class="IBUIView" id="600169200">
 								<reference key="NSNextResponder" ref="358646393"/>
@@ -204,7 +204,7 @@
 					<object class="IBUIButton" id="173549343">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{4, 416}, {37, 30}}</string>
+						<string key="NSFrame">{{279, 416}, {37, 30}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -225,7 +225,7 @@
 							<string key="NSResourceName">Calendar.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="628635339"/>
-						<reference key="IBUIFont" ref="592692055"/>
+						<reference key="IBUIFont" ref="451450309"/>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
@@ -308,7 +308,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">aboutValtechButton</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="294860707"/>
+						<reference key="destination" ref="243911184"/>
 					</object>
 					<int key="connectionID">70</int>
 				</object>
@@ -351,7 +351,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">aboutButtonTapped:</string>
-						<reference key="source" ref="294860707"/>
+						<reference key="source" ref="243911184"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -384,7 +384,7 @@
 							<reference ref="358646393"/>
 							<reference ref="486164101"/>
 							<reference ref="173549343"/>
-							<reference ref="294860707"/>
+							<reference ref="243911184"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -437,7 +437,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">68</int>
-						<reference key="object" ref="294860707"/>
+						<reference key="object" ref="243911184"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</array>
