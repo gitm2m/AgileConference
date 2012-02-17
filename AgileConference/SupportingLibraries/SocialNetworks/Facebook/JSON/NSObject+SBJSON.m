@@ -36,7 +36,7 @@
     SBJsonWriter *jsonWriter = [SBJsonWriter new];
     NSString *json = [jsonWriter stringWithFragment:self];    
     if (!json){
-       // dbd//NSLog(@"-JSONFragment failed. Error trace is: %@", [jsonWriter errorTrace]);
+       // dbdNSLog(@"-JSONFragment failed. Error trace is: %@", [jsonWriter errorTrace]);
     }
   
     return json;
@@ -46,7 +46,7 @@
     SBJsonWriter *jsonWriter = [SBJsonWriter new];    
     NSString *json = [jsonWriter stringWithObject:self];
     if (!json){
-        //dbd//NSLog(@"-JSONRepresentation failed. Error trace is: %@", [jsonWriter errorTrace]);
+        //dbdNSLog(@"-JSONRepresentation failed. Error trace is: %@", [jsonWriter errorTrace]);
     }
     
     return json;

@@ -61,7 +61,7 @@
 -(void)setupInitialView{
     
     
-    UIImageView *bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
     [bgHeader setBackgroundColor:[UIColor clearColor]];
     [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
     [[self view] addSubview:bgHeader];
@@ -89,18 +89,25 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"NO"])
+        [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
+    else if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"])
+        [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"NO"])
         [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
     else if ([[topicDict objectForKey:@"Topic_In_Cal"] isEqualToString:@"YES"])
         [addToiCalButton setImage:[UIImage imageNamed:@"removeFromiCal.png"] forState:UIControlStateNormal];
 
+   
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     
     self.navigationItem.rightBarButtonItem = shareButton;
@@ -281,6 +288,7 @@
         if ([[event eventIdentifier] length]>0) {
             [topicDict setObject:[event eventIdentifier] forKey:@"Topic_Cal_Eid"];
             [topicDict setObject:@"YES" forKey:@"Topic_In_Cal"];
+            [[ACOrganiser getOrganiser] updateCatalogDict:topicDict];
         }
          
         
@@ -517,7 +525,7 @@
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
     FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"me/feed" withPostVars:variables];
-    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -526,8 +534,8 @@
     
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    //NSLog(@"Now log into Facebook and look at your profile...");
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
     [ViewUtility showAlertViewWithMessage:@"Your comment got posted on your facebook wall successfully."];
     
     didFinishedPostingOnWall = YES;
@@ -546,8 +554,8 @@
         //[variables setObject:@"This is the bolded copy next to the image" forKey:@"name"];
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
-    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"288032337926603/feed" withPostVars:variables];
-    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"372037692812891/feed" withPostVars:variables];
+    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -556,8 +564,8 @@
     
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    //NSLog(@"Now log into Facebook and look at your profile...");
+    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    NSLog(@"Now log into Facebook and look at your profile...");
     
     
 }
@@ -586,6 +594,7 @@
                 
                 [topicDict setObject:@"NO" forKey:@"Topic_In_Cal"];
                 [topicDict setObject:@"" forKey:@"Topic_Cal_Eid"];
+                [[ACOrganiser getOrganiser] updateCatalogDict:topicDict];
                 [addToiCalButton setImage:[UIImage imageNamed:@"addToCalendar.png"] forState:UIControlStateNormal];
                 
             }

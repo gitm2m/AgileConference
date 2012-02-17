@@ -28,7 +28,7 @@
         accordionViewCommonArray =accordionViewDayArray;
         NSString *alertMessage=@"";
         //
-        // //NSLog(@"Sortby%@",sortBy);
+        // NSLog(@"Sortby%@",sortBy);
         if([sortBy hasPrefix:@"Topic"]){
         searchDataDictionary=[[ACOrganiser getOrganiser] searchCatalogWithSearchKey:@"Topic_Title"
                                                                      andSearchValue:searchContent];

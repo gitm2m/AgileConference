@@ -28,10 +28,10 @@
         
         isBottomAnimation=NO;
         NSString* daySelected=[[ACAppSetting getAppSession] daySelected];
-        ////NSLog(@">>daySelected>>>%@",daySelected);
+        //NSLog(@">>daySelected>>>%@",daySelected);
         
         NSString* trackSelected=[[ACAppSetting getAppSession] trackSelected];
-        // //NSLog(@">>trackSelected>>>%@",trackSelected);
+        // NSLog(@">>trackSelected>>>%@",trackSelected);
         
         
         NSMutableDictionary *catalogDict=[[ACOrganiser getOrganiser] getCatalogDict];
@@ -44,7 +44,7 @@
             switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
                 case -1:{
                     // [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
-                   // //NSLog(@"-1111111111111111");
+                   // NSLog(@"-1111111111111111");
                     //[topicArray addObject:topicDict];
                     
                     
@@ -236,6 +236,8 @@
         switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:timeAMPM andDate:[topicDict objectForKey:kTopicDate]]) {
             case -1:{
                 //[topicArray addObject:topicDict];
+                NSLog(@">>>>timeAMPMtimeAMPMtimeAMPMtimeAMPMtimeAMPM>>%@",timeAMPM);
+
                 
             }
                 break;

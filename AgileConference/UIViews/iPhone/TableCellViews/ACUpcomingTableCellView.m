@@ -90,7 +90,37 @@
             
         default:
             break;
-    }    
+    }   
+    
+    
+    NSString *topicDate=[inCellData objectForKey:kTopicDate];
+    NSArray   *topicTimeArray=[cellView.timeLabel.text componentsSeparatedByString:@"-"];
+    NSString  *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
+    NSString  *startTime=[[topicTimeFirstObject componentsSeparatedByString:@" "] objectAtIndex:0];
+    NSString  *eventStartDayTime=[NSString stringWithFormat:@"%@, %@",topicDate,startTime];
+   // NSLog(@"eventStartDayTime in string::::::%@",eventStartDayTime);
+    NSDate    *eventStartDate=[CommonUtility convertStringToDate:eventStartDayTime format:@"dd-MM-yyyy, HH:mm"];
+   // NSLog(@"eventStartDayTime in date::::::%@",eventStartDate);
+    
+    if([topicTimeFirstObject hasSuffix:@"PM"]){
+        
+        if([[[topicTimeFirstObject componentsSeparatedByString:@":"] objectAtIndex:0] intValue]==12){
+            NSString *currentDateAsString=[CommonUtility convertDateToString:[NSDate date] format:@"dd-MM-yyyy,HH:mm"];
+            NSString  *currTime=[[currentDateAsString componentsSeparatedByString:@","] objectAtIndex:1];
+            NSString  *currTime2=[[currTime componentsSeparatedByString:@":"] objectAtIndex:0];
+            
+            if([currTime2 intValue]==12){
+                [cellView.statusImageView setImage:[UIImage imageNamed:@"RunningStatus.png"]];
+
+            }
+
+
+            
+        }
+        
+    }
+
+
 
 }
 

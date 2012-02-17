@@ -220,7 +220,7 @@
 	
 	CGSize theSize = self.popoverContentSize;
 	
-	//NSLog(@"TheSize: %@", NSStringFromCGSize(theSize));
+	NSLog(@"TheSize: %@", NSStringFromCGSize(theSize));
 	
 	NSString *bgImageName = nil;
 	CGFloat bgMargin = 0.0;
