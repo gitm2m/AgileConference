@@ -40,7 +40,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "186"
          endingLineNumber = "186"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkName = "-showReminder:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -166,20 +166,6 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "169"
          endingLineNumber = "169"
-         landmarkName = "-showReminder:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "AgileConference/AppController/ACAppDelegate.m"
-         timestampString = "351147494.094762"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
          landmarkName = "-showReminder:"
          landmarkType = "5">
       </FileBreakpoint>

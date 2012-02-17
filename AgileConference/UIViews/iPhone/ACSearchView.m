@@ -280,8 +280,9 @@
         
     }else{
         //[searchBar setSelectedScopeButtonIndex:];
+        [self cleanSearchView];  
 
-        [ViewUtility showAlertViewWithMessage:@"Please provide the Topic, Speaker, Stage detail in search field"];
+        //[ViewUtility showAlertViewWithMessage:@"Please provide the Topic, Speaker, Stage detail in search field"];
         
     }
 }

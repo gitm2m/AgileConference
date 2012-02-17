@@ -206,9 +206,10 @@ static ACOrganiser *appOrganiser = nil;
             //
             for (NSMutableDictionary *topicDict in topicArrayInTrack) {
                 
+                //NSLog(@">>>catalog type>>%@",catalogType);
                 //NSLog(@">>>event key value>>%@",[topicDict objectForKey:catalogType]);
                 //NSLog(@">>>search content>>%@",content);
-               // NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
+                //NSLog(@">>>search content>>%i",[[topicDict objectForKey:catalogType] rangeOfString:content].length);
 
                 if([[[topicDict objectForKey:catalogType] uppercaseString] rangeOfString:[content uppercaseString]].length>0 && [[topicDict objectForKey:kTopicType] isEqualToString:@"BUSINESS"]){
                     //
