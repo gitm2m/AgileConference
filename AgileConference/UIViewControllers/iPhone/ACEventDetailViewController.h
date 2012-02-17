@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *topicDescriptionLinkTextView;
 @property (strong, nonatomic) id<ACEventDetailViewControllerDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UIButton *addRemoveFavsButton;
+@property (strong, nonatomic) IBOutlet UIButton *addToiCalButton;
 @property BOOL isNavigatedFromOrganizerView;
 
 - (IBAction)addToiCalButtonTapped:(id)sender;
