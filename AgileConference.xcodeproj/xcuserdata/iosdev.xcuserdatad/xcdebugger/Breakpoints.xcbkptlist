@@ -124,7 +124,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "880"
          endingLineNumber = "880"
-         landmarkName = "-viewMoreTopicsButtonTapped:inView:"
+         landmarkName = "-touchesBegan:withEvent:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

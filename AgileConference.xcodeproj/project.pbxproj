@@ -192,7 +192,8 @@
 		6A47720314EE16A7007B2AC8 /* track51.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4771FC14EE16A7007B2AC8 /* track51.png */; };
 		6A47720414EE16A7007B2AC8 /* track61.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4771FD14EE16A7007B2AC8 /* track61.png */; };
 		6A47720514EE16A7007B2AC8 /* track71.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4771FE14EE16A7007B2AC8 /* track71.png */; };
-		6A47720D14EE1D0E007B2AC8 /* day2Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A47720C14EE1D0E007B2AC8 /* day2Sel.png */; };
+		6A47721714EE2968007B2AC8 /* valtechIcon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A47721614EE2968007B2AC8 /* valtechIcon-1.png */; };
+		6A47721A14EE2AD6007B2AC8 /* day2Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A47721914EE2AD6007B2AC8 /* day2Sel.png */; };
 		6A53E55E14C9D2D900A5E371 /* ACEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */; };
 		6A53E55F14C9D2D900A5E371 /* ACEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */; };
 		6A60B08A14EFADD000E74FEA /* ACUpcomingTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A60B08714EFADD000E74FEA /* ACUpcomingTableCellView.m */; };
@@ -491,7 +492,8 @@
 		6A4771FC14EE16A7007B2AC8 /* track51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track51.png; sourceTree = "<group>"; };
 		6A4771FD14EE16A7007B2AC8 /* track61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track61.png; sourceTree = "<group>"; };
 		6A4771FE14EE16A7007B2AC8 /* track71.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track71.png; sourceTree = "<group>"; };
-		6A47720C14EE1D0E007B2AC8 /* day2Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day2Sel.png; sourceTree = "<group>"; };
+		6A47721614EE2968007B2AC8 /* valtechIcon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "valtechIcon-1.png"; sourceTree = "<group>"; };
+		6A47721914EE2AD6007B2AC8 /* day2Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day2Sel.png; sourceTree = "<group>"; };
 		6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDetailViewController.m; sourceTree = "<group>"; };
 		6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDetailViewController.xib; sourceTree = "<group>"; };
 		6A53E56014C9D3A000A5E371 /* ACEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDetailViewController.h; sourceTree = "<group>"; };
@@ -604,8 +606,8 @@
 		385F83C814CEB1580091225E /* SegmentImages */ = {
 			isa = PBXGroup;
 			children = (
+				6A47721914EE2AD6007B2AC8 /* day2Sel.png */,
 				385F83C914CEB1580091225E /* day1.png */,
-				6A47720C14EE1D0E007B2AC8 /* day2Sel.png */,
 				385F83CA14CEB1580091225E /* day1Sel.png */,
 				385F83CB14CEB1580091225E /* day2.png */,
 				385F83CD14CEB1580091225E /* day3.png */,
@@ -1052,6 +1054,7 @@
 				385F83C814CEB1580091225E /* SegmentImages */,
 				CF14A7B114CB450C00D53010 /* valtechIcon.png */,
 				38E9D06D14C7090600775CEE /* infoPanel.png */,
+				6A47721614EE2968007B2AC8 /* valtechIcon-1.png */,
 				38E9D05B14C6E84C00775CEE /* Agile-Home.png */,
 				385F83C414CEAEDB0091225E /* arrowUp.png */,
 				3847DBE414BC79AF00A8D542 /* agile.png */,
@@ -1513,7 +1516,8 @@
 				6A47720314EE16A7007B2AC8 /* track51.png in Resources */,
 				6A47720414EE16A7007B2AC8 /* track61.png in Resources */,
 				6A47720514EE16A7007B2AC8 /* track71.png in Resources */,
-				6A47720D14EE1D0E007B2AC8 /* day2Sel.png in Resources */,
+				6A47721714EE2968007B2AC8 /* valtechIcon-1.png in Resources */,
+				6A47721A14EE2AD6007B2AC8 /* day2Sel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
