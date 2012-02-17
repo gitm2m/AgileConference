@@ -99,7 +99,6 @@
 						<string key="NSFrame">{{175, 125}, {145, 42}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -141,7 +140,33 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIEditable">NO</bool>
-						<string key="IBUIText">Valtech is a pioneer and a thought leader in the field of Agile software development. We have developed our own unique Agile adoption methodology by building on the extensive experience we have accrued over the past 11 years. This approach provides the momentum and ready-to-use structure needed to “go Agile.” We also provide accelerated knowledge transfer and just-in-time learning services.</string>
+						<string type="base64-UTF8" key="IBUIText">QXQgVmFsdGVjaCwgd2UgYmVsaWV2ZSB0ZWNobm9sb2d5IGlzIGNoYW5naW5nIHRoZSB3b3JsZCAtIG91
+ciBjbGllbnRz4oCZIHdvcmxkIGFuZCBvdXIgY2xpZW504oCZcyBjbGllbnRz4oCZIHdvcmxkLiBXZSBs
+aXZlIGFuZCB0aHJpdmUgYXQgdGhlIGNyb3Nzcm9hZHMgd2hlcmUgdGVjaG5vbG9neSB0cmFuc2Zvcm1z
+IHRoZSB3b3JsZCBieSBjcmVhdGluZyByZWFsIHZhbHVlIGZvciByZWFsIHBlb3BsZS4gV2UgdXNlIGlt
+YWdpbmF0aW9uIGFuZCBpbmdlbnVpdHkgdG8gY3JlYXRlIGEgbmV3IHdvcmxkIG9mIGRpZ2l0YWwgZXhw
+ZXJpZW5jZXMgYW5kIHdlIGJ1aWxkIHRoZSBwbGF0Zm9ybXMgdG8gZ2V0IHRoZXJlLiBBcyBhIGZ1bGwg
+c2VydmljZSBjb21wYW55LCBWYWx0ZWNoIGRlbGl2ZXJzIGFuIHVubWF0Y2hlZCB2YXJpZXR5IG9mIGNh
+cGFiaWxpdGllcyByYW5naW5nIGZyb20gc3RyYXRlZ3kgYW5kIGNvbnN1bHRpbmcgdG8gbWFpbnRlbmFu
+Y2UgYW5kIG9wdGltaXNhdGlvbiwgdGhlcmVieSBlbmFibGluZyBvdXIgY2xpZW50cyB0byBzdGF5IGFo
+ZWFkIG9mIHRoZSBnYW1lIGluIGEgcmFwaWRseSBjaGFuZ2luZyB3b3JsZC4KCldlIGFyZSBhbiBhZ2ls
+ZSBjb21wYW55LiBGcm9tIHNvZnR3YXJlIGRldmVsb3BtZW50IGluIFNjcnVtIG9yIG90aGVyIGFnaWxl
+IHRlY2hub2xvZ2llcyB0byBsYXJnZS1zY2FsZSBhZ2lsZSBtYW5hZ2VtZW50IHRyYW5zZm9ybWF0aW9u
+cywgd2UgYnJlYXRoZSBhZ2lsZSBhbmQgc3ByZWFkIHRoZSBhZ2lsZSB3b3JkIGF0IG91ciBjbGllbnRz
+4oCZLiBBZ2lsZSBlbmFibGVzIHVzIHRvIHdvcmsgYmV0dGVyIHRvZ2V0aGVyIGFuZCB3aXRoIG91ciBj
+bGllbnRzIGZvbGxvd2luZyBwcmVjaXNlIG1ldGhvZG9sb2dpZXM6IGRlZmluaW5nIG9iamVjdGl2ZXMg
+YW5kIGlkZW50aWZ5aW5nIG1haW4gaXNzdWVzIGZyb20gdGhlIHN0YXJ0LCBmb2N1c2luZyBvbiBjbGVh
+ciBwcmlvcml0aWVzIGFuZCBwcm92aWRpbmcgcmFwaWQgc29sdXRpb25zIHdoZXJlIHRoZXkgbWF0dGVy
+IG1vc3QuIFdlIGhhdmUgb3ZlciA1MCBhZ2lsZSB0cmFpbmVycywgY29hY2hlcyBhbmQgY29uc3VsdGFu
+dHMgY3VycmVudGx5IGVuZ2FnZWQgd2l0aCBvdmVyIDgwIGNsaWVudHMuIFdlIGxpdmUgdXAgdG8gdGhl
+IGNoYWxsZW5nZSwgZGF5IGFmdGVyIGRheS4gCgpGb3VuZGVkIGluIDE5OTMsIFZhbHRlY2ggaXMgbGlz
+dGVkIG9uIHRoZSBQYXJpcyBzdG9jayBleGNoYW5nZSBhbmQgaXMgYSBtZW1iZXIgb2YgdGhlIFNCRiAx
+MjAgKEVVUk9ORVhUOiBMVEUpLiAgV2l0aCBvdmVyIDE2MDAgZ2xvYmFsIGNvbnN1bHRhbnRzIGFuZCBl
+bmdpbmVlcnMsIGFsbCBvZiB3aG9tIGFyZSBkZWZpbmVkIGJ5IHRoZWlyIGludGVncml0eSwgYXR0aXR1
+ZGUsIGFwdGl0dWRlLCBwYXNzaW9uIGFuZCBpbm5vdmF0aW9uLCBWYWx0ZWNoIG9wZXJhdGVzIHRocm91
+Z2ggMTggb2ZmaWNlcyBsb2NhdGVkIGluIHRoZSBVUywgVUssIEV1cm9wZSBhbmQgQXNpYSBlbmdhZ2lu
+ZyBjdXN0b21lcnMgd2l0aCB0cnVseSBnbG9iYWwgZXhwZXJpZW5jZXMgY291cGxlZCB3aXRoIGxvY2Fs
+IGluc2lnaHRzLg</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">2</int>
 							<bytes key="NSRGB">MC4yMDAwMDAwMTc5IDAuMTkyMTU2ODgxMSAwLjE5NjA3ODQ0OTUAA</bytes>
