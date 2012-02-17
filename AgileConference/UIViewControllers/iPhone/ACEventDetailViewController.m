@@ -517,7 +517,7 @@
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
     FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"me/feed" withPostVars:variables];
-    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -526,8 +526,8 @@
     
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    NSLog(@"Now log into Facebook and look at your profile...");
+    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    //NSLog(@"Now log into Facebook and look at your profile...");
     [ViewUtility showAlertViewWithMessage:@"Your comment got posted on your facebook wall successfully."];
     
     didFinishedPostingOnWall = YES;
@@ -547,7 +547,7 @@
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
     FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"288032337926603/feed" withPostVars:variables];
-    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -556,8 +556,8 @@
     
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    NSLog(@"Now log into Facebook and look at your profile...");
+    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    //NSLog(@"Now log into Facebook and look at your profile...");
     
     
 }

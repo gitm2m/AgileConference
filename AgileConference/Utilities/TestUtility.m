@@ -27,16 +27,16 @@
 -(void)test{
     
     //NSMutableDictionary *dict=[[ACAppSetting getAppSession] getCatlogDict];
-    //NSLog(@"Dict:<<<<<%@>>>>>",dict);
+    ////NSLog(@"Dict:<<<<<%@>>>>>",dict);
     
     
     //[[ACOrganiser getOrganiser]getCatalogListOfType:kTopicFavorite andCatalogTypeContent:@"YES"];
     //[[ACOrganiser getOrganiser]searchCatalogWithSearchKey:@"Track" andSearchValue:@"Track1"];
     
      [CommonUtility schedulNotification:@"17-02-2012" andTime:@"10:35" andFormat:@"dd-MM-yyyy, HH:mm"];
-    //NSLog(@"Dict:<<<<<%@>>>>>",dict);
+    ////NSLog(@"Dict:<<<<<%@>>>>>",dict);
     
-    NSLog(@"Test method called>>>>>>");
+    //NSLog(@"Test method called>>>>>>");
     
 }
 

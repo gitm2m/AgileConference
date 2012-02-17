@@ -30,7 +30,7 @@
 #define DEBUG_MODE
 
 #ifdef DEBUG_MODE
-#define  ACLog(x,...)	NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(x), ##__VA_ARGS__])
+#define  ACLog(x,...)	//NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(x), ##__VA_ARGS__])
 #else
 #define  ACLog	
 #endif

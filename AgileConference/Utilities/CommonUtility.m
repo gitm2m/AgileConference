@@ -229,11 +229,11 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
                                              attributes:nil 
                                                   error:&error]){
             
-            NSLog(@"directory created....file");
+            //NSLog(@"directory created....file");
             
         }else{
             
-            NSLog(@"Creation of Project  directory failed because:\n %@",error);
+            //NSLog(@"Creation of Project  directory failed because:\n %@",error);
         }
         
         [[self getFileManager] createFileAtPath:[rootPath stringByAppendingPathComponent:relativePath] contents:nil attributes:nil];
@@ -246,11 +246,11 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
                                              attributes:nil 
                                                   error:&error]){
             
-            NSLog(@"directory created....");
+            //NSLog(@"directory created....");
             
         }else{
             
-            NSLog(@"Creation of Project  directory failed because:\n %@",error);
+            //NSLog(@"Creation of Project  directory failed because:\n %@",error);
         }
         
 }
@@ -261,7 +261,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
 
 +(void)schedulNotification:(NSString *)date andTime:(NSString *)time andFormat:(NSString *)format{
     
-   // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
+   // //NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
     //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",date, time];
     Class cls = NSClassFromString(@"UILocalNotification");
@@ -270,7 +270,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
         UILocalNotification *notif = [[cls alloc] init];
         notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
         notif.timeZone = [NSTimeZone localTimeZone];
-        NSLog(@"fire date:%@",notif.fireDate);
+        //NSLog(@"fire date:%@",notif.fireDate);
         notif.alertBody = @"Agile 2012";
         notif.alertAction = @"Show me";
         notif.soundName = UILocalNotificationDefaultSoundName;
@@ -282,7 +282,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
         [[UIApplication sharedApplication] scheduleLocalNotification:notif];
         notif=nil;
     }
-   // NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
+   // //NSLog(@">>>>>>>>>>>>>>local notification:%@",[[UIApplication sharedApplication]scheduledLocalNotifications]);
 }
 
 +(void)schedulNotificationOnDate:(NSString *)date 
@@ -291,14 +291,14 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
             withNotificationDict:(NSMutableDictionary*)notificationDict{
     
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",date, time];
-   // NSLog(@"String dict %@",stringDate);
+   // //NSLog(@"String dict %@",stringDate);
     Class cls = NSClassFromString(@"UILocalNotification");
     if (cls != nil) {
         
         UILocalNotification *notif = [[cls alloc] init];
         notif.fireDate = [CommonUtility convertStringToDate:stringDate format:format];
         notif.timeZone = [NSTimeZone localTimeZone];
-        NSLog(@"fire date with dict>>>>>>>:%@",notif.fireDate);
+        //NSLog(@"fire date with dict>>>>>>>:%@",notif.fireDate);
         notif.alertBody = @"Agile 2012";
         notif.alertAction = @"Show me";
         notif.soundName = UILocalNotificationDefaultSoundName;
@@ -409,7 +409,7 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     NSString *topicDay=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
-    //NSLog(@"topicTime %@",topicTime);
+    ////NSLog(@"topicTime %@",topicTime);
 
     NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
     NSString *topicTimeFirstObject=[topicTimeArray objectAtIndex:0];
@@ -419,30 +419,30 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     [userDict setObject:favDict forKey:@"kEventDict"];
     [userDict setObject:@"START" forKey:@"NOTIFICATION_TYPE"];
     NSDate *currDate=[NSDate date];
-   // NSLog(@">>>>>>start time:%@", startTime);
+   // //NSLog(@">>>>>>start time:%@", startTime);
     NSInteger startprefix=0;
     NSArray *startTimeArray=[startTime componentsSeparatedByString:@":"];
-    //NSLog(@"eventStartDate before:%@",eventStartDate);
+    ////NSLog(@"eventStartDate before:%@",eventStartDate);
     if([[startTimeArray objectAtIndex:0] intValue]>=1
        && [[startTimeArray objectAtIndex:0] intValue]<=8){
         startprefix=12+[[startTimeArray objectAtIndex:0] intValue];
         NSString *timeSuffix=[startTimeArray objectAtIndex:1];
         startTime=[NSString stringWithFormat:@"%i:%@",startprefix, timeSuffix];
-        //NSLog(@">>>>>>start time...after:%@", startTime);
+        ////NSLog(@">>>>>>start time...after:%@", startTime);
     }
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDay, startTime];
     NSDate *eventStartDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 
-   // NSLog(@">>>>>>startprefix as int:%i", startprefix);
+   // //NSLog(@">>>>>>startprefix as int:%i", startprefix);
     if([eventStartDate compare:currDate]==NSOrderedAscending){
 
-        //NSLog(@"eventStartDate NSOrderedAscending:%@",eventStartDate);   
-        //NSLog(@"currDate NSOrderedAscending:%@",currDate);
+        ////NSLog(@"eventStartDate NSOrderedAscending:%@",eventStartDate);   
+        ////NSLog(@"currDate NSOrderedAscending:%@",currDate);
         return;
 
     }
 
     eventStartDate=[eventStartDate dateByAddingTimeInterval:-5*60];
-    //NSLog(@"eventStartDate after:%@",eventStartDate);
+    ////NSLog(@"eventStartDate after:%@",eventStartDate);
 
     NSString *newSrartDateAsString=[CommonUtility convertDateToString:eventStartDate format:@"dd-MM-yyyy, HH:mm"];
     NSArray *newStartTimeArray=[newSrartDateAsString componentsSeparatedByString:@", "];
@@ -456,30 +456,30 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
 //
 +(void)schedulPostNotificationOfEvent:(NSMutableDictionary*)favDict{
     
-   // NSLog(@"Post no>>>>>>>");
+   // //NSLog(@"Post no>>>>>>>");
     NSString *topicDay=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
-   // NSLog(@"topicTime %@",topicTime);
+   // //NSLog(@"topicTime %@",topicTime);
     NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
     //
     NSMutableDictionary *userDict=[[NSMutableDictionary alloc] init];
     [userDict setObject:favDict forKey:@"kEventDict"];
     NSString *topicTimeLastObject=[topicTimeArray lastObject];
     NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
-    //NSLog(@"end time %@",endTime);
+    ////NSLog(@"end time %@",endTime);
     [userDict setObject:@"END" forKey:@"NOTIFICATION_TYPE"];
     
-    // NSLog(@">>>>>>start time:%@", startTime);
+    // //NSLog(@">>>>>>start time:%@", startTime);
     NSInteger startprefix=0;
     NSArray *endTimeArray=[endTime componentsSeparatedByString:@":"];
-    //NSLog(@"eventStartDate before:%@",eventStartDate);
+    ////NSLog(@"eventStartDate before:%@",eventStartDate);
     if([[endTimeArray objectAtIndex:0] intValue]>=1
        && [[endTimeArray objectAtIndex:0] intValue]<=8){
         startprefix=12+[[endTimeArray objectAtIndex:0] intValue];
         NSString *timeSuffix=[endTimeArray objectAtIndex:1];
         endTime=[NSString stringWithFormat:@"%i:%@",startprefix, timeSuffix];
-        //NSLog(@">>>>>>start time...after:%@", endTime);
+        ////NSLog(@">>>>>>start time...after:%@", endTime);
     }
 
     
@@ -496,20 +496,20 @@ NSInteger alphabeticSort(id string1, id string2, void *reverse)
     NSString *topicDate=[favDict objectForKey:kTopicDate];
     //
     NSString *topicTime=[favDict objectForKey:kTopicTime];//
-   //NSLog(@"topicTime>>>>>>>>>>>>>>>>>> %@",topicTime);
+   ////NSLog(@"topicTime>>>>>>>>>>>>>>>>>> %@",topicTime);
     NSArray  *topicTimeArray=[topicTime componentsSeparatedByString:@", "];
     //
     NSMutableDictionary *userDict=[[NSMutableDictionary alloc] init];
     [userDict setObject:favDict forKey:@"kEventDict"];
     NSString *topicTimeLastObject=[topicTimeArray lastObject];
     NSString  *endTime=[[topicTimeLastObject componentsSeparatedByString:@"-"] objectAtIndex:1];
-    //NSLog(@"end time before %@",endTime);
+    ////NSLog(@"end time before %@",endTime);
     NSArray *endTimeArray=[endTime componentsSeparatedByString:@":"];
     if([[endTimeArray objectAtIndex:0] intValue]>=1
        &&[[endTimeArray objectAtIndex:0] intValue]<7){
         endTime=[NSString stringWithFormat:@"%i:%@",[[endTimeArray objectAtIndex:0] intValue]+12,[endTimeArray objectAtIndex:1]];
     }
-    //NSLog(@"end time after %@",endTime);
+    ////NSLog(@"end time after %@",endTime);
 
     NSString *stringDate=[NSString stringWithFormat:@"%@, %@",topicDate, endTime];
     NSDate *eventStartDate=[CommonUtility convertStringToDate:stringDate format:@"dd-MM-yyyy, HH:mm"]; 

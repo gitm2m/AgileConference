@@ -46,17 +46,7 @@
     [daysSegmentController setFrame:CGRectMake(6, 9, 304, 28)]; 
     [daysSegmentController setBackgroundColor:[UIColor clearColor]];
     
-    
-        // [daysSegmentController setWidth:99 forSegmentAtIndex:0];
-        //[daysSegmentController setWidth:99 forSegmentAtIndex:1];
-        //[daysSegmentController setWidth:99 forSegmentAtIndex:2];
-    
-   /*
-    [daysSegmentController setImage:[UIImage imageNamed:@"menuDay1Sel.png"] forSegmentAtIndex:0];
-    [daysSegmentController setImage:[UIImage imageNamed:@"menuDay2Norm.png"] forSegmentAtIndex:1];
-    [daysSegmentController setImage:[UIImage imageNamed:@"menuDay3Norm.png"] forSegmentAtIndex:2];
-   */
-    
+        
     preFinalTrackIndex=3;
     preFinalDayIndex=0;
     
@@ -86,6 +76,7 @@
     [self setSegmentBtn2:nil];
     [self setSegmentBtn3:nil];
     [self setSwitchMenuViewButton:nil];
+    aboutValtechButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -121,10 +112,46 @@
 
 #pragma mark - Views Methods
 
+
+-(void)setupInitialView{
+    
+    
+    bgHeader = [[UIImageView alloc]initWithFrame:CGRectMake(0.0,0, 320.0, 44.0)];
+    [bgHeader setBackgroundColor:[UIColor clearColor]];
+    [bgHeader setImage:[UIImage imageNamed:@"titleRow.png"]];
+    [[self view] addSubview:bgHeader];
+        //[bgHeader release];
+    
+    leftBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBarButton setBackgroundImage:[UIImage imageNamed:@"actionIcon.png"] forState:UIControlStateNormal];
+    leftBarButton.frame = CGRectMake(15, 10, 21, 21); 
+    [leftBarButton addTarget:self action:@selector(leftBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftBarButton];
+    
+    rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBarButton setBackgroundImage:[UIImage imageNamed:@"searchIcon.png"] forState:UIControlStateNormal];
+    rightBarButton.frame = CGRectMake(285, 11, 21, 21) ; 
+    [rightBarButton addTarget:self action:@selector(rightBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBarButton];
+    
+    headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16.0, 5, 300, 35)];
+    [headerLabel setFont:[CommonUtility fontSegoiBold:17]];
+    [headerLabel setText:KAppName];
+    [headerLabel setTextAlignment:UITextAlignmentCenter];
+    [headerLabel setTextColor:[UIColor darkGrayColor]];
+    [headerLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:headerLabel];
+    
+    [self.view insertSubview:aboutValtechButton aboveSubview:bgHeader];    
+    
+}
+
 - (void) setupView{
     
     
     //self.title = KAppName;
+    
+   
     
     organizerButtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [organizerButtn setFrame:CGRectMake(0, 432, 320, 35)];
@@ -438,7 +465,7 @@
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
 	
-    //NSLog(@"Track didSelect selected:%i",image);
+    ////NSLog(@"Track didSelect selected:%i",image);
 
    // 0,1,2,6,5,4,3
    // 1,2,3,4,5,6,7
@@ -573,12 +600,12 @@
                                                                    fromDate:selectedDateFromCalendarView];
     [components setSecond:0];
     
-    NSLog(@"topic array count %d",[topicArray count]);
+        ////NSLog(@"topic array count %d",[topicArray count]);
     NSMutableArray *events = [NSMutableArray array];
     
     for (NSInteger i = 0; i < [topicArray count]; i++) {
         
-        NSLog(@"topic array count %d",i);
+            // //NSLog(@"topic array count %d",i);
         
         GCCalendarEvent *event = [[GCCalendarEvent alloc] init];
         event.color = [[GCCalendar colors] objectAtIndex:1];
@@ -1014,7 +1041,7 @@
     
     selectedDateFromCalendarView = date;
     
-    NSLog(@"date %@ %@",date,[NSDate date]);
+    //NSLog(@"date %@ %@",date,[NSDate date]);
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
@@ -1041,12 +1068,12 @@
                                                                    fromDate:date];
     [components setSecond:0];
     
-    NSLog(@"topic array count %d",[topicArray count]);
+    //NSLog(@"topic array count %d",[topicArray count]);
      NSMutableArray *events = [NSMutableArray array];
     
     for (NSInteger i = 0; i < [topicArray count]; i++) {
         
-         NSLog(@"topic array count %d",i);
+         //NSLog(@"topic array count %d",i);
         
         if (![[[topicArray objectAtIndex:i] valueForKey:kTopicType] isEqualToString:@"BREAK"]) {
             
@@ -1171,7 +1198,7 @@
         [ViewUtility showAlertViewWithMessage:[NSString stringWithFormat:@"%@ \n %@",[[topicArray objectAtIndex:event.eventTag] objectForKey:kTopicTitle],[[topicArray objectAtIndex:event.eventTag] objectForKey:kTopicTime]]];
         return;
     }
-    NSLog(@"Touch event %@", event.eventName);
+    //NSLog(@"Touch event %@", event.eventName);
     ACEventDetailViewController *detailViewController = [[ACEventDetailViewController alloc] initWithNibName:@"ACEventDetailViewController" bundle:nil andTopicDict:[topicArray objectAtIndex:event.eventTag]];
     [detailViewController setIsNavigatedFromOrganizerView:NO];
     
@@ -1251,7 +1278,7 @@
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
     FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"me/feed" withPostVars:variables];
-    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -1260,8 +1287,8 @@
     ACLog(@"facebook_response %@", facebook_response);
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    NSLog(@"Now log into Facebook and look at your profile...");
+    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    //NSLog(@"Now log into Facebook and look at your profile...");
     [ViewUtility showAlertViewWithMessage:@"Your comment got posted on your facebook wall successfully."];
     
     didFinishedPostingOnWall = YES;
@@ -1280,7 +1307,7 @@
         //[variables setObject:[[fbShareView fbShareTextView]text] forKey:@"description"];
     
     FbGraphResponse *fb_graph_response = [[[ACFacebookConnect getFacebookConnectObject] fbGraph] doGraphPost:@"288032337926603/feed" withPostVars:variables];
-    NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
+    //NSLog(@"postMeFeedButtonPressed:  %@", fb_graph_response.htmlResponse);
     
         //parse our json
     SBJSON *parser = [[SBJSON alloc] init];
@@ -1289,8 +1316,8 @@
     
         //let's save the 'id' Facebook gives us so we can delete it if the user presses the 'delete /me/feed button'
     [[ACFacebookConnect getFacebookConnectObject] setFeedPostId:(NSString *)[facebook_response objectForKey:@"id"]];
-    NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
-    NSLog(@"Now log into Facebook and look at your profile...");
+    //NSLog(@"feedPostId, %@", [[ACFacebookConnect getFacebookConnectObject] feedPostId]);
+    //NSLog(@"Now log into Facebook and look at your profile...");
 
     
 }
