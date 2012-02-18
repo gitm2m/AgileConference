@@ -3308,7 +3308,7 @@
 				<key>Topic_Speaker</key>
 				<string>Chirag Doshi, Dhaval Doshi</string>
 				<key>Topic_Time</key>
-				<string>04:-04:30, 04:30-05:00, 05:00-05:30</string>
+				<string>04:00-04:30, 04:30-05:00, 05:00-05:30</string>
 				<key>Topic_Track</key>
 				<string>Track5</string>
 				<key>Topic_Date</key>
@@ -3786,7 +3786,7 @@
 				<key>Topic_Speaker</key>
 				<string>Dava Rooney</string>
 				<key>Topic_Time</key>
-				<string>03:30-04:00, 04:-04:30, 04:30-05:00</string>
+				<string>03:30-04:00, 04:00-04:30, 04:30-05:00</string>
 				<key>Topic_Track</key>
 				<string>Track7</string>
 				<key>Topic_Date</key>

@@ -46,7 +46,7 @@
 }
 
 -(void)setCellData:(NSMutableDictionary *)inCellData
-{
+{   
     if ([[inCellData valueForKey:kTopicType] isEqualToString:@"BUSINESS"]) {
         [cellView.breakImageView setHidden:YES];
     }
@@ -56,12 +56,18 @@
     else if([[inCellData valueForKey:kTopicType] isEqualToString:@"NORMAL"]){
         [cellView.breakImageView setHidden:YES];
 
+    }else if([[inCellData valueForKey:kTopicType] isEqualToString:@"BLANK"]){
+        for (UIView *childView in cellView.subviews) {
+            [childView setHidden:YES];
+        }
+        return;
     }
     
     cellView.topicLabel.text = [inCellData objectForKey:kTopicTitle];
     cellView.timeLabel.text =[CommonUtility convertDateToAMPMFormat:[inCellData objectForKey:kTopicTime]];
        
-    switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:cellView.timeLabel.text andDate:[inCellData objectForKey:kTopicDate]]) {
+    switch ([[ACOrganiser getOrganiser] updateStatusOfEventOnTime:cellView.timeLabel.text 
+                                                          andDate:[inCellData objectForKey:kTopicDate]]) {
         case -1:{
             [cellView.statusImageView setImage:[UIImage imageNamed:@"ClosedStatus.png"]];
             

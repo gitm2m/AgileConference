@@ -129,10 +129,7 @@
 		38E9D07314C7136600775CEE /* clockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E9D07014C7136600775CEE /* clockIcon.png */; };
 		38E9D07414C7136600775CEE /* coffeeTime.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E9D07114C7136600775CEE /* coffeeTime.png */; };
 		38E9D07514C7136600775CEE /* rowSeperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E9D07214C7136600775CEE /* rowSeperator.png */; };
-		38E9D07814C7173100775CEE /* ACUpcomingCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9D07714C7172E00775CEE /* ACUpcomingCellView.m */; };
 		38E9D07A14C7174F00775CEE /* ACUpcomingCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E9D07914C7174C00775CEE /* ACUpcomingCellView.xib */; };
-		38E9D07D14C71A9600775CEE /* ACUpcomingTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9D07C14C71A8400775CEE /* ACUpcomingTableCellView.m */; };
-		38EA0B2F14C5426A002BCAEC /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38EA0B2E14C5426A002BCAEC /* Catalog.plist */; };
 		38EA0B3314C54CDE002BCAEC /* Fav.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EA0B3214C54CDE002BCAEC /* Fav.png */; };
 		38EA0B3514C54E82002BCAEC /* EmptyFavourites Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EA0B3414C54E82002BCAEC /* EmptyFavourites Icon.png */; };
 		38EA0B3814C55B25002BCAEC /* ACMatrixCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA0B3714C55B24002BCAEC /* ACMatrixCellView.m */; };
@@ -183,6 +180,9 @@
 		6A4270AB14AC94E200F91472 /* Participated.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A4270AA14AC94E200F91472 /* Participated.plist */; };
 		6A53E55E14C9D2D900A5E371 /* ACEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */; };
 		6A53E55F14C9D2D900A5E371 /* ACEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */; };
+		6A60B08A14EFADD000E74FEA /* ACUpcomingTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A60B08714EFADD000E74FEA /* ACUpcomingTableCellView.m */; };
+		6A60B08B14EFADD000E74FEA /* ACUpcomingCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A60B08914EFADD000E74FEA /* ACUpcomingCellView.m */; };
+		6A60B08D14EFAECB00E74FEA /* Catalog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A60B08C14EFAECB00E74FEA /* Catalog.plist */; };
 		6A9F7FA614A88F5300E3F55C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA514A88F5300E3F55C /* UIKit.framework */; };
 		6A9F7FA814A88F5300E3F55C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA714A88F5300E3F55C /* Foundation.framework */; };
 		6A9F7FAA14A88F5300E3F55C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9F7FA914A88F5300E3F55C /* CoreGraphics.framework */; };
@@ -386,12 +386,7 @@
 		38E9D07014C7136600775CEE /* clockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockIcon.png; sourceTree = "<group>"; };
 		38E9D07114C7136600775CEE /* coffeeTime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffeeTime.png; sourceTree = "<group>"; };
 		38E9D07214C7136600775CEE /* rowSeperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rowSeperator.png; sourceTree = "<group>"; };
-		38E9D07614C7171F00775CEE /* ACUpcomingCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACUpcomingCellView.h; sourceTree = "<group>"; };
-		38E9D07714C7172E00775CEE /* ACUpcomingCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACUpcomingCellView.m; sourceTree = "<group>"; };
 		38E9D07914C7174C00775CEE /* ACUpcomingCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACUpcomingCellView.xib; sourceTree = "<group>"; };
-		38E9D07B14C71A8100775CEE /* ACUpcomingTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACUpcomingTableCellView.h; sourceTree = "<group>"; };
-		38E9D07C14C71A8400775CEE /* ACUpcomingTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACUpcomingTableCellView.m; sourceTree = "<group>"; };
-		38EA0B2E14C5426A002BCAEC /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
 		38EA0B3214C54CDE002BCAEC /* Fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fav.png; sourceTree = "<group>"; };
 		38EA0B3414C54E82002BCAEC /* EmptyFavourites Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EmptyFavourites Icon.png"; sourceTree = "<group>"; };
 		38EA0B3614C55B23002BCAEC /* ACMatrixCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMatrixCellView.h; sourceTree = "<group>"; };
@@ -458,6 +453,11 @@
 		6A53E55C14C9D2D800A5E371 /* ACEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEventDetailViewController.m; sourceTree = "<group>"; };
 		6A53E55D14C9D2D800A5E371 /* ACEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACEventDetailViewController.xib; sourceTree = "<group>"; };
 		6A53E56014C9D3A000A5E371 /* ACEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEventDetailViewController.h; sourceTree = "<group>"; };
+		6A60B08614EFADD000E74FEA /* ACUpcomingTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACUpcomingTableCellView.h; sourceTree = "<group>"; };
+		6A60B08714EFADD000E74FEA /* ACUpcomingTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACUpcomingTableCellView.m; sourceTree = "<group>"; };
+		6A60B08814EFADD000E74FEA /* ACUpcomingCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACUpcomingCellView.h; sourceTree = "<group>"; };
+		6A60B08914EFADD000E74FEA /* ACUpcomingCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACUpcomingCellView.m; sourceTree = "<group>"; };
+		6A60B08C14EFAECB00E74FEA /* Catalog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Catalog.plist; sourceTree = "<group>"; };
 		6A9F7FA114A88F5300E3F55C /* AgileConference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgileConference.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9F7FA514A88F5300E3F55C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6A9F7FA714A88F5300E3F55C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -844,7 +844,7 @@
 		6A42702F14AC4D9900F91472 /* plist */ = {
 			isa = PBXGroup;
 			children = (
-				38EA0B2E14C5426A002BCAEC /* Catalog.plist */,
+				6A60B08C14EFAECB00E74FEA /* Catalog.plist */,
 				6A42709F14AC81CA00F91472 /* Speaker.plist */,
 				6A4270A114AC821100F91472 /* Topic.plist */,
 				6A4270A814AC945F00F91472 /* Favorite.plist */,
@@ -1192,10 +1192,10 @@
 				38EA0B3714C55B24002BCAEC /* ACMatrixCellView.m */,
 				38EA0B3914C55B46002BCAEC /* ACMatrixCellView.xib */,
 				38EA0B3E14C55EE7002BCAEC /* ACMatrixHeaderCellView.xib */,
-				38E9D07B14C71A8100775CEE /* ACUpcomingTableCellView.h */,
-				38E9D07C14C71A8400775CEE /* ACUpcomingTableCellView.m */,
-				38E9D07614C7171F00775CEE /* ACUpcomingCellView.h */,
-				38E9D07714C7172E00775CEE /* ACUpcomingCellView.m */,
+				6A60B08614EFADD000E74FEA /* ACUpcomingTableCellView.h */,
+				6A60B08714EFADD000E74FEA /* ACUpcomingTableCellView.m */,
+				6A60B08814EFADD000E74FEA /* ACUpcomingCellView.h */,
+				6A60B08914EFADD000E74FEA /* ACUpcomingCellView.m */,
 				38E9D07914C7174C00775CEE /* ACUpcomingCellView.xib */,
 			);
 			path = TableCellViews;
@@ -1348,7 +1348,6 @@
 				384D9A1F14C404B9001D0DC9 /* ACRateView.xib in Resources */,
 				384D9A2714C404FD001D0DC9 /* kermit_empty.png in Resources */,
 				384D9A2914C408BC001D0DC9 /* kermit_full.png in Resources */,
-				38EA0B2F14C5426A002BCAEC /* Catalog.plist in Resources */,
 				38EA0B3314C54CDE002BCAEC /* Fav.png in Resources */,
 				38EA0B3514C54E82002BCAEC /* EmptyFavourites Icon.png in Resources */,
 				38EA0B3A14C55B46002BCAEC /* ACMatrixCellView.xib in Resources */,
@@ -1412,6 +1411,7 @@
 				385F83D214CEB1580091225E /* day2Sel.png in Resources */,
 				385F83D314CEB1580091225E /* day3.png in Resources */,
 				385F83D414CEB1580091225E /* day3Sel.png in Resources */,
+				6A60B08D14EFAECB00E74FEA /* Catalog.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,14 +1489,14 @@
 				38EA0B3814C55B25002BCAEC /* ACMatrixCellView.m in Sources */,
 				38EA0B3D14C55EB6002BCAEC /* ACMatrixTableCellView.m in Sources */,
 				38EA0B4214C57268002BCAEC /* ACMatrixCatalogView.m in Sources */,
-				38E9D07814C7173100775CEE /* ACUpcomingCellView.m in Sources */,
-				38E9D07D14C71A9600775CEE /* ACUpcomingTableCellView.m in Sources */,
 				38B6640914C939CC00812A4E /* SBJsonStreamParserAdapter.m in Sources */,
 				38B6640A14C939CC00812A4E /* SBJsonStreamParserState.m in Sources */,
 				38B6640B14C939CC00812A4E /* SBJsonStreamWriter.m in Sources */,
 				38B6641014C939DD00812A4E /* SBJsonStreamWriterAccumulator.m in Sources */,
 				38B6641114C939DD00812A4E /* SBJsonStreamWriterState.m in Sources */,
 				6A53E55E14C9D2D900A5E371 /* ACEventDetailViewController.m in Sources */,
+				6A60B08A14EFADD000E74FEA /* ACUpcomingTableCellView.m in Sources */,
+				6A60B08B14EFADD000E74FEA /* ACUpcomingCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
